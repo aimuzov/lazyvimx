@@ -8,7 +8,7 @@ function tab_rename()
 	end
 end
 
-local function create(plugin_name, keys, opts)
+local function create(plugin_name, keys, opts, dependencies)
 	local info = {
 		plugin_name,
 		optional = true,
@@ -28,6 +28,10 @@ local function create(plugin_name, keys, opts)
 
 	if opts ~= nil then
 		info.opts = opts
+	end
+
+	if dependencies ~= nil then
+		info.dependencies = dependencies
 	end
 
 	return info
@@ -176,7 +180,7 @@ return {
 	create("Wansmer/sibling-swap.nvim", {
 		{ "<C-.>", "lua require('sibling-swap').swap_with_right()", desc = "Move sibling node to right" },
 		{ "<C-,>", "lua require('sibling-swap').swap_with_left()", desc = "Move sibling node to left" },
-	}, { use_default_keymaps = false }),
+	}, { use_default_keymaps = false }, { "folke/sidekick.nvim" }),
 
 	create("Wansmer/treesj", {
 		{ "<leader>ct", "lua require('treesj').toggle()", desc = "Split or Join code block with autodetect" },
