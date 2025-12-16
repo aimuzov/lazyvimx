@@ -129,6 +129,18 @@ local delete_visual = function(state, selected_nodes)
 	end)
 end
 
+local grep_in_directory = function(state)
+	local node = state.tree:get_node()
+	local path = node:get_id()
+
+	-- Если это файл, берём родительскую директорию
+	if node.type ~= "directory" then
+		path = vim.fn.fnamemodify(path, ":h")
+	end
+
+	Snacks.picker.grep({ cwd = path })
+end
+
 local open_nofocus = function(state)
 	local node = state.tree:get_node()
 
@@ -205,6 +217,7 @@ return {
 				window = {
 					mappings = {
 						["<c-h>"] = "toggle_hidden",
+						["<c-g>"] = grep_in_directory,
 					},
 
 					fuzzy_finder_mappings = {
