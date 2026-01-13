@@ -394,5 +394,10 @@ return {
 				end
 			end,
 		},
+
+		{
+			"catppuccin/nvim",
+			dependencies = { { "rachartier/tiny-inline-diagnostic.nvim", optional = true } },
+		},
 	},
 }

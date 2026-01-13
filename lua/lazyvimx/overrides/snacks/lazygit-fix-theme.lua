@@ -3,7 +3,7 @@ if vim.g.vscode then
 end
 
 local function get_env_var_cfg()
-	local theme = require("lazyvimx.util.general").theme_is_dark() and "dark" or "light"
+	local theme = require("lazyvimx.util.general").get_flavor()
 	local cfg_dir = vim.fn.getenv("HOME") .. "/.config/lazygit"
 	local env_var_cfg = cfg_dir .. "/config.yml"
 
