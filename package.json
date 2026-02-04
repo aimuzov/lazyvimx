@@ -9,16 +9,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aimuzov/LazyVimx.git"
+    "url": "git+https://github.com/aimuzov/lazyvimx.git"
   },
   "keywords": [
     "nvim"
   ],
   "author": "Aleksey Imuzov <github@aimuzov.online>",
   "bugs": {
-    "url": "https://github.com/aimuzov/LazyVimx/issues"
+    "url": "https://github.com/aimuzov/lazyvimx/issues"
   },
-  "homepage": "https://github.com/aimuzov/LazyVimx#readme",
+  "homepage": "https://github.com/aimuzov/lazyvimx#readme",
   "devDependencies": {
     "@commitlint/config-conventional": "19.8.1",
     "@release-it/conventional-changelog": "10.0.1",

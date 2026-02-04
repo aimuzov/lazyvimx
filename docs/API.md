@@ -3,7 +3,7 @@
 > [!TIP]
 > **🇷🇺 Русская версия:** [API.ru.md](API.ru.md)
 
-Complete API documentation for LazyVimx utility functions and modules.
+Complete API documentation for lazyvimx utility functions and modules.
 
 ## Table of Contents
 
@@ -22,7 +22,7 @@ Complete API documentation for LazyVimx utility functions and modules.
 
 ### `setup(opts)`
 
-Initialize LazyVimx with custom configuration.
+Initialize lazyvimx with custom configuration.
 
 **Signature:**
 
@@ -577,7 +577,7 @@ See [CONFIGURATION.md#vim-options](./CONFIGURATION.md#vim-options) for details.
 
 ### `insert_extras()`
 
-Registers LazyVimx extras in LazyVim extras UI.
+Registers lazyvimx extras in LazyVim extras UI.
 
 **Internal Function**
 
@@ -654,7 +654,7 @@ For reference, here are the main type shapes:
 ### Config Type
 
 ```lua
----@class LazyVimxConfig
+---@class lazyvimxConfig
 ---@field colorscheme string
 ---@field colorscheme_flavors table<string, string[]>
 ---@field bufferline_groups table<string, string>

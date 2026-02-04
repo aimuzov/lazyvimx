@@ -1,10 +1,10 @@
--- VSCode-Optimized LazyVimx Configuration
+-- VSCode-Optimized lazyvimx Configuration
 -- For users who use vscode-neovim extension
 
 local lazy_opts = {
 	spec = {
-		-- LazyVimx with boot import
-		{ "aimuzov/LazyVimx", import = "lazyvimx.boot" },
+		-- lazyvimx with boot import
+		{ "aimuzov/lazyvimx", import = "lazyvimx.boot" },
 
 		-- Core overrides (includes VSCode integration)
 		{ import = "lazyvimx.extras.core.overrides" },

@@ -1,4 +1,4 @@
-# LazyVimx
+# lazyvimx
 
 <div align="center">
 
@@ -14,7 +14,7 @@
 
 **Расширенная конфигурация LazyVim с обширными настройками, улучшениями UI и оптимизацией рабочего процесса.**
 
-LazyVimx — это комплексный слой улучшений, построенный поверх [LazyVim](https://github.com/LazyVim/LazyVim), который предоставляет 48 опциональных расширений (extras) и 33 модуля переопределений (overrides) для создания высококачественного и функционального Neovim.
+lazyvimx — это комплексный слой улучшений, построенный поверх [LazyVim](https://github.com/LazyVim/LazyVim), который предоставляет 48 опциональных расширений (extras) и 33 модуля переопределений (overrides) для создания высококачественного и функционального Neovim.
 
 ## ✨ Возможности
 
@@ -59,7 +59,7 @@ LazyVimx — это комплексный слой улучшений, пост
 
 ```lua
 local lazy_opts = {
-  spec = { { "aimuzov/LazyVimx", import = "lazyvimx.boot" } },
+  spec = { { "aimuzov/lazyvimx", import = "lazyvimx.boot" } },
 
   install = { colorscheme = { "catppuccin", "tokyonight" } },
   checker = { enabled = true, notify = false },
@@ -92,11 +92,11 @@ require("lazy").setup(lazy_opts)
 nvim
 ```
 
-Вот и всё! LazyVimx автоматически установит LazyVim и все необходимые плагины при первом запуске.
+Вот и всё! lazyvimx автоматически установит LazyVim и все необходимые плагины при первом запуске.
 
-3. **Настройте LazyVimx (опционально):**
+3. **Настройте lazyvimx (опционально):**
 
-Вы можете настроить LazyVimx двумя способами:
+Вы можете настроить lazyvimx двумя способами:
 
 **Вариант А:** Добавьте `opts` прямо в `init.lua`:
 
@@ -104,7 +104,7 @@ nvim
 local lazy_opts = {
   spec = {
     {
-      "aimuzov/LazyVimx",
+      "aimuzov/lazyvimx",
       import = "lazyvimx.boot",
       opts = {
         colorscheme = "catppuccin",
@@ -127,7 +127,7 @@ local lazy_opts = {
 
 ```lua
 return {
-  "aimuzov/LazyVimx",
+  "aimuzov/lazyvimx",
   opts = {
     colorscheme = "catppuccin",
     colorscheme_flavors = {
@@ -144,7 +144,7 @@ return {
 
 4. **Включите расширения (extras):**
 
-Используйте UI для выбора расширений LazyVim (`:LazyExtras`) чтобы включить расширения LazyVimx (рекомендуется этот способ), или добавьте их в конфигурацию:
+Используйте UI для выбора расширений LazyVim (`:LazyExtras`) чтобы включить расширения lazyvimx (рекомендуется этот способ), или добавьте их в конфигурацию:
 
 ```lua
 -- В lua/plugins/extras.lua
@@ -160,7 +160,7 @@ return {
 ## 🗂️ Структура проекта
 
 ```
-LazyVimx/
+lazyvimx/
 ├── lua/lazyvimx/
 │   ├── boot.lua             # Загрузочная конфигурация
 │   ├── init.lua             # Главный модуль с функцией setup
@@ -255,7 +255,7 @@ LazyVimx/
 
 ## ⌨️ Горячие клавиши
 
-LazyVimx добавляет множество кастомных привязок клавиш:
+lazyvimx добавляет множество кастомных привязок клавиш:
 
 ### Базовые операции
 
@@ -370,7 +370,7 @@ LazyVimx добавляет множество кастомных привязо
 
 ### Цветовая схема
 
-LazyVimx поддерживает автоматическое переключение между светлым/темным вариантами:
+lazyvimx поддерживает автоматическое переключение между светлым/темным вариантами:
 
 ```lua
 require("lazyvimx").setup({
@@ -400,7 +400,7 @@ require("lazyvimx").setup({
 
 ### Chezmoi
 
-LazyVimx автоматически синхронизирует `lazy-lock.json` и `lazyvim.json` в chezmoi при обновлениях, если установлена переменная окружения `DOTFILES_SRC_PATH`.
+lazyvimx автоматически синхронизирует `lazy-lock.json` и `lazyvim.json` в chezmoi при обновлениях, если установлена переменная окружения `DOTFILES_SRC_PATH`.
 
 ### VSCode
 
@@ -418,7 +418,7 @@ LazyVimx автоматически синхронизирует `lazy-lock.json
 
 ## 🌟 Философия
 
-LazyVimx улучшает LazyVim, следуя принципам:
+lazyvimx улучшает LazyVim, следуя принципам:
 
 1. **Сохранение дизайна LazyVim** - Все улучшения опциональны через extras
 2. **Поддержание консистентности** - Единая тема и визуальный язык

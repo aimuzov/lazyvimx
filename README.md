@@ -1,4 +1,4 @@
-# LazyVimx
+# lazyvimx
 
 <div align="center">
 
@@ -14,7 +14,7 @@
 
 **Enhanced LazyVim configuration with extensive customizations, UI improvements, and workflow optimizations.**
 
-LazyVimx is a comprehensive enhancement layer built on top of [LazyVim](https://github.com/LazyVim/LazyVim) that provides 48 optional extras and 33 override modules to create a highly polished, feature-rich Neovim experience.
+lazyvimx is a comprehensive enhancement layer built on top of [LazyVim](https://github.com/LazyVim/LazyVim) that provides 48 optional extras and 33 override modules to create a highly polished, feature-rich Neovim experience.
 
 ## ✨ Features
 
@@ -53,7 +53,7 @@ LazyVimx is a comprehensive enhancement layer built on top of [LazyVim](https://
 
 ### 🚀 Choose Your Setup
 
-**New to LazyVimx?** Check out ready-to-use configurations in [examples/](examples/):
+**New to lazyvimx?** Check out ready-to-use configurations in [examples/](examples/):
 
 - **[Minimal](examples/minimal/)** - Essential overrides only (~55-85ms startup)
 - **[Full-Featured](examples/full-featured/)** - All 48 extras enabled (~80-120ms startup)
@@ -68,7 +68,7 @@ LazyVimx is a comprehensive enhancement layer built on top of [LazyVim](https://
 
 ```lua
 local lazy_opts = {
-	spec = { { "aimuzov/LazyVimx", import = "lazyvimx.boot" } },
+	spec = { { "aimuzov/lazyvimx", import = "lazyvimx.boot" } },
 
 	install = { colorscheme = { "catppuccin", "tokyonight" } },
 	checker = { enabled = true, notify = false },
@@ -101,11 +101,11 @@ require("lazy").setup(lazy_opts)
 nvim
 ```
 
-That's it! LazyVimx will automatically install LazyVim and all required plugins on first launch.
+That's it! lazyvimx will automatically install LazyVim and all required plugins on first launch.
 
-3. **Configure LazyVimx (optional):**
+3. **Configure lazyvimx (optional):**
 
-You can configure LazyVimx in two ways:
+You can configure lazyvimx in two ways:
 
 **Option A:** Add `opts` directly in `init.lua`:
 
@@ -113,7 +113,7 @@ You can configure LazyVimx in two ways:
 local lazy_opts = {
   spec = {
     {
-      "aimuzov/LazyVimx",
+      "aimuzov/lazyvimx",
       import = "lazyvimx.boot",
       opts = {
         colorscheme = "catppuccin",
@@ -136,7 +136,7 @@ local lazy_opts = {
 
 ```lua
 return {
-  "aimuzov/LazyVimx",
+  "aimuzov/lazyvimx",
   opts = {
     colorscheme = "catppuccin",
     colorscheme_flavors = {
@@ -153,7 +153,7 @@ return {
 
 4. **Enable extras:**
 
-Use the LazyVim extras UI (`:LazyExtras`) to enable LazyVimx extras (recommended), or add them to your config:
+Use the LazyVim extras UI (`:LazyExtras`) to enable lazyvimx extras (recommended), or add them to your config:
 
 ```lua
 -- In lua/plugins/extras.lua
@@ -169,7 +169,7 @@ return {
 ## 🗂️ Project Structure
 
 ```
-LazyVimx/
+lazyvimx/
 ├── lua/lazyvimx/
 │   ├── boot.lua              # Bootstrap configuration
 │   ├── init.lua              # Main module with setup function
@@ -264,7 +264,7 @@ This includes:
 
 ## ⌨️ Key Mappings
 
-LazyVimx adds 30+ custom keybindings. Here are the highlights:
+lazyvimx adds 30+ custom keybindings. Here are the highlights:
 
 **Most Used**:
 - `<leader><space>` - Find files
@@ -291,7 +291,7 @@ LazyVimx adds 30+ custom keybindings. Here are the highlights:
 
 ### Colorscheme
 
-LazyVimx supports automatic light/dark variant switching:
+lazyvimx supports automatic light/dark variant switching:
 
 ```lua
 require("lazyvimx").setup({
@@ -321,7 +321,7 @@ require("lazyvimx").setup({
 
 ### Chezmoi
 
-LazyVimx automatically syncs `lazy-lock.json` and `lazyvim.json` to chezmoi on updates if `DOTFILES_SRC_PATH` is set.
+lazyvimx automatically syncs `lazy-lock.json` and `lazyvim.json` to chezmoi on updates if `DOTFILES_SRC_PATH` is set.
 
 ### VSCode
 
@@ -339,7 +339,7 @@ Special VSCode integration mode with:
 
 ## 🌟 Philosophy
 
-LazyVimx enhances LazyVim by:
+lazyvimx enhances LazyVim by:
 
 1. **Preserving LazyVim's design** - All enhancements are opt-in via extras
 2. **Maintaining consistency** - Unified theming and visual language

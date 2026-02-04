@@ -3,7 +3,7 @@
 > [!TIP]
 > **🇷🇺 Русская версия:** [KEYBINDINGS.ru.md](KEYBINDINGS.ru.md)
 
-Complete reference for all LazyVimx custom keybindings.
+Complete reference for all lazyvimx custom keybindings.
 
 ## Table of Contents
 
@@ -173,7 +173,7 @@ return {
   {
     "LazyVim/LazyVim",
     keys = {
-      { "<leader>cr", false }, -- Disable LazyVimx rename
+      { "<leader>cr", false }, -- Disable lazyvimx rename
     },
   },
 }

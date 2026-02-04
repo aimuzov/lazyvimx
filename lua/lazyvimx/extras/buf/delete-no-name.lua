@@ -14,7 +14,7 @@ local function create_autocmd_delete_noname_buf()
 end
 
 return {
-	"aimuzov/LazyVimx",
+	"aimuzov/lazyvimx",
 	desc = desc,
 	opts = create_autocmd_delete_noname_buf,
 }

@@ -3,7 +3,7 @@
 > [!TIP]
 > **🇬🇧 English version:** [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
 
-Решения распространённых проблем LazyVimx.
+Решения распространённых проблем lazyvimx.
 
 ## Оглавление
 
@@ -19,23 +19,23 @@
 
 ## Проблемы установки
 
-### LazyVimx extras не появляются в :LazyExtras
+### lazyvimx extras не появляются в :LazyExtras
 
-**Симптомы**: Не видно секции LazyVimx в UI `:LazyExtras`
+**Симптомы**: Не видно секции lazyvimx в UI `:LazyExtras`
 
 **Решения**:
 
 1. **Проверьте импорт boot**:
    ```lua
    -- В спецификации lazy.nvim
-   { "aimuzov/LazyVimx", import = "lazyvimx.boot" }
+   { "aimuzov/lazyvimx", import = "lazyvimx.boot" }
    ```
 
 2. **Проверьте источники extras**:
    ```vim
    :lua vim.print(require("lazyvim.util.extras").sources)
    ```
-   Должна быть запись `[ 󰬟 ]` для LazyVimx.
+   Должна быть запись `[ 󰬟 ]` для lazyvimx.
 
 3. **Перезапустите Neovim** после добавления импорта boot
 
@@ -70,7 +70,7 @@
    :Lazy log
    ```
 
-### Конфигурация LazyVimx не загружается
+### Конфигурация lazyvimx не загружается
 
 **Симптомы**: Опции `require("lazyvimx").setup()` игнорируются
 
@@ -83,7 +83,7 @@
 2. **Проверьте таймин**:
    ```lua
    {
-     "aimuzov/LazyVimx",
+     "aimuzov/lazyvimx",
      opts = {
        colorscheme = "catppuccin",
      },
@@ -202,7 +202,7 @@
    { import = "lazyvimx.extras.core.overrides" }
    ```
 
-4. **Проверьте событие Signal**: LazyVimx слушает autocmd `Signal`
+4. **Проверьте событие Signal**: lazyvimx слушает autocmd `Signal`
 
 5. **Ручной тест**:
    ```lua
@@ -255,7 +255,7 @@
    })
    ```
 
-3. **Примечание**: Кастомные темы не будут иметь настроек LazyVimx, если не создать overrides
+3. **Примечание**: Кастомные темы не будут иметь настроек lazyvimx, если не создать overrides
 
 ## Проблемы производительности
 
@@ -358,7 +358,7 @@
      {
        "LazyVim/LazyVim",
        keys = {
-         { "<leader>cr", false },  -- Отключить маппинг LazyVimx
+         { "<leader>cr", false },  -- Отключить маппинг lazyvimx
          { "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename" },
        },
      },
@@ -381,7 +381,7 @@
 
 3. **Проверьте требования плагинов**: Некоторым нужны определённые версии
 
-4. **Сообщите о проблеме**: Если это баг LazyVimx, откройте issue на GitHub
+4. **Сообщите о проблеме**: Если это баг lazyvimx, откройте issue на GitHub
 
 ## Проблемы LSP
 
@@ -564,13 +564,13 @@
 
 1. **Проверьте FAQ**: [FAQ.ru.md](FAQ.ru.md)
 
-2. **Поищите в issues**: [GitHub Issues](https://github.com/aimuzov/LazyVimx/issues)
+2. **Поищите в issues**: [GitHub Issues](https://github.com/aimuzov/lazyvimx/issues)
 
 3. **Спросите сообщество**: [Обсуждение в Telegram](https://t.me/aimuzov_dotfiles)
 
 4. **Создайте issue**: Включите:
    - Версию Neovim (`:version`)
-   - Версию LazyVimx (`:Lazy`)
+   - Версию lazyvimx (`:Lazy`)
    - Операционную систему
    - Минимальные шаги воспроизведения
    - Сообщения об ошибках (`:Lazy log`, `:messages`)
@@ -581,7 +581,7 @@
    -- Минимальное воспроизведение
    local lazy_opts = {
      spec = {
-       { "aimuzov/LazyVimx", import = "lazyvimx.boot" },
+       { "aimuzov/lazyvimx", import = "lazyvimx.boot" },
        { import = "lazyvimx.extras.core.all" },
      },
    }

@@ -1,11 +1,11 @@
-# Конфигурация LazyVimx для VSCode
+# Конфигурация lazyvimx для VSCode
 
-Конфигурация LazyVimx, оптимизированная для пользователей расширения VSCode Neovim.
+Конфигурация lazyvimx, оптимизированная для пользователей расширения VSCode Neovim.
 
 ## Что включено
 
 - ✅ Базовый LazyVim
-- ✅ Основные переопределения LazyVimx (включая интеграцию с VSCode)
+- ✅ Основные переопределения lazyvimx (включая интеграцию с VSCode)
 - ✅ Улучшения движений (отлично работают в VSCode)
 - ✅ Инструменты разработки
 - ❌ UI extras (VSCode предоставляет UI)
@@ -47,7 +47,7 @@
 ## Рекомендуемые расширения VSCode
 
 - **nvim-mode-indicator**: Показывает режим Neovim в статус-баре
-- **GitLens**: Интеграция с Git (вместо git extras LazyVimx)
+- **GitLens**: Интеграция с Git (вместо git extras lazyvimx)
 - **Error Lens**: Inline диагностика (аналог better-diagnostic)
 
 ## Что НЕ включать

@@ -3,7 +3,7 @@
 > [!TIP]
 > **🇷🇺 Русская версия:** [EXTRAS.ru.md](EXTRAS.ru.md)
 
-Complete guide to all 48 LazyVimx extras modules.
+Complete guide to all 48 lazyvimx extras modules.
 
 ## Table of Contents
 
@@ -55,7 +55,7 @@ Core extras provide orchestration and fundamental enhancements.
 
 **Import:** `lazyvimx.extras.core.all`
 
-Complete LazyVimx experience with all features enabled.
+Complete lazyvimx experience with all features enabled.
 
 **Includes:**
 
@@ -105,7 +105,7 @@ Registry of all 43 extras. Use this to enable all features at once.
 
 **Import:** `lazyvimx.extras.core.keys`
 
-Custom keybindings for LazyVimx features.
+Custom keybindings for lazyvimx features.
 
 **Key Highlights:**
 
@@ -1059,7 +1059,7 @@ Automatically restore the last used colorscheme on startup.
 - Remembers colorscheme across sessions
 - Fast restoration on startup
 - No manual configuration needed
-- Integrates with LazyVimx theme switching
+- Integrates with lazyvimx theme switching
 
 **Plugin:** `raddari/last-color.nvim`
 

@@ -3,7 +3,7 @@
 > [!TIP]
 > **🇷🇺 Русская версия:** [ARCHITECTURE.ru.md](ARCHITECTURE.ru.md)
 
-This document describes the technical architecture and implementation details of LazyVimx.
+This document describes the technical architecture and implementation details of lazyvimx.
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@ This document describes the technical architecture and implementation details of
 
 ## Overview
 
-LazyVimx is designed as an enhancement layer that sits on top of LazyVim, providing optional extras and overrides without disrupting the base LazyVim configuration. It follows a modular architecture where all enhancements are opt-in.
+lazyvimx is designed as an enhancement layer that sits on top of LazyVim, providing optional extras and overrides without disrupting the base LazyVim configuration. It follows a modular architecture where all enhancements are opt-in.
 
 ### Design Principles
 
@@ -55,7 +55,7 @@ return {
   { "LazyVim/LazyVim", opts = insert_extras },
   { "LazyVim/LazyVim", import = "lazyvim.plugins" },
   { "LazyVim/LazyVim", opts = set_colorscheme },
-  { "aimuzov/LazyVimx", dependencies = { "LazyVim/LazyVim" }, vscode = true, config = true },
+  { "aimuzov/lazyvimx", dependencies = { "LazyVim/LazyVim" }, vscode = true, config = true },
   { import = "plugins", enabled = has_plugins_dir },
 }
 ```
@@ -103,7 +103,7 @@ local function insert_extras()
 end
 ```
 
-This registers LazyVimx extras in the LazyVim extras UI (`:LazyExtras`).
+This registers lazyvimx extras in the LazyVim extras UI (`:LazyExtras`).
 
 #### Colorscheme Selection
 
@@ -157,7 +157,7 @@ local function has_plugins_dir()
 end
 ```
 
-This allows user plugins to coexist with LazyVimx.
+This allows user plugins to coexist with lazyvimx.
 
 ## Configuration System
 
@@ -649,4 +649,4 @@ require("lazyvimx").setup({
 
 ## Conclusion
 
-LazyVimx's architecture is built around modularity, optional enhancements, and deep integration with LazyVim. The system allows users to pick and choose features while maintaining a cohesive, polished experience. All components are designed to work together seamlessly while remaining independent enough to be used selectively.
+lazyvimx's architecture is built around modularity, optional enhancements, and deep integration with LazyVim. The system allows users to pick and choose features while maintaining a cohesive, polished experience. All components are designed to work together seamlessly while remaining independent enough to be used selectively.

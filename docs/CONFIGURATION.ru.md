@@ -3,7 +3,7 @@
 > [!TIP]
 > **🇬🇧 English version:** [CONFIGURATION.md](CONFIGURATION.md)
 
-Полное руководство по настройке LazyVimx.
+Полное руководство по настройке lazyvimx.
 
 ## Содержание
 
@@ -29,7 +29,7 @@ return {
 }
 ```
 
-Это даст вам LazyVimx с настройками по умолчанию и сделает все дополнения доступными через `:LazyExtras`.
+Это даст вам lazyvimx с настройками по умолчанию и сделает все дополнения доступными через `:LazyExtras`.
 
 ### Рекомендуемая настройка
 
@@ -37,7 +37,7 @@ return {
 -- In your lua/config/lazy.lua
 return {
 	spec = {
-		{ "aimuzov/LazyVimx", import = "lazyvimx.boot" },
+		{ "aimuzov/lazyvimx", import = "lazyvimx.boot" },
 		{ import = "lazyvimx.extras.core.all" },  -- Включить все улучшения
 	},
 }
@@ -45,14 +45,14 @@ return {
 
 ### Варианты конфигурации
 
-LazyVimx можно настроить двумя способами:
+lazyvimx можно настроить двумя способами:
 
 **Вариант 1: Используя `opts` (Рекомендуется)**
 
 ```lua
 -- В init.lua или lua/plugins/lazyvimx.lua
 {
-	"aimuzov/LazyVimx",
+	"aimuzov/lazyvimx",
 	import = "lazyvimx.boot",
 	opts = {
 		colorscheme = "catppuccin",
@@ -131,7 +131,7 @@ require("lazyvimx").setup(opts?: table)
 
 ## Конфигурация цветовой схемы
 
-LazyVimx поддерживает автоматическое переключение между светлой и темной темами на основе системных настроек (только macOS).
+lazyvimx поддерживает автоматическое переключение между светлой и темной темами на основе системных настроек (только macOS).
 
 ### Базовая конфигурация
 
@@ -213,7 +213,7 @@ require("lazyvimx").setup({
 })
 ```
 
-**Примечание:** Пользовательские цветовые схемы не будут иметь настроек темы LazyVimx, если вы не создадите для них модули переопределения.
+**Примечание:** Пользовательские цветовые схемы не будут иметь настроек темы lazyvimx, если вы не создадите для них модули переопределения.
 
 ### Ручное переключение темы
 
@@ -295,7 +295,7 @@ bufferline_groups = {
 
 ### Встроенные группы
 
-LazyVimx предоставляет эти группы по умолчанию:
+lazyvimx предоставляет эти группы по умолчанию:
 
 - **Pinned**: Вручную закрепленные буферы
 - **Ungrouped**: Буферы, не соответствующие ни одному шаблону
@@ -325,7 +325,7 @@ LazyVimx предоставляет эти группы по умолчанию:
 ### Способ 1: Через UI LazyVim Extras
 
 1. Откройте выбор дополнений: `:LazyExtras`
-2. Найдите дополнения LazyVimx под `[ 󰬟 ]`
+2. Найдите дополнения lazyvimx под `[ 󰬟 ]`
 3. Включите желаемые дополнения с помощью `x`
 4. Перезапустите Neovim
 
@@ -374,7 +374,7 @@ return {
 
 ## Опции Vim
 
-LazyVimx автоматически настраивает различные опции Vim через `boot.lua`.
+lazyvimx автоматически настраивает различные опции Vim через `boot.lua`.
 
 ### Отступы
 
@@ -446,7 +446,7 @@ vim.o.shell = vim.fn.getenv("SHELL")  -- Use system shell
 Создайте `lua/config/options.lua`:
 
 ```lua
--- This runs after LazyVimx options
+-- This runs after lazyvimx options
 vim.o.expandtab = true       -- Use spaces instead of tabs
 vim.o.shiftwidth = 2         -- 2-space indentation
 vim.o.tabstop = 2
@@ -468,7 +468,7 @@ vim.api.nvim_create_autocmd("User", {
 
 ### Интеграция с Chezmoi
 
-LazyVimx автоматически синхронизирует конфигурацию Neovim с chezmoi при обновлениях.
+lazyvimx автоматически синхронизирует конфигурацию Neovim с chezmoi при обновлениях.
 
 #### Настройка
 
@@ -511,7 +511,7 @@ export DOTFILES_SRC_PATH="$HOME/.local/share/chezmoi"
 
 Требуется расширение VSCode: `nvim-mode-indicator`
 
-LazyVimx автоматически синхронизирует режим Neovim со строкой состояния VSCode.
+lazyvimx автоматически синхронизирует режим Neovim со строкой состояния VSCode.
 
 #### Настройка горячих клавиш
 
@@ -566,7 +566,7 @@ brew install trash
 
 1. `boot.lua` - Начальная загрузка и глобальная настройка
 2. Плагины LazyVim - Базовая конфигурация LazyVim
-3. Главный модуль LazyVimx - `require("lazyvimx").setup()`
+3. Главный модуль lazyvimx - `require("lazyvimx").setup()`
 4. Дополнения - Опциональные функции, которые вы импортировали
 5. Переопределения - Настройки плагинов
 6. Пользовательские плагины - Ваши файлы `lua/plugins/*.lua`
@@ -609,7 +609,7 @@ return {
 
 ### Пользовательские горячие клавиши
 
-Переопределите горячие клавиши LazyVimx:
+Переопределите горячие клавиши lazyvimx:
 
 ```lua
 -- lua/plugins/keys.lua
@@ -617,7 +617,7 @@ return {
 	{
 		"LazyVim/LazyVim",
 		keys = {
-			-- Disable LazyVimx keybinding
+			-- Disable lazyvimx keybinding
 			{ "<leader>\\", false },
 
 			-- Add your own
@@ -791,7 +791,7 @@ return {
 
 ### Дополнения не отображаются в :LazyExtras
 
-Убедитесь, что LazyVimx загружен:
+Убедитесь, что lazyvimx загружен:
 
 ```lua
 { import = "lazyvimx.boot" }

@@ -3,7 +3,7 @@
 > [!TIP]
 > **🇬🇧 English version:** [API.md](API.md)
 
-Полная документация API для утилитных функций и модулей LazyVimx.
+Полная документация API для утилитных функций и модулей lazyvimx.
 
 ## Содержание
 
@@ -22,7 +22,7 @@
 
 ### `setup(opts)`
 
-Инициализирует LazyVimx с пользовательской конфигурацией.
+Инициализирует lazyvimx с пользовательской конфигурацией.
 
 **Сигнатура:**
 
@@ -577,7 +577,7 @@ vim.g.lazyvim_explorer = "neo-tree"
 
 ### `insert_extras()`
 
-Регистрирует extras LazyVimx в UI extras LazyVim.
+Регистрирует extras lazyvimx в UI extras LazyVim.
 
 **Внутренняя функция**
 
@@ -654,7 +654,7 @@ require("lazyvimx").setup({
 ### Config Type
 
 ```lua
----@class LazyVimxConfig
+---@class lazyvimxConfig
 ---@field colorscheme string
 ---@field colorscheme_flavors table<string, string[]>
 ---@field bufferline_groups table<string, string>

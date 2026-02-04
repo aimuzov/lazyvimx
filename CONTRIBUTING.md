@@ -1,8 +1,8 @@
-# Contributing to LazyVimx
+# Contributing to lazyvimx
 
 [Русская версия](CONTRIBUTING.ru.md)
 
-First off, thank you for considering contributing to LazyVimx! It's people like you that make LazyVimx such a great tool.
+First off, thank you for considering contributing to lazyvimx! It's people like you that make lazyvimx such a great tool.
 
 ## Table of Contents
 
@@ -24,7 +24,7 @@ This project and everyone participating in it is governed by respect and profess
 ## Getting Started
 
 1. Fork the repository
-2. Clone your fork: `git clone https://github.com/YOUR-USERNAME/LazyVimx.git`
+2. Clone your fork: `git clone https://github.com/YOUR-USERNAME/lazyvimx.git`
 3. Create a new branch: `git checkout -b feature/your-feature-name`
 4. Make your changes
 5. Test your changes thoroughly
@@ -43,7 +43,7 @@ Before creating bug reports, please check existing issues to avoid duplicates. W
 - **Steps to reproduce** the behavior
 - **Expected behavior** vs actual behavior
 - **Screenshots** if applicable
-- **Environment details**: Neovim version, OS, LazyVimx version
+- **Environment details**: Neovim version, OS, lazyvimx version
 - **Configuration**: relevant parts of your config
 
 ### Suggesting Enhancements
@@ -97,7 +97,7 @@ Documentation improvements are always welcome:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/aimuzov/LazyVimx.git ~/.local/share/nvim/lazy/LazyVimx
+   git clone https://github.com/aimuzov/lazyvimx.git ~/.local/share/nvim/lazy/lazyvimx
    ```
 
 2. Create a test configuration:
@@ -108,7 +108,7 @@ Documentation improvements are always welcome:
    
    require("lazy").setup({
      spec = {
-       { dir = "~/.local/share/nvim/lazy/LazyVimx", import = "lazyvimx.boot" },
+       { dir = "~/.local/share/nvim/lazy/lazyvimx", import = "lazyvimx.boot" },
        { import = "lazyvimx.extras.core.all" },
      },
    })
@@ -122,7 +122,7 @@ Documentation improvements are always welcome:
 ## Project Structure
 
 ```
-LazyVimx/
+lazyvimx/
 ├── lua/lazyvimx/
 │   ├── boot.lua              # Bootstrap configuration
 │   ├── init.lua              # Main module with setup function
@@ -325,7 +325,7 @@ Closes #<issue_number>
 If you have questions:
 
 1. Check [FAQ.md](FAQ.md)
-2. Check [existing issues](https://github.com/aimuzov/LazyVimx/issues)
+2. Check [existing issues](https://github.com/aimuzov/lazyvimx/issues)
 3. Ask in [Discussions](https://t.me/aimuzov_dotfiles)
 4. Open a new issue
 

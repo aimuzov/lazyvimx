@@ -1,10 +1,10 @@
--- Russian Keyboard Optimized LazyVimx Configuration
+-- Russian Keyboard Optimized lazyvimx Configuration
 -- For users who frequently use Russian keyboard layout
 
 local lazy_opts = {
 	spec = {
-		-- LazyVimx with boot import
-		{ "aimuzov/LazyVimx", import = "lazyvimx.boot" },
+		-- lazyvimx with boot import
+		{ "aimuzov/lazyvimx", import = "lazyvimx.boot" },
 
 		-- Core overrides
 		{ import = "lazyvimx.extras.core.overrides" },

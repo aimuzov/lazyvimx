@@ -3,7 +3,7 @@
 > [!TIP]
 > **🇷🇺 Русская версия:** [CONFIGURATION.ru.md](CONFIGURATION.ru.md)
 
-Complete guide to configuring LazyVimx.
+Complete guide to configuring lazyvimx.
 
 ## Table of Contents
 
@@ -24,12 +24,12 @@ Complete guide to configuring LazyVimx.
 -- In your lua/config/lazy.lua
 return {
 	spec = {
-		{ "aimuzov/LazyVimx", import = "lazyvimx.boot" }
+		{ "aimuzov/lazyvimx", import = "lazyvimx.boot" }
 	},
 }
 ```
 
-This gives you LazyVimx with default settings and makes all extras available via `:LazyExtras`.
+This gives you lazyvimx with default settings and makes all extras available via `:LazyExtras`.
 
 ### Recommended Setup
 
@@ -37,7 +37,7 @@ This gives you LazyVimx with default settings and makes all extras available via
 -- In your lua/config/lazy.lua
 return {
 	spec = {
-		{ "aimuzov/LazyVimx", import = "lazyvimx.boot" },
+		{ "aimuzov/lazyvimx", import = "lazyvimx.boot" },
 		{ import = "lazyvimx.extras.core.all" },  -- Enable all enhancements
 	},
 }
@@ -45,14 +45,14 @@ return {
 
 ### Configuration Options
 
-LazyVimx can be configured in two ways:
+lazyvimx can be configured in two ways:
 
 **Option 1: Using `opts` (Recommended)**
 
 ```lua
 -- In your init.lua or lua/plugins/lazyvimx.lua
 {
-	"aimuzov/LazyVimx",
+	"aimuzov/lazyvimx",
 	import = "lazyvimx.boot",
 	opts = {
 		colorscheme = "catppuccin",
@@ -131,7 +131,7 @@ require("lazyvimx").setup(opts?: table)
 
 ## Colorscheme Configuration
 
-LazyVimx supports automatic light/dark theme switching based on system preferences (macOS only).
+lazyvimx supports automatic light/dark theme switching based on system preferences (macOS only).
 
 ### Basic Configuration
 
@@ -213,7 +213,7 @@ require("lazyvimx").setup({
 })
 ```
 
-**Note:** Custom colorschemes won't have LazyVimx's theme customizations unless you create override modules for them.
+**Note:** Custom colorschemes won't have lazyvimx's theme customizations unless you create override modules for them.
 
 ### Manual Theme Switching
 
@@ -295,7 +295,7 @@ bufferline_groups = {
 
 ### Built-in Groups
 
-LazyVimx provides these groups by default:
+lazyvimx provides these groups by default:
 
 - **Pinned**: Manually pinned buffers
 - **Ungrouped**: Buffers not matching any pattern
@@ -325,7 +325,7 @@ Extras are optional feature modules that enhance functionality.
 ### Method 1: Via LazyVim Extras UI
 
 1. Open extras picker: `:LazyExtras`
-2. Find LazyVimx extras under `[ 󰬟 ]`
+2. Find lazyvimx extras under `[ 󰬟 ]`
 3. Enable desired extras with `x`
 4. Restart Neovim
 
@@ -374,7 +374,7 @@ This includes:
 
 ## Vim Options
 
-LazyVimx configures various Vim options automatically via `boot.lua`.
+lazyvimx configures various Vim options automatically via `boot.lua`.
 
 ### Indentation
 
@@ -446,7 +446,7 @@ vim.o.shell = vim.fn.getenv("SHELL")  -- Use system shell
 Create `lua/config/options.lua`:
 
 ```lua
--- This runs after LazyVimx options
+-- This runs after lazyvimx options
 vim.o.expandtab = true       -- Use spaces instead of tabs
 vim.o.shiftwidth = 2         -- 2-space indentation
 vim.o.tabstop = 2
@@ -468,7 +468,7 @@ vim.api.nvim_create_autocmd("User", {
 
 ### Chezmoi Integration
 
-LazyVimx automatically syncs Neovim configuration to chezmoi on updates.
+lazyvimx automatically syncs Neovim configuration to chezmoi on updates.
 
 #### Setup
 
@@ -511,7 +511,7 @@ When running Neovim inside VSCode (via vscode-neovim extension).
 
 Requires VSCode extension: `nvim-mode-indicator`
 
-LazyVimx automatically syncs Neovim mode to VSCode status bar.
+lazyvimx automatically syncs Neovim mode to VSCode status bar.
 
 #### Keybinding Adjustments
 
@@ -566,7 +566,7 @@ Understanding the load order helps with advanced customization:
 
 1. `boot.lua` - Bootstrap and global setup
 2. LazyVim plugins - Base LazyVim configuration
-3. LazyVimx main module - `require("lazyvimx").setup()`
+3. lazyvimx main module - `require("lazyvimx").setup()`
 4. Extras - Optional features you imported
 5. Overrides - Plugin customizations
 6. User plugins - Your `lua/plugins/*.lua` files
@@ -609,7 +609,7 @@ return {
 
 ### Custom Keybindings
 
-Override LazyVimx keybindings:
+Override lazyvimx keybindings:
 
 ```lua
 -- lua/plugins/keys.lua
@@ -617,7 +617,7 @@ return {
 	{
 		"LazyVim/LazyVim",
 		keys = {
-			-- Disable LazyVimx keybinding
+			-- Disable lazyvimx keybinding
 			{ "<leader>\\", false },
 
 			-- Add your own
@@ -713,7 +713,7 @@ print(has_extra)
 -- lua/config/lazy.lua
 return {
 	spec = {
-		{ "aimuzov/LazyVimx", import = "lazyvimx.boot" }
+		{ "aimuzov/lazyvimx", import = "lazyvimx.boot" }
 	},
 }
 ```
@@ -724,7 +724,7 @@ return {
 -- lua/config/lazy.lua
 return {
 	spec = {
-		{ "aimuzov/LazyVimx", import = "lazyvimx.boot" },
+		{ "aimuzov/lazyvimx", import = "lazyvimx.boot" },
 		{ import = "lazyvimx.extras.core.all" },  -- Enable all enhancements
 	},
 }
@@ -791,7 +791,7 @@ return {
 
 ### Extras Not Showing in :LazyExtras
 
-Ensure LazyVimx is loaded:
+Ensure lazyvimx is loaded:
 
 ```lua
 { import = "lazyvimx.boot" }

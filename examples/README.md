@@ -1,4 +1,4 @@
-# Примеры конфигураций LazyVimx
+# Примеры конфигураций lazyvimx
 
 Готовые конфигурации для различных сценариев использования.
 
@@ -11,7 +11,7 @@
 - **Плагины**: ~60-70
 
 ### [Full-Featured](full-featured/)
-Полный LazyVimx со всеми 48 extras включёнными.
+Полный lazyvimx со всеми 48 extras включёнными.
 - **Подходит для**: Пользователей, которые хотят всё из коробки
 - **Запуск**: ~80-120ms
 - **Плагины**: ~100-120
@@ -63,13 +63,13 @@ return {
 { import = "lazyvimx.extras.git.gitlab" },
 ```
 
-### Настроить LazyVimx
+### Настроить lazyvimx
 
 Создайте `~/.config/nvim/lua/plugins/lazyvimx.lua`:
 
 ```lua
 return {
-  "aimuzov/LazyVimx",
+  "aimuzov/lazyvimx",
   opts = {
     colorscheme = "tokyonight",
     bufferline_groups = {

@@ -1,11 +1,11 @@
--- Full-Featured LazyVimx Configuration
+-- Full-Featured lazyvimx Configuration
 -- Everything enabled for maximum productivity
 
 local lazy_opts = {
 	spec = {
-		-- LazyVimx with boot import and configuration
+		-- lazyvimx with boot import and configuration
 		{
-			"aimuzov/LazyVimx",
+			"aimuzov/lazyvimx",
 			import = "lazyvimx.boot",
 			opts = {
 				colorscheme = "catppuccin",
@@ -21,7 +21,7 @@ local lazy_opts = {
 			},
 		},
 
-		-- Enable ALL LazyVimx features
+		-- Enable ALL lazyvimx features
 		{ import = "lazyvimx.extras.core.all" },
 
 		-- Your custom plugins

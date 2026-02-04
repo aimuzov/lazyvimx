@@ -1,10 +1,10 @@
--- Minimal LazyVimx Configuration
+-- Minimal lazyvimx Configuration
 -- Just the essentials with plugin overrides
 
 local lazy_opts = {
 	spec = {
-		-- LazyVimx with boot import
-		{ "aimuzov/LazyVimx", import = "lazyvimx.boot" },
+		-- lazyvimx with boot import
+		{ "aimuzov/lazyvimx", import = "lazyvimx.boot" },
 
 		-- Only core overrides (no extras)
 		{ import = "lazyvimx.extras.core.overrides" },

@@ -3,7 +3,7 @@
 > [!TIP]
 > **🇬🇧 English version:** [KEYBINDINGS.md](KEYBINDINGS.md)
 
-Полный справочник всех кастомных горячих клавиш LazyVimx.
+Полный справочник всех кастомных горячих клавиш lazyvimx.
 
 ## Оглавление
 
@@ -173,7 +173,7 @@ return {
   {
     "LazyVim/LazyVim",
     keys = {
-      { "<leader>cr", false }, -- Отключить rename LazyVimx
+      { "<leader>cr", false }, -- Отключить rename lazyvimx
     },
   },
 }
