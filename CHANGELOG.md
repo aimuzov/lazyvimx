@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.6.0](https://github.com/aimuzov/lazyvimx/compare/v1.5.0...v1.6.0) (2026-02-11)
+
+### Features
+
+* **keys:** add c-g for grep in dir (neo-tree keymap) ([0ff9279](https://github.com/aimuzov/lazyvimx/commit/0ff9279bdf44eeb6061a7a3277d12b430462d14a))
+* **theme:** integrate catppuccin-barista for community flavors ([0e730dd](https://github.com/aimuzov/lazyvimx/commit/0e730dd393beb06ae1d22e1949f0be6275bf6bdb))
+* **ui:** add sidekick_terminal support to better-cursorline and edgy ([54e4e84](https://github.com/aimuzov/lazyvimx/commit/54e4e84268464c4d62f0ca146ed96ada4e7ace9f))
+
+### Bug Fixes
+
+* **ai:** change delay for nes (sidekick) ([4741258](https://github.com/aimuzov/lazyvimx/commit/47412581339778616936b5ca2f483b049d97d950))
+* changelog ([e7a0121](https://github.com/aimuzov/lazyvimx/commit/e7a0121a6b66a79b7b2c385c4a16763bab2451a1))
+* **keys:** avoid overriding c-> keymap ([6888497](https://github.com/aimuzov/lazyvimx/commit/68884979d87581b226f1b3bf1d267d5214c0027e))
+
+### Refactoring
+
+* **theme:** improve catppuccin integration ([d13b131](https://github.com/aimuzov/lazyvimx/commit/d13b1312097f558746231680759c75cc7f29fb2e))
+
 ## [1.5.0](https://github.com/aimuzov/lazyvimx/compare/v1.4.0...v1.5.0) (2025-11-05)
 
 ### Features
