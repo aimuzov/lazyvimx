@@ -295,7 +295,12 @@ end
 return {
 	"catppuccin/nvim",
 	name = "catppuccin",
+	dependencies = { "aimuzov/catppuccin-barista.nvim" },
 	optional = true,
+
+	config = function(_, opts)
+		require("catppuccin-barista").setup({ presets = true }, opts)
+	end,
 
 	opts = {
 		integrations = {
@@ -314,6 +319,8 @@ return {
 	},
 
 	specs = {
+		{ "LazyVim/LazyVim", dependencies = { { "catppuccin/nvim", optional = true } } },
+
 		{
 			"akinsho/bufferline.nvim",
 			optional = true,
@@ -357,7 +364,7 @@ return {
 			optional = true,
 
 			opts = function(_, opts)
-				if vim.g.colors_name:find("catppuccin", 1, true) then
+				if vim.g.colors_name and vim.g.colors_name:find("catppuccin", 1, true) then
 					opts.options.theme = lualine_theme_create(colors_get())
 				end
 
@@ -385,7 +392,7 @@ return {
 			optional = true,
 
 			opts = function()
-				if vim.g.colors_name:find("catppuccin", 1, true) then
+				if vim.g.colors_name and vim.g.colors_name:find("catppuccin", 1, true) then
 					vim.api.nvim_create_autocmd("User", {
 						once = true,
 						pattern = "LazyVimStarted",

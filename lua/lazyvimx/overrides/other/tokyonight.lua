@@ -215,7 +215,7 @@ return {
 		optional = true,
 
 		opts = function(_, opts)
-			if vim.g.colors_name:find("tokyonight", 1, true) then
+			if vim.g.colors_name and vim.g.colors_name:find("tokyonight", 1, true) then
 				lualine_opts_override(opts, vim.g.colors_name)
 			end
 
