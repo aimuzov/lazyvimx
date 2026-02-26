@@ -30,7 +30,7 @@ local override_all = function(c)
 		FlashPromptSep = { fg = blend(c.crust, c.text, 50) },
 		FloatBorder = { bg = c.base },
 		FloatTitle = { bg = c.base, fg = c.lavender, style = { "bold" } },
-		Folded = { bg = c.base, fg = c.surface2 },
+		Folded = { bg = blend(c.base, c.crust, 20), fg = c.lavender, style = { "bold" } },
 		GitConflictCurrent = { bg = blend(c.blue, c.base, 90) },
 		GitConflictCurrentLabel = { bg = blend(c.blue, c.base, 85) },
 		GitConflictIncoming = { bg = blend(c.green, c.base, 90) },
@@ -162,7 +162,7 @@ local override_dark = function(c)
 		IlluminatedWordText = { bg = blend(c.base, c.sapphire, 25) },
 		IlluminatedWordWrite = { bg = blend(c.base, c.sapphire, 25) },
 		NeoTreeFloatBorder = { fg = blend(c.base, c.lavender, 50) },
-		NeoTreeIndentMarker = { fg = c.base },
+		NeoTreeIndentMarker = { fg = blend(c.mantle, c.base, 25) },
 		ScrollView = { bg = c.surface0, blend = 15 },
 		SnacksPickerInputBorder = { fg = blend(c.base, c.lavender, 25) },
 		SymbolUsageContent = { fg = c.surface2 },
@@ -299,6 +299,16 @@ return {
 	optional = true,
 
 	config = function(_, opts)
+		local colorschemes = require("lazyvimx").config.colorscheme_households["catppuccin"][1]
+
+		for _, flavor in pairs(colorschemes) do
+			local flavor_safe = flavor:gsub("^catppuccin%-?", "")
+
+			if #flavor_safe > 0 then
+				opts.highlight_overrides[flavor_safe] = override_dark
+			end
+		end
+
 		require("catppuccin-barista").setup({ presets = true }, opts)
 	end,
 
@@ -314,6 +324,7 @@ return {
 			frappe = override_dark,
 			macchiato = override_dark,
 			mocha = override_dark,
+			espresso = override_dark,
 			latte = override_light,
 		},
 	},

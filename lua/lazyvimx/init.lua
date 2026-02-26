@@ -6,6 +6,10 @@ local defaults = {
 	colorscheme_households = {
 		catppuccin = {
 			{
+				"catppuccin-macchiato",
+				"catppuccin-frappe",
+				"catppuccin-mocha",
+				"catppuccin",
 				"catppuccin-darkroast",
 				"catppuccin-draculatte",
 				"catppuccin-espresso",
@@ -15,10 +19,6 @@ local defaults = {
 				"catppuccin-nordiccino",
 				"catppuccin-rosetto",
 				"catppuccin-solarbica",
-				"catppuccin-macchiato",
-				"catppuccin-frappe",
-				"catppuccin-mocha",
-				"catppuccin",
 			},
 			{ "catppuccin-latte" },
 		},

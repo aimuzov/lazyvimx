@@ -80,6 +80,7 @@ return {
 	{ import = "system.plug", enabled = set_global },
 	{ import = "system.plug", enabled = vimopts_create_autocmd },
 
+	{ "LazyVim/LazyVim", branch = "main" },
 	{ "LazyVim/LazyVim", opts = update_root_lsp_ignore },
 	{ "LazyVim/LazyVim", opts = insert_extras },
 	{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
