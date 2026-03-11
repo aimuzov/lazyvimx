@@ -33,6 +33,8 @@ local defaults = {
 	},
 }
 
+M.config = defaults
+
 function M.setup(opts)
 	M.config = vim.tbl_deep_extend("force", defaults, opts or {})
 end
