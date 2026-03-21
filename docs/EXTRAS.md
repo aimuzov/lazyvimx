@@ -3,13 +3,13 @@
 > [!TIP]
 > **🇷🇺 Русская версия:** [EXTRAS.ru.md](EXTRAS.ru.md)
 
-Complete guide to all 48 lazyvimx extras modules.
+Complete guide to all 49 lazyvimx extras modules.
 
 ## Table of Contents
 
 - [Overview](#overview)
 - [Core Extras](#core-extras)
-- [UI Extras (19)](#ui-extras)
+- [UI Extras (20)](#ui-extras)
 - [Coding Extras (2)](#coding-extras)
 - [Motion Extras (6)](#motion-extras)
 - [Buffer Extras (3)](#buffer-extras)
@@ -447,6 +447,22 @@ VSCode-like peek definitions and references.
 **Plugin:** `dnlhc/glance.nvim`
 
 **Keybinding:** `gr` - Go to references (via core.keys)
+
+### ui.better-progressbar
+
+**Import:** `lazyvimx.extras.ui.better-progressbar`
+
+LSP progress via Ghostty OSC 9;4 terminal progress bar instead of in-editor notifications.
+
+**Features:**
+
+- Native Ghostty terminal progress bar via OSC 9;4 escape sequences
+- Percentage progress for LSP servers that report it
+- Indeterminate (pulsing) progress when percentage is unknown
+- Auto-hides when LSP task completes
+- Suppresses default noice.nvim LSP progress notifications
+
+**Supported Terminals:** Ghostty, WezTerm, Windows Terminal, Konsole, ConEmu, mintty
 
 ### ui.better-float
 
@@ -1104,7 +1120,7 @@ Jest testing framework for Neotest.
 | Category    | Count  | Description                          |
 | ----------- | ------ | ------------------------------------ |
 | Core        | 4      | Orchestration and core functionality |
-| UI          | 18     | Visual enhancements and interface    |
+| UI          | 19     | Visual enhancements and interface    |
 | Coding      | 2      | Coding tools and workflows           |
 | Motions     | 6      | Navigation improvements              |
 | Buffer      | 3      | Buffer management                    |
@@ -1115,7 +1131,7 @@ Jest testing framework for Neotest.
 | DAP         | 1      | Debugging support                    |
 | Performance | 3      | Optimization                         |
 | Test        | 1      | Testing frameworks                   |
-| **Total**   | **48** |                                      |
+| **Total**   | **49** |                                      |
 
 ## Recommended Extras
 
