@@ -11,7 +11,7 @@ return {
 		dependencies = {
 			{
 				"microsoft/vscode-js-debug",
-				build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out && git restore .",
+				build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && rm -rf out/dist && mv dist out && git restore .",
 			},
 		},
 
