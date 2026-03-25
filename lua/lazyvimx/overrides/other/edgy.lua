@@ -37,7 +37,7 @@ return {
 		opts = function(_, opts)
 			table.insert(opts.bottom, { ft = "dap-repl" })
 			table.insert(opts.right, { ft = "neotest-summary" })
-			table.insert(opts.right, { ft = "sidekick_terminal", size = { width = 0.35 } })
+			table.insert(opts.right, { ft = "sidekick_terminal", size = { width = 0.5 } })
 
 			opts.wo.fillchars = vim.o.fillchars
 		end,
