@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.7.0](https://github.com/aimuzov/lazyvimx/compare/v1.6.0...v1.7.0) (2026-04-02)
+
+### Features
+
+* **lang:** add JSON extra with JSONC treesitter support ([5921624](https://github.com/aimuzov/lazyvimx/commit/5921624543eaae4dfed9f462ef1aafbe7da21f90))
+* **ui:** add better-progressbar extra for Ghostty OSC 9;4 LSP progress ([6a3eb99](https://github.com/aimuzov/lazyvimx/commit/6a3eb997a7c5345924871c26cb208a82cbfc8a02))
+
+### Bug Fixes
+
+* **config:** initialize M.config with defaults before setup() ([ef2672d](https://github.com/aimuzov/lazyvimx/commit/ef2672d2cd201746d4322705b49debd596a879cd))
+* **dap:** remove stale out/dist before moving new build artifacts ([951f9fb](https://github.com/aimuzov/lazyvimx/commit/951f9fb32db51137610792132f63b376ba0af079))
+* **theme:** apply dark overrides to all catppuccin community flavors ([2b99fac](https://github.com/aimuzov/lazyvimx/commit/2b99fac0b9eea7555b98e1868be8c2113aabf5fb))
+* **ui:** increase default right panel size to 80 columns ([3e15ec0](https://github.com/aimuzov/lazyvimx/commit/3e15ec06015a74b4196c50bde6372168db7fc108))
+* **ui:** increase sidekick terminal panel width to 50% ([cc1ca69](https://github.com/aimuzov/lazyvimx/commit/cc1ca69247c65bbba6297f8c2d912aabf5321f07))
+
 ## [1.6.0](https://github.com/aimuzov/lazyvimx/compare/v1.5.0...v1.6.0) (2026-02-11)
 
 ### Features
