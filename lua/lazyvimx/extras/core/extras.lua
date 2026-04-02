@@ -34,7 +34,12 @@ return {
 	{ import = "lazyvimx.extras.ui.better-insert-mode" },
 	{ import = "lazyvimx.extras.ui.better-linenumbers" },
 	{ import = "lazyvimx.extras.ui.better-live-rename" },
-	{ import = "lazyvimx.extras.ui.better-progressbar" },
+	{
+		import = "lazyvimx.extras.ui.better-progressbar",
+		cond = function()
+			return vim.fn.getenv("$TERM") == "xterm-ghostty"
+		end,
+	},
 	{ import = "lazyvimx.extras.ui.better-reference-highlight" },
 	{ import = "lazyvimx.extras.ui.better-whitespace" },
 	{ import = "lazyvimx.extras.ui.bolder-separators" },

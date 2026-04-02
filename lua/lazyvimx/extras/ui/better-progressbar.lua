@@ -1,3 +1,7 @@
+function is_supported()
+	return vim.fn.getenv("$TERM") == "xterm-ghostty"
+end
+
 local function lsp_progress_osc()
 	vim.api.nvim_create_autocmd("LspProgress", {
 		callback = function(ev)
@@ -29,15 +33,27 @@ return {
 	{
 		"folke/noice.nvim",
 		optional = true,
-		opts = {
-			routes = {
-				{
+		opts = function(_, opts)
+			if is_supported() then
+				opts.routes = opts.routes or {}
+
+				vim.list_extend(opts.routes, {
 					filter = { event = "lsp", kind = "progress" },
 					opts = { skip = true },
-				},
-			},
-		},
+				})
+			end
+		end,
 	},
 
-	{ "LazyVim/LazyVim", optional = true, opts = lsp_progress_osc },
+	{
+		"LazyVim/LazyVim",
+		optional = true,
+		opts = function()
+			if is_supported() then
+				lsp_progress_osc()
+			else
+				vim.notify("Better progress bar supports only by ghostty", "warn")
+			end
+		end,
+	},
 }
