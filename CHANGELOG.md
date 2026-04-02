@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.8.0](https://github.com/aimuzov/lazyvimx/compare/v1.7.0...v1.8.0) (2026-04-02)
+
+### Features
+
+* **theme:** add nord colorscheme extra ([b518f7d](https://github.com/aimuzov/lazyvimx/commit/b518f7d7900b5f83ad1896ebbc946b3cd4f2a89d))
+
 ## [1.7.0](https://github.com/aimuzov/lazyvimx/compare/v1.6.0...v1.7.0) (2026-04-02)
 
 ### Features
