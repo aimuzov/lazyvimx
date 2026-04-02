@@ -212,7 +212,7 @@ local override_bufferline_hls = function(c)
 		offset_separator = { bg = c.mantle },
 		pick = { bg = c.mantle },
 		separator = { fg = c.mantle },
-		tab_selected = { fg = c.text, style = { "bold" } },
+		tab_selected = { fg = c.text, bold = true },
 		tab_separator = { bg = c.mantle, fg = c.mantle },
 		tab_separator_selected = { bg = c.base, fg = c.base },
 		trunc_marker = { bg = c.mantle },

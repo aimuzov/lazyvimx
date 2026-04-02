@@ -25,11 +25,12 @@ local override_highlights = function(hl, c)
 	hl.FlashBackdrop = { fg = blend(c.bg, c.blue2, 15) }
 	hl.FlashPrompt = { bg = c.bg_dark }
 	hl.FlashPromptSep = { fg = blend(c.bg_dark, c.fg, 50) }
+	hl.LineNr = { fg = c.fg_gutter }
 	hl.FloatBorder = { fg = blend(c.bg, c.blue2, 50) }
 	hl.FloatTitle = { fg = blend(c.bg, c.blue2, 50) }
 	hl.LspReferenceRead = { bg = "none", fg = blend(c.fg, c.magenta2, 50), bold = true }
 	hl.LspReferenceText = { bg = "none", fg = blend(c.fg, c.magenta2, 50), bold = true }
-	hl.LspReferenceWrite = { bg = "none", fg = blend(c.fg, c.magenta2, 50), bold = true, underline = true }
+	hl.LspReferenceWrite = { bg = "none", fg = blend(c.fg, c.magenta2, 50), bold = true }
 	hl.NeoTreeCursorLine = { bg = blend(c.bg_dark1, c.blue, 10) }
 	hl.NeoTreeFloatBorder = { link = "FloatBorder" }
 	hl.NeoTreeFloatNormal = { link = "NormalFloat" }
@@ -76,7 +77,6 @@ local override_highlights = function(hl, c)
 	hl.TroubleNormalNC = { bg = c.bg }
 	hl.Visual = { bg = blend(c.bg, c.blue, 10) }
 	hl.VisualWhitespace = { bg = blend(c.bg, c.blue, 10), fg = blend(c.fg_gutter, c.fg, 10) }
-	hl.VisualWhitespace = { link = "Visual" }
 	hl.WhichKeyBorder = { link = "FloatBorder" }
 	hl.WhichKeyNormal = { link = "FloatNormal" }
 	hl.WinSeparator = { fg = blend(c.bg, c.bg_dark, 60) }
@@ -99,7 +99,7 @@ local override_bufferline_hls = function(colorscheme_name)
 			indicator_visible = { fg = c.orange, bg = c.bg_dark },
 			indicator_selected = { fg = c.orange },
 			tab = { bg = c.bg_dark },
-			tab_selected = { fg = c.fg },
+			tab_selected = { fg = c.fg, bold = true },
 			tab_separator = { bg = c.bg_dark, fg = c.bg_dark },
 			warning = { bg = c.bg_dark, fg = c.orange },
 			tab_separator_selected = { bg = c.bg, fg = c.bg },

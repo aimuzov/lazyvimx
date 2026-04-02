@@ -26,6 +26,10 @@ local defaults = {
 			{ "tokyonight-storm", "tokyonight-moon", "tokyonight-night" },
 			{ "tokyonight-day" },
 		},
+		nord = {
+			{ "nord" },
+			{ "nord-light" },
+		},
 	},
 
 	bufferline_groups = {

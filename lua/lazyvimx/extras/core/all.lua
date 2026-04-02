@@ -1,6 +1,7 @@
 return {
 	desc = "Complete lazyvimx experience with all features, keybindings, and recommended extras notifications",
 
+	{ import = "lazyvimx.extras.core.colorschemes" },
 	{ import = "lazyvimx.extras.core.overrides" },
 	{ import = "lazyvimx.extras.core.extras" },
 	{ import = "lazyvimx.extras.core.keys" },
