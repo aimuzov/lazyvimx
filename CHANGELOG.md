@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.8.1](https://github.com/aimuzov/lazyvimx/compare/v1.8.0...v1.8.1) (2026-04-02)
+
+### Features
+
+* restrict better-progressbar to ghostty terminal ([ba2571e](https://github.com/aimuzov/lazyvimx/commit/ba2571e9c35c8989f7876511f29360ee4b9700d2))
+
+### Bug Fixes
+
+* **theme:** use nord.load() in nord-light fallback ([e5a8765](https://github.com/aimuzov/lazyvimx/commit/e5a87657697978d9ae849b63ba53bb23bfdb72f9))
+
+### Refactoring
+
+* **theme:** use catppuccin-barista beautifier module ([87aa703](https://github.com/aimuzov/lazyvimx/commit/87aa703834e19cb9c9f7d394e549a7117c1b9f0d))
+
 ## [1.8.0](https://github.com/aimuzov/lazyvimx/compare/v1.7.0...v1.8.0) (2026-04-02)
 
 ### Features
