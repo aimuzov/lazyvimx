@@ -13,6 +13,7 @@ return {
 	{ import = "lazyvimx.extras.git.remote-view" },
 	{ import = "lazyvimx.extras.lang.css" },
 	{ import = "lazyvimx.extras.lang.ejs" },
+	{ import = "lazyvimx.extras.lang.json" },
 	{ import = "lazyvimx.extras.linting.cspell" },
 	{ import = "lazyvimx.extras.linting.stylelint" },
 	{ import = "lazyvimx.extras.motions.better-cursor-move" },
