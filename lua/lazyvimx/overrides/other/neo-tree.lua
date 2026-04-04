@@ -189,7 +189,7 @@ return {
 					},
 				},
 				file_size = { required_width = 60 },
-				last_modified = { required_width = 80 },
+				last_modified = { required_width = 90 },
 			},
 
 			buffers = {
