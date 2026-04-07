@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.2](https://github.com/aimuzov/lazyvimx/compare/v1.8.1...v1.8.2) (2026-04-07)
+
+### Bug Fixes
+
+* **better-progressbar:** remove invalid $ prefix in getenv calls and skip lsp progress in noice ([6abab6c](https://github.com/aimuzov/lazyvimx/commit/6abab6cc2dcb4050b42f5380b2582494244323ab))
+* **neo-tree:** increase last_modified required_width to 90 ([573e742](https://github.com/aimuzov/lazyvimx/commit/573e742c37740e64a307b686b4f9791908402f8e))
+
 ## [1.8.1](https://github.com/aimuzov/lazyvimx/compare/v1.8.0...v1.8.1) (2026-04-02)
 
 ### Features
