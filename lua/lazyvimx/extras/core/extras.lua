@@ -37,7 +37,7 @@ return {
 	{
 		import = "lazyvimx.extras.ui.better-progressbar",
 		cond = function()
-			return vim.fn.getenv("$TERM") == "xterm-ghostty"
+			return vim.fn.getenv("TERM") == "xterm-ghostty"
 		end,
 	},
 	{ import = "lazyvimx.extras.ui.better-reference-highlight" },

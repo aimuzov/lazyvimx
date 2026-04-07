@@ -1,5 +1,5 @@
 function is_supported()
-	return vim.fn.getenv("$TERM") == "xterm-ghostty"
+	return vim.fn.getenv("TERM") == "xterm-ghostty"
 end
 
 local function lsp_progress_osc()
@@ -29,6 +29,19 @@ end
 
 return {
 	desc = "LSP progress via Ghostty OSC 9;4 terminal progress bar instead of in-editor notifications",
+
+	{
+		"folke/noice.nvim",
+		optional = true,
+		opts = {
+			routes = {
+				{
+					filter = { event = "lsp", kind = "progress" },
+					opts = { skip = true },
+				},
+			},
+		},
+	},
 
 	{
 		"folke/noice.nvim",
