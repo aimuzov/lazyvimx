@@ -14,6 +14,7 @@ return {
 	{ import = "lazyvimx.extras.lang.css" },
 	{ import = "lazyvimx.extras.lang.ejs" },
 	{ import = "lazyvimx.extras.lang.json" },
+	{ import = "lazyvimx.extras.lang.skhd" },
 	{ import = "lazyvimx.extras.linting.cspell" },
 	{ import = "lazyvimx.extras.linting.stylelint" },
 	{ import = "lazyvimx.extras.motions.better-cursor-move" },
