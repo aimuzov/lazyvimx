@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.9.0](https://github.com/aimuzov/lazyvimx/compare/v1.8.2...v1.9.0) (2026-04-26)
+
+### Features
+
+* **perf:** add auto-update-deps extra for Mason packages ([04cbfeb](https://github.com/aimuzov/lazyvimx/commit/04cbfeb2143080792139509190d114cb1a275fef))
+* **skhd:** add treesitter highlighting for skhd.zig configs ([1ab6d23](https://github.com/aimuzov/lazyvimx/commit/1ab6d238381a18a6598e296ffa2092bb1e3bb29f))
+
+### Bug Fixes
+
+* **stylelint:** use correct mason package name ([594f8f3](https://github.com/aimuzov/lazyvimx/commit/594f8f3a68d79606aba55e565e2ad95d05e9ed35))
+
+### Refactoring
+
+* **dap:** use mason js-debug-adapter for vscode-js debugger ([566a5ef](https://github.com/aimuzov/lazyvimx/commit/566a5efa179ebf18f32371a670ba2e4441516a10))
+
 ## [1.8.2](https://github.com/aimuzov/lazyvimx/compare/v1.8.1...v1.8.2) (2026-04-07)
 
 ### Bug Fixes
