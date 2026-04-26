@@ -997,8 +997,8 @@ JavaScript/TypeScript debugger.
 
 **Plugins:**
 
-- `mxsdev/nvim-dap-vscode-js`
-- `microsoft/vscode-js-debug`
+- `mfussenegger/nvim-dap`
+- `js-debug-adapter` (via `mason.nvim`)
 
 **Configurations:**
 

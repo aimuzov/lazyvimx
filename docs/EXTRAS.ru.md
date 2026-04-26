@@ -997,8 +997,8 @@ DAP extras добавляют возможности отладки.
 
 **Plugins:**
 
-- `mxsdev/nvim-dap-vscode-js`
-- `microsoft/vscode-js-debug`
+- `mfussenegger/nvim-dap`
+- `js-debug-adapter` (через `mason.nvim`)
 
 **Конфигурации:**
 
