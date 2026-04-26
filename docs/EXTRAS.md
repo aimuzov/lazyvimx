@@ -18,7 +18,7 @@ Complete guide to all 49 lazyvimx extras modules.
 - [Linting Extras (2)](#linting-extras)
 - [AI Extras (1)](#ai-extras)
 - [DAP Extras (1)](#dap-extras)
-- [Performance Extras (3)](#performance-extras)
+- [Performance Extras (4)](#performance-extras)
 - [Test Extras (1)](#test-extras)
 
 ## Overview
@@ -1081,6 +1081,23 @@ Automatically restore the last used colorscheme on startup.
 
 **Use Case:** Useful when frequently switching colorschemes and wanting to preserve your preference between Neovim sessions.
 
+### perf.auto-update-deps
+
+**Import:** `lazyvimx.extras.perf.auto-update-deps`
+
+Auto-update all Mason packages on startup.
+
+**Features:**
+
+- Updates every package installed via Mason (LSP, DAP, linters, formatters)
+- Picks up packages installed manually via `:MasonInstall`
+- Reuses `ensure_installed` from `mason.nvim` and installed servers from `mason-lspconfig`
+- Runs on top of `mason-tool-installer.nvim` with `auto_update = true`
+
+**Plugin:** `WhoIsSethDaniel/mason-tool-installer.nvim`
+
+**Use Case:** Keep language servers and tools current without running `:MasonUpdate` and reinstalling packages by hand.
+
 ---
 
 ## Test Extras
@@ -1129,7 +1146,7 @@ Jest testing framework for Neotest.
 | Linting     | 2      | Code quality tools                   |
 | AI          | 1      | AI coding assistants                 |
 | DAP         | 1      | Debugging support                    |
-| Performance | 3      | Optimization                         |
+| Performance | 4      | Optimization                         |
 | Test        | 1      | Testing frameworks                   |
 | **Total**   | **49** |                                      |
 

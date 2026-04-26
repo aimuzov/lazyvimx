@@ -18,7 +18,7 @@
 - [Linting Extras (2)](#linting-extras)
 - [AI Extras (1)](#ai-extras)
 - [DAP Extras (1)](#dap-extras)
-- [Performance Extras (3)](#performance-extras)
+- [Performance Extras (4)](#performance-extras)
 - [Test Extras (1)](#test-extras)
 
 ## Обзор
@@ -1081,6 +1081,23 @@ require("lspconfig").tsserver.setup({
 
 **Применение:** Полезно при частой смене цветовых схем и желании сохранить предпочтение между сеансами Neovim.
 
+### perf.auto-update-deps
+
+**Import:** `lazyvimx.extras.perf.auto-update-deps`
+
+Автоматическое обновление всех пакетов Mason при старте.
+
+**Функции:**
+
+- Обновление любых пакетов, установленных через Mason (LSP, DAP, линтеры, форматтеры)
+- Подхват пакетов, установленных вручную через `:MasonInstall`
+- Использует `ensure_installed` из `mason.nvim` и установленные серверы из `mason-lspconfig`
+- Работает поверх `mason-tool-installer.nvim` с `auto_update = true`
+
+**Plugin:** `WhoIsSethDaniel/mason-tool-installer.nvim`
+
+**Применение:** Держать языковые серверы и инструменты актуальными без ручного `:MasonUpdate` и переустановки.
+
 ---
 
 ## Test Extras
@@ -1129,7 +1146,7 @@ Test extras интегрируют фреймворки тестирования
 | Linting     | 2          | Инструменты проверки качества кода              |
 | AI          | 1          | AI ассистенты для программирования              |
 | DAP         | 1          | Поддержка отладки                               |
-| Performance | 3          | Оптимизация                                     |
+| Performance | 4          | Оптимизация                                     |
 | Test        | 1          | Фреймворки тестирования                         |
 | **Всего**   | **49**     |                                                 |
 
