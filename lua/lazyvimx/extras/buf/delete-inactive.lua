@@ -4,7 +4,7 @@ return {
 	event = "VeryLazy",
 
 	opts = {
-		deleteBufferWhenFileDeleted = true,
+		deleteBufferWhenFileDeleted = false,
 		retirementAgeMins = 30,
 		notificationOnAutoClose = true,
 		deleteFunction = function(buf)
