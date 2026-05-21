@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.9.1](https://github.com/aimuzov/lazyvimx/compare/v1.9.0...v1.9.1) (2026-05-21)
+
+### Features
+
+* **sidekick:** add copy-position keymap with visual range support ([c431879](https://github.com/aimuzov/lazyvimx/commit/c431879f0970677e6193cc969734110d2dff2709))
+
 ## [1.9.0](https://github.com/aimuzov/lazyvimx/compare/v1.8.2...v1.9.0) (2026-04-26)
 
 ### Features
