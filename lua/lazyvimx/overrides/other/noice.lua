@@ -45,6 +45,19 @@ return {
 
 			routes = {
 				{
+					-- Worktree-follow notification → bottom-right "mini" view (same
+					-- spot as LSP progress). Emitted via `vim.notify(.., { title })`
+					-- in `overrides/snacks/lazygit-follow-worktree.lua`; keep the
+					-- title in sync with `notify_title` there.
+					view = "mini",
+					filter = {
+						event = "notify",
+						cond = function(message)
+							return message.opts and message.opts.title == "lazygit-worktree"
+						end,
+					},
+				},
+				{
 					view = "mini",
 					opts = { skip = true },
 					filter = {
