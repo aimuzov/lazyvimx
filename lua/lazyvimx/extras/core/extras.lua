@@ -3,6 +3,7 @@ return {
 
 	{ import = "lazyvimx.extras.buf.delete-inactive" },
 	{ import = "lazyvimx.extras.buf.delete-no-name" },
+	{ import = "lazyvimx.extras.buf.remote-mounts" },
 	{ import = "lazyvimx.extras.buf.tab-scope" },
 	{ import = "lazyvimx.extras.coding.comments" },
 	{ import = "lazyvimx.extras.coding.emmet" },
