@@ -738,6 +738,25 @@ Automatic buffer cleanup for inactive buffers.
 - Cleaner buffer list
 - Automatic cleanup
 
+### buf.remote-mounts
+
+**Import:** `lazyvimx.extras.buf.remote-mounts`
+
+Safe and lightweight editing of files on network mounts (sshfs and alike).
+
+**Features:**
+
+- `backupcopy=yes` — in-place writes, no tempfile and rename
+- Disabled swapfile and undofile
+- Disabled autoformatting (`vim.b.autoformat`)
+- LSP clients detached from such buffers
+
+**Mount roots:** `~/mnt`
+
+**Behavior:**
+A file opened inside a mount root is written in place, so its owner, mode and symlink stay intact.
+This matters for configs under `/etc` on a remote host: a write via tempfile and rename loses them.
+
 ---
 
 ## Git Extras
@@ -1140,7 +1159,7 @@ Jest testing framework for Neotest.
 | UI          | 19     | Visual enhancements and interface    |
 | Coding      | 2      | Coding tools and workflows           |
 | Motions     | 6      | Navigation improvements              |
-| Buffer      | 3      | Buffer management                    |
+| Buffer      | 4      | Buffer management                    |
 | Git         | 4      | Version control integration          |
 | Language    | 2      | Language support                     |
 | Linting     | 2      | Code quality tools                   |
@@ -1148,7 +1167,7 @@ Jest testing framework for Neotest.
 | DAP         | 1      | Debugging support                    |
 | Performance | 4      | Optimization                         |
 | Test        | 1      | Testing frameworks                   |
-| **Total**   | **49** |                                      |
+| **Total**   | **50** |                                      |
 
 ## Recommended Extras
 

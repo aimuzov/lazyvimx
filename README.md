@@ -5,7 +5,7 @@
 ![Version](https://img.shields.io/badge/version-1.5.0-blue.svg)
 ![Neovim](https://img.shields.io/badge/Neovim-0.10+-green.svg)
 ![License](https://img.shields.io/badge/license-Apache--2.0-orange.svg)
-![Extras](https://img.shields.io/badge/extras-48-purple.svg)
+![Extras](https://img.shields.io/badge/extras-49-purple.svg)
 
 </div>
 
@@ -14,7 +14,7 @@
 
 **Enhanced LazyVim configuration with extensive customizations, UI improvements, and workflow optimizations.**
 
-lazyvimx is a comprehensive enhancement layer built on top of [LazyVim](https://github.com/LazyVim/LazyVim) that provides 48 optional extras and 33 override modules to create a highly polished, feature-rich Neovim experience.
+lazyvimx is a comprehensive enhancement layer built on top of [LazyVim](https://github.com/LazyVim/LazyVim) that provides 49 optional extras and 33 override modules to create a highly polished, feature-rich Neovim experience.
 
 ## ✨ Features
 
@@ -56,7 +56,7 @@ lazyvimx is a comprehensive enhancement layer built on top of [LazyVim](https://
 **New to lazyvimx?** Check out ready-to-use configurations in [examples/](examples/):
 
 - **[Minimal](examples/minimal/)** - Essential overrides only (~55-85ms startup)
-- **[Full-Featured](examples/full-featured/)** - All 48 extras enabled (~80-120ms startup)
+- **[Full-Featured](examples/full-featured/)** - All 49 extras enabled (~80-120ms startup)
 - **[VSCode User](examples/vscode-user/)** - Optimized for VSCode Neovim
 - **[Russian Keyboard](examples/russian-keyboard/)** - With langmapper support
 
@@ -173,12 +173,12 @@ lazyvimx/
 ├── lua/lazyvimx/
 │   ├── boot.lua              # Bootstrap configuration
 │   ├── init.lua              # Main module with setup function
-│   ├── extras/               # Optional feature modules (48 total)
+│   ├── extras/               # Optional feature modules (49 total)
 │   │   ├── core/            # Core enhancements (overrides, keys)
 │   │   ├── ui/              # UI improvements (19 modules)
 │   │   ├── coding/          # Coding tools (2 modules)
 │   │   ├── motions/         # Motion enhancements (6 modules)
-│   │   ├── buf/             # Buffer management (3 modules)
+│   │   ├── buf/             # Buffer management (4 modules)
 │   │   ├── git/             # Git integration (4 modules)
 │   │   ├── lang/            # Language support (2 modules)
 │   │   ├── linting/         # Linting tools (2 modules)
@@ -226,7 +226,7 @@ This includes:
 
 - **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** - Technical architecture and implementation details ([🇷🇺](docs/ARCHITECTURE.ru.md))
 - **[CONFIGURATION.md](docs/CONFIGURATION.md)** - Configuration guide and options ([🇷🇺](docs/CONFIGURATION.ru.md))
-- **[EXTRAS.md](docs/EXTRAS.md)** - Complete guide to all 48 extras ([🇷🇺](docs/EXTRAS.ru.md))
+- **[EXTRAS.md](docs/EXTRAS.md)** - Complete guide to all 49 extras ([🇷🇺](docs/EXTRAS.ru.md))
 - **[API.md](docs/API.md)** - API reference and utility functions ([🇷🇺](docs/API.ru.md))
 
 ## 🎨 Highlighted Extras
@@ -349,7 +349,7 @@ lazyvimx enhances LazyVim by:
 
 ## 📊 Stats
 
-- **48 optional extras** across 11 categories
+- **49 optional extras** across 11 categories
 - **33 override modules** for deep customization
 - **150+ custom highlights** for Catppuccin theme
 - **70+ custom highlights** for Tokyo Night theme
