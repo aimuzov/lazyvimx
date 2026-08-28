@@ -22,7 +22,13 @@ local function lsp_progress_osc()
 				io.write("\x1b]9;4;3\x07")
 			end
 
-			vim.api.nvim_echo({ { msg } }, false, { kind = "progress" })
+			vim.api.nvim_echo({ { msg } }, false, {
+				kind = "progress",
+				source = "lsp",
+				id = "lsp.progress." .. ev.data.client_id .. "." .. tostring(ev.data.params.token),
+				status = value.kind == "end" and "success" or "running",
+				percent = value.percentage,
+			})
 		end,
 	})
 end
