@@ -50,6 +50,9 @@ lazyvimx is a comprehensive enhancement layer built on top of [LazyVim](https://
 ### Prerequisites
 
 - Neovim >= 0.10.0
+- Lua 5.1 or LuaJIT in `PATH` (`brew install luajit`) — required by
+  `motions.better-move-between-words`: [luarocks.nvim](https://github.com/vhyrro/luarocks.nvim)
+  builds the `luautf8` rock for non-ASCII subword motions and fails without a system Lua
 
 ### 🚀 Choose Your Setup
 
@@ -247,7 +250,7 @@ This includes:
 ### Motions
 
 - `motions.langmapper` - **Russian keyboard support**
-- `motions.better-move-between-words` - Subword navigation
+- `motions.better-move-between-words` - Subword navigation (needs Lua 5.1/LuaJIT in `PATH`, see Prerequisites)
 - `motions.sibling-swap` - Tree-sitter based swapping
 - `motions.splitting-joining-blocks` - Smart block manipulation
 
