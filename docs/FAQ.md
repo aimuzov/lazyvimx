@@ -3,84 +3,85 @@
 > [!TIP]
 > **🇷🇺 Русская версия:** [FAQ.ru.md](FAQ.ru.md)
 
-Common questions and answers about lazyvimx.
-
 ## Table of Contents
 
 - [General](#general)
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Extras](#extras)
-- [Troubleshooting](#troubleshooting)
 - [Performance](#performance)
-- [Integration](#integration)
+- [Integrations](#integrations)
 
 ## General
 
 ### What is lazyvimx?
 
-lazyvimx is an enhancement layer for [LazyVim](https://github.com/LazyVim/LazyVim) that provides 48 optional extras and 33 override modules. It's designed to create a highly polished, feature-rich Neovim experience while maintaining compatibility with LazyVim.
+An enhancement layer for [LazyVim](https://github.com/LazyVim/LazyVim): 49 optional extras
+and 39 plugin overrides. LazyVim stays the foundation, lazyvimx adds interface and workflow
+polish — and only what you've enabled.
 
 ### How is lazyvimx different from LazyVim?
 
 lazyvimx **extends** LazyVim, it doesn't replace it:
-- **LazyVim**: The foundation - a solid, opinionated Neovim configuration
-- **lazyvimx**: Optional enhancements - UI improvements, workflow optimizations, and additional features
 
-You can use lazyvimx with LazyVim and still customize everything the way you want.
+- **LazyVim** — the foundation: a well-thought-out base Neovim configuration
+- **lazyvimx** — the layer on top: UI polish, navigation, git workflow, the Russian layout
+
+Everything LazyVim can do keeps working as before.
 
 ### Can I use lazyvimx without LazyVim?
 
-No, lazyvimx is built on top of LazyVim and requires it as a dependency. LazyVim provides the foundation, and lazyvimx enhances it.
+No. lazyvimx is built on top of LazyVim and requires it — it's not a standalone
+configuration.
 
-### Is lazyvimx stable?
+### How stable is it?
 
-Yes. lazyvimx follows semantic versioning (current: v1.5.0) and maintains backwards compatibility. All extras are optional, so you have full control over what you enable.
+The project follows semver and is updated regularly. Every extra is optional — what's not
+enabled has no effect.
 
-### How do I update lazyvimx?
+### How do I update?
 
-lazyvimx updates automatically with your LazyVim plugins:
+Like regular plugins:
 
 ```vim
 :Lazy update
 ```
 
-Check the [CHANGELOG.md](CHANGELOG.md) for version-specific changes.
+The change history is in the [CHANGELOG.md](../CHANGELOG.md).
 
 ## Installation
 
-### What are the minimum requirements?
+### Minimum Requirements
 
 - **Neovim** >= 0.10.0
-- **LazyVim** (installed automatically)
-- **Git** (for plugin management)
+- **Git** (for lazy.nvim)
 
-### How do I install lazyvimx?
+LazyVim installs automatically.
 
-See the [Quick Start](README.md#quick-start) in the README. Basically:
+### How do I install it?
 
-1. Create `~/.config/nvim/init.lua` with lazyvimx boot import
-2. Start Neovim
-3. Everything installs automatically!
+See the [Quick Start](../README.md#quick-start) in the README: create an `init.lua` with the
+`lazyvimx.boot` import, start Neovim — the rest happens on its own.
 
-### Can I migrate from LazyVim to lazyvimx?
+### Can I migrate from an existing LazyVim config?
 
-Yes! lazyvimx is compatible with existing LazyVim configurations:
+Yes, lazyvimx is compatible with existing LazyVim configurations:
 
-1. Backup your config: `cp -r ~/.config/nvim ~/.config/nvim.backup`
-2. Update your `init.lua` to import lazyvimx boot
+1. Make a backup: `cp -r ~/.config/nvim ~/.config/nvim.backup`
+2. Replace the LazyVim spec in `init.lua` with the `lazyvimx.boot` import
 3. Restart Neovim
-4. Your existing plugins and configs continue to work
 
-### Where should I put my custom plugins?
+Your plugins in `lua/plugins/` keep working.
 
-Same place as LazyVim - in `~/.config/nvim/lua/plugins/`:
+### Where do I put my own plugins?
+
+Same place as in LazyVim — `~/.config/nvim/lua/plugins/`:
 
 ```lua
 -- ~/.config/nvim/lua/plugins/my-plugin.lua
 return {
-  "author/plugin-name",
-  opts = {},
+	"author/plugin-name",
+	opts = {},
 }
 ```
 
@@ -88,244 +89,138 @@ return {
 
 ### How do I configure lazyvimx?
 
-Use the `setup()` function:
+Via `opts` in the plugin spec or `setup()`:
 
 ```lua
--- ~/.config/nvim/lua/config/lazyvimx.lua or in your plugin spec
 require("lazyvimx").setup({
-  colorscheme = "catppuccin",
-  colorscheme_flavors = {
-    catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
-  },
-  bufferline_groups = {
-    ["React"] = "%.tsx$",
-  },
+	colorscheme = "catppuccin",
+	bufferline_groups = {
+		["React"] = "%.tsx$",
+	},
 })
 ```
 
-See [CONFIGURATION.md](docs/CONFIGURATION.md) for all options.
+All the options are in [CONFIGURATION.md](CONFIGURATION.md).
 
 ### How do I change the colorscheme?
 
-Two ways:
-
-**Option 1**: Configure in setup (recommended)
 ```lua
-require("lazyvimx").setup({
-  colorscheme = "tokyonight",
-})
+require("lazyvimx").setup({ colorscheme = "tokyonight" })
 ```
 
-**Option 2**: Set directly
-```vim
-:colorscheme tokyonight-storm
-```
+Or directly: `:colorscheme tokyonight-storm`.
 
 ### How does theme auto-switching work?
 
-On macOS, lazyvimx detects system light/dark mode and switches automatically:
+lazyvimx detects the system's light/dark mode and picks the matching variant from the
+theme's "household" (`colorscheme_households`). Switching on the fly needs an external
+watcher that sends the Neovim process a signal — details in
+[CONFIGURATION.md](CONFIGURATION.md#colorschemes).
+
+### Can I disable some of the overrides?
+
+Yes — instead of `core.overrides`, import categories selectively:
 
 ```lua
-colorscheme_flavors = {
-  catppuccin = {
-    "catppuccin-macchiato",  -- Dark mode
-    "catppuccin-latte",      -- Light mode
-  },
-}
-```
-
-Requires `extras.core.overrides` to be enabled.
-
-### Can I disable specific overrides?
-
-Yes, instead of importing `core.overrides`, import categories manually:
-
-```lua
-{ import = "lazyvimx.overrides.lazyvim" },   -- Keep this
-{ import = "lazyvimx.overrides.snacks" },     -- Keep this
--- { import = "lazyvimx.overrides.bufferline" },  -- Skip this
-{ import = "lazyvimx.overrides.other" },      -- Keep this
+{ import = "lazyvimx.overrides.lazyvim" },
+{ import = "lazyvimx.overrides.snacks" },
+-- skipping bufferline
+{ import = "lazyvimx.overrides.other" },
 ```
 
 ## Extras
 
-### What are extras?
+### What is an extra?
 
-Extras are optional feature modules that enhance functionality. Examples:
-- `ui.better-diagnostic` - Inline diagnostic messages
-- `motions.langmapper` - Russian keyboard support
-- `git.gitlab` - GitLab MR integration
+An optional module with a ready-made setup for one feature. For example:
 
-See [EXTRAS.md](docs/EXTRAS.md) for all 48 extras.
+- `ui.better-diagnostic` — single-line diagnostics at the cursor
+- `motions.langmapper` — the Russian layout
+- `git.gitlab` — GitLab MR review
 
-### How do I enable extras?
+All 49 are in [EXTRAS.md](EXTRAS.md).
 
-**Via UI** (recommended):
-```vim
-:LazyExtras
-```
-Find lazyvimx section `[ 󰬟 ]`, select extras with `x`, restart.
+### How do I enable an extra?
 
-**Via config**:
+**Via the UI** (recommended): `:LazyExtras`, the lazyvimx section with the 󰬟 icon, `x` to
+enable, restart.
+
+**Via the config:**
+
 ```lua
 { import = "lazyvimx.extras.ui.better-diagnostic" },
-{ import = "lazyvimx.extras.motions.langmapper" },
 ```
 
-**Enable all**:
+**Everything at once:**
+
 ```lua
 { import = "lazyvimx.extras.core.all" },
 ```
 
-### Can I create my own extras?
+### Do I need to enable everything?
 
-Yes! See [CONTRIBUTING.md](CONTRIBUTING.md#creating-extras) for a guide on creating custom extras.
+No. Reasonable setups:
 
-### Do I need to enable all extras?
+- minimal — just `core.overrides`
+- full — `core.all`
+- your own — the overrides plus individual extras to taste
 
-No! Extras are completely optional. Enable only what you need:
-- Minimal setup: Just `core.overrides`
-- Recommended: `core.all` (includes all extras)
-- Custom: Pick and choose individual extras
+### Which extras should I start with?
 
-### Which extras should I enable?
+- `core.overrides` — polish for every plugin
+- `ui.better-diagnostic` — readable diagnostics
+- `ui.better-float` — one window style
+- `motions.langmapper` — if you type on a Russian layout
+- `git.conflicts` — if conflicts happen
 
-Recommended starter set:
-- `core.overrides` - All plugin enhancements
-- `ui.better-diagnostic` - Better error display
-- `ui.better-float` - Consistent UI
-- `motions.langmapper` - If using Russian keyboard
-- `git.conflicts` - If using Git
+### Can I write my own extra?
 
-## Troubleshooting
-
-### lazyvimx extras don't show in :LazyExtras
-
-Ensure you imported the boot module:
-
-```lua
-{ "aimuzov/lazyvimx", import = "lazyvimx.boot" }
-```
-
-### Theme isn't switching automatically
-
-Check:
-1. macOS only feature - doesn't work on Linux/Windows
-2. Verify system theme: `defaults read -g AppleInterfaceStyle`
-3. Enable override: `{ import = "lazyvimx.extras.core.overrides" }`
-
-### Buffer groups aren't working
-
-Enable the override:
-```lua
-{ import = "lazyvimx.overrides.bufferline.add-groups" }
-```
-
-Or via core overrides:
-```lua
-{ import = "lazyvimx.extras.core.overrides" }
-```
-
-### Plugins fail to load
-
-Check logs:
-```vim
-:Lazy log
-```
-
-Common issues:
-- Outdated Neovim version (need >= 0.10.0)
-- Plugin conflicts - disable conflicting plugins
-- Missing dependencies - install with `:Lazy install`
-
-### How do I report a bug?
-
-1. Check [existing issues](https://github.com/aimuzov/lazyvimx/issues)
-2. Try minimal config (disable custom plugins)
-3. Create new issue with:
-   - Neovim version (`:version`)
-   - lazyvimx version (`:Lazy`)
-   - Steps to reproduce
-   - Error messages from `:Lazy log`
-
-See [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for more solutions.
+Yes — it's a regular file with a lazy.nvim spec, see
+[ARCHITECTURE.md](ARCHITECTURE.md#extending) and [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 ## Performance
 
 ### Is lazyvimx slow?
 
-No. lazyvimx uses lazy loading extensively:
-- Extras load only when imported
-- Plugins use `optional = true` for graceful degradation
-- No impact if extras aren't enabled
+No. Everything loads lazily, and disabled extras don't exist for lazy.nvim at all. The
+startup impact is minimal and grows only with the number of enabled extras.
 
-### How can I improve performance?
+### How do I speed things up?
 
-1. **Enable only needed extras** - Don't use `core.all` if you don't need everything
-2. **Use perf extras**:
-   - `perf.local-config` - Project-specific configs
-   - `perf.stop-inactive-lsp` - Clean up unused LSP clients
-3. **Check startup time**: `nvim --startuptime startup.log`
-4. **Profile**: `:Lazy profile`
+1. Enable only what you need — `core.overrides` instead of `core.all`
+2. Profile: `:Lazy profile` and `nvim --startuptime startup.log`
+3. `perf.stop-inactive-lsp` and `buf.delete-inactive` clean up memory in long sessions
 
-### Does lazyvimx slow down Neovim startup?
+## Integrations
 
-Minimal impact. The boot module and setup are lightweight. Extras only load if explicitly imported.
+### Does it work with VSCode Neovim?
 
-Benchmark (cold start):
-- LazyVim alone: ~50-80ms
-- LazyVim + lazyvimx (minimal): ~55-85ms (+5ms)
-- LazyVim + lazyvimx (core.all): ~80-120ms (+30-40ms)
+Yes, the VSCode mode turns on automatically (`vim.g.vscode`): mode indicator sync, adjusted
+keymaps, native rename. A ready-made example is
+[examples/vscode-user](../examples/vscode-user/).
 
-## Integration
+### Does it work with chezmoi?
 
-### Does lazyvimx work with VSCode Neovim?
-
-Yes! There's a dedicated integration:
-
-```lua
-{ import = "lazyvimx.overrides.lazyvim.vscode" }
-```
-
-Included in `core.overrides`. Features:
-- Mode indicator sync
-- Adjusted keybindings
-- Native VSCode rename integration
-
-### Can I use lazyvimx with chezmoi?
-
-Yes! Auto-sync is built-in:
-
-```bash
-export DOTFILES_SRC_PATH="$HOME/.local/share/chezmoi"
-```
-
-Automatically syncs `lazy-lock.json` and `lazyvim.json` on updates.
+Yes: after `:Lazy update` the lock files are added to chezmoi automatically, as long as the
+binary is installed. Details — in [CONFIGURATION.md](CONFIGURATION.md#chezmoi).
 
 ### Does it work on Linux/Windows?
 
-Yes, lazyvimx works on all platforms. Some features are macOS-specific:
-- Auto theme switching (macOS only)
-- Trash integration for neo-tree (macOS preferred, but works elsewhere)
+It does. Notes:
 
-### Can I use custom colorschemes?
+- system theme detection exists on macOS and Linux (gsettings); not on Windows
+- the trash in neo-tree goes through the `trash` utility (present — used, absent — a regular
+  delete)
 
-Yes:
+### Can I plug in my own colorscheme?
 
-```lua
-require("lazyvimx").setup({
-  colorscheme = "gruvbox",
-  colorscheme_flavors = {
-    gruvbox = { "gruvbox-dark", "gruvbox-light" },
-  },
-})
-```
-
-Note: Custom themes won't have lazyvimx's theme customizations unless you create override modules.
+Yes — add your household to `colorscheme_households`
+([format](CONFIGURATION.md#colorschemes)). But lazyvimx custom highlights only exist for
+Catppuccin, Tokyo Night, and Nord.
 
 ## Still Have Questions?
 
-- 📖 Read the [full documentation](docs/)
-- 💬 Join [discussion](https://t.me/aimuzov_dotfiles)
+- 📖 [Documentation](./)
+- 🔧 [Troubleshooting](TROUBLESHOOTING.md)
+- 💬 [Telegram discussion](https://t.me/aimuzov_dotfiles)
 - 🐛 [Report an issue](https://github.com/aimuzov/lazyvimx/issues)
-- 🤝 [Contribute](CONTRIBUTING.md)

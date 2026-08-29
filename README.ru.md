@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Версия](https://img.shields.io/badge/версия-1.5.0-blue.svg)
+![Версия](https://img.shields.io/badge/версия-1.9.1-blue.svg)
 ![Neovim](https://img.shields.io/badge/Neovim-0.10+-green.svg)
 ![Лицензия](https://img.shields.io/badge/лицензия-Apache--2.0-orange.svg)
 ![Extras](https://img.shields.io/badge/extras-49-purple.svg)
@@ -12,38 +12,40 @@
 > [!TIP]
 > **🇬🇧 English version:** [README.md](README.md)
 
-**Расширенная конфигурация LazyVim с обширными настройками, улучшениями UI и оптимизацией рабочего процесса.**
+**Слой улучшений поверх [LazyVim](https://github.com/LazyVim/LazyVim): 49 опциональных экстр и
+39 оверрайдов плагинов.**
 
-lazyvimx — это комплексный слой улучшений, построенный поверх [LazyVim](https://github.com/LazyVim/LazyVim), который предоставляет 49 опциональных расширений (extras) и 33 модуля переопределений (overrides) для создания высококачественного и функционального Neovim.
+Идея простая: LazyVim остаётся как есть, а всё остальное — доводка интерфейса, навигация,
+git-воркфлоу, поддержка русской раскладки — включается по кусочкам. Не нравится экстра — не
+включаете, и её будто нет.
 
 ## ✨ Возможности
 
-### 🎨 Визуальные улучшения
+### 🎨 Интерфейс
 
-- **Продвинутая кастомизация тем** с глубокой настройкой Catppuccin и Tokyo Night
-- **Автоматическое переключение темы** в зависимости от светлого/темного режима системы (только для [macOS](https://github.com/aimuzov/dotfiles/tree/main/private_Library/ThemeSwitcher))
-- **Улучшенные UI компоненты** с единообразными скругленными рамками и кастомными иконками
-- **Улучшенная строка состояния** с индикаторами режимов и визуальными элементами
-- **Улучшенная панель приветствия** с кастомным ASCII-артом и стилизованными секциями
-- **Индикаторы использования символов** показывают ссылки и реализации inline
+- **Глубокая кастомизация тем** — Catppuccin, Tokyo Night и Nord
+- **Автопереключение светлой/тёмной темы** вслед за системной ([macOS](https://github.com/aimuzov/dotfiles/tree/main/private_Library/ThemeSwitcher))
+- **Единый стиль UI** — скруглённые рамки, согласованные размеры окон, кастомные иконки
+- **Улучшенный дашборд** с ASCII-артом и анимацией
+- **Счётчики использований символов** прямо в коде, как в JetBrains IDE
+- **Диагностика одной строкой** у курсора
 
-### 🚀 Повышение продуктивности
+### 🚀 Продуктивность
 
-- **Умное управление буферами** с группами, автоочисткой и изоляцией по табам
-- **Улучшенная навигация по коду** с tree-sitter навигацией
-- **Улучшенное отображение диагностики** с inline сообщениями
-- **Улучшения для работы с Git** включая интеграцию с GitLab MR и разрешение конфликтов
-- **Продвинутое автодополнение** с интеграцией Blink.cmp
-- **Поддержка AI-ассистента** через Avante
+- **Умные буферы** — группы в bufferline, автоочистка, изоляция по табам
+- **Навигация по синтаксическому дереву** — перемещение и перестановка узлов
+- **Движения по подсловам** — `w`/`e`/`b` понимают camelCase
+- **Git-воркфлоу** — ревью GitLab MR из редактора, разрешение конфликтов, просмотр удалённых репозиториев
+- **Отладка JS/TS** через js-debug-adapter
 
-### ⚙️ Качество жизни
+### ⚙️ Удобства
 
-- **Поддержка русской клавиатуры** через langmapper
-- **Повторяемые действия** для операций с буферами
-- **Автосохранение в chezmoi** при обновлениях LazyVim
-- **Поддержка локальной конфигурации проекта**
-- **Интеграция с VSCode** для гибридных рабочих процессов
-- **Оптимизация производительности** включая очистку неактивных LSP
+- **Русская раскладка** через langmapper — без переключения на английскую
+- **Безопасная работа с sshfs-маунтами** — запись «на месте», без побитых прав и симлинков
+- **Автосинхронизация в chezmoi** при обновлениях плагинов
+- **Локальные конфиги проектов** (`.nvim.lua`)
+- **Режим VSCode** для гибридного воркфлоу
+- **Автообновление пакетов Mason**
 
 ## 📦 Установка
 
@@ -51,26 +53,35 @@ lazyvimx — это комплексный слой улучшений, пост
 
 - Neovim >= 0.10.0
 
+### 🚀 Выберите свой вариант
+
+**Впервые здесь?** В [examples/](examples/) лежат готовые конфигурации:
+
+- **[Minimal](examples/minimal/)** — только оверрайды, самый быстрый старт
+- **[Full-Featured](examples/full-featured/)** — все 49 экстр
+- **[VSCode User](examples/vscode-user/)** — для расширения VSCode Neovim
+- **[Russian Keyboard](examples/russian-keyboard/)** — с поддержкой русской раскладки
+
 ### Быстрый старт
 
-> **💡 Реальный пример**: См. [конфигурацию автора](https://github.com/aimuzov/dotfiles/blob/main/dot_config/nvim/init.lua) для production setup.
+> **💡 Живой пример**: [конфигурация автора](https://github.com/aimuzov/dotfiles/blob/main/dot_config/nvim/init.lua).
 
-1. **Создайте `~/.config/nvim/init.lua` со следующим содержимым:**
+1. **Создайте `~/.config/nvim/init.lua`:**
 
 ```lua
 local lazy_opts = {
-  spec = { { "aimuzov/lazyvimx", import = "lazyvimx.boot" } },
+	spec = { { "aimuzov/lazyvimx", import = "lazyvimx.boot" } },
 
-  install = { colorscheme = { "catppuccin", "tokyonight" } },
-  checker = { enabled = true, notify = false },
-  change_detection = { enabled = false },
-  diff = { cmd = "diffview.nvim" },
+	install = { colorscheme = { "catppuccin", "tokyonight" } },
+	checker = { enabled = true, notify = false },
+	change_detection = { enabled = false },
+	diff = { cmd = "diffview.nvim" },
 
-  ui = {
-    backdrop = 100,
-    border = "rounded",
-    icons = { keys = "󰥻" },
-  },
+	ui = {
+		backdrop = 100,
+		border = "rounded",
+		icons = { keys = "󰥻" },
+	},
 }
 
 -- Bootstrap lazy.nvim
@@ -78,7 +89,7 @@ local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 local lazy_url = "https://github.com/folke/lazy.nvim.git"
 
 if not vim.loop.fs_stat(lazy_path) then
-  vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazy_url, lazy_path })
+	vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazy_url, lazy_path })
 end
 
 vim.opt.rtp:prepend(lazy_path)
@@ -92,13 +103,11 @@ require("lazy").setup(lazy_opts)
 nvim
 ```
 
-Вот и всё! lazyvimx автоматически установит LazyVim и все необходимые плагины при первом запуске.
+На первом запуске lazyvimx сам установит LazyVim и все нужные плагины.
 
-3. **Настройте lazyvimx (опционально):**
+3. **Настройте lazyvimx (по желанию):**
 
-Вы можете настроить lazyvimx двумя способами:
-
-**Вариант А:** Добавьте `opts` прямо в `init.lua`:
+**Вариант А** — `opts` прямо в `init.lua`:
 
 ```lua
 local lazy_opts = {
@@ -108,50 +117,43 @@ local lazy_opts = {
       import = "lazyvimx.boot",
       opts = {
         colorscheme = "catppuccin",
-        colorscheme_flavors = {
-          catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
-          tokyonight = { "tokyonight-storm", "tokyonight-day" },
-        },
         bufferline_groups = {
-          -- Определите кастомные группы буферов
-          -- ["name"] = "regex_pattern",
-        }
-      }
-    }
-  }
+          -- ["имя группы"] = "lua-паттерн",
+        },
+      },
+    },
+  },
   -- ... остальные настройки
 }
 ```
 
-**Вариант Б:** Создайте отдельный файл `~/.config/nvim/lua/plugins/lazyvimx.lua`:
+**Вариант Б** — отдельный файл `~/.config/nvim/lua/plugins/lazyvimx.lua`:
 
 ```lua
 return {
   "aimuzov/lazyvimx",
   opts = {
     colorscheme = "catppuccin",
-    colorscheme_flavors = {
-      catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
-      tokyonight = { "tokyonight-storm", "tokyonight-day" },
-    },
     bufferline_groups = {
-      -- Определите кастомные группы буферов
-      -- ["name"] = "regex_pattern",
+      -- ["имя группы"] = "lua-паттерн",
     },
   },
 }
 ```
 
-4. **Включите расширения (extras):**
+Все опции, включая настройку светлых/тёмных вариантов тем (`colorscheme_households`), — в
+[CONFIGURATION.ru.md](docs/CONFIGURATION.ru.md).
 
-Используйте UI для выбора расширений LazyVim (`:LazyExtras`) чтобы включить расширения lazyvimx (рекомендуется этот способ), или добавьте их в конфигурацию:
+4. **Включите экстры:**
+
+Через UI `:LazyExtras` (рекомендуется) или импортами в конфиге:
 
 ```lua
--- В lua/plugins/extras.lua
+-- lua/plugins/extras.lua
 return {
-  -- Включает все улучшения для lazyvim
+  -- Все оверрайды плагинов
   { import = "lazyvimx.extras.core.overrides" },
-  -- Добавьте больше расширений по необходимости
+  -- Дальше — что нужно
   { import = "lazyvimx.extras.ui.better-diagnostic" },
   { import = "lazyvimx.extras.motions.langmapper" },
 }
@@ -162,281 +164,194 @@ return {
 ```
 lazyvimx/
 ├── lua/lazyvimx/
-│   ├── boot.lua             # Загрузочная конфигурация
-│   ├── init.lua             # Главный модуль с функцией setup
-│   ├── extras/              # Опциональные модули (всего 49)
-│   │   ├── core/            # Базовые улучшения (overrides, keys)
-│   │   ├── ui/              # Улучшения UI (19 модулей)
-│   │   ├── coding/          # Инструменты программирования (2 модуля)
-│   │   ├── motions/         # Улучшения навигации (6 модулей)
-│   │   ├── buf/             # Управление буферами (4 модуля)
-│   │   ├── git/             # Git интеграция (4 модуля)
-│   │   ├── lang/            # Поддержка языков (2 модуля)
-│   │   ├── linting/         # Инструменты линтинга (2 модуля)
-│   │   ├── ai/              # AI-ассистенты (1 модуль)
-│   │   ├── dap/             # Отладка (1 модуль)
-│   │   ├── perf/            # Производительность (3 модуля)
-│   │   └── test/            # Тестирование (1 модуль)
-│   ├── overrides/           # Кастомизация плагинов (всего 33)
-│   │   ├── lazyvim/         # Переопределения LazyVim (8 модулей)
-│   │   ├── snacks/          # Переопределения Snacks.nvim (7 модулей)
-│   │   ├── bufferline/      # Переопределения Bufferline (6 модулей)
-│   │   └── other/           # Другие плагины (13 модулей)
-│   └── util/                # Утилиты
-│       ├── general.lua      # Общие утилиты
-│       └── layout.lua       # Управление макетом
-└── init.lua                 # Точка входа с защитой
+│   ├── boot.lua              # Bootstrap-конфигурация
+│   ├── init.lua              # Главный модуль с setup()
+│   ├── extras/               # Опциональные модули (49 + 5 core)
+│   │   ├── core/             # Сборные модули: all, overrides, extras, keys, colorschemes
+│   │   ├── ui/               # Интерфейс (20)
+│   │   ├── motions/          # Навигация (6)
+│   │   ├── buf/              # Буферы (4)
+│   │   ├── git/              # Git (4)
+│   │   ├── lang/             # Языки (4)
+│   │   ├── perf/             # Производительность (4)
+│   │   ├── coding/           # Инструменты кода (2)
+│   │   ├── linting/          # Линтеры (2)
+│   │   ├── colorschemes/     # Колорскемы (1)
+│   │   ├── dap/              # Отладка (1)
+│   │   └── test/             # Тестирование (1)
+│   ├── overrides/            # Кастомизация плагинов (39)
+│   │   ├── lazyvim/          # LazyVim (9)
+│   │   ├── snacks/           # Snacks.nvim (9)
+│   │   ├── bufferline/       # Bufferline (6)
+│   │   └── other/            # Прочие плагины (15)
+│   └── util/                 # Утилиты
+│       ├── general.lua       # Общие (цвета, тема системы, проверка экстр)
+│       └── layout.lua        # Размеры сайдбаров и панелей
+└── init.lua                  # Защита от прямого запуска репозитория
 ```
 
-## 🎯 Базовые расширения
+## 🎯 Core-модули
 
 ### Рекомендуемая настройка
 
-Включите все базовые улучшения `core.all` через `:LazyExtras` (рекомендуется) или же добавьте импорт в конфигурацию:
+Включите всё разом — `core.all` через `:LazyExtras` или импортом:
 
 ```lua
 { import = "lazyvimx.extras.core.all" }
 ```
 
-Это включает:
+Внутри:
 
-- **Overrides**: Все кастомизации плагинов
-- **Extras**: Все доступные расширения
-- **Keys**: Кастомные горячие клавиши
-- **Notifications**: Предупреждения об отсутствующих расширениях
+- **overrides** — все 39 кастомизаций плагинов
+- **extras** — все функциональные экстры
+- **colorschemes** — дополнительные колорскемы
+- **keys** — кастомные кеймапы
+- плюс уведомление, если не хватает рекомендуемых экстр LazyVim
 
-### Отдельные базовые компоненты
+### По отдельности
 
 ```lua
-{ import = "lazyvimx.extras.core.overrides" }  -- Переопределения плагинов
-{ import = "lazyvimx.extras.core.extras" }     -- Все расширения
-{ import = "lazyvimx.extras.core.keys" }       -- Кастомные горячие клавиши
+{ import = "lazyvimx.extras.core.overrides" }     -- Оверрайды плагинов
+{ import = "lazyvimx.extras.core.extras" }        -- Все экстры
+{ import = "lazyvimx.extras.core.keys" }          -- Кеймапы
+{ import = "lazyvimx.extras.core.colorschemes" }  -- Колорскемы
 ```
 
 ## 📚 Документация
 
-- **[ARCHITECTURE.ru.md](docs/ARCHITECTURE.ru.md)** - Техническая архитектура и детали реализации ([🇬🇧](docs/ARCHITECTURE.md))
-- **[CONFIGURATION.ru.md](docs/CONFIGURATION.ru.md)** - Руководство по настройке и опции ([🇬🇧](docs/CONFIGURATION.md))
-- **[EXTRAS.ru.md](docs/EXTRAS.ru.md)** - Полное руководство по всем 49 расширениям ([🇬🇧](docs/EXTRAS.md))
-- **[API.ru.md](docs/API.ru.md)** - Справочник по API и утилитам ([🇬🇧](docs/API.md))
+- **[EXTRAS.ru.md](docs/EXTRAS.ru.md)** — справочник по всем 49 экстрам ([🇬🇧](docs/EXTRAS.md))
+- **[CONFIGURATION.ru.md](docs/CONFIGURATION.ru.md)** — настройка и опции ([🇬🇧](docs/CONFIGURATION.md))
+- **[KEYBINDINGS.ru.md](docs/KEYBINDINGS.ru.md)** — все кеймапы ([🇬🇧](docs/KEYBINDINGS.md))
+- **[ARCHITECTURE.ru.md](docs/ARCHITECTURE.ru.md)** — как всё устроено ([🇬🇧](docs/ARCHITECTURE.md))
+- **[API.ru.md](docs/API.ru.md)** — утилиты и функции ([🇬🇧](docs/API.md))
+- **[FAQ.ru.md](docs/FAQ.ru.md)** — частые вопросы ([🇬🇧](docs/FAQ.md))
+- **[TROUBLESHOOTING.ru.md](docs/TROUBLESHOOTING.ru.md)** — решение проблем ([🇬🇧](docs/TROUBLESHOOTING.md))
 
-## 🎨 Выделенные расширения
+## 🎨 Заметные экстры
 
-### UI улучшения
+### Интерфейс
 
-- `ui.better-diagnostic` - Inline сообщения диагностики
-- `ui.better-float` - Единообразный стиль плавающих окон
-- `ui.symbol-usage` - Счетчики ссылок/определений
-- `ui.better-explorer` - Интеграция с файловым менеджером Yazi
-- `ui.winbar` - Путь к файлу в панели окна
-
-### Инструменты программирования
-
-- `coding.emmet` - Расширение HTML/CSS
-- `coding.comments` - Улучшенное комментирование с генерацией документации
+- `ui.better-diagnostic` — диагностика одной строкой у курсора
+- `ui.better-float` — единый стиль плавающих окон
+- `ui.symbol-usage` — счётчики использований символов
+- `ui.better-explorer` — файловый менеджер Yazi
+- `ui.winbar` — путь к файлу над окном
 
 ### Навигация
 
-- `motions.langmapper` - **Поддержка русской клавиатуры**
-- `motions.better-move-between-words` - Навигация по подсловам
-- `motions.sibling-swap` - Перемещение на основе Tree-sitter
-- `motions.splitting-joining-blocks` - Умная манипуляция блоками
+- `motions.langmapper` — **русская раскладка без переключения**
+- `motions.better-move-between-words` — движения по подсловам
+- `motions.sibling-swap` — перестановка узлов tree-sitter
+- `motions.splitting-joining-blocks` — разбивка/склейка блоков кода
 
-### Git интеграция
+### Git
 
-- `git.gitlab` - Ревью GitLab MR
-- `git.conflicts` - Визуальное разрешение конфликтов
-- `git.remote-view` - Открытие удаленных репозиториев локально
+- `git.gitlab` — ревью GitLab MR из редактора
+- `git.conflicts` — визуальное разрешение конфликтов
+- `git.remote-view` — открытие удалённых репозиториев локально
 
-### AI и тестирование
+### Прочее
 
-- `ai.avante` - Эмуляция Cursor AI IDE
-- `test.jest` - Фреймворк тестирования Jest
+- `buf.remote-mounts` — безопасная работа с sshfs
+- `coding.comments` — комментирование с контекстом и генерация JSDoc
+- `test.jest` — Jest в Neotest
 
-## ⌨️ Горячие клавиши
+## ⌨️ Кеймапы
 
-lazyvimx добавляет множество кастомных привязок клавиш:
+lazyvimx добавляет 60+ кастомных кеймапов. Самые ходовые:
 
-### Базовые операции
+**Каждый день**:
 
-| Клавиша          | Режим   | Описание                           |
-| ---------------- | ------- | ---------------------------------- |
-| `d`              | n, v    | Удаление без копирования в буфер   |
-| `<C-S-j>`        | n, i, v | Переместить строку/выделение вниз  |
-| `<C-S-k>`        | n, i, v | Переместить строку/выделение вверх |
-| `<leader>\`      | n       | Разделить окно вправо              |
-| `<leader>ch`     | n       | Открыть shell (cht.sh)             |
-| `<leader>ll`     | n       | Открыть Lazy dashboard             |
-| `<leader>lx`     | n       | Открыть Lazy extras                |
-| `<leader>uz`     | n       | Переключить zen режим              |
-| `<leader>uq`     | n       | Открыть dashboard                  |
-| `<leader><tab>r` | n       | Переименовать таб                  |
+- `<leader><space>` — найти файлы (smart)
+- `<leader>cr` — LSP-переименование с живым превью
+- `gr` — референсы в peek-окне
+- `H` / `L` — предыдущий/следующий буфер
+- `<leader>fy` — файловый менеджер Yazi
+- `w` / `b` / `e` — движения по подсловам
 
-### Файлы и буферы
+**Продуктивность**:
 
-| Клавиша           | Режим | Описание                        |
-| ----------------- | ----- | ------------------------------- |
-| `<leader><space>` | n     | Найти файлы (smart)             |
-| `<leader>fy`      | n     | Найти файлы (yazi)              |
-| `<leader>fY`      | n     | Найти файлы (yazi prev session) |
-| `<leader>bg`      | n, v  | Выбрать буфер                   |
-| `<leader>bm[`     | n     | Переместить буфер (prev)        |
-| `<leader>bm]`     | n     | Переместить буфер (next)        |
-| `<leader>b<tab>`  | n     | Переместить буфер в другой таб  |
-| `H`               | n     | Предыдущий буфер                |
-| `L`               | n     | Следующий буфер                 |
+- `d` — удаление без копирования в регистр
+- `<C-S-j>` / `<C-S-k>` — перемещение строк
+- `<C-,>` / `<C-.>` — перестановка параметров и элементов массива
+- `<leader>ct` — разбить/склеить блок кода
+- `gx` / `gX` — открыть удалённый git-репозиторий
 
-### Навигация и движение
+**Git и GitLab**:
 
-| Клавиша   | Режим   | Описание                          |
-| --------- | ------- | --------------------------------- |
-| `[x`      | n       | Перейти к контексту treesitter    |
-| `w`       | n, o, x | Движение вперед (spider)          |
-| `b`       | n, o, x | Движение назад (spider)           |
-| `e`       | n, o, x | Движение к концу слова (spider)   |
-| `cw`      | n       | Изменить слово (spider)           |
-| `<C-f>`   | i       | Движение вперед в insert (spider) |
-| `<C-b>`   | i       | Движение назад в insert (spider)  |
-| `<C-A-h>` | n       | TreeWalker влево                  |
-| `<C-A-l>` | n       | TreeWalker вправо                 |
-| `<C-A-j>` | n       | TreeWalker вниз                   |
-| `<C-A-k>` | n       | TreeWalker вверх                  |
-| `<C-A-.>` | n       | TreeWalker поменять вниз          |
-| `<C-A-,>` | n       | TreeWalker поменять вверх         |
+- `<leader>gL*` — весь воркфлоу GitLab MR (ревью, комментарии, approve, merge)
+- `go` — открыть файл или выделение в GitHub/GitLab
 
-### Управление окнами
-
-| Клавиша     | Режим   | Описание              |
-| ----------- | ------- | --------------------- |
-| `<C-Up>`    | n, v, t | Увеличить высоту окна |
-| `<C-Down>`  | n, v, t | Уменьшить высоту окна |
-| `<C-Left>`  | n, v, t | Уменьшить ширину окна |
-| `<C-Right>` | n, v, t | Увеличить ширину окна |
-
-### LSP и код
-
-| Клавиша      | Режим | Описание                          |
-| ------------ | ----- | --------------------------------- |
-| `gr`         | n     | Перейти к ссылкам (glance)        |
-| `<leader>cr` | n     | Переименование (live-rename)      |
-| `<leader>cw` | n, v  | Обернуть emmet abbreviation       |
-| `<C-.>`      | n     | Поменять sibling узел вправо      |
-| `<C-,>`      | n     | Поменять sibling узел влево       |
-| `<leader>ct` | n     | Split/Join блок (автоопределение) |
-| `<leader>c\` | n     | Split блок кода                   |
-| `<leader>cj` | n     | Join блок кода                    |
-
-### Git операции
-
-| Клавиша       | Режим | Описание                          |
-| ------------- | ----- | --------------------------------- |
-| `<leader>ghP` | n     | Предпросмотр hunk                 |
-| `go`          | n     | Открыть в браузере (fugitive)     |
-| `go`          | v     | Открыть диапазон в браузере       |
-| `gx`          | n     | Открыть удаленный git репозиторий |
-| `gX`          | n     | Войти в удаленный git репозиторий |
-
-### GitLab операции
-
-| Клавиша       | Режим | Описание                           |
-| ------------- | ----- | ---------------------------------- |
-| `<leader>gLA` | n     | Одобрить MR                        |
-| `<leader>gLc` | n     | Создать комментарий                |
-| `<leader>gLc` | v     | Создать multiline комментарий      |
-| `<leader>gLC` | v     | Создать комментарий с предложением |
-| `<leader>gLd` | n     | Переключить обсуждение             |
-| `<leader>gLe` | n     | Выбрать merge request              |
-| `<leader>gLM` | n     | Слить MR                           |
-| `<leader>gLm` | n     | Перейти к дереву обсуждений        |
-| `<leader>gLn` | n     | Создать заметку                    |
-| `<leader>gLo` | n     | Открыть в браузере                 |
-| `<leader>gLp` | n     | Pipeline                           |
-| `<leader>gLr` | n     | Review                             |
-| `<leader>gLR` | n     | Отозвать                           |
-| `<leader>gLs` | n     | Сводка                             |
-
-### DAP (отладка)
-
-| Клавиша | Режим | Описание              |
-| ------- | ----- | --------------------- |
-| `<F5>`  | n     | Продолжить            |
-| `<F10>` | n     | Шаг через (step over) |
-| `<F11>` | n     | Шаг в (step into)     |
-| `<F12>` | n     | Шаг из (step out)     |
-
-См. [extras/core/keys.lua](./lua/lazyvimx/extras/core/keys.lua) для полного списка.
+**📖 Полный список**: [KEYBINDINGS.ru.md](docs/KEYBINDINGS.ru.md) — с описаниями и указанием,
+какая экстра нужна для каждого кеймапа.
 
 ## 🔧 Конфигурация
 
-### Цветовая схема
+### Колорскемы
 
-lazyvimx поддерживает автоматическое переключение между светлым/темным вариантами:
+lazyvimx переключает светлый/тёмный вариант темы вслед за системой:
 
 ```lua
 require("lazyvimx").setup({
-  colorscheme = "catppuccin",
-  colorscheme_flavors = {
-    catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
-  }
+	colorscheme = "catppuccin",
 })
 ```
 
-Система автоматически переключается между темным (индекс 1) и светлым (индекс 2) в зависимости от системной темы (только для [macOS](https://github.com/aimuzov/dotfiles/tree/main/private_Library/ThemeSwitcher)).
+Варианты собраны в «семейства» (`colorscheme_households`): для каждой темы — список тёмных и
+список светлых. Из коробки настроены Catppuccin, Tokyo Night и Nord; тёмная система — берётся
+тёмный вариант, светлая — светлый. Подробности и формат — в
+[CONFIGURATION.ru.md](docs/CONFIGURATION.ru.md#колорскемы).
 
 ### Группы буферов
 
-Определите кастомные группы bufferline:
+Кастомные группы в bufferline:
 
 ```lua
 require("lazyvimx").setup({
-   bufferline_groups = {
-     ["React"] = "%.tsx$",
-     ["Tests"] = "%.test%.",
-   }
+	bufferline_groups = {
+		["React"] = "%.tsx$",
+		["Tests"] = "%.test%.",
+	},
 })
 ```
 
-## 🤝 Интеграция
+## 🤝 Интеграции
 
 ### Chezmoi
 
-lazyvimx автоматически синхронизирует `lazy-lock.json` и `lazyvim.json` в chezmoi при обновлениях, если установлена переменная окружения `DOTFILES_SRC_PATH`.
+При обновлении плагинов lazyvimx добавляет `lazy-lock.json` и `lazyvim.json` в chezmoi —
+если утилита `chezmoi` установлена.
 
 ### VSCode
 
-Специальный режим интеграции с VSCode:
+Режим для расширения VSCode Neovim:
 
-- Синхронизация индикатора режима
-- Адаптированные горячие клавиши
-- Нативная интеграция переименования VSCode
+- синхронизация индикатора режима со статус-баром
+- адаптированные кеймапы
+- переименование через нативный VSCode
 
 ### macOS
 
-- Определение системной темы для автопереключения цветовых схем
-- Интеграция с корзиной для безопасного удаления файлов в neo-tree
-- Системные команды открытия
+- определение системной темы для автопереключения колорскемов
+- удаление файлов в корзину в neo-tree
 
 ## 🌟 Философия
 
-lazyvimx улучшает LazyVim, следуя принципам:
-
-1. **Сохранение дизайна LazyVim** - Все улучшения опциональны через extras
-2. **Поддержание консистентности** - Единая тема и визуальный язык
-3. **Улучшение юзабилити** - Умные настройки по умолчанию и оптимизация рабочих процессов
-4. **Поддержка кастомизации** - Гибкая система конфигурации
-5. **Обеспечение качества** - Внимательное отношение к полировке и деталям
+1. **Не ломать LazyVim** — все улучшения опциональны и включаются экстрами
+2. **Единый стиль** — общая тема и визуальный язык во всех плагинах
+3. **Умные дефолты** — работает из коробки, настраивается при желании
+4. **Внимание к деталям** — от рамок окон до поведения курсора
 
 ## 📊 Статистика
 
-- **49 опциональных расширений** в 11 категориях
-- **33 модуля переопределений** для глубокой кастомизации
-- **150+ кастомных подсветок** для темы Catppuccin
-- **70+ кастомных подсветок** для темы Tokyo Night
-- **30+ кастомных горячих клавиш**
+- **49 опциональных экстр** в 11 категориях
+- **39 оверрайдов** для глубокой кастомизации
+- **Сотни кастомных хайлайтов** для Catppuccin, Tokyo Night и Nord
+- **60+ кастомных кеймапов**
 
 ## 🔗 Ссылки
 
-- [Пример использования](https://github.com/aimuzov/dotfiles/blob/main/dot_config/nvim/init.lua#L6-L7)
+- [Пример использования](https://github.com/aimuzov/dotfiles/blob/main/dot_config/nvim/init.lua)
 - [Обсуждение](https://t.me/aimuzov_dotfiles)
 - [LazyVim](https://github.com/LazyVim/LazyVim)
 
@@ -446,11 +361,12 @@ lazyvimx улучшает LazyVim, следуя принципам:
 
 ## 📄 Лицензия
 
-Этот проект следует той же лицензии, что и LazyVim.
+Лицензия та же, что у LazyVim.
 
 ## 🙏 Благодарности
 
-Построен поверх превосходного [LazyVim](https://github.com/LazyVim/LazyVim) от [folke](https://github.com/folke).
+Построен поверх превосходного [LazyVim](https://github.com/LazyVim/LazyVim) от
+[folke](https://github.com/folke).
 
 ---
 

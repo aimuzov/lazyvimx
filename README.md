@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/version-1.5.0-blue.svg)
+![Version](https://img.shields.io/badge/version-1.9.1-blue.svg)
 ![Neovim](https://img.shields.io/badge/Neovim-0.10+-green.svg)
 ![License](https://img.shields.io/badge/license-Apache--2.0-orange.svg)
 ![Extras](https://img.shields.io/badge/extras-49-purple.svg)
@@ -12,38 +12,40 @@
 > [!TIP]
 > **🇷🇺 Русская версия:** [README.ru.md](README.ru.md)
 
-**Enhanced LazyVim configuration with extensive customizations, UI improvements, and workflow optimizations.**
+**An enhancement layer on top of [LazyVim](https://github.com/LazyVim/LazyVim): 49 optional
+extras and 39 plugin overrides.**
 
-lazyvimx is a comprehensive enhancement layer built on top of [LazyVim](https://github.com/LazyVim/LazyVim) that provides 49 optional extras and 33 override modules to create a highly polished, feature-rich Neovim experience.
+The idea is simple: LazyVim stays untouched, and everything else — UI polish, navigation,
+git workflow, Russian keyboard support — is enabled piece by piece. Don't like an extra?
+Don't enable it, and it's like it doesn't exist.
 
 ## ✨ Features
 
-### 🎨 Visual Enhancements
+### 🎨 Interface
 
-- **Advanced theming** with deep customization for Catppuccin and Tokyo Night
-- **Automatic theme switching** based on system light/dark mode
-- **Enhanced UI components** with consistent rounded borders and custom icons
-- **Better statusline** with custom mode indicators and visual elements
-- **Improved dashboard** with custom ASCII art and styled sections
-- **Symbol usage indicators** showing references and implementations inline
+- **Deep theme customization** — Catppuccin, Tokyo Night, and Nord
+- **Automatic light/dark switching** following the system theme ([macOS](https://github.com/aimuzov/dotfiles/tree/main/private_Library/ThemeSwitcher))
+- **Consistent UI style** — rounded borders, aligned window sizes, custom icons
+- **Enhanced dashboard** with ASCII art and animation
+- **Symbol usage counters** inline in code, JetBrains-style
+- **Single-line diagnostics** at the cursor
 
-### 🚀 Productivity Boosters
+### 🚀 Productivity
 
-- **Smart buffer management** with groups, automatic cleanup, and tab scoping
-- **Enhanced code navigation** with tree-sitter aware motions
-- **Better diagnostics display** with inline messages
-- **Git workflow improvements** including GitLab MR integration and conflict resolution
-- **Advanced completion** with Blink.cmp integration
-- **AI coding assistant** support via Avante
+- **Smart buffers** — bufferline groups, auto-cleanup, per-tab isolation
+- **Syntax-tree navigation** — moving and swapping nodes
+- **Subword motions** — `w`/`e`/`b` understand camelCase
+- **Git workflow** — GitLab MR review inside the editor, conflict resolution, browsing remote repositories
+- **JS/TS debugging** via js-debug-adapter
 
-### ⚙️ Quality of Life
+### ⚙️ Quality of life
 
-- **Russian keyboard support** via langmapper
-- **Repeatable actions** for buffer operations
-- **Auto-save to chezmoi** on LazyVim updates
-- **Local project configuration** support
-- **VSCode integration** for hybrid workflows
-- **Performance optimizations** including inactive LSP cleanup
+- **Russian keyboard layout** via langmapper — no switching to English
+- **Safe editing on sshfs mounts** — in-place writes, no broken permissions or symlinks
+- **Auto-sync to chezmoi** on plugin updates
+- **Per-project local configs** (`.nvim.lua`)
+- **VSCode mode** for a hybrid workflow
+- **Automatic Mason package updates**
 
 ## 📦 Installation
 
@@ -53,18 +55,18 @@ lazyvimx is a comprehensive enhancement layer built on top of [LazyVim](https://
 
 ### 🚀 Choose Your Setup
 
-**New to lazyvimx?** Check out ready-to-use configurations in [examples/](examples/):
+**New to lazyvimx?** Ready-to-use configurations live in [examples/](examples/):
 
-- **[Minimal](examples/minimal/)** - Essential overrides only (~55-85ms startup)
-- **[Full-Featured](examples/full-featured/)** - All 49 extras enabled (~80-120ms startup)
-- **[VSCode User](examples/vscode-user/)** - Optimized for VSCode Neovim
-- **[Russian Keyboard](examples/russian-keyboard/)** - With langmapper support
+- **[Minimal](examples/minimal/)** — overrides only, the fastest start
+- **[Full-Featured](examples/full-featured/)** — all 49 extras
+- **[VSCode User](examples/vscode-user/)** — for the VSCode Neovim extension
+- **[Russian Keyboard](examples/russian-keyboard/)** — with Russian layout support
 
 ### Quick Start
 
-> **💡 Real Example**: See [author's configuration](https://github.com/aimuzov/dotfiles/blob/main/dot_config/nvim/init.lua) for a production setup.
+> **💡 Real-world example**: the [author's configuration](https://github.com/aimuzov/dotfiles/blob/main/dot_config/nvim/init.lua).
 
-1. **Create `~/.config/nvim/init.lua` with the following content:**
+1. **Create `~/.config/nvim/init.lua`:**
 
 ```lua
 local lazy_opts = {
@@ -101,13 +103,11 @@ require("lazy").setup(lazy_opts)
 nvim
 ```
 
-That's it! lazyvimx will automatically install LazyVim and all required plugins on first launch.
+On first launch lazyvimx installs LazyVim and all required plugins by itself.
 
 3. **Configure lazyvimx (optional):**
 
-You can configure lazyvimx in two ways:
-
-**Option A:** Add `opts` directly in `init.lua`:
+**Option A** — `opts` right in `init.lua`:
 
 ```lua
 local lazy_opts = {
@@ -117,50 +117,43 @@ local lazy_opts = {
       import = "lazyvimx.boot",
       opts = {
         colorscheme = "catppuccin",
-        colorscheme_flavors = {
-          catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
-          tokyonight = { "tokyonight-storm", "tokyonight-day" },
-        },
         bufferline_groups = {
-          -- Define custom buffer groups
-          -- ["name"] = "regex_pattern",
-        }
-      }
-    }
-  }
+          -- ["group name"] = "lua-pattern",
+        },
+      },
+    },
+  },
   -- ... other settings
 }
 ```
 
-**Option B:** Create a separate file `~/.config/nvim/lua/plugins/lazyvimx.lua`:
+**Option B** — a separate file `~/.config/nvim/lua/plugins/lazyvimx.lua`:
 
 ```lua
 return {
   "aimuzov/lazyvimx",
   opts = {
     colorscheme = "catppuccin",
-    colorscheme_flavors = {
-      catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
-      tokyonight = { "tokyonight-storm", "tokyonight-day" },
-    },
     bufferline_groups = {
-      -- Define custom buffer groups
-      -- ["name"] = "regex_pattern",
+      -- ["group name"] = "lua-pattern",
     },
   },
 }
 ```
 
+All options, including light/dark theme variants (`colorscheme_households`), are covered in
+[CONFIGURATION.md](docs/CONFIGURATION.md).
+
 4. **Enable extras:**
 
-Use the LazyVim extras UI (`:LazyExtras`) to enable lazyvimx extras (recommended), or add them to your config:
+Via the `:LazyExtras` UI (recommended) or imports in your config:
 
 ```lua
--- In lua/plugins/extras.lua
+-- lua/plugins/extras.lua
 return {
-  -- Includes all enhancements for lazyvim
+  -- All plugin overrides
   { import = "lazyvimx.extras.core.overrides" },
-  -- Add more extras as needed
+  -- Then whatever you need
   { import = "lazyvimx.extras.ui.better-diagnostic" },
   { import = "lazyvimx.extras.motions.langmapper" },
 }
@@ -172,141 +165,146 @@ return {
 lazyvimx/
 ├── lua/lazyvimx/
 │   ├── boot.lua              # Bootstrap configuration
-│   ├── init.lua              # Main module with setup function
-│   ├── extras/               # Optional feature modules (49 total)
-│   │   ├── core/            # Core enhancements (overrides, keys)
-│   │   ├── ui/              # UI improvements (19 modules)
-│   │   ├── coding/          # Coding tools (2 modules)
-│   │   ├── motions/         # Motion enhancements (6 modules)
-│   │   ├── buf/             # Buffer management (4 modules)
-│   │   ├── git/             # Git integration (4 modules)
-│   │   ├── lang/            # Language support (2 modules)
-│   │   ├── linting/         # Linting tools (2 modules)
-│   │   ├── ai/              # AI assistants (1 module)
-│   │   ├── dap/             # Debugging (1 module)
-│   │   ├── perf/            # Performance (3 modules)
-│   │   └── test/            # Testing (1 module)
-│   ├── overrides/           # Plugin customizations (33 total)
-│   │   ├── lazyvim/         # LazyVim core overrides (8 modules)
-│   │   ├── snacks/          # Snacks.nvim overrides (7 modules)
-│   │   ├── bufferline/      # Bufferline overrides (6 modules)
-│   │   └── other/           # Other plugins (13 modules)
-│   └── util/                # Utility functions
-│       ├── general.lua      # General utilities
-│       └── layout.lua       # Layout management
-└── init.lua                 # Entry point guard
+│   ├── init.lua              # Main module with setup()
+│   ├── extras/               # Optional modules (49 + 5 core)
+│   │   ├── core/             # Bundles: all, overrides, extras, keys, colorschemes
+│   │   ├── ui/               # Interface (20)
+│   │   ├── motions/          # Navigation (6)
+│   │   ├── buf/              # Buffers (4)
+│   │   ├── git/              # Git (4)
+│   │   ├── lang/             # Languages (4)
+│   │   ├── perf/             # Performance (4)
+│   │   ├── coding/           # Coding tools (2)
+│   │   ├── linting/          # Linters (2)
+│   │   ├── colorschemes/     # Colorschemes (1)
+│   │   ├── dap/              # Debugging (1)
+│   │   └── test/             # Testing (1)
+│   ├── overrides/            # Plugin customizations (39)
+│   │   ├── lazyvim/          # LazyVim (9)
+│   │   ├── snacks/           # Snacks.nvim (9)
+│   │   ├── bufferline/       # Bufferline (6)
+│   │   └── other/            # Other plugins (15)
+│   └── util/                 # Utilities
+│       ├── general.lua       # General (colors, system theme, extras checks)
+│       └── layout.lua        # Sidebar and panel sizes
+└── init.lua                  # Guard against using the repo directly
 ```
 
-## 🎯 Core Extras
+## 🎯 Core Modules
 
 ### Recommended Setup
 
-Enable all core enhancements `core.all` via `:LazyExtras` (recommended) or add the import to your config:
+Enable everything at once — `core.all` via `:LazyExtras` or an import:
 
 ```lua
 { import = "lazyvimx.extras.core.all" }
 ```
 
-This includes:
+Inside:
 
-- **Overrides**: All plugin customizations
-- **Extras**: All available extras
-- **Keys**: Custom keybindings
-- **Notifications**: Missing extras warnings
+- **overrides** — all 39 plugin customizations
+- **extras** — all feature extras
+- **colorschemes** — additional colorschemes
+- **keys** — custom keymaps
+- plus a notification if recommended LazyVim extras are missing
 
-### Individual Core Components
+### Individually
 
 ```lua
-{ import = "lazyvimx.extras.core.overrides" }  -- Plugin overrides
-{ import = "lazyvimx.extras.core.extras" }     -- All extras
-{ import = "lazyvimx.extras.core.keys" }       -- Custom keybindings
+{ import = "lazyvimx.extras.core.overrides" }     -- Plugin overrides
+{ import = "lazyvimx.extras.core.extras" }        -- All extras
+{ import = "lazyvimx.extras.core.keys" }          -- Keymaps
+{ import = "lazyvimx.extras.core.colorschemes" }  -- Colorschemes
 ```
 
 ## 📚 Documentation
 
-- **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** - Technical architecture and implementation details ([🇷🇺](docs/ARCHITECTURE.ru.md))
-- **[CONFIGURATION.md](docs/CONFIGURATION.md)** - Configuration guide and options ([🇷🇺](docs/CONFIGURATION.ru.md))
-- **[EXTRAS.md](docs/EXTRAS.md)** - Complete guide to all 49 extras ([🇷🇺](docs/EXTRAS.ru.md))
-- **[API.md](docs/API.md)** - API reference and utility functions ([🇷🇺](docs/API.ru.md))
+- **[EXTRAS.md](docs/EXTRAS.md)** — reference for all 49 extras ([🇷🇺](docs/EXTRAS.ru.md))
+- **[CONFIGURATION.md](docs/CONFIGURATION.md)** — configuration and options ([🇷🇺](docs/CONFIGURATION.ru.md))
+- **[KEYBINDINGS.md](docs/KEYBINDINGS.md)** — all keymaps ([🇷🇺](docs/KEYBINDINGS.ru.md))
+- **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** — how it all works ([🇷🇺](docs/ARCHITECTURE.ru.md))
+- **[API.md](docs/API.md)** — utilities and functions ([🇷🇺](docs/API.ru.md))
+- **[FAQ.md](docs/FAQ.md)** — frequently asked questions ([🇷🇺](docs/FAQ.ru.md))
+- **[TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)** — problem solving ([🇷🇺](docs/TROUBLESHOOTING.ru.md))
 
 ## 🎨 Highlighted Extras
 
-### UI Enhancements
+### Interface
 
-- `ui.better-diagnostic` - Inline diagnostic messages
-- `ui.better-float` - Consistent floating window styles
-- `ui.symbol-usage` - Reference/definition counters
-- `ui.better-explorer` - Yazi file manager integration
-- `ui.winbar` - File path in window bar
+- `ui.better-diagnostic` — single-line diagnostics at the cursor
+- `ui.better-float` — consistent floating window style
+- `ui.symbol-usage` — symbol usage counters
+- `ui.better-explorer` — the Yazi file manager
+- `ui.winbar` — file path above the window
 
-### Coding Tools
+### Navigation
 
-- `coding.emmet` - HTML/CSS expansion
-- `coding.comments` - Enhanced commenting with documentation generation
+- `motions.langmapper` — **Russian layout without switching**
+- `motions.better-move-between-words` — subword motions
+- `motions.sibling-swap` — swapping tree-sitter nodes
+- `motions.splitting-joining-blocks` — splitting/joining code blocks
 
-### Motions
+### Git
 
-- `motions.langmapper` - **Russian keyboard support**
-- `motions.better-move-between-words` - Subword navigation
-- `motions.sibling-swap` - Tree-sitter based swapping
-- `motions.splitting-joining-blocks` - Smart block manipulation
+- `git.gitlab` — GitLab MR review inside the editor
+- `git.conflicts` — visual conflict resolution
+- `git.remote-view` — opening remote repositories locally
 
-### Git Integration
+### More
 
-- `git.gitlab` - GitLab MR review
-- `git.conflicts` - Visual conflict resolution
-- `git.remote-view` - Open remote repos locally
+- `buf.remote-mounts` — safe editing over sshfs
+- `coding.comments` — context-aware commenting and JSDoc generation
+- `test.jest` — Jest in Neotest
 
-### AI & Testing
+## ⌨️ Keymaps
 
-- `ai.avante` - Cursor AI IDE emulation
-- `test.jest` - Jest testing framework
+lazyvimx adds 60+ custom keymaps. The most used ones:
 
-## ⌨️ Key Mappings
+**Every day**:
 
-lazyvimx adds 30+ custom keybindings. Here are the highlights:
-
-**Most Used**:
-- `<leader><space>` - Find files
-- `<leader>cr` - LSP rename (live preview)
-- `gr` - Go to references (peek view)
-- `H` / `L` - Previous/Next buffer
-- `<leader>fy` - Open Yazi file explorer
-- `w` / `b` / `e` - Smart word motions (subword aware)
+- `<leader><space>` — find files (smart)
+- `<leader>cr` — LSP rename with live preview
+- `gr` — references in a peek window
+- `H` / `L` — previous/next buffer
+- `<leader>fy` — the Yazi file manager
+- `w` / `b` / `e` — subword motions
 
 **Productivity**:
-- `d` - Delete without yanking (no clipboard pollution)
-- `<C-S-j>` / `<C-S-k>` - Move lines up/down
-- `<C-.>` / `<C-,>` - Swap function parameters/array elements
-- `<leader>ct` - Smart split/join code blocks
-- `gx` / `gX` - Open/browse remote Git repositories
+
+- `d` — delete without clobbering the register
+- `<C-S-j>` / `<C-S-k>` — move lines
+- `<C-,>` / `<C-.>` — swap parameters and array elements
+- `<leader>ct` — split/join a code block
+- `gx` / `gX` — open a remote git repository
 
 **Git & GitLab**:
-- `<leader>gL*` - Full GitLab MR workflow (review, comment, approve, merge)
-- `go` - Open file/selection in GitHub/GitLab browser
 
-**📖 Full Reference**: See [KEYBINDINGS.md](docs/KEYBINDINGS.md) for complete list with descriptions and requirements.
+- `<leader>gL*` — the whole GitLab MR workflow (review, comments, approve, merge)
+- `go` — open a file or selection in GitHub/GitLab
+
+**📖 Full list**: [KEYBINDINGS.md](docs/KEYBINDINGS.md) — with descriptions and the extra
+each keymap requires.
 
 ## 🔧 Configuration
 
-### Colorscheme
+### Colorschemes
 
-lazyvimx supports automatic light/dark variant switching:
+lazyvimx switches between light and dark theme variants following the system:
 
 ```lua
 require("lazyvimx").setup({
 	colorscheme = "catppuccin",
-	colorscheme_flavors = {
-		catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
-	},
 })
 ```
 
-The system automatically switches between dark (index 1) and light (index 2) based on system theme ([macOS only](https://github.com/aimuzov/dotfiles/tree/main/private_Library/ThemeSwitcher)).
+Variants are grouped into "households" (`colorscheme_households`): each theme gets a list of
+dark and a list of light variants. Catppuccin, Tokyo Night, and Nord are configured out of
+the box; a dark system picks a dark variant, a light one picks light. Details and format —
+in [CONFIGURATION.md](docs/CONFIGURATION.md#colorschemes).
 
 ### Buffer Groups
 
-Define custom bufferline groups:
+Custom bufferline groups:
 
 ```lua
 require("lazyvimx").setup({
@@ -317,47 +315,43 @@ require("lazyvimx").setup({
 })
 ```
 
-## 🤝 Integration
+## 🤝 Integrations
 
 ### Chezmoi
 
-lazyvimx automatically syncs `lazy-lock.json` and `lazyvim.json` to chezmoi on updates if `DOTFILES_SRC_PATH` is set.
+After a plugin update lazyvimx adds `lazy-lock.json` and `lazyvim.json` to chezmoi — as long
+as the `chezmoi` binary is installed.
 
 ### VSCode
 
-Special VSCode integration mode with:
+A mode for the VSCode Neovim extension:
 
-- Mode indicator synchronization
-- Adjusted keybindings
-- Native VSCode rename integration
+- mode indicator synced to the status bar
+- adjusted keymaps
+- rename via native VSCode
 
 ### macOS
 
-- System theme detection for auto-switching colorschemes
-- Trash integration for safe file deletion in neo-tree
-- System open commands
+- system theme detection for automatic colorscheme switching
+- deleting files to the trash in neo-tree
 
 ## 🌟 Philosophy
 
-lazyvimx enhances LazyVim by:
-
-1. **Preserving LazyVim's design** - All enhancements are opt-in via extras
-2. **Maintaining consistency** - Unified theming and visual language
-3. **Improving usability** - Smart defaults and workflow optimizations
-4. **Supporting customization** - Flexible configuration system
-5. **Ensuring quality** - Careful attention to polish and detail
+1. **Don't break LazyVim** — every enhancement is optional and enabled via extras
+2. **One style** — a shared theme and visual language across all plugins
+3. **Smart defaults** — works out of the box, configurable when desired
+4. **Attention to detail** — from window borders to cursor behavior
 
 ## 📊 Stats
 
 - **49 optional extras** across 11 categories
-- **33 override modules** for deep customization
-- **150+ custom highlights** for Catppuccin theme
-- **70+ custom highlights** for Tokyo Night theme
-- **30+ custom keybindings**
+- **39 overrides** for deep customization
+- **Hundreds of custom highlights** for Catppuccin, Tokyo Night, and Nord
+- **60+ custom keymaps**
 
 ## 🔗 Links
 
-- [Usage Example](https://github.com/aimuzov/dotfiles/blob/main/dot_config/nvim/init.lua#L6-L7)
+- [Usage Example](https://github.com/aimuzov/dotfiles/blob/main/dot_config/nvim/init.lua)
 - [Discussion](https://t.me/aimuzov_dotfiles)
 - [LazyVim](https://github.com/LazyVim/LazyVim)
 
@@ -367,11 +361,12 @@ lazyvimx enhances LazyVim by:
 
 ## 📄 License
 
-This project follows the same license as LazyVim.
+Same license as LazyVim.
 
 ## 🙏 Credits
 
-Built on top of the excellent [LazyVim](https://github.com/LazyVim/LazyVim) by [folke](https://github.com/folke).
+Built on top of the excellent [LazyVim](https://github.com/LazyVim/LazyVim) by
+[folke](https://github.com/folke).
 
 ---
 

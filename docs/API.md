@@ -3,65 +3,24 @@
 > [!TIP]
 > **🇷🇺 Русская версия:** [API.ru.md](API.ru.md)
 
-Complete API documentation for lazyvimx utility functions and modules.
+lazyvimx utilities and modules you can use in your own configuration.
 
 ## Table of Contents
 
 - [Main Module](#main-module)
-- [General Utilities](#general-utilities)
-- [Layout Utilities](#layout-utilities)
-- [Boot Functions](#boot-functions)
-- [Plugin Utilities](#plugin-utilities)
+- [util.general](#utilgeneral)
+- [util.layout](#utillayout)
+- [boot.lua](#bootlua)
 
 ---
 
 ## Main Module
 
-**Module:** `lazyvimx`
-**Location:** `lua/lazyvimx/init.lua`
+**Module:** `lazyvimx` (`lua/lazyvimx/init.lua`)
 
 ### `setup(opts)`
 
-Initialize lazyvimx with custom configuration.
-
-**Signature:**
-
-```lua
-function M.setup(opts?: table)
-```
-
-**Parameters:**
-
-- `opts` (table, optional) - Configuration options
-
-**Configuration Schema:**
-
-```lua
-{
-	colorscheme?: string,                    -- Base colorscheme name
-	colorscheme_flavors?: {
-		[string]: { string, string }           -- { dark_variant, light_variant }
-	},
-	bufferline_groups?: {
-		[string]: string                       -- { group_name: pattern }
-	}
-}
-```
-
-**Default Configuration:**
-
-```lua
-{
-	colorscheme = "catppuccin",
-	colorscheme_flavors = {
-		catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
-		tokyonight = { "tokyonight-storm", "tokyonight-day" },
-	},
-	bufferline_groups = {},
-}
-```
-
-**Usage:**
+Merge user options with the defaults.
 
 ```lua
 require("lazyvimx").setup({
@@ -72,762 +31,242 @@ require("lazyvimx").setup({
 })
 ```
 
-**Returns:** None
-
-**Side Effects:**
-
-- Sets `M.config` with merged configuration
-- Available globally as `require("lazyvimx").config`
+The options schema and defaults are in
+[CONFIGURATION.md](CONFIGURATION.md#the-setup-function). You usually don't call `setup()`
+yourself: options from the `"aimuzov/lazyvimx"` plugin spec end up here automatically (the
+spec in `boot.lua` has `config = true`).
 
 ### `config`
 
-Access current configuration.
-
-**Type:** `table`
-
-**Usage:**
+The current configuration (after the merge).
 
 ```lua
 local config = require("lazyvimx").config
-print(config.colorscheme)  -- "catppuccin"
+print(config.colorscheme) -- "catppuccin"
 ```
 
 ---
 
-## General Utilities
+## util.general
 
-**Module:** `lazyvimx.util.general`
-**Location:** `lua/lazyvimx/util/general.lua`
+**Module:** `lazyvimx.util.general` (`lua/lazyvimx/util/general.lua`)
 
 ### `color_blend(color_first, color_second, percentage)`
 
-Blends two hex colors by percentage.
-
-**Signature:**
+Blend two hex colors in a given proportion.
 
 ```lua
-function M.color_blend(
-	color_first: string,
-	color_second: string,
-	percentage: number
-): string
+function M.color_blend(color_first: string, color_second: string, percentage: number): string
 ```
 
-**Parameters:**
-
-- `color_first` (string) - First hex color (e.g., "#FF0000")
-- `color_second` (string) - Second hex color (e.g., "#0000FF")
-- `percentage` (number) - Blend percentage (0-100)
-
-**Returns:** (string) - Blended hex color
-
-**Example:**
+- `color_first`, `color_second` — colors like `"#RRGGBB"`
+- `percentage` — the share of the second color, 0–100
 
 ```lua
 local util = require("lazyvimx.util.general")
 
--- Blend red with blue at 50%
-local purple = util.color_blend("#FF0000", "#0000FF", 50)
--- Returns: "#7F007F"
-
--- Blend with 25% of second color
-local light_red = util.color_blend("#FF0000", "#FFFFFF", 25)
--- Returns: "#FF3F3F"
+util.color_blend("#FF0000", "#0000FF", 50) -- "#7F007F"
+util.color_blend("#FF0000", "#FFFFFF", 25) -- a slightly lighter red
 ```
 
-**Use Cases:**
-
-- Theme customization
-- Dynamic highlight generation
-- Color interpolation
-
-**Implementation Note:**
-Uses RGB color space for blending.
+The main tool for highlight customization — used heavily in the theme overrides.
 
 ### `popen_get_result(cmd)`
 
-Execute shell command and return trimmed output.
-
-**Signature:**
+Run a shell command and return its output as a single line (no trailing whitespace or
+newlines). An empty string on failure.
 
 ```lua
 function M.popen_get_result(cmd: string): string
 ```
 
-**Parameters:**
-
-- `cmd` (string) - Shell command to execute
-
-**Returns:** (string) - Command output (trimmed, no newlines)
-
-**Example:**
-
 ```lua
-local util = require("lazyvimx.util.general")
-
-local result = util.popen_get_result("echo hello")
--- Returns: "hello"
-
-local theme = util.popen_get_result("defaults read -g AppleInterfaceStyle 2>&1")
--- Returns: "Dark" or ""
+util.popen_get_result("echo hello") -- "hello"
 ```
-
-**Error Handling:**
-Returns empty string if command fails or handle is nil.
 
 ### `theme_is_dark()`
 
-Check if macOS is in dark mode.
-
-**Signature:**
+Whether the system theme is dark.
 
 ```lua
 function M.theme_is_dark(): boolean
 ```
 
-**Returns:** (boolean) - `true` if dark mode, `false` otherwise
+- **macOS:** `defaults read -g AppleInterfaceStyle`
+- **Linux:** `gsettings get org.gnome.desktop.interface gtk-theme`, falling back to
+  `color-scheme`
 
-**Example:**
+### `get_flavor(colorscheme_household_last?)`
+
+The colorscheme variant for the current system theme.
 
 ```lua
-local util = require("lazyvimx.util.general")
-
-if util.theme_is_dark() then
-	print("Dark mode active")
-else
-	print("Light mode active")
-end
+function M.get_flavor(colorscheme_household_last?: string): string
 ```
 
-**Platform:** macOS only
+- `colorscheme_household_last` — the household name; defaults to `config.colorscheme`
 
-**Implementation:**
+**Logic:**
+
+1. `theme_is_dark()` picks the list: `[1]` — dark, `[2]` — light
+2. If `last-color.nvim` is installed (the `perf.restore-last-colorscheme` extra) and the
+   last used variant is in that list — it's returned
+3. Otherwise — the first variant of the list
 
 ```lua
-defaults read -g AppleInterfaceStyle
--- Returns "Dark" in dark mode
--- Returns error in light mode
+-- In dark mode with default settings:
+util.get_flavor("catppuccin") -- "catppuccin-macchiato"
 ```
 
 ### `get_dotfiles_path()`
 
-Get dotfiles source path from environment.
-
-**Signature:**
+The value of the `DOTFILES_SRC_PATH` environment variable, or an empty string. A helper for
+user configs; lazyvimx itself doesn't use it at the moment.
 
 ```lua
 function M.get_dotfiles_path(): string
 ```
 
-**Returns:** (string) - Dotfiles path or empty string
-
-**Example:**
-
-```lua
-local util = require("lazyvimx.util.general")
-
-local path = util.get_dotfiles_path()
-if path ~= "" then
-	print("Dotfiles at:", path)
-end
-```
-
-**Environment Variable:** `DOTFILES_SRC_PATH`
-
-**Usage in Code:**
-
-```lua
-local dotfiles = util.get_dotfiles_path()
-if dotfiles ~= "" then
-	local lazy_lock = vim.fn.stdpath("config") .. "/lazy-lock.json"
-	vim.fn.system(string.format("chezmoi add %s", lazy_lock))
-end
-```
-
-### `get_flavor(colorscheme?)`
-
-Get appropriate colorscheme variant based on system theme.
-
-**Signature:**
-
-```lua
-function M.get_flavor(colorscheme?: string): string
-```
-
-**Parameters:**
-
-- `colorscheme` (string, optional) - Colorscheme name (defaults to config value)
-
-**Returns:** (string) - Colorscheme variant name
-
-**Example:**
-
-```lua
-local util = require("lazyvimx.util.general")
-
--- In dark mode:
-local flavor = util.get_flavor("catppuccin")
--- Returns: "catppuccin-macchiato"
-
--- In light mode:
-local flavor = util.get_flavor("catppuccin")
--- Returns: "catppuccin-latte"
-
--- Use configured colorscheme:
-local flavor = util.get_flavor()
-```
-
-**Logic:**
-
-1. Checks system theme with `theme_is_dark()`
-2. Selects index 1 (dark) or 2 (light)
-3. Returns variant from `config.colorscheme_flavors`
-
 ### `has_extra(extra)`
 
-Check if specific extra is loaded.
-
-**Signature:**
+Whether a lazyvimx extra is enabled.
 
 ```lua
 function M.has_extra(extra: string): boolean
 ```
 
-**Parameters:**
+- `extra` — the name without the prefix: `"ui.winbar"`, `"git.gitlab"`
 
-- `extra` (string) - Extra name (e.g., "ui.winbar")
-
-**Returns:** (boolean) - `true` if extra is loaded
-
-**Example:**
+Checks both loaded lazy.nvim modules and the extras list in `lazyvim.json`.
 
 ```lua
-local util = require("lazyvimx.util.general")
-
 if util.has_extra("ui.winbar") then
-	print("Winbar is enabled")
-end
-
--- Conditional configuration:
-if util.has_extra("ui.edgy") then
-	-- Configure edgy integration
+	-- configure the integration
 end
 ```
 
-**Checks:**
-
-- Lazy.nvim loaded modules
-- LazyVim extras JSON data
+For LazyVim's own extras there's the analogous `LazyVim.has_extra("ui.edgy")`.
 
 ### `warn_missing_extra(extra_name)`
 
-Create callback that warns if extra is missing.
-
-**Signature:**
+A callback factory: show a warning if an extra is not enabled. Used by extras with
+dependencies (e.g. `git.gitlab` warns about `ui.diff-view`).
 
 ```lua
 function M.warn_missing_extra(extra_name: string): function
 ```
 
-**Parameters:**
-
-- `extra_name` (string) - Extra name to check
-
-**Returns:** (function) - Callback function
-
-**Example:**
-
 ```lua
-local util = require("lazyvimx.util.general")
-
-return {
-	{
-		"plugin/name",
-		init = util.warn_missing_extra("ui.diff-view"),
-	}
+{
+	"folke/snacks.nvim",
+	opts = require("lazyvimx.util.general").warn_missing_extra("ui.diff-view"),
 }
-
--- Shows notification if ui.diff-view is not loaded:
--- "Missing extra: `ui.diff-view`"
 ```
-
-**Use Case:**
-Warn users about required extras for optional features.
 
 ---
 
-## Layout Utilities
+## util.layout
 
-**Module:** `lazyvimx.util.layout`
-**Location:** `lua/lazyvimx/util/layout.lua`
+**Module:** `lazyvimx.util.layout` (`lua/lazyvimx/util/layout.lua`)
 
-Manages consistent sizing for sidebars and panels.
+A single source of sidebar and panel sizes: edgy, diffview, and other plugins take their
+sizes from here, so panels stay consistent, and resizing one is remembered for all.
 
-### Configuration
-
-**Internal State:**
+**Internal state:**
 
 ```lua
 local size = {
 	left = 40,
-	right = 40,
+	right = 80,
 	top = 10,
 	bottom = 10,
 }
 
-M.step = 3  -- Resize step size
+M.step = 3 -- resize step
 ```
 
 ### `get_size(pos)`
 
-Get current size for position.
-
-**Signature:**
+The current size for a position.
 
 ```lua
-function M.get_size(pos: string): number
+function M.get_size(pos: "left"|"right"|"top"|"bottom"): number
 ```
-
-**Parameters:**
-
-- `pos` (string) - Position: "left", "right", "top", or "bottom"
-
-**Returns:** (number) - Size value
-
-**Example:**
 
 ```lua
 local layout = require("lazyvimx.util.layout")
 
-local left_width = layout.get_size("left")
--- Returns: 40
-
-local bottom_height = layout.get_size("bottom")
--- Returns: 10
+layout.get_size("left")   -- 40
+layout.get_size("bottom") -- 10
 ```
 
 ### `get_size_create(pos)`
 
-Create function that returns size for position.
-
-**Signature:**
-
-```lua
-function M.get_size_create(pos: string): function
-```
-
-**Parameters:**
-
-- `pos` (string) - Position: "left", "right", "top", or "bottom"
-
-**Returns:** (function) - Function returning size
-
-**Example:**
-
-```lua
-local layout = require("lazyvimx.util.layout")
-
--- Used in plugin configuration:
-{
-	"plugin/name",
-	opts = {
-		width = layout.get_size_create("left"),
-	}
-}
-
--- Equivalent to:
-{
-	opts = {
-		width = function() return 40 end,
-	}
-}
-```
-
-**Use Case:**
-Edgy.nvim and other plugins that accept size functions.
-
-### `increase_create(dir)`
-
-Create function that increases window size.
-
-**Signature:**
-
-```lua
-function M.increase_create(dir: string): function
-```
-
-**Parameters:**
-
-- `dir` (string) - Direction: "width" or "height"
-
-**Returns:** (function) - Function that increases size
-
-**Example:**
-
-```lua
-local layout = require("lazyvimx.util.layout")
-
--- Used in keybinding:
-vim.keymap.set("n", "<C-w>+", function()
-	local win = require("edgy").get_win()
-	if win then
-		layout.increase_create("height")(win)
-	end
-end)
-```
-
-**Behavior:**
-
-- Increases size by `M.step` (default: 3)
-- Updates internal state
-- Resizes window
-
-### `decrease_create(dir)`
-
-Create function that decreases window size.
-
-**Signature:**
-
-```lua
-function M.decrease_create(dir: string): function
-```
-
-**Parameters:**
-
-- `dir` (string) - Direction: "width" or "height"
-
-**Returns:** (function) - Function that decreases size
-
-**Example:**
-
-```lua
-local layout = require("lazyvimx.util.layout")
-
--- Used in keybinding:
-vim.keymap.set("n", "<C-w>-", function()
-	local win = require("edgy").get_win()
-	if win then
-		layout.decrease_create("height")(win)
-	end
-end)
-```
-
-**Behavior:**
-
-- Decreases size by `M.step` (default: 3)
-- Updates internal state
-- Resizes window
-
-### Usage in Edgy Configuration
+The same, but returns a function — for plugins that accept a size callback (edgy):
 
 ```lua
 {
 	"folke/edgy.nvim",
-	opts = function()
-		local layout = require("lazyvimx.util.layout")
-
-		return {
-			left = {
-				size = layout.get_size_create("left"),
-			},
-			bottom = {
-				size = layout.get_size_create("bottom"),
-			},
-			keys = {
-				["<c-Left>"] = function(win) layout.decrease_create("width")(win) end,
-				["<c-Right>"] = function(win) layout.increase_create("width")(win) end,
-				["<c-Up>"] = function(win) layout.increase_create("height")(win) end,
-				["<c-Down>"] = function(win) layout.decrease_create("height")(win) end,
-			},
-		}
-	end,
-}
-```
-
----
-
-## Boot Functions
-
-**Module:** Boot system
-**Location:** `lua/lazyvimx/boot.lua`
-
-Internal functions used during bootstrap. Not intended for direct use.
-
-### `set_global()`
-
-Sets global variables for LazyVim configuration.
-
-**Internal Function**
-
-**Sets:**
-
-```lua
-vim.g.lazyvim_check_order = false
-vim.g.xtras_prios = {}
-vim.g.lazyvim_explorer = "neo-tree"
-```
-
-### `vimopts_set_values()`
-
-Configures Vim options.
-
-**Internal Function**
-
-See [CONFIGURATION.md#vim-options](./CONFIGURATION.md#vim-options) for details.
-
-### `insert_extras()`
-
-Registers lazyvimx extras in LazyVim extras UI.
-
-**Internal Function**
-
-**Adds Source:**
-
-```lua
-{
-	name = "[ 󰬟 ]",
-	desc = "Some recipes (extras) for enhance lazyvim",
-	module = "lazyvimx.extras",
-}
-```
-
-### `set_colorscheme(_, opts)`
-
-Sets colorscheme based on system theme.
-
-**Internal Function**
-
-**Usage:**
-
-```lua
-opts.colorscheme = require("lazyvimx.util.general").get_flavor()
-```
-
-### `has_plugins_dir()`
-
-Checks if user has custom plugins directory.
-
-**Internal Function**
-
-**Returns:** (boolean) - `true` if `lua/plugins/*.lua` exists
-
----
-
-## Plugin Utilities
-
-### Custom Groups for Bufferline
-
-**Function:** `custom_groups_create()`
-**Location:** `lua/lazyvimx/overrides/bufferline/add-groups.lua`
-
-Creates custom buffer groups from configuration.
-
-**Returns:** (table) - Bufferline groups configuration
-
-**Usage in Config:**
-
-```lua
-require("lazyvimx").setup({
-	bufferline_groups = {
-		["React"] = "%.tsx$",
-	},
-})
-```
-
-**Generated Groups:**
-
-```lua
-{
-	name = "React",
-	matcher = function(buf)
-		return buf.path:match("%.tsx$")
-	end,
-}
-```
-
----
-
-## Type Definitions
-
-For reference, here are the main type shapes:
-
-### Config Type
-
-```lua
----@class lazyvimxConfig
----@field colorscheme string
----@field colorscheme_flavors table<string, string[]>
----@field bufferline_groups table<string, string>
-```
-
-### Layout Size Type
-
-```lua
----@alias LayoutPosition "left"|"right"|"top"|"bottom"
----@alias LayoutDirection "width"|"height"
-```
-
----
-
-## Usage Examples
-
-### Complete Theme Setup
-
-```lua
--- lua/config/lazyvimx.lua
-require("lazyvimx").setup({
-	colorscheme = "catppuccin",
-	colorscheme_flavors = {
-		catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
-	},
-})
-
--- lua/plugins/theme.lua
-local util = require("lazyvimx.util.general")
-
-return {
-	{
-		"catppuccin/nvim",
-		opts = {
-			custom_highlights = function(colors)
-				-- Use color blending
-				local subtle = util.color_blend(colors.base, colors.overlay0, 30)
-				return {
-					Comment = { fg = subtle },
-				}
-			end,
-		},
+	opts = {
+		left = { size = layout.get_size_create("left") },
 	},
 }
 ```
 
-### Conditional Feature
+### `increase_create(dir)` / `decrease_create(dir)`
+
+Factories of edgy-window resize functions that step by `M.step` and remember the new size.
 
 ```lua
--- lua/plugins/conditional.lua
-local util = require("lazyvimx.util.general")
-
-return {
-	{
-		"plugin/name",
-		cond = function()
-			return util.has_extra("ui.winbar")
-		end,
-		opts = {
-			-- Configuration
-		},
-	},
-}
+function M.increase_create(dir: "width"|"height"): function
+function M.decrease_create(dir: "width"|"height"): function
 ```
 
-### Layout Integration
+This is how the `<C-Up>` / `<C-Down>` / `<C-Left>` / `<C-Right>` keymaps in `core.keys` are
+built:
 
 ```lua
--- lua/plugins/sidebar.lua
-local layout = require("lazyvimx.util.layout")
-
-return {
-	{
-		"sidebar/plugin",
-		opts = {
-			width = layout.get_size_create("left"),
-			resize_keys = {
-				["<C-w>>"] = layout.increase_create("width"),
-				["<C-w><"] = layout.decrease_create("width"),
-			},
-		},
-	},
+opts.keys = {
+	["<c-Up>"] = layout.increase_create("height"),
+	["<c-Down>"] = layout.decrease_create("height"),
+	["<c-Left>"] = layout.decrease_create("width"),
+	["<c-Right>"] = layout.increase_create("width"),
 }
-```
-
-### Dotfiles Integration
-
-```lua
--- lua/plugins/chezmoi.lua
-local util = require("lazyvimx.util.general")
-
-vim.api.nvim_create_autocmd("BufWritePost", {
-	pattern = "*/nvim/lua/**/*.lua",
-	callback = function()
-		local dotfiles = util.get_dotfiles_path()
-		if dotfiles ~= "" then
-			local file = vim.fn.expand("%:p")
-			vim.fn.system(string.format("chezmoi add %s", file))
-			print("Added to chezmoi:", vim.fn.fnamemodify(file, ":t"))
-		end
-	end,
-})
 ```
 
 ---
 
-## Best Practices
+## boot.lua
 
-### 1. Check Extra Availability
+**Module:** `lazyvimx.boot` (`lua/lazyvimx/boot.lua`)
 
-Always check if extras are loaded before using their features:
+The entry point: `{ "aimuzov/lazyvimx", import = "lazyvimx.boot" }`. Internal functions, not
+called directly:
 
-```lua
-local util = require("lazyvimx.util.general")
+| Function                   | What it does                                                                                          |
+| -------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `set_global()`             | `vim.g.lazyvim_check_order = false`, `vim.g.xtras_prios = {}`, `vim.g.lazyvim_explorer = "neo-tree"`  |
+| `vimopts_create_autocmd()` | subscribes to `LazyVimOptionsDefaults` to set Vim options                                             |
+| `update_root_lsp_ignore()` | adds `eslint` to `vim.g.root_lsp_ignore`                                                              |
+| `insert_extras()`          | registers the lazyvimx extras source (the 󰬟 icon) in the `:LazyExtras` UI                             |
+| `set_colorscheme()`        | sets the colorscheme via `get_flavor()`                                                               |
+| `has_plugins_dir()`        | plugs in the user's `lua/plugins/*.lua` if present                                                    |
 
-if util.has_extra("ui.edgy") then
-	-- Configure edgy integration
-end
-```
-
-### 2. Use Layout Utilities for Consistency
-
-Use layout utilities instead of hardcoded sizes:
-
-```lua
--- ❌ Don't
-opts = { width = 40 }
-
--- ✅ Do
-local layout = require("lazyvimx.util.layout")
-opts = { width = layout.get_size_create("left") }
-```
-
-### 3. Access Config Safely
-
-Check config exists before accessing:
-
-```lua
-local ok, config = pcall(function()
-	return require("lazyvimx").config
-end)
-
-if ok then
-	-- Use config
-end
-```
-
-### 4. Use Color Blending for Themes
-
-Create harmonious colors with blending:
-
-```lua
-local util = require("lazyvimx.util.general")
-
--- Create subtle variant
-local subtle_bg = util.color_blend(base_bg, overlay, 15)
-
--- Create highlight variant
-local highlight_fg = util.color_blend(base_fg, accent, 30)
-```
+The spec order in `boot.lua` and the bootstrap process are described in
+[ARCHITECTURE.md](ARCHITECTURE.md#bootstrap-process).
 
 ---
 
-## API Summary
+## Summary
 
-| Module         | Functions                                                                                 | Purpose            |
-| -------------- | ----------------------------------------------------------------------------------------- | ------------------ |
-| `lazyvimx`     | `setup()`, `config`                                                                       | Main configuration |
-| `util.general` | `color_blend()`, `theme_is_dark()`, `get_flavor()`, `has_extra()`, `warn_missing_extra()` | General utilities  |
-| `util.layout`  | `get_size()`, `get_size_create()`, `increase_create()`, `decrease_create()`               | Layout management  |
+| Module         | Functions                                                                                                                             | Purpose         |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `lazyvimx`     | `setup()`, `config`                                                                                                                    | Configuration   |
+| `util.general` | `color_blend()`, `popen_get_result()`, `theme_is_dark()`, `get_flavor()`, `get_dotfiles_path()`, `has_extra()`, `warn_missing_extra()` | General helpers |
+| `util.layout`  | `get_size()`, `get_size_create()`, `increase_create()`, `decrease_create()`, `step`                                                    | Panel sizes     |
 
 ## See Also
 
-- [CONFIGURATION.md](CONFIGURATION.md) - Configuration guide
-- [ARCHITECTURE.md](ARCHITECTURE.md) - Technical architecture
-- [EXTRAS.md](EXTRAS.md) - Extras reference
+- [CONFIGURATION.md](CONFIGURATION.md) — configuration
+- [ARCHITECTURE.md](ARCHITECTURE.md) — internals
+- [EXTRAS.md](EXTRAS.md) — the extras reference

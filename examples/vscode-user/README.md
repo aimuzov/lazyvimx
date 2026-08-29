@@ -1,40 +1,41 @@
 # Конфигурация lazyvimx для VSCode
 
-Конфигурация lazyvimx, оптимизированная для пользователей расширения VSCode Neovim.
+Для пользователей расширения [VSCode Neovim](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim):
+только то, что имеет смысл внутри VSCode.
 
 ## Что включено
 
 - ✅ Базовый LazyVim
-- ✅ Основные переопределения lazyvimx (включая интеграцию с VSCode)
-- ✅ Улучшения движений (отлично работают в VSCode)
-- ✅ Инструменты разработки
-- ❌ UI extras (VSCode предоставляет UI)
-- ❌ LSP extras (используйте LSP VSCode)
+- ✅ Оверрайды lazyvimx (включая режим VSCode)
+- ✅ Экстры движений — все работают в VSCode
+- ✅ Комментирование с контекстом
+- ❌ UI-экстры — интерфейс рисует VSCode
+- ❌ LSP, отладка, тесты — этим занимается VSCode
 
 ## Возможности
 
-### Интеграция с VSCode
-- Синхронизация индикатора режима со статус-баром VSCode
-- Адаптированные горячие клавиши для VSCode
-- Нативная интеграция переименования VSCode
+### Режим VSCode
 
-### Улучшенные движения
-- **Spider**: Subword-aware w/b/e движения
-- **Sibling Swap**: Перестановка параметров функции с `<C-,>` / `<C-.>`
-- **TreeWalker**: Навигация по AST с `<C-A-hjkl>`
-- **Block Split/Join**: Умная манипуляция блоками кода
+Включается автоматически, когда Neovim запущен внутри VSCode:
 
-### Инструменты разработки
-- Улучшенное комментирование с tree-sitter
-- Генерация JSDoc
+- индикатор режима синхронизируется со статус-баром (расширение `neovim-ui-indicator`)
+- `<leader>cr` вызывает нативное переименование VSCode
+- конфликтующие кеймапы отключены
+
+### Движения
+
+- **spider** — `w`/`b`/`e` по подсловам
+- **sibling-swap** — перестановка параметров: `<C-,>` / `<C-.>`
+- **treewalker** — навигация по дереву: `<C-A-h/j/k/l>`
+- **treesj** — разбить/склеить блок: `<leader>ct`
+- **stay-in-place** — курсор не убегает при сдвигах
 
 ## Установка
 
-1. Установите [расширение VSCode Neovim](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim)
-
+1. Установите расширение VSCode Neovim
 2. Скопируйте `init.lua` в `~/.config/nvim/init.lua`
+3. Укажите пути в settings.json VSCode:
 
-3. В settings.json VSCode:
    ```json
    {
      "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
@@ -46,29 +47,11 @@
 
 ## Рекомендуемые расширения VSCode
 
-- **nvim-mode-indicator**: Показывает режим Neovim в статус-баре
-- **GitLens**: Интеграция с Git (вместо git extras lazyvimx)
-- **Error Lens**: Inline диагностика (аналог better-diagnostic)
+- **neovim-ui-indicator** — режим Neovim в статус-баре
+- **GitLens** — вместо git-экстр lazyvimx
+- **Error Lens** — inline-диагностика (аналог `ui.better-diagnostic`)
 
-## Что НЕ включать
+## Чего не включать
 
-Избегайте этих extras в VSCode:
-
-- UI extras (bufferline, lualine и т.д.) - VSCode предоставляет UI
-- LSP extras - Используйте LSP VSCode
-- Explorer extras - Используйте файловый менеджер VSCode
-- DAP extras - Используйте отладчик VSCode
-
-## Горячие клавиши
-
-Все горячие клавиши движений отлично работают в VSCode:
-
-- `w` / `b` / `e` - Умные движения
-- `<C-.>` / `<C-,>` - Перестановка соседних элементов
-- `<C-A-hjkl>` - Навигация TreeWalker
-- `<leader>ct` - Разделить/объединить блоки
-
-## Производительность
-
-- **Запуск**: Очень быстрый (минимум плагинов)
-- **Без конфликтов**: Работает вместе с функциями VSCode
+UI-экстры, explorer, DAP и LSP-экстры в VSCode не нужны — эти роли выполняет сам VSCode.
+Многие экстры и так отключают себя при `vim.g.vscode`.
