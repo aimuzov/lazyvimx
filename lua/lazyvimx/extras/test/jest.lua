@@ -29,6 +29,7 @@ return {
 
 	{
 		"folke/snacks.nvim",
+		optional = true,
 		opts = require("lazyvimx.util.general").warn_missing_extra("test.core"),
 	},
 }
