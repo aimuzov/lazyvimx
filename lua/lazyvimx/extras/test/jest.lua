@@ -28,7 +28,7 @@ return {
 	},
 
 	{
-		"fokle/snacks.nvim",
+		"folke/snacks.nvim",
 		opts = require("lazyvimx.util.general").warn_missing_extra("test.core"),
 	},
 }

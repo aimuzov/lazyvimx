@@ -24,7 +24,7 @@ return {
 	{
 		"folke/which-key.nvim",
 		optional = true,
-		opts = { spec = { { "<leader>gl", group = "+gitlab" } } },
+		opts = { spec = { { "<leader>gL", group = "+gitlab" } } },
 	},
 
 	{
