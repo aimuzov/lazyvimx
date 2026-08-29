@@ -125,7 +125,7 @@ end
 ```
 extras/
 ├── core/          # Сборные модули (5): all, colorschemes, extras, keys, overrides
-├── ui/            # Интерфейс (20)
+├── ui/            # Интерфейс (21)
 ├── motions/       # Навигация (6)
 ├── buf/           # Буферы (4)
 ├── git/           # Git (4)
@@ -138,7 +138,7 @@ extras/
 └── test/          # Тестирование (1)
 ```
 
-49 функциональных экстр; описания — в [EXTRAS.ru.md](EXTRAS.ru.md).
+50 функциональных экстр; описания — в [EXTRAS.ru.md](EXTRAS.ru.md).
 
 ### Шаблон экстры
 
@@ -156,7 +156,7 @@ return {
 ### Сборные модули core
 
 - `core.all` — импортирует остальные четыре плюс уведомление о рекомендуемых экстрах LazyVim
-- `core.extras` — реестр всех функциональных экстр (48 импортов; `ui.better-progressbar` — с
+- `core.extras` — реестр всех функциональных экстр (49 импортов; `ui.better-progressbar` — с
   условием `TERM=xterm-ghostty`)
 - `core.overrides` — все 4 категории оверрайдов
 - `core.colorschemes` — дополнительные колорскемы

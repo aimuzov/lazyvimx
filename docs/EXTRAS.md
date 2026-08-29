@@ -3,13 +3,13 @@
 > [!TIP]
 > **🇷🇺 Русская версия:** [EXTRAS.ru.md](EXTRAS.ru.md)
 
-The complete reference for all 49 lazyvimx extras.
+The complete reference for all 50 lazyvimx extras.
 
 ## Table of Contents
 
 - [Overview](#overview)
 - [Core Modules](#core-modules)
-- [UI (20)](#ui)
+- [UI (21)](#ui)
 - [Coding (2)](#coding)
 - [Motions (6)](#motions)
 - [Buf (4)](#buf)
@@ -63,7 +63,7 @@ All of lazyvimx: overrides, every extra, colorschemes, and custom keymaps.
 
 - `core.colorschemes` — additional colorschemes
 - `core.overrides` — all 39 overrides
-- `core.extras` — all 48 extras from the registry
+- `core.extras` — all 49 extras from the registry
 - `core.keys` — custom keymaps
 
 On startup it also checks whether the recommended LazyVim extras are enabled and shows a
@@ -89,7 +89,7 @@ More in [ARCHITECTURE.md](./ARCHITECTURE.md#overrides-system).
 
 **Import:** `lazyvimx.extras.core.extras`
 
-The registry of all 48 feature extras (every category except `colorschemes`) — one import
+The registry of all 49 feature extras (every category except `colorschemes`) — one import
 instead of forty-eight. `ui.better-progressbar` from the registry is enabled only under
 Ghostty (`TERM=xterm-ghostty`).
 
@@ -276,6 +276,16 @@ A scrollbar only in the active window. Hidden in insert mode and in special buff
 
 A minimal interface for reading man pages: launching `nvim +Man! <command>` disables the
 statusline, bufferline, neo-tree, and line numbers.
+
+### ui.showkeys
+
+**Import:** `lazyvimx.extras.ui.showkeys`
+
+A badge with the pressed keys in the corner of the screen — for screencasts, demos, and
+pair programming. Enabled with the `:ShowkeysToggle` command. Every demo gif in this
+documentation is recorded with it.
+
+**Plugin:** `nvzone/showkeys`
 
 ### ui.symbol-usage
 
@@ -658,7 +668,7 @@ by Jest itself, the `CI=true` environment variable.
 
 | Category     | Count  | What's inside                            |
 | ------------ | ------ | ---------------------------------------- |
-| UI           | 20     | Interface and looks                      |
+| UI           | 21     | Interface and looks                      |
 | Motions      | 6      | Navigation and code movement             |
 | Buf          | 4      | Buffer management                        |
 | Git          | 4      | Git and GitLab                           |
@@ -669,7 +679,7 @@ by Jest itself, the `CI=true` environment variable.
 | Colorschemes | 1      | Colorschemes                             |
 | DAP          | 1      | Debugging                                |
 | Test         | 1      | Testing                                  |
-| **Total**    | **49** | plus 5 core modules for enabling bundles |
+| **Total**    | **50** | plus 5 core modules for enabling bundles |
 
 ## Where to Start
 

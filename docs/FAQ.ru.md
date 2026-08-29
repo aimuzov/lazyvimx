@@ -16,7 +16,7 @@
 
 ### Что такое lazyvimx?
 
-Слой улучшений для [LazyVim](https://github.com/LazyVim/LazyVim): 49 опциональных экстр и 39
+Слой улучшений для [LazyVim](https://github.com/LazyVim/LazyVim): 50 опциональных экстр и 39
 оверрайдов плагинов. LazyVim остаётся основой, lazyvimx добавляет полировку интерфейса и
 воркфлоу — и только то, что вы включили.
 
@@ -137,7 +137,7 @@ lazyvimx определяет светлый/тёмный режим систе�
 - `motions.langmapper` — русская раскладка
 - `git.gitlab` — ревью GitLab MR
 
-Все 49 — в [EXTRAS.ru.md](EXTRAS.ru.md).
+Все 50 — в [EXTRAS.ru.md](EXTRAS.ru.md).
 
 ### Как включить экстру?
 

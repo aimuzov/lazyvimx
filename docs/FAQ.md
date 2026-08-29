@@ -16,7 +16,7 @@
 
 ### What is lazyvimx?
 
-An enhancement layer for [LazyVim](https://github.com/LazyVim/LazyVim): 49 optional extras
+An enhancement layer for [LazyVim](https://github.com/LazyVim/LazyVim): 50 optional extras
 and 39 plugin overrides. LazyVim stays the foundation, lazyvimx adds interface and workflow
 polish — and only what you've enabled.
 
@@ -138,7 +138,7 @@ An optional module with a ready-made setup for one feature. For example:
 - `motions.langmapper` — the Russian layout
 - `git.gitlab` — GitLab MR review
 
-All 49 are in [EXTRAS.md](EXTRAS.md).
+All 50 are in [EXTRAS.md](EXTRAS.md).
 
 ### How do I enable an extra?
 

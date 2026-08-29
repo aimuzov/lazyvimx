@@ -127,7 +127,7 @@ The household is derived from the theme name's prefix up to the first hyphen:
 ```
 extras/
 ├── core/          # Bundles (5): all, colorschemes, extras, keys, overrides
-├── ui/            # Interface (20)
+├── ui/            # Interface (21)
 ├── motions/       # Navigation (6)
 ├── buf/           # Buffers (4)
 ├── git/           # Git (4)
@@ -140,7 +140,7 @@ extras/
 └── test/          # Testing (1)
 ```
 
-49 feature extras; descriptions are in [EXTRAS.md](EXTRAS.md).
+50 feature extras; descriptions are in [EXTRAS.md](EXTRAS.md).
 
 ### Extra Template
 
@@ -158,7 +158,7 @@ return {
 ### Core Bundles
 
 - `core.all` — imports the other four plus a notification about recommended LazyVim extras
-- `core.extras` — the registry of every feature extra (48 imports;
+- `core.extras` — the registry of every feature extra (49 imports;
   `ui.better-progressbar` — behind a `TERM=xterm-ghostty` condition)
 - `core.overrides` — all 4 override categories
 - `core.colorschemes` — additional colorschemes
