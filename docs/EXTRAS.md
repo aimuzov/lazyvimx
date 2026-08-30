@@ -402,6 +402,10 @@ punctuation. UTF-8, works in VSCode too.
 
 **Keymaps:** `w`/`e`/`b`, `cw`, and `<C-f>`/`<C-b>` in insert mode (via `core.keys`).
 
+**Requires:** Lua 5.1 or LuaJIT in `PATH` (`brew install luajit`) — luarocks.nvim does not
+build without a system Lua, and without the `luautf8` rock subwords in non-ASCII text stay
+invisible.
+
 ### motions.langmapper
 
 ![Demo](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-langmapper.gif)

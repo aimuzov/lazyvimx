@@ -66,6 +66,9 @@ git-воркфлоу, поддержка русской раскладки — �
 ### Требования
 
 - Neovim >= 0.10.0
+- Lua 5.1 или LuaJIT в `PATH` (`brew install luajit`) — нужно экстре
+  `motions.better-move-between-words`: [luarocks.nvim](https://github.com/vhyrro/luarocks.nvim)
+  собирает рок `luautf8` для движений по не-ASCII подсловам и без системного Lua падает
 
 ### 🚀 Выберите свой вариант
 
@@ -254,7 +257,7 @@ lazyvimx/
 ### Навигация
 
 - `motions.langmapper` — **русская раскладка без переключения**
-- `motions.better-move-between-words` — движения по подсловам
+- `motions.better-move-between-words` — движения по подсловам (нужен Lua 5.1/LuaJIT в `PATH`, см. Требования)
 - `motions.sibling-swap` — перестановка узлов tree-sitter
 - `motions.splitting-joining-blocks` — разбивка/склейка блоков кода
 
