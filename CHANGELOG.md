@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.10.0](https://github.com/aimuzov/lazyvimx/compare/v1.9.1...v1.10.0) (2026-08-30)
+
+### Features
+
+* **buf:** keep writes safe on sshfs mounts ([4a04af9](https://github.com/aimuzov/lazyvimx/commit/4a04af9f40b943fd43551080f0ba123305227a2a))
+* **demo:** add before-variant tape generation ([b74b7ef](https://github.com/aimuzov/lazyvimx/commit/b74b7efb470173d0572aa20785147ea7857b1ada))
+* **demo:** add light recording mode ([f79fbcf](https://github.com/aimuzov/lazyvimx/commit/f79fbcf514ed546c075a1f0ee87e779403a8c288))
+* **demo:** add VHS pipeline and pilot tapes for extras demo gifs ([a9312ac](https://github.com/aimuzov/lazyvimx/commit/a9312ac5b9aac2641fdba3702e153348b5d2f257))
+* **demo:** record gifs for 30 extras and embed them into EXTRAS ([f6069be](https://github.com/aimuzov/lazyvimx/commit/f6069be52ac1574488ff850d754601d3248ed91b))
+* **oxc:** route oxfmt and prettier by project config markers ([fca93c1](https://github.com/aimuzov/lazyvimx/commit/fca93c1a294982262f9b3bc10606c70d179ddc2a))
+* **snacks:** follow lazygit worktree switch by changing nvim cwd ([42c1227](https://github.com/aimuzov/lazyvimx/commit/42c12272c6374044db716b2f18c8e877ea888715))
+* **snacks:** force winblend=0 for terminal and lazygit styles ([d31b31a](https://github.com/aimuzov/lazyvimx/commit/d31b31a066a1be4c1149ecb7814c6d2ab9a062b6))
+* **ui:** pass progress metadata to nvim_echo ([c700336](https://github.com/aimuzov/lazyvimx/commit/c700336dd4f1d551ac2134c22d2b7fea0babb489))
+
+### Bug Fixes
+
+* **demo:** make before-tapes honest instead of destructive ([7a05e04](https://github.com/aimuzov/lazyvimx/commit/7a05e04949abd34a7f340bfb72f85b4a110626ae))
+* **demo:** record simple-mode through a real MANPAGER call ([0ffaa29](https://github.com/aimuzov/lazyvimx/commit/0ffaa29024881069fc53eacff2ff30092863e41d))
+* **examples:** migrate full-featured config to colorscheme_households ([a29f749](https://github.com/aimuzov/lazyvimx/commit/a29f749c7bae4986dad18219b74f7519625d05de))
+* **extras:** correct snacks.nvim owner typo and gitlab which-key group prefix ([9dea355](https://github.com/aimuzov/lazyvimx/commit/9dea35554763d6795dd8c7eb68cd53126873231c))
+* **extras:** document system lua requirement for better-move-between-words ([c3384b4](https://github.com/aimuzov/lazyvimx/commit/c3384b4a6dfb0ec752d1b4162804bfa6f9a7b5e4))
+* **extras:** mark snacks.nvim specs optional in jest and vscode-js ([0b923de](https://github.com/aimuzov/lazyvimx/commit/0b923de9011463e31e46d219e18f227e8f859e64))
+* **lazygit:** skip theme override when config is missing ([2983760](https://github.com/aimuzov/lazyvimx/commit/29837606b5cedd43cb1e551f9e857afb4aed8cd7))
+* **overrides:** react to SIGUSR1 only in the colorscheme signal autocmd ([18fa8f4](https://github.com/aimuzov/lazyvimx/commit/18fa8f46c8e4d21eecd691f0eb73e05e368fe3eb))
+* **stylelint:** enable stylelint_lsp diagnostics for svelte and non-standard config path ([8f71097](https://github.com/aimuzov/lazyvimx/commit/8f710976b5f583b6c26bc740fc893897b7117374))
+
 ## [1.9.1](https://github.com/aimuzov/lazyvimx/compare/v1.9.0...v1.9.1) (2026-05-21)
 
 ### Features
