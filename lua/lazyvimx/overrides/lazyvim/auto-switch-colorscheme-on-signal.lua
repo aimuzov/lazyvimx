@@ -13,6 +13,7 @@ return {
 
 	opts = function()
 		vim.api.nvim_create_autocmd("Signal", {
+			pattern = "SIGUSR1",
 			desc = "Change colorscheme after system theme changed",
 			callback = vim.schedule_wrap(colorscheme_update),
 		})
