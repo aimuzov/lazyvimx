@@ -14,7 +14,7 @@ Set Framerate 24
 Hide
 Type "export XDG_CONFIG_HOME=$PWD/profile/config XDG_DATA_HOME=$PWD/profile/data XDG_STATE_HOME=$PWD/profile/state XDG_CACHE_HOME=$PWD/profile/cache"
 Enter
-Type "cd work && DEMO_EXTRAS=ui.simple-mode nvim '+Man!' ls"
+Type `cd work && DEMO_EXTRAS=ui.simple-mode MANPAGER="nvim '+Man!'" man ls`
 Enter
 Sleep 14s
 Show
