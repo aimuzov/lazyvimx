@@ -52,6 +52,9 @@ Don't enable it, and it's like it doesn't exist.
 ### Prerequisites
 
 - Neovim >= 0.10.0
+- Lua 5.1 or LuaJIT in `PATH` (`brew install luajit`) — required by
+  `motions.better-move-between-words`: [luarocks.nvim](https://github.com/vhyrro/luarocks.nvim)
+  builds the `luautf8` rock for non-ASCII subword motions and fails without a system Lua
 
 ### 🚀 Choose Your Setup
 
@@ -240,7 +243,7 @@ Inside:
 ### Navigation
 
 - `motions.langmapper` — **Russian layout without switching**
-- `motions.better-move-between-words` — subword motions
+- `motions.better-move-between-words` — subword motions (needs Lua 5.1/LuaJIT in `PATH`, see Prerequisites)
 - `motions.sibling-swap` — swapping tree-sitter nodes
 - `motions.splitting-joining-blocks` — splitting/joining code blocks
 
