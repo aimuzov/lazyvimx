@@ -9,9 +9,16 @@ local lazy_opts = {
 			import = "lazyvimx.boot",
 			opts = {
 				colorscheme = "catppuccin",
-				colorscheme_flavors = {
-					catppuccin = { "catppuccin-macchiato", "catppuccin-latte" },
-					tokyonight = { "tokyonight-storm", "tokyonight-day" },
+				colorscheme_households = {
+					-- [1] — dark flavors, [2] — light flavors
+					catppuccin = {
+						{ "catppuccin-macchiato", "catppuccin-mocha" },
+						{ "catppuccin-latte" },
+					},
+					tokyonight = {
+						{ "tokyonight-storm", "tokyonight-moon" },
+						{ "tokyonight-day" },
+					},
 				},
 				bufferline_groups = {
 					["React"] = "%.tsx$",
