@@ -46,7 +46,7 @@ lazyvimx **расширяет** LazyVim, а не заменяет:
 :Lazy update
 ```
 
-История изменений — в [CHANGELOG.md](../CHANGELOG.md).
+История изменений — в файле [CHANGELOG](../CHANGELOG.md).
 
 ## Установка
 
@@ -99,7 +99,7 @@ require("lazyvimx").setup({
 })
 ```
 
-Все опции — в [CONFIGURATION.ru.md](CONFIGURATION.ru.md).
+Все опции — на странице [Настройка](CONFIGURATION.ru.md).
 
 ### Как сменить колорскем?
 
@@ -114,7 +114,7 @@ require("lazyvimx").setup({ colorscheme = "tokyonight" })
 lazyvimx определяет светлый/тёмный режим системы и берёт соответствующий вариант из
 «семейства» темы (`colorscheme_households`). Для переключения на лету нужен внешний
 наблюдатель, посылающий процессу Neovim сигнал — подробности в
-[CONFIGURATION.ru.md](CONFIGURATION.ru.md#колорскемы).
+[Настройка](CONFIGURATION.ru.md#колорскемы).
 
 ### Можно ли отключить часть оверрайдов?
 
@@ -137,7 +137,7 @@ lazyvimx определяет светлый/тёмный режим систе�
 - `motions.langmapper` — русская раскладка
 - `git.gitlab` — ревью GitLab MR
 
-Все 50 — в [EXTRAS.ru.md](EXTRAS.ru.md).
+Все 50 — на странице [Экстры](EXTRAS.ru.md).
 
 ### Как включить экстру?
 
@@ -175,8 +175,8 @@ lazyvimx определяет светлый/тёмный режим систе�
 ### Можно ли написать свою экстру?
 
 Да — это обычный файл со спеком lazy.nvim, см.
-[ARCHITECTURE.ru.md](ARCHITECTURE.ru.md#как-расширять) и
-[CONTRIBUTING.ru.md](../CONTRIBUTING.ru.md).
+[Архитектура](ARCHITECTURE.ru.md#как-расширять) и
+[Гайд контрибьютора](../CONTRIBUTING.ru.md).
 
 ## Производительность
 
@@ -202,7 +202,7 @@ lazyvimx определяет светлый/тёмный режим систе�
 ### Работает ли с chezmoi?
 
 Да: после `:Lazy update` лок-файлы автоматически добавляются в chezmoi, если утилита
-установлена. Подробности — в [CONFIGURATION.ru.md](CONFIGURATION.ru.md#chezmoi).
+установлена. Подробности — на странице [Настройка](CONFIGURATION.ru.md#chezmoi).
 
 ### Работает ли на Linux/Windows?
 

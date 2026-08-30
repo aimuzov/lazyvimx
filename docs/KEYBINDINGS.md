@@ -213,5 +213,5 @@ Every keymap shows up in which-key: press leader and wait, or `:WhichKey <leader
 ## See Also
 
 - [LazyVim Keymaps](https://www.lazyvim.org/keymaps) — the base keymaps
-- [EXTRAS.md](EXTRAS.md) — the extras reference
-- [TROUBLESHOOTING.md](TROUBLESHOOTING.md#keymaps) — if keymaps don't work
+- [Extras](EXTRAS.md) — the extras reference
+- [Troubleshooting](TROUBLESHOOTING.md#keymaps) — if keymaps don't work

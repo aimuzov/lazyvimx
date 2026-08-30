@@ -108,7 +108,7 @@ Typical problems and ways to fix them.
    `overrides.lazyvim.auto-switch-colorscheme-on-signal`)
 2. Switching fires on the `Signal` autocmd — the Neovim process must receive a signal from
    an external OS-theme watcher (see
-   [CONFIGURATION.md](CONFIGURATION.md#auto-switching-with-the-system))
+   [Configuration](CONFIGURATION.md#auto-switching-with-the-system))
 3. Check the theme detection:
 
    ```vim
@@ -184,7 +184,7 @@ Typical problems and ways to fix them.
    ```
 
 2. Keymaps are bound to plugins: no plugin (the extra is off) — no keymap. See the
-   "Requires" column in [KEYBINDINGS.md](KEYBINDINGS.md)
+   "Requires" column in [Keybindings](KEYBINDINGS.md)
 3. Who took the key:
 
    ```vim
@@ -287,7 +287,7 @@ Without it neo-tree deletes files the regular way.
 
 ## Getting Help
 
-1. [FAQ.md](FAQ.md)
+1. [FAQ](FAQ.md)
 2. [GitHub Issues](https://github.com/aimuzov/lazyvimx/issues)
 3. [Telegram discussion](https://t.me/aimuzov_dotfiles)
 

@@ -32,7 +32,7 @@ require("lazyvimx").setup({
 ```
 
 Схема опций и значения по умолчанию — в
-[CONFIGURATION.ru.md](CONFIGURATION.ru.md#функция-setup). Обычно вызывать `setup()` вручную не
+[Настройка](CONFIGURATION.ru.md#функция-setup). Обычно вызывать `setup()` вручную не
 нужно: опции из спека плагина `"aimuzov/lazyvimx"` попадают сюда сами (в `boot.lua` у спека
 стоит `config = true`).
 
@@ -252,7 +252,7 @@ opts.keys = {
 | `has_plugins_dir()`        | подключает `lua/plugins/*.lua` пользователя, если они есть                                    |
 
 Порядок спеков в `boot.lua` и bootstrap-процесс описаны в
-[ARCHITECTURE.ru.md](ARCHITECTURE.ru.md#процесс-загрузки).
+[Архитектура](ARCHITECTURE.ru.md#процесс-загрузки).
 
 ---
 
@@ -266,6 +266,6 @@ opts.keys = {
 
 ## См. также
 
-- [CONFIGURATION.ru.md](CONFIGURATION.ru.md) — настройка
-- [ARCHITECTURE.ru.md](ARCHITECTURE.ru.md) — устройство
-- [EXTRAS.ru.md](EXTRAS.ru.md) — справочник экстр
+- [Настройка](CONFIGURATION.ru.md) — настройка
+- [Архитектура](ARCHITECTURE.ru.md) — устройство
+- [Экстры](EXTRAS.ru.md) — справочник экстр

@@ -142,7 +142,7 @@ return {
 ```
 
 Все опции, включая настройку светлых/тёмных вариантов тем (`colorscheme_households`), — в
-[CONFIGURATION.ru.md](docs/CONFIGURATION.ru.md).
+[Настройка](docs/CONFIGURATION.ru.md).
 
 4. **Включите экстры:**
 
@@ -282,7 +282,7 @@ lazyvimx добавляет 60+ кастомных кеймапов. Самые 
 - `<leader>gL*` — весь воркфлоу GitLab MR (ревью, комментарии, approve, merge)
 - `go` — открыть файл или выделение в GitHub/GitLab
 
-**📖 Полный список**: [KEYBINDINGS.ru.md](docs/KEYBINDINGS.ru.md) — с описаниями и указанием,
+**📖 Полный список**: [Кеймапы](docs/KEYBINDINGS.ru.md) — с описаниями и указанием,
 какая экстра нужна для каждого кеймапа.
 
 ## 🔧 Конфигурация
@@ -300,7 +300,7 @@ require("lazyvimx").setup({
 Варианты собраны в «семейства» (`colorscheme_households`): для каждой темы — список тёмных и
 список светлых. Из коробки настроены Catppuccin, Tokyo Night и Nord; тёмная система — берётся
 тёмный вариант, светлая — светлый. Подробности и формат — в
-[CONFIGURATION.ru.md](docs/CONFIGURATION.ru.md#колорскемы).
+[Настройка](docs/CONFIGURATION.ru.md#колорскемы).
 
 ### Группы буферов
 

@@ -28,4 +28,4 @@
 { import = "lazyvimx.extras.motions.langmapper" },
 ```
 
-Что бывает — в [справочнике экстр](../../docs/EXTRAS.ru.md).
+Что бывает — на странице [справочнике экстр](../../docs/EXTRAS.ru.md).

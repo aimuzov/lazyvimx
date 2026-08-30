@@ -47,7 +47,7 @@ Like regular plugins:
 :Lazy update
 ```
 
-The change history is in the [CHANGELOG.md](../CHANGELOG.md).
+The change history is in the [Changelog](../CHANGELOG.md).
 
 ## Installation
 
@@ -100,7 +100,7 @@ require("lazyvimx").setup({
 })
 ```
 
-All the options are in [CONFIGURATION.md](CONFIGURATION.md).
+All the options are in [Configuration](CONFIGURATION.md).
 
 ### How do I change the colorscheme?
 
@@ -115,7 +115,7 @@ Or directly: `:colorscheme tokyonight-storm`.
 lazyvimx detects the system's light/dark mode and picks the matching variant from the
 theme's "household" (`colorscheme_households`). Switching on the fly needs an external
 watcher that sends the Neovim process a signal — details in
-[CONFIGURATION.md](CONFIGURATION.md#colorschemes).
+[Configuration](CONFIGURATION.md#colorschemes).
 
 ### Can I disable some of the overrides?
 
@@ -138,7 +138,7 @@ An optional module with a ready-made setup for one feature. For example:
 - `motions.langmapper` — the Russian layout
 - `git.gitlab` — GitLab MR review
 
-All 50 are in [EXTRAS.md](EXTRAS.md).
+All 50 are in [Extras](EXTRAS.md).
 
 ### How do I enable an extra?
 
@@ -176,7 +176,7 @@ No. Reasonable setups:
 ### Can I write my own extra?
 
 Yes — it's a regular file with a lazy.nvim spec, see
-[ARCHITECTURE.md](ARCHITECTURE.md#extending) and [CONTRIBUTING.md](../CONTRIBUTING.md).
+[Architecture](ARCHITECTURE.md#extending) and [Contributing](../CONTRIBUTING.md).
 
 ## Performance
 
@@ -202,7 +202,7 @@ keymaps, native rename. A ready-made example is
 ### Does it work with chezmoi?
 
 Yes: after `:Lazy update` the lock files are added to chezmoi automatically, as long as the
-binary is installed. Details — in [CONFIGURATION.md](CONFIGURATION.md#chezmoi).
+binary is installed. Details — in [Configuration](CONFIGURATION.md#chezmoi).
 
 ### Does it work on Linux/Windows?
 

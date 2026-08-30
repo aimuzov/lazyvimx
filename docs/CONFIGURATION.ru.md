@@ -243,7 +243,7 @@ return {
 { import = "lazyvimx.extras.core.extras" }
 ```
 
-Список всех экстр с описаниями — в [EXTRAS.ru.md](EXTRAS.ru.md).
+Список всех экстр с описаниями — на странице [Экстры](EXTRAS.ru.md).
 
 ## Опции Vim
 
@@ -432,10 +432,10 @@ return {
 ## Если что-то не работает
 
 Типовые проблемы — экстры не видны в `:LazyExtras`, тема не переключается, группы буферов не
-появляются — разобраны в [TROUBLESHOOTING.ru.md](TROUBLESHOOTING.ru.md).
+появляются — разобраны на странице [Решение проблем](TROUBLESHOOTING.ru.md).
 
 ## См. также
 
-- [EXTRAS.ru.md](EXTRAS.ru.md) — справочник экстр
-- [API.ru.md](API.ru.md) — утилиты
-- [ARCHITECTURE.ru.md](ARCHITECTURE.ru.md) — устройство
+- [Экстры](EXTRAS.ru.md) — справочник экстр
+- [API](API.ru.md) — утилиты
+- [Архитектура](ARCHITECTURE.ru.md) — устройство
