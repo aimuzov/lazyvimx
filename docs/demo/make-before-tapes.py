@@ -20,6 +20,16 @@ for src_dir, suffix in [("tapes", "-before"), ("tapes-light", "-before-light")]:
         text = re.sub(r"Output gifs/([a-z0-9-]+?)(-light)?\.gif", rf"Output gifs/\1{suffix}.gif", text)
         text = re.sub(r"DEMO_EXTRAS=[a-z0-9.,-]+ ", "DEMO_EXTRAS= ", text)
 
+        # Штатный rename открывает поле с прежним именем — ciw там
+        # вставился бы литералом; чистим поле и набираем заново.
+        if name.startswith("ui-better-live-rename"):
+            text = text.replace("'ciwcart_total'", "'<C-u>cart_total'")
+
+        # Команды этих плагинов без экстры кончаются E492 на камере;
+        # «до» — это сам буфер, без вызова.
+        for cmd in [":DiffviewOpen", ":BaleiaColorize"]:
+            text = text.replace(f'Type "{cmd}"\nEnter\n', "")
+
         out = name.replace(".tape", f"{suffix}.tape")
         open(f"tapes-before/{out}", "w").write(text)
         count += 1
