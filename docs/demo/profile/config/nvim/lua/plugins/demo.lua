@@ -41,4 +41,12 @@ for extra in (vim.env.DEMO_EXTRAS or ""):gmatch("[^,]+") do
 	table.insert(spec, { import = "lazyvimx.extras." .. vim.trim(extra) })
 end
 
+-- На «до»-записях клавиши экстр падать в операторы не должны: c и g
+-- начинают менять буфер вместо честного «ничего не произошло».
+if (vim.env.DEMO_EXTRAS or "") == "" then
+	for _, lhs in ipairs({ "<leader>ct", "gcd", "ct" }) do
+		vim.keymap.set("n", lhs, "<nop>")
+	end
+end
+
 return spec
