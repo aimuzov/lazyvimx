@@ -8,8 +8,7 @@ local function get_env_var_cfg()
 	local env_var_cfg = cfg_dir .. "/config.yml"
 
 	if vim.fn.filereadable(env_var_cfg) ~= 1 then
-		open_original(opts)
-		return
+		return nil
 	end
 
 	local theme_file = cfg_dir .. "/theme-" .. theme .. ".yml"
@@ -29,10 +28,14 @@ local function override_terminal_open()
 
 	Snacks.lazygit.open = function(opts)
 		if vim.g.colors_name:find("catppuccin", 1, true) then
-			opts = vim.tbl_deep_extend("force", opts, {
-				configure = false,
-				env = { ["LG_CONFIG_FILE"] = get_env_var_cfg() },
-			})
+			local env_var_cfg = get_env_var_cfg()
+
+			if env_var_cfg then
+				opts = vim.tbl_deep_extend("force", opts, {
+					configure = false,
+					env = { ["LG_CONFIG_FILE"] = env_var_cfg },
+				})
+			end
 		end
 
 		open_original(opts)
