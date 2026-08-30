@@ -8,13 +8,22 @@ cd "$(dirname "$0")"
 mkdir -p gifs
 sh make-workdir.sh
 
+python3 make-light-tapes.py >/dev/null
+
+# Первый аргумент light переключает на набор светлых тейпов.
+DIR=tapes
+if [ "$1" = "light" ]; then
+	DIR=tapes-light
+	shift
+fi
+
 if [ $# -gt 0 ]; then
 	for name in "$@"; do
-		echo "==> $name"
-		vhs "tapes/$name.tape"
+		echo "==> $DIR/$name"
+		vhs "$DIR/$name.tape"
 	done
 else
-	for tape in tapes/*.tape; do
+	for tape in $DIR/*.tape; do
 		echo "==> $tape"
 		vhs "$tape"
 	done
