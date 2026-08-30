@@ -213,5 +213,5 @@ vim.keymap.set("n", "<leader>xx", "<cmd>MyCommand<cr>", { desc = "My Command" })
 ## См. также
 
 - [Кеймапы LazyVim](https://www.lazyvim.org/keymaps) — базовые кеймапы
-- [EXTRAS.ru.md](EXTRAS.ru.md) — справочник экстр
-- [TROUBLESHOOTING.ru.md](TROUBLESHOOTING.ru.md#кеймапы) — если кеймапы не работают
+- [Экстры](EXTRAS.ru.md) — справочник экстр
+- [Решение проблем](TROUBLESHOOTING.ru.md#кеймапы) — если кеймапы не работают

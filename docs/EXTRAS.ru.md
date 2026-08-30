@@ -82,7 +82,7 @@ Core — не фичи, а «сборные» модули: они включа�
 - Bufferline (6 модулей)
 - прочие плагины (15 модулей)
 
-Подробнее — в [ARCHITECTURE.ru.md](./ARCHITECTURE.ru.md#система-оверрайдов).
+Подробнее — на странице [Архитектура](./ARCHITECTURE.ru.md#система-оверрайдов).
 
 ### core.extras
 
@@ -105,7 +105,7 @@ Core — не фичи, а «сборные» модули: они включа�
 Кастомные кеймапы для фич lazyvimx. Кеймапы привязаны к плагинам: если плагин не установлен,
 его кеймапы просто не появятся.
 
-Полный список — в [KEYBINDINGS.ru.md](./KEYBINDINGS.ru.md).
+Полный список — на странице [Кеймапы](./KEYBINDINGS.ru.md).
 
 ---
 
@@ -122,7 +122,7 @@ Core — не фичи, а «сборные» модули: они включа�
 Вертикальная линия-ограничитель на 120-м столбце — виртуальным символом `│` вместо
 залитой колонки.
 
-**Плагин:** `lukas-reineke/virt-column.nvim`
+**Плагин:** [`lukas-reineke/virt-column.nvim`](https://github.com/lukas-reineke/virt-column.nvim)
 
 ### ui.better-cursorline
 
@@ -133,7 +133,7 @@ Core — не фичи, а «сборные» модули: они включа�
 Cursorline только в активном окне; номер строки подсвечивается всегда. Служебные буферы
 (дашборд, neo-tree, терминалы и т.п.) исключены.
 
-**Плагин:** `tummetott/reticle.nvim`
+**Плагин:** [`tummetott/reticle.nvim`](https://github.com/tummetott/reticle.nvim)
 
 ### ui.better-diagnostic
 
@@ -144,7 +144,7 @@ Cursorline только в активном окне; номер строки п
 Диагностика одной строкой у курсора — с иконками, цветами и кастомными стрелками. Родной
 virtual text отключается.
 
-**Плагин:** `rachartier/tiny-inline-diagnostic.nvim`
+**Плагин:** [`rachartier/tiny-inline-diagnostic.nvim`](https://github.com/rachartier/tiny-inline-diagnostic.nvim)
 
 ### ui.better-explorer
 
@@ -155,7 +155,7 @@ virtual text отключается.
 Файловый менеджер [Yazi](https://github.com/sxyazi/yazi) во весь экран, без рамок, с богатым
 превью файлов.
 
-**Плагин:** `mikavilpas/yazi.nvim`
+**Плагин:** [`mikavilpas/yazi.nvim`](https://github.com/mikavilpas/yazi.nvim)
 
 **Кеймапы:** `<leader>fy` — открыть Yazi, `<leader>fY` — открыть предыдущую сессию Yazi
 (через `core.keys`).
@@ -195,7 +195,7 @@ Mason, LSP-окон, neo-tree, noice, терминалов Snacks, lazygit и fz
 
 LSP-переименование с живым превью прямо в буфере. Подтверждение — `<CR>`, отмена — `<C-c>`.
 
-**Плагин:** `saecki/live-rename.nvim`
+**Плагин:** [`saecki/live-rename.nvim`](https://github.com/saecki/live-rename.nvim)
 
 **Кеймапы:** `<leader>cr` (через `core.keys`).
 
@@ -230,7 +230,7 @@ OSC 9;4) вместо уведомлений в редакторе. Показы
 Показ пробельных символов в visual-режиме, как в VSCode: пробелы `·`, табы `→`, nbsp `␣`,
 конец строки `↩`.
 
-**Плагин:** `mcauley-penney/visual-whitespace.nvim`
+**Плагин:** [`mcauley-penney/visual-whitespace.nvim`](https://github.com/mcauley-penney/visual-whitespace.nvim)
 
 ### ui.bolder-separators
 
@@ -249,7 +249,7 @@ OSC 9;4) вместо уведомлений в редакторе. Показы
 Diffview с размерами панелей из общей layout-утилиты: панель файлов слева, история снизу —
 согласованно с остальными сайдбарами.
 
-**Плагин:** `sindrets/diffview.nvim`
+**Плагин:** [`sindrets/diffview.nvim`](https://github.com/sindrets/diffview.nvim)
 
 **Команды:** `:DiffviewOpen`, `:DiffviewFileHistory`.
 
@@ -262,7 +262,7 @@ Diffview с размерами панелей из общей layout-утили�
 Рендер ANSI escape-последовательностей настоящими цветами: логи, вывод DAP REPL
 (раскрашивается автоматически).
 
-**Плагин:** `m00qek/baleia.nvim`
+**Плагин:** [`m00qek/baleia.nvim`](https://github.com/m00qek/baleia.nvim)
 
 **Команды:** `:BaleiaColorize` — раскрасить текущий буфер, `:BaleiaLogs` — показать лог плагина.
 
@@ -274,7 +274,7 @@ Diffview с размерами панелей из общей layout-утили�
 
 Индикатор 󱓻 в цвете каждого hex-кода в конце строки.
 
-**Плагин:** `brenoprata10/nvim-highlight-colors`
+**Плагин:** [`brenoprata10/nvim-highlight-colors`](https://github.com/brenoprata10/nvim-highlight-colors)
 
 ### ui.peek-preview
 
@@ -285,7 +285,7 @@ Diffview с размерами панелей из общей layout-утили�
 Peek-окно для LSP-локаций, как в VSCode. Если результат один — сразу прыжок, если несколько —
 превью со списком.
 
-**Плагин:** `dnlhc/glance.nvim`
+**Плагин:** [`dnlhc/glance.nvim`](https://github.com/dnlhc/glance.nvim)
 
 **Кеймапы:** `gr` — референсы через Glance (через `core.keys`).
 
@@ -297,7 +297,7 @@ Peek-окно для LSP-локаций, как в VSCode. Если резуль
 
 Скроллбар только в активном окне. Прячется в insert-режиме и в служебных буферах.
 
-**Плагин:** `dstein64/nvim-scrollview`
+**Плагин:** [`dstein64/nvim-scrollview`](https://github.com/dstein64/nvim-scrollview)
 
 ### ui.simple-mode
 
@@ -318,7 +318,7 @@ statusline, bufferline, neo-tree и номера строк.
 программирования. Включается командой `:ShowkeysToggle`. Все демо-гифки этой документации
 записаны с ней.
 
-**Плагин:** `nvzone/showkeys`
+**Плагин:** [`nvzone/showkeys`](https://github.com/nvzone/showkeys)
 
 ### ui.symbol-usage
 
@@ -329,7 +329,7 @@ statusline, bufferline, neo-tree и номера строк.
 Счётчики использований символов в конце строки, как в JetBrains IDE: `󰌹 3 usages`. Показ
 определений и реализаций выключен по умолчанию, для вложенных функций — суммарный счётчик.
 
-**Плагин:** `Wansmer/symbol-usage.nvim`
+**Плагин:** [`Wansmer/symbol-usage.nvim`](https://github.com/Wansmer/symbol-usage.nvim)
 
 ### ui.winbar
 
@@ -340,7 +340,7 @@ statusline, bufferline, neo-tree и номера строк.
 Winbar с иконкой типа файла и коротким путём (pretty path из LazyVim), жирным шрифтом на
 прозрачном фоне. В служебных буферах не показывается.
 
-**Плагин:** `nvim-lualine/lualine.nvim`
+**Плагин:** [`nvim-lualine/lualine.nvim`](https://github.com/nvim-lualine/lualine.nvim)
 
 ---
 
@@ -355,7 +355,7 @@ Winbar с иконкой типа файла и коротким путём (pre
 Комментирование с учётом контекста tree-sitter (правильный commentstring в JSX, Vue и т.п.)
 плюс генерация JSDoc/TSDoc-документации.
 
-**Плагины:** `nvim-mini/mini.comment`, `JoosepAlviste/nvim-ts-context-commentstring`,
+**Плагины:** [`nvim-mini/mini.comment`](https://github.com/nvim-mini/mini.comment), [`JoosepAlviste/nvim-ts-context-commentstring`](https://github.com/JoosepAlviste/nvim-ts-context-commentstring),
 `kkoomen/vim-doge`
 
 **Кеймапы:** `gcc` — комментарий (mini.comment), `gcd` — сгенерировать документацию (doge).
@@ -367,7 +367,7 @@ Winbar с иконкой типа файла и коротким путём (pre
 Разворачивание Emmet-аббревиатур: `div.container>ul>li*3` → готовая разметка. Плюс команда
 `:EmmetWrap` — обернуть выделение в аббревиатуру.
 
-**Плагины:** `neovim/nvim-lspconfig` (emmet_language_server), `olrtg/nvim-emmet`
+**Плагины:** [`neovim/nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) (emmet_language_server), [`olrtg/nvim-emmet`](https://github.com/olrtg/nvim-emmet)
 
 **Кеймапы:** `<leader>cw` — обернуть в аббревиатуру (через `core.keys`).
 
@@ -383,7 +383,7 @@ Winbar с иконкой типа файла и коротким путём (pre
 
 Курсор не убегает при сдвигах (`>`, `<`) и фильтрах. Работает и в VSCode.
 
-**Плагин:** `gbprod/stay-in-place.nvim`
+**Плагин:** [`gbprod/stay-in-place.nvim`](https://github.com/gbprod/stay-in-place.nvim)
 
 ### motions.better-move-between-words
 
@@ -394,7 +394,7 @@ Winbar с иконкой типа файла и коротким путём (pre
 Движения `w`/`e`/`b` по подсловам: останавливаются внутри camelCase и пропускают незначащую
 пунктуацию. UTF-8, работает и в VSCode.
 
-**Плагин:** `chrisgrieser/nvim-spider`
+**Плагин:** [`chrisgrieser/nvim-spider`](https://github.com/chrisgrieser/nvim-spider)
 
 **Кеймапы:** `w`/`e`/`b`, `cw`, а в insert-режиме `<C-f>`/`<C-b>` (через `core.keys`).
 
@@ -410,7 +410,7 @@ Winbar с иконкой типа файла и коротким путём (pre
 langmap для RU-раскладки, хак `getcharstr` (чтобы работали ожидающие ввода команды вроде `f`),
 интеграция с which-key и Snacks.
 
-**Плагин:** `Wansmer/langmapper.nvim`
+**Плагин:** [`Wansmer/langmapper.nvim`](https://github.com/Wansmer/langmapper.nvim)
 
 ### motions.sibling-move
 
@@ -421,7 +421,7 @@ langmap для RU-раскладки, хак `getcharstr` (чтобы работ
 Перемещение по синтаксическому дереву: между параметрами, элементами массива, соседними
 узлами. Цель подсвечивается на 250 мс.
 
-**Плагин:** `aaronik/treewalker.nvim`
+**Плагин:** [`aaronik/treewalker.nvim`](https://github.com/aaronik/treewalker.nvim)
 
 **Кеймапы:** `<C-A-h/j/k/l>` — навигация, `<C-A-,>`/`<C-A-.>` — перестановка узлов
 (через `core.keys`).
@@ -435,7 +435,7 @@ langmap для RU-раскладки, хак `getcharstr` (чтобы работ
 Перестановка соседних узлов tree-sitter: параметров функций, элементов массива, свойств
 объекта. Узел под курсором подсвечивается.
 
-**Плагин:** `Wansmer/sibling-swap.nvim`
+**Плагин:** [`Wansmer/sibling-swap.nvim`](https://github.com/Wansmer/sibling-swap.nvim)
 
 **Кеймапы:** `<C-,>` — поменять с левым, `<C-.>` — с правым (через `core.keys`).
 
@@ -447,7 +447,7 @@ langmap для RU-раскладки, хак `getcharstr` (чтобы работ
 
 Разбивка и склейка блоков кода через tree-sitter: объекты, массивы, аргументы, JSX.
 
-**Плагин:** `Wansmer/treesj`
+**Плагин:** [`Wansmer/treesj`](https://github.com/Wansmer/treesj)
 
 **Кеймапы:** `<leader>ct` — переключить, `<leader>c\` — разбить, `<leader>cj` — склеить
 (через `core.keys`).
@@ -474,7 +474,7 @@ langmap для RU-раскладки, хак `getcharstr` (чтобы работ
 Автоматически закрывает буферы после 30 минут неактивности (с уведомлением). Удаление файла
 с диска буфер не трогает.
 
-**Плагин:** `chrisgrieser/nvim-early-retirement`
+**Плагин:** [`chrisgrieser/nvim-early-retirement`](https://github.com/chrisgrieser/nvim-early-retirement)
 
 ### buf.delete-no-name
 
@@ -508,7 +508,7 @@ langmap для RU-раскладки, хак `getcharstr` (чтобы работ
 У каждого таба — свой список буферов. Bufferline и навигация по буферам работают в пределах
 текущего таба.
 
-**Плагин:** `tiagovla/scope.nvim`
+**Плагин:** [`tiagovla/scope.nvim`](https://github.com/tiagovla/scope.nvim)
 
 **Кеймапы:** `<leader>b<tab>` — перенести буфер в другой таб (через `core.keys`).
 
@@ -525,7 +525,7 @@ langmap для RU-раскладки, хак `getcharstr` (чтобы работ
 Подсветка и разрешение git-конфликтов прямо в буфере. Уведомления об обнаружении и
 разрешении конфликта (не чаще раза в 3 секунды).
 
-**Плагин:** `akinsho/git-conflict.nvim`
+**Плагин:** [`akinsho/git-conflict.nvim`](https://github.com/akinsho/git-conflict.nvim)
 
 ### git.fugitive
 
@@ -534,7 +534,7 @@ langmap для RU-раскладки, хак `getcharstr` (чтобы работ
 Классический fugitive со всеми git-командами плюс `:GBrowse` для GitHub и GitLab. Токен
 GitLab берётся из переменной окружения `GITLAB_TOKEN`.
 
-**Плагины:** `tpope/vim-fugitive`, `tpope/vim-rhubarb`, `shumphrey/fugitive-gitlab.vim`
+**Плагины:** [`tpope/vim-fugitive`](https://github.com/tpope/vim-fugitive), [`tpope/vim-rhubarb`](https://github.com/tpope/vim-rhubarb), [`shumphrey/fugitive-gitlab.vim`](https://github.com/shumphrey/fugitive-gitlab.vim)
 
 **Кеймапы:** `go` — открыть файл (или выделенный диапазон) в браузере (через `core.keys`).
 
@@ -545,12 +545,12 @@ GitLab берётся из переменной окружения `GITLAB_TOKEN
 Ревью GitLab MR не выходя из редактора: дерево обсуждений, комментарии к диффам,
 approve/revoke, merge (настроен squash).
 
-**Плагин:** `harrisoncramer/gitlab.nvim`
+**Плагин:** [`harrisoncramer/gitlab.nvim`](https://github.com/harrisoncramer/gitlab.nvim)
 
 **Требует:** экстру `ui.diff-view` (без неё покажет предупреждение).
 
 **Кеймапы:** `<leader>gL*` — весь MR-воркфлоу (через `core.keys`), см.
-[KEYBINDINGS.ru.md](./KEYBINDINGS.ru.md#gitlab).
+[Кеймапы](./KEYBINDINGS.ru.md#gitlab).
 
 ### git.remote-view
 
@@ -559,7 +559,7 @@ approve/revoke, merge (настроен squash).
 Открытие удалённых репозиториев локально: клонирует во временную директорию и открывает в
 новом табе — с README, если он есть, иначе с neo-tree.
 
-**Плагин:** `moyiz/git-dev.nvim`
+**Плагин:** [`moyiz/git-dev.nvim`](https://github.com/moyiz/git-dev.nvim)
 
 **Команды:** `:GitDevOpen <uri>`, `:GitDevRemoteOpen`, `:GitDevRemoteEnterAndOpen`.
 
@@ -598,7 +598,7 @@ JSONC (JSON с комментариями) подсвечивается парс
 Подсветка конфигов [skhd.zig](https://github.com/jackielii/skhd.zig) (`skhdrc`) собственной
 tree-sitter-грамматикой.
 
-**Плагин:** `aimuzov/tree-sitter-skhdrc`
+**Плагин:** [`aimuzov/tree-sitter-skhdrc`](https://github.com/aimuzov/tree-sitter-skhdrc)
 
 ---
 
@@ -611,7 +611,7 @@ tree-sitter-грамматикой.
 Проверка орфографии cspell для всех типов файлов. Включается только если cspell установлен
 локально в проекте (например, через npm) — глобальный бинарник не подхватывается.
 
-**Плагин:** `mfussenegger/nvim-lint`
+**Плагин:** [`mfussenegger/nvim-lint`](https://github.com/mfussenegger/nvim-lint)
 
 ### linting.stylelint
 
@@ -635,7 +635,7 @@ tree-sitter-грамматикой.
 neo-tree, snacks-дашборд, symbol-usage и другие. Включает собственные темы для lualine и
 bufferline, тёмный (`nord`) и светлый (`nord-light`) варианты.
 
-**Плагин:** `gbprod/nord.nvim`
+**Плагин:** [`gbprod/nord.nvim`](https://github.com/gbprod/nord.nvim)
 
 ---
 
@@ -667,7 +667,7 @@ bufferline, тёмный (`nord`) и светлый (`nord-light`) вариан�
 Автообновление всех пакетов Mason при старте: LSP-серверов, отладчиков, линтеров и
 форматтеров — включая установленные вручную через `:MasonInstall`.
 
-**Плагин:** `WhoIsSethDaniel/mason-tool-installer.nvim`
+**Плагин:** [`WhoIsSethDaniel/mason-tool-installer.nvim`](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim)
 
 ### perf.local-config
 
@@ -676,7 +676,7 @@ bufferline, тёмный (`nord`) и светлый (`nord-light`) вариан�
 Локальный конфиг проекта: при открытии проекта тихо подгружается `.nvim.lua` или
 `.config/nvim.lua` из его корня.
 
-**Плагин:** `klen/nvim-config-local`
+**Плагин:** [`klen/nvim-config-local`](https://github.com/klen/nvim-config-local)
 
 ```lua
 -- .nvim.lua
@@ -690,9 +690,9 @@ vim.opt_local.expandtab = true
 
 Запоминает последний выбранный колорскем и восстанавливает его при старте — в рамках
 логики светлых/тёмных вариантов lazyvimx (см.
-[CONFIGURATION.ru.md](./CONFIGURATION.ru.md#колорскемы)).
+[Настройка](./CONFIGURATION.ru.md#колорскемы)).
 
-**Плагин:** `raddari/last-color.nvim`
+**Плагин:** [`raddari/last-color.nvim`](https://github.com/raddari/last-color.nvim)
 
 ### perf.stop-inactive-lsp
 
@@ -700,7 +700,7 @@ vim.opt_local.expandtab = true
 
 Останавливает LSP-клиентов, к буферам которых давно не обращались, и освобождает память.
 
-**Плагин:** `zeioth/garbage-day.nvim`
+**Плагин:** [`zeioth/garbage-day.nvim`](https://github.com/zeioth/garbage-day.nvim)
 
 ---
 
@@ -713,7 +713,7 @@ vim.opt_local.expandtab = true
 Jest-адаптер для Neotest: запуск тестов из редактора, вывод результатов, обнаружение тестов
 самим Jest, переменная окружения `CI=true`.
 
-**Плагины:** `nvim-neotest/neotest`, `haydenmeade/neotest-jest`
+**Плагины:** [`nvim-neotest/neotest`](https://github.com/nvim-neotest/neotest), [`haydenmeade/neotest-jest`](https://github.com/haydenmeade/neotest-jest)
 
 **Требует:** экстру LazyVim `test.core` (без неё не активируется).
 
@@ -747,7 +747,7 @@ Jest-адаптер для Neotest: запуск тестов из редакт�
 
 ## 🔗 См. также
 
-- [CONFIGURATION.ru.md](CONFIGURATION.ru.md) — настройка
-- [KEYBINDINGS.ru.md](KEYBINDINGS.ru.md) — кеймапы
-- [API.ru.md](API.ru.md) — утилиты
-- [ARCHITECTURE.ru.md](ARCHITECTURE.ru.md) — устройство
+- [Настройка](CONFIGURATION.ru.md) — настройка
+- [Кеймапы](KEYBINDINGS.ru.md) — кеймапы
+- [API](API.ru.md) — утилиты
+- [Архитектура](ARCHITECTURE.ru.md) — устройство

@@ -83,7 +83,7 @@ All plugin overrides — 39 modules across 4 categories:
 - Bufferline (6 modules)
 - other plugins (15 modules)
 
-More in [ARCHITECTURE.md](./ARCHITECTURE.md#overrides-system).
+More in [Architecture](./ARCHITECTURE.md#overrides-system).
 
 ### core.extras
 
@@ -106,7 +106,7 @@ Additional colorschemes. Currently includes one extra — `colorschemes.nord`.
 Custom keymaps for lazyvimx features. Keymaps are bound to plugins: if a plugin isn't
 installed, its keymaps simply don't appear.
 
-The full list is in [KEYBINDINGS.md](./KEYBINDINGS.md).
+The full list is in [Keybindings](./KEYBINDINGS.md).
 
 ---
 
@@ -123,7 +123,7 @@ Extras that improve the look and the interface.
 A vertical guide at column 120 — drawn as a virtual `│` character instead of a filled
 column.
 
-**Plugin:** `lukas-reineke/virt-column.nvim`
+**Plugin:** [`lukas-reineke/virt-column.nvim`](https://github.com/lukas-reineke/virt-column.nvim)
 
 ### ui.better-cursorline
 
@@ -134,7 +134,7 @@ column.
 Cursorline only in the active window; the line number is always highlighted. Special buffers
 (dashboard, neo-tree, terminals, etc.) are excluded.
 
-**Plugin:** `tummetott/reticle.nvim`
+**Plugin:** [`tummetott/reticle.nvim`](https://github.com/tummetott/reticle.nvim)
 
 ### ui.better-diagnostic
 
@@ -145,7 +145,7 @@ Cursorline only in the active window; the line number is always highlighted. Spe
 Single-line diagnostics at the cursor — with icons, colors, and custom arrows. Native
 virtual text is disabled.
 
-**Plugin:** `rachartier/tiny-inline-diagnostic.nvim`
+**Plugin:** [`rachartier/tiny-inline-diagnostic.nvim`](https://github.com/rachartier/tiny-inline-diagnostic.nvim)
 
 ### ui.better-explorer
 
@@ -156,7 +156,7 @@ virtual text is disabled.
 The [Yazi](https://github.com/sxyazi/yazi) file manager, full-screen, borderless, with rich
 file previews.
 
-**Plugin:** `mikavilpas/yazi.nvim`
+**Plugin:** [`mikavilpas/yazi.nvim`](https://github.com/mikavilpas/yazi.nvim)
 
 **Keymaps:** `<leader>fy` — open Yazi, `<leader>fY` — open the previous Yazi session (via
 `core.keys`).
@@ -197,7 +197,7 @@ numbers in terminal buffers.
 LSP rename with a live preview right in the buffer. Confirm with `<CR>`, cancel with
 `<C-c>`.
 
-**Plugin:** `saecki/live-rename.nvim`
+**Plugin:** [`saecki/live-rename.nvim`](https://github.com/saecki/live-rename.nvim)
 
 **Keymaps:** `<leader>cr` (via `core.keys`).
 
@@ -232,7 +232,7 @@ Catppuccin, a magenta blend for Tokyo Night.
 Shows whitespace characters in visual mode, VSCode-style: spaces `·`, tabs `→`, nbsp `␣`,
 end of line `↩`.
 
-**Plugin:** `mcauley-penney/visual-whitespace.nvim`
+**Plugin:** [`mcauley-penney/visual-whitespace.nvim`](https://github.com/mcauley-penney/visual-whitespace.nvim)
 
 ### ui.bolder-separators
 
@@ -251,7 +251,7 @@ Heavy Unicode window separators: `━`, `┃`, `┳`, `┻`, `╋`, `┫`, `┣`
 Diffview with panel sizes from the shared layout utility: the file panel on the left, the
 history at the bottom — consistent with the other sidebars.
 
-**Plugin:** `sindrets/diffview.nvim`
+**Plugin:** [`sindrets/diffview.nvim`](https://github.com/sindrets/diffview.nvim)
 
 **Commands:** `:DiffviewOpen`, `:DiffviewFileHistory`.
 
@@ -264,7 +264,7 @@ history at the bottom — consistent with the other sidebars.
 Renders ANSI escape sequences with real colors: logs, DAP REPL output (colorized
 automatically).
 
-**Plugin:** `m00qek/baleia.nvim`
+**Plugin:** [`m00qek/baleia.nvim`](https://github.com/m00qek/baleia.nvim)
 
 **Commands:** `:BaleiaColorize` — colorize the current buffer, `:BaleiaLogs` — show the
 plugin log.
@@ -277,7 +277,7 @@ plugin log.
 
 A 󱓻 indicator in the color of each hex code at the end of the line.
 
-**Plugin:** `brenoprata10/nvim-highlight-colors`
+**Plugin:** [`brenoprata10/nvim-highlight-colors`](https://github.com/brenoprata10/nvim-highlight-colors)
 
 ### ui.peek-preview
 
@@ -288,7 +288,7 @@ A 󱓻 indicator in the color of each hex code at the end of the line.
 A peek window for LSP locations, like in VSCode. A single result jumps right away, multiple
 results open a preview with a list.
 
-**Plugin:** `dnlhc/glance.nvim`
+**Plugin:** [`dnlhc/glance.nvim`](https://github.com/dnlhc/glance.nvim)
 
 **Keymaps:** `gr` — references via Glance (via `core.keys`).
 
@@ -300,7 +300,7 @@ results open a preview with a list.
 
 A scrollbar only in the active window. Hidden in insert mode and in special buffers.
 
-**Plugin:** `dstein64/nvim-scrollview`
+**Plugin:** [`dstein64/nvim-scrollview`](https://github.com/dstein64/nvim-scrollview)
 
 ### ui.simple-mode
 
@@ -321,7 +321,7 @@ A badge with the pressed keys in the corner of the screen — for screencasts, d
 pair programming. Enabled with the `:ShowkeysToggle` command. Every demo gif in this
 documentation is recorded with it.
 
-**Plugin:** `nvzone/showkeys`
+**Plugin:** [`nvzone/showkeys`](https://github.com/nvzone/showkeys)
 
 ### ui.symbol-usage
 
@@ -333,7 +333,7 @@ Symbol usage counters at the end of the line, like in JetBrains IDEs: `󰌹 3 us
 Definitions and implementations are off by default; nested functions get an aggregate
 counter.
 
-**Plugin:** `Wansmer/symbol-usage.nvim`
+**Plugin:** [`Wansmer/symbol-usage.nvim`](https://github.com/Wansmer/symbol-usage.nvim)
 
 ### ui.winbar
 
@@ -344,7 +344,7 @@ counter.
 A winbar with the filetype icon and a short path (LazyVim's pretty path), bold on a
 transparent background. Not shown in special buffers.
 
-**Plugin:** `nvim-lualine/lualine.nvim`
+**Plugin:** [`nvim-lualine/lualine.nvim`](https://github.com/nvim-lualine/lualine.nvim)
 
 ---
 
@@ -359,7 +359,7 @@ transparent background. Not shown in special buffers.
 Commenting aware of the tree-sitter context (the right commentstring in JSX, Vue, etc.) plus
 JSDoc/TSDoc generation.
 
-**Plugins:** `nvim-mini/mini.comment`, `JoosepAlviste/nvim-ts-context-commentstring`,
+**Plugins:** [`nvim-mini/mini.comment`](https://github.com/nvim-mini/mini.comment), [`JoosepAlviste/nvim-ts-context-commentstring`](https://github.com/JoosepAlviste/nvim-ts-context-commentstring),
 `kkoomen/vim-doge`
 
 **Keymaps:** `gcc` — comment (mini.comment), `gcd` — generate documentation (doge).
@@ -371,7 +371,7 @@ JSDoc/TSDoc generation.
 Emmet abbreviation expansion: `div.container>ul>li*3` → ready markup. Plus the `:EmmetWrap`
 command — wrap a selection in an abbreviation.
 
-**Plugins:** `neovim/nvim-lspconfig` (emmet_language_server), `olrtg/nvim-emmet`
+**Plugins:** [`neovim/nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) (emmet_language_server), [`olrtg/nvim-emmet`](https://github.com/olrtg/nvim-emmet)
 
 **Keymaps:** `<leader>cw` — wrap in an abbreviation (via `core.keys`).
 
@@ -387,7 +387,7 @@ command — wrap a selection in an abbreviation.
 
 The cursor stays put on shifts (`>`, `<`) and filters. Works in VSCode too.
 
-**Plugin:** `gbprod/stay-in-place.nvim`
+**Plugin:** [`gbprod/stay-in-place.nvim`](https://github.com/gbprod/stay-in-place.nvim)
 
 ### motions.better-move-between-words
 
@@ -398,7 +398,7 @@ The cursor stays put on shifts (`>`, `<`) and filters. Works in VSCode too.
 `w`/`e`/`b` motions by subwords: they stop inside camelCase and skip insignificant
 punctuation. UTF-8, works in VSCode too.
 
-**Plugin:** `chrisgrieser/nvim-spider`
+**Plugin:** [`chrisgrieser/nvim-spider`](https://github.com/chrisgrieser/nvim-spider)
 
 **Keymaps:** `w`/`e`/`b`, `cw`, and `<C-f>`/`<C-b>` in insert mode (via `core.keys`).
 
@@ -414,7 +414,7 @@ The Russian layout without switching: every keymap is translated automatically. 
 langmap for the RU layout, the `getcharstr` hack (so input-awaiting commands like `f` work),
 plus which-key and Snacks integration.
 
-**Plugin:** `Wansmer/langmapper.nvim`
+**Plugin:** [`Wansmer/langmapper.nvim`](https://github.com/Wansmer/langmapper.nvim)
 
 ### motions.sibling-move
 
@@ -425,7 +425,7 @@ plus which-key and Snacks integration.
 Moving through the syntax tree: between parameters, array elements, sibling nodes. The
 target is highlighted for 250 ms.
 
-**Plugin:** `aaronik/treewalker.nvim`
+**Plugin:** [`aaronik/treewalker.nvim`](https://github.com/aaronik/treewalker.nvim)
 
 **Keymaps:** `<C-A-h/j/k/l>` — navigation, `<C-A-,>`/`<C-A-.>` — swapping nodes (via
 `core.keys`).
@@ -439,7 +439,7 @@ target is highlighted for 250 ms.
 Swapping neighboring tree-sitter nodes: function parameters, array elements, object
 properties. The node under the cursor is highlighted.
 
-**Plugin:** `Wansmer/sibling-swap.nvim`
+**Plugin:** [`Wansmer/sibling-swap.nvim`](https://github.com/Wansmer/sibling-swap.nvim)
 
 **Keymaps:** `<C-,>` — swap with the left one, `<C-.>` — with the right one (via
 `core.keys`).
@@ -452,7 +452,7 @@ properties. The node under the cursor is highlighted.
 
 Splitting and joining code blocks via tree-sitter: objects, arrays, arguments, JSX.
 
-**Plugin:** `Wansmer/treesj`
+**Plugin:** [`Wansmer/treesj`](https://github.com/Wansmer/treesj)
 
 **Keymaps:** `<leader>ct` — toggle, `<leader>c\` — split, `<leader>cj` — join (via
 `core.keys`).
@@ -479,7 +479,7 @@ Splitting and joining code blocks via tree-sitter: objects, arrays, arguments, J
 Automatically closes buffers after 30 minutes of inactivity (with a notification). Deleting
 a file from disk does not touch its buffer.
 
-**Plugin:** `chrisgrieser/nvim-early-retirement`
+**Plugin:** [`chrisgrieser/nvim-early-retirement`](https://github.com/chrisgrieser/nvim-early-retirement)
 
 ### buf.delete-no-name
 
@@ -513,7 +513,7 @@ under `/etc` on a remote host: a write via tempfile loses them.
 Each tab gets its own buffer list. Bufferline and buffer navigation work within the current
 tab.
 
-**Plugin:** `tiagovla/scope.nvim`
+**Plugin:** [`tiagovla/scope.nvim`](https://github.com/tiagovla/scope.nvim)
 
 **Keymaps:** `<leader>b<tab>` — move a buffer to another tab (via `core.keys`).
 
@@ -530,7 +530,7 @@ tab.
 Highlighting and resolving git conflicts right in the buffer. Notifications on conflict
 detection and resolution (at most once every 3 seconds).
 
-**Plugin:** `akinsho/git-conflict.nvim`
+**Plugin:** [`akinsho/git-conflict.nvim`](https://github.com/akinsho/git-conflict.nvim)
 
 ### git.fugitive
 
@@ -539,7 +539,7 @@ detection and resolution (at most once every 3 seconds).
 The classic fugitive with all git commands plus `:GBrowse` for GitHub and GitLab. The GitLab
 token comes from the `GITLAB_TOKEN` environment variable.
 
-**Plugins:** `tpope/vim-fugitive`, `tpope/vim-rhubarb`, `shumphrey/fugitive-gitlab.vim`
+**Plugins:** [`tpope/vim-fugitive`](https://github.com/tpope/vim-fugitive), [`tpope/vim-rhubarb`](https://github.com/tpope/vim-rhubarb), [`shumphrey/fugitive-gitlab.vim`](https://github.com/shumphrey/fugitive-gitlab.vim)
 
 **Keymaps:** `go` — open the file (or the selected range) in the browser (via `core.keys`).
 
@@ -550,12 +550,12 @@ token comes from the `GITLAB_TOKEN` environment variable.
 GitLab MR review without leaving the editor: the discussion tree, comments on diffs,
 approve/revoke, merge (squash configured).
 
-**Plugin:** `harrisoncramer/gitlab.nvim`
+**Plugin:** [`harrisoncramer/gitlab.nvim`](https://github.com/harrisoncramer/gitlab.nvim)
 
 **Requires:** the `ui.diff-view` extra (shows a warning without it).
 
 **Keymaps:** `<leader>gL*` — the whole MR workflow (via `core.keys`), see
-[KEYBINDINGS.md](./KEYBINDINGS.md#gitlab).
+[Keybindings](./KEYBINDINGS.md#gitlab).
 
 ### git.remote-view
 
@@ -564,7 +564,7 @@ approve/revoke, merge (squash configured).
 Opening remote repositories locally: clones into a temporary directory and opens in a new
 tab — with the README if there is one, otherwise with neo-tree.
 
-**Plugin:** `moyiz/git-dev.nvim`
+**Plugin:** [`moyiz/git-dev.nvim`](https://github.com/moyiz/git-dev.nvim)
 
 **Commands:** `:GitDevOpen <uri>`, `:GitDevRemoteOpen`, `:GitDevRemoteEnterAndOpen`.
 
@@ -603,7 +603,7 @@ JSONC (JSON with comments) is highlighted with the json parser.
 Highlighting for [skhd.zig](https://github.com/jackielii/skhd.zig) configs (`skhdrc`) with a
 dedicated tree-sitter grammar.
 
-**Plugin:** `aimuzov/tree-sitter-skhdrc`
+**Plugin:** [`aimuzov/tree-sitter-skhdrc`](https://github.com/aimuzov/tree-sitter-skhdrc)
 
 ---
 
@@ -616,7 +616,7 @@ dedicated tree-sitter grammar.
 The cspell spell checker for all file types. Kicks in only if cspell is installed locally in
 the project (e.g. via npm) — a global binary is not picked up.
 
-**Plugin:** `mfussenegger/nvim-lint`
+**Plugin:** [`mfussenegger/nvim-lint`](https://github.com/mfussenegger/nvim-lint)
 
 ### linting.stylelint
 
@@ -640,7 +640,7 @@ The Nord colorscheme with a hundred custom highlights for lazyvimx plugins: blin
 bufferline, neo-tree, the snacks dashboard, symbol-usage, and more. Comes with its own
 lualine and bufferline themes, a dark (`nord`) and a light (`nord-light`) variant.
 
-**Plugin:** `gbprod/nord.nvim`
+**Plugin:** [`gbprod/nord.nvim`](https://github.com/gbprod/nord.nvim)
 
 ---
 
@@ -673,7 +673,7 @@ Disabled in VSCode.
 Auto-updates every Mason package on startup: LSP servers, debuggers, linters, and
 formatters — including ones installed manually via `:MasonInstall`.
 
-**Plugin:** `WhoIsSethDaniel/mason-tool-installer.nvim`
+**Plugin:** [`WhoIsSethDaniel/mason-tool-installer.nvim`](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim)
 
 ### perf.local-config
 
@@ -682,7 +682,7 @@ formatters — including ones installed manually via `:MasonInstall`.
 Per-project local config: opening a project silently loads `.nvim.lua` or
 `.config/nvim.lua` from its root.
 
-**Plugin:** `klen/nvim-config-local`
+**Plugin:** [`klen/nvim-config-local`](https://github.com/klen/nvim-config-local)
 
 ```lua
 -- .nvim.lua
@@ -695,9 +695,9 @@ vim.opt_local.expandtab = true
 **Import:** `lazyvimx.extras.perf.restore-last-colorscheme`
 
 Remembers the last selected colorscheme and restores it on startup — within lazyvimx's
-light/dark variant logic (see [CONFIGURATION.md](./CONFIGURATION.md#colorschemes)).
+light/dark variant logic (see [Configuration](./CONFIGURATION.md#colorschemes)).
 
-**Plugin:** `raddari/last-color.nvim`
+**Plugin:** [`raddari/last-color.nvim`](https://github.com/raddari/last-color.nvim)
 
 ### perf.stop-inactive-lsp
 
@@ -705,7 +705,7 @@ light/dark variant logic (see [CONFIGURATION.md](./CONFIGURATION.md#colorschemes
 
 Stops LSP clients whose buffers haven't been touched in a while and frees memory.
 
-**Plugin:** `zeioth/garbage-day.nvim`
+**Plugin:** [`zeioth/garbage-day.nvim`](https://github.com/zeioth/garbage-day.nvim)
 
 ---
 
@@ -718,7 +718,7 @@ Stops LSP clients whose buffers haven't been touched in a while and frees memory
 The Jest adapter for Neotest: running tests from the editor, result output, test discovery
 by Jest itself, the `CI=true` environment variable.
 
-**Plugins:** `nvim-neotest/neotest`, `haydenmeade/neotest-jest`
+**Plugins:** [`nvim-neotest/neotest`](https://github.com/nvim-neotest/neotest), [`haydenmeade/neotest-jest`](https://github.com/haydenmeade/neotest-jest)
 
 **Requires:** the LazyVim `test.core` extra (won't activate without it).
 
@@ -752,7 +752,7 @@ by Jest itself, the `CI=true` environment variable.
 
 ## 🔗 See Also
 
-- [CONFIGURATION.md](CONFIGURATION.md) — configuration
-- [KEYBINDINGS.md](KEYBINDINGS.md) — keymaps
-- [API.md](API.md) — utilities
-- [ARCHITECTURE.md](ARCHITECTURE.md) — internals
+- [Configuration](CONFIGURATION.md) — configuration
+- [Keybindings](KEYBINDINGS.md) — keymaps
+- [API](API.md) — utilities
+- [Architecture](ARCHITECTURE.md) — internals

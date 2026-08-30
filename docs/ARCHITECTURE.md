@@ -98,7 +98,7 @@ a side effect during spec parsing, before anything loads.
 - `colorscheme_households` — households: lists of dark and light variants
 - `bufferline_groups` — user buffer groups
 
-Format and defaults — in [CONFIGURATION.md](CONFIGURATION.md#the-setup-function).
+Format and defaults — in [Configuration](CONFIGURATION.md#the-setup-function).
 
 ### Picking the Colorscheme Variant
 
@@ -140,7 +140,7 @@ extras/
 └── test/          # Testing (1)
 ```
 
-50 feature extras; descriptions are in [EXTRAS.md](EXTRAS.md).
+50 feature extras; descriptions are in [Extras](EXTRAS.md).
 
 ### Extra Template
 
@@ -248,13 +248,13 @@ end
 ### util/general.lua
 
 Color blending, system theme detection, colorscheme variant selection, extras checks. The
-full reference is in [API.md](API.md#utilgeneral).
+full reference is in [API](API.md#utilgeneral).
 
 ### util/layout.lua
 
 The single source of panel sizes (left — 40, right — 80, top/bottom — 10, resize step — 3).
 Used by edgy (sizes and resize keymaps) and diffview (the file and history panels) — which
-keeps the sidebars consistent. Reference — in [API.md](API.md#utillayout).
+keeps the sidebars consistent. Reference — in [API](API.md#utillayout).
 
 ## Integration Points
 

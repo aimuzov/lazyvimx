@@ -142,7 +142,7 @@ return {
 ```
 
 All options, including light/dark theme variants (`colorscheme_households`), are covered in
-[CONFIGURATION.md](docs/CONFIGURATION.md).
+[Configuration](docs/CONFIGURATION.md).
 
 4. **Enable extras:**
 
@@ -282,7 +282,7 @@ lazyvimx adds 60+ custom keymaps. The most used ones:
 - `<leader>gL*` — the whole GitLab MR workflow (review, comments, approve, merge)
 - `go` — open a file or selection in GitHub/GitLab
 
-**📖 Full list**: [KEYBINDINGS.md](docs/KEYBINDINGS.md) — with descriptions and the extra
+**📖 Full list**: [Keybindings](docs/KEYBINDINGS.md) — with descriptions and the extra
 each keymap requires.
 
 ## 🔧 Configuration
@@ -300,7 +300,7 @@ require("lazyvimx").setup({
 Variants are grouped into "households" (`colorscheme_households`): each theme gets a list of
 dark and a list of light variants. Catppuccin, Tokyo Night, and Nord are configured out of
 the box; a dark system picks a dark variant, a light one picks light. Details and format —
-in [CONFIGURATION.md](docs/CONFIGURATION.md#colorschemes).
+in [Configuration](docs/CONFIGURATION.md#colorschemes).
 
 ### Buffer Groups
 

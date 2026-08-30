@@ -32,7 +32,7 @@ require("lazyvimx").setup({
 ```
 
 The options schema and defaults are in
-[CONFIGURATION.md](CONFIGURATION.md#the-setup-function). You usually don't call `setup()`
+[Configuration](CONFIGURATION.md#the-setup-function). You usually don't call `setup()`
 yourself: options from the `"aimuzov/lazyvimx"` plugin spec end up here automatically (the
 spec in `boot.lua` has `config = true`).
 
@@ -253,7 +253,7 @@ called directly:
 | `has_plugins_dir()`        | plugs in the user's `lua/plugins/*.lua` if present                                                    |
 
 The spec order in `boot.lua` and the bootstrap process are described in
-[ARCHITECTURE.md](ARCHITECTURE.md#bootstrap-process).
+[Architecture](ARCHITECTURE.md#bootstrap-process).
 
 ---
 
@@ -267,6 +267,6 @@ The spec order in `boot.lua` and the bootstrap process are described in
 
 ## See Also
 
-- [CONFIGURATION.md](CONFIGURATION.md) — configuration
-- [ARCHITECTURE.md](ARCHITECTURE.md) — internals
-- [EXTRAS.md](EXTRAS.md) — the extras reference
+- [Configuration](CONFIGURATION.md) — configuration
+- [Architecture](ARCHITECTURE.md) — internals
+- [Extras](EXTRAS.md) — the extras reference

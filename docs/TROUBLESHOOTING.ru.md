@@ -107,7 +107,7 @@
    `overrides.lazyvim.auto-switch-colorscheme-on-signal`)
 2. Переключение срабатывает по autocmd `Signal` — процессу Neovim должен приходить сигнал от
    внешнего наблюдателя за темой ОС (см.
-   [CONFIGURATION.ru.md](CONFIGURATION.ru.md#автопереключение-вслед-за-системой))
+   [Настройка](CONFIGURATION.ru.md#автопереключение-вслед-за-системой))
 3. Проверьте определение темы:
 
    ```vim
@@ -182,7 +182,7 @@
    ```
 
 2. Кеймапы привязаны к плагинам: нет плагина (экстра выключена) — нет кеймапа. Смотрите
-   колонку «Требуется» в [KEYBINDINGS.ru.md](KEYBINDINGS.ru.md)
+   колонку «Требуется» на странице [Кеймапы](KEYBINDINGS.ru.md)
 3. Кто занял клавишу:
 
    ```vim
@@ -284,7 +284,7 @@ brew install trash
 
 ## Куда идти за помощью
 
-1. [FAQ.ru.md](FAQ.ru.md)
+1. [FAQ](FAQ.ru.md)
 2. [Issues на GitHub](https://github.com/aimuzov/lazyvimx/issues)
 3. [Обсуждение в Telegram](https://t.me/aimuzov_dotfiles)
 

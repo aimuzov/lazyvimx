@@ -243,7 +243,7 @@ Or just the extras registry, without overrides and keymaps:
 { import = "lazyvimx.extras.core.extras" }
 ```
 
-The list of all extras with descriptions is in [EXTRAS.md](EXTRAS.md).
+The list of all extras with descriptions is in [Extras](EXTRAS.md).
 
 ## Vim Options
 
@@ -433,10 +433,10 @@ return {
 ## When Something Doesn't Work
 
 Typical problems — extras not visible in `:LazyExtras`, the theme not switching, buffer
-groups not appearing — are covered in [TROUBLESHOOTING.md](TROUBLESHOOTING.md).
+groups not appearing — are covered in [Troubleshooting](TROUBLESHOOTING.md).
 
 ## See Also
 
-- [EXTRAS.md](EXTRAS.md) — the extras reference
-- [API.md](API.md) — utilities
-- [ARCHITECTURE.md](ARCHITECTURE.md) — internals
+- [Extras](EXTRAS.md) — the extras reference
+- [API](API.md) — utilities
+- [Architecture](ARCHITECTURE.md) — internals
