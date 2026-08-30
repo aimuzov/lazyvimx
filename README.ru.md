@@ -2,10 +2,18 @@
 
 <div align="center">
 
-![Версия](https://img.shields.io/badge/версия-1.9.1-blue.svg)
-![Neovim](https://img.shields.io/badge/Neovim-0.10+-green.svg)
-![Лицензия](https://img.shields.io/badge/лицензия-Apache--2.0-orange.svg)
-![Extras](https://img.shields.io/badge/extras-50-purple.svg)
+[![Релиз](https://img.shields.io/github/v/release/aimuzov/lazyvimx?style=flat-square&label=релиз)](https://github.com/aimuzov/lazyvimx/releases)
+[![Лицензия](https://img.shields.io/github/license/aimuzov/lazyvimx?style=flat-square&label=лицензия)](https://github.com/aimuzov/lazyvimx/blob/main/LICENSE)
+[![Звёзды](https://img.shields.io/github/stars/aimuzov/lazyvimx?style=flat-square&label=звёзды)](https://github.com/aimuzov/lazyvimx/stargazers)
+![Neovim](https://img.shields.io/badge/Neovim-0.10+-green?style=flat-square)
+![Extras](https://img.shields.io/badge/экстры-50-purple?style=flat-square)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-splitting-joining-blocks.gif">
+  <img alt="Демо lazyvimx" src="https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-splitting-joining-blocks-light.gif">
+</picture>
+
+**[📖 Документация: lazyvimx.aimuzov.online](https://lazyvimx.aimuzov.online/ru/)**
 
 </div>
 
@@ -18,6 +26,12 @@
 Идея простая: LazyVim остаётся как есть, а всё остальное — доводка интерфейса, навигация,
 git-воркфлоу, поддержка русской раскладки — включается по кусочкам. Не нравится экстра — не
 включаете, и её будто нет.
+
+## 📑 Содержание
+
+- [Возможности](#✨-возможности) · [Установка](#📦-установка) · [Структура](#🗂️-структура-проекта) · [Core-модули](#🎯-core-модули)
+- [Документация](#📚-документация) · [Заметные экстры](#🎨-заметные-экстры) · [Кеймапы](#⌨️-кеймапы) · [Конфигурация](#🔧-конфигурация)
+- [Интеграции](#🤝-интеграции) · [Философия](#🌟-философия) · [Статистика](#📊-статистика) · [Ссылки](#🔗-ссылки)
 
 ## ✨ Возможности
 
@@ -358,6 +372,11 @@ require("lazyvimx").setup({
 ## 📈 Активность
 
 ![Repo Activity](https://repobeats.axiom.co/api/embed/f5453bcfc3ad93005a4d3b73d0681450ff7ca5d3.svg "Repobeats analytics image")
+
+## 🤝 Контрибьютинг
+
+Баги и идеи — в [issues](https://github.com/aimuzov/lazyvimx/issues). Как устроен проект и
+как написать свою экстру — в [Гайд контрибьютора](CONTRIBUTING.ru.md).
 
 ## 📄 Лицензия
 

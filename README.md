@@ -2,10 +2,18 @@
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/version-1.9.1-blue.svg)
-![Neovim](https://img.shields.io/badge/Neovim-0.10+-green.svg)
-![License](https://img.shields.io/badge/license-Apache--2.0-orange.svg)
-![Extras](https://img.shields.io/badge/extras-50-purple.svg)
+[![Release](https://img.shields.io/github/v/release/aimuzov/lazyvimx?style=flat-square)](https://github.com/aimuzov/lazyvimx/releases)
+[![License](https://img.shields.io/github/license/aimuzov/lazyvimx?style=flat-square)](https://github.com/aimuzov/lazyvimx/blob/main/LICENSE)
+[![Stars](https://img.shields.io/github/stars/aimuzov/lazyvimx?style=flat-square)](https://github.com/aimuzov/lazyvimx/stargazers)
+![Neovim](https://img.shields.io/badge/Neovim-0.10+-green?style=flat-square)
+![Extras](https://img.shields.io/badge/extras-50-purple?style=flat-square)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-splitting-joining-blocks.gif">
+  <img alt="lazyvimx demo" src="https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-splitting-joining-blocks-light.gif">
+</picture>
+
+**[📖 Documentation: lazyvimx.aimuzov.online](https://lazyvimx.aimuzov.online/)**
 
 </div>
 
@@ -18,6 +26,12 @@ extras and 39 plugin overrides.**
 The idea is simple: LazyVim stays untouched, and everything else — UI polish, navigation,
 git workflow, Russian keyboard support — is enabled piece by piece. Don't like an extra?
 Don't enable it, and it's like it doesn't exist.
+
+## 📑 Table of Contents
+
+- [Features](#✨-features) · [Installation](#📦-installation) · [Structure](#🗂️-project-structure) · [Core Modules](#🎯-core-modules)
+- [Documentation](#📚-documentation) · [Highlighted Extras](#🎨-highlighted-extras) · [Keymaps](#⌨️-keymaps) · [Configuration](#🔧-configuration)
+- [Integrations](#🤝-integrations) · [Philosophy](#🌟-philosophy) · [Stats](#📊-stats) · [Links](#🔗-links)
 
 ## ✨ Features
 
@@ -361,6 +375,11 @@ A mode for the VSCode Neovim extension:
 ## 📈 Activity
 
 ![Repo Activity](https://repobeats.axiom.co/api/embed/f5453bcfc3ad93005a4d3b73d0681450ff7ca5d3.svg "Repobeats analytics image")
+
+## 🤝 Contributing
+
+Bugs and ideas go to [issues](https://github.com/aimuzov/lazyvimx/issues). How the project
+works and how to write your own extra — in [Contributing](CONTRIBUTING.md).
 
 ## 📄 License
 
