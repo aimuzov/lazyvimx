@@ -398,6 +398,9 @@ Winbar с иконкой типа файла и коротким путём (pre
 
 **Кеймапы:** `w`/`e`/`b`, `cw`, а в insert-режиме `<C-f>`/`<C-b>` (через `core.keys`).
 
+**Требует:** Lua 5.1 или LuaJIT в `PATH` (`brew install luajit`) — без системного Lua не
+собирается luarocks.nvim, а без рока `luautf8` подслова в не-ASCII тексте не видны.
+
 ### motions.langmapper
 
 ![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-langmapper.gif)
