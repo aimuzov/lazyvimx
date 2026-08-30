@@ -1,0 +1,11 @@
+profile/data/
+profile/state/
+profile/cache/
+sample-conflict/
+work/
+gifs/
+*.gif
+*.png
+profile/config/chezmoi/
+profile/config/github-copilot/
+profile/config/fish/

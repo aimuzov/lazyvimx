@@ -1,31 +1,32 @@
-# Руководство по Extras
+# Справочник экстр
 
 > [!TIP]
 > **🇬🇧 English version:** [EXTRAS.md](EXTRAS.md)
 
-Полное руководство по всем 49 модулям extras lazyvimx.
+Полный справочник по всем 50 экстрам lazyvimx.
 
 ## Содержание
 
 - [Обзор](#обзор)
-- [Core Extras](#core-extras)
-- [UI Extras (20)](#ui-extras)
-- [Coding Extras (2)](#coding-extras)
-- [Motion Extras (6)](#motion-extras)
-- [Buffer Extras (3)](#buffer-extras)
-- [Git Extras (4)](#git-extras)
-- [Language Extras (2)](#language-extras)
-- [Linting Extras (2)](#linting-extras)
-- [AI Extras (1)](#ai-extras)
-- [DAP Extras (1)](#dap-extras)
-- [Performance Extras (4)](#performance-extras)
-- [Test Extras (1)](#test-extras)
+- [Core-модули](#core-модули)
+- [UI (21)](#ui)
+- [Coding (2)](#coding)
+- [Motions (6)](#motions)
+- [Buf (4)](#buf)
+- [Git (4)](#git)
+- [Lang (4)](#lang)
+- [Linting (2)](#linting)
+- [Colorschemes (1)](#colorschemes)
+- [DAP (1)](#dap)
+- [Perf (4)](#perf)
+- [Test (1)](#test)
+- [Сводная таблица](#сводная-таблица)
 
 ## Обзор
 
-Extras — это опциональные модули функций, которые расширяют функциональность LazyVim. Все extras полностью опциональны и могут быть включены индивидуально через UI `:LazyExtras` или путем импорта в вашей конфигурации.
-
-### Включение Extras
+Экстра — это необязательный модуль с готовой настройкой плагина или поведения поверх LazyVim.
+Каждую можно включить отдельно: через UI `:LazyExtras` (секция lazyvimx помечена иконкой 󰬟)
+или импортом в конфиге.
 
 **Через UI:**
 
@@ -33,13 +34,13 @@ Extras — это опциональные модули функций, кото
 :LazyExtras
 ```
 
-**Через конфигурацию:**
+**Через конфиг:**
 
 ```lua
-{ import = "lazyvimx.extras.category.extra-name" }
+{ import = "lazyvimx.extras.<категория>.<имя>" }
 ```
 
-**Включить все:**
+**Включить всё сразу:**
 
 ```lua
 { import = "lazyvimx.extras.core.all" }
@@ -47,1142 +48,706 @@ Extras — это опциональные модули функций, кото
 
 ---
 
-## Core Extras
+## Core-модули
 
-Core extras обеспечивают оркестрацию и фундаментальные улучшения.
+Core — не фичи, а «сборные» модули: они включают наборы других экстр, оверрайдов и кеймапов.
 
 ### core.all
 
-**Import:** `lazyvimx.extras.core.all`
+**Импорт:** `lazyvimx.extras.core.all`
 
-Полный lazyvimx опыт со всеми включенными функциями.
+Весь lazyvimx целиком: оверрайды, все экстры, колорскемы и кастомные кеймапы.
 
 **Включает:**
 
-- Все overrides
-- Все extras
-- Пользовательские комбинации клавиш
-- Уведомления о рекомендуемых extras
+- `core.colorschemes` — дополнительные колорскемы
+- `core.overrides` — все 39 оверрайдов
+- `core.extras` — все 49 экстр из реестра
+- `core.keys` — кастомные кеймапы
 
-**Использование:**
-
-```lua
-{ import = "lazyvimx.extras.core.all" }
-```
-
-**Уведомления:**
-Проверяет рекомендуемые LazyVim extras:
-
-- `coding.mini-surround`
-- `coding.yanky`
-- `ui.edgy`
-- `ui.treesitter-context`
+Дополнительно при старте проверяет, включены ли рекомендуемые экстры самого LazyVim, и
+показывает уведомление, если чего-то не хватает: `coding.mini-surround`, `coding.yanky`,
+`ui.edgy`, `ui.treesitter-context`.
 
 ### core.overrides
 
-**Import:** `lazyvimx.extras.core.overrides`
+**Импорт:** `lazyvimx.extras.core.overrides`
 
-**Рекомендуется:** Да
+**Рекомендуется:** да
 
-Все переопределения плагинов (33 модуля в 4 категориях).
+Все оверрайды плагинов — 39 модулей в 4 категориях:
 
-**Включает:**
+- LazyVim (9 модулей)
+- Snacks.nvim (9 модулей)
+- Bufferline (6 модулей)
+- прочие плагины (15 модулей)
 
-- LazyVim core overrides (8 модулей)
-- Snacks.nvim overrides (7 модулей)
-- Bufferline overrides (6 модулей)
-- Другие переопределения плагинов (13 модулей)
-
-См. [ARCHITECTURE.md](./ARCHITECTURE.md#overrides-system) для подробностей.
+Подробнее — в [ARCHITECTURE.ru.md](./ARCHITECTURE.ru.md#система-оверрайдов).
 
 ### core.extras
 
-**Import:** `lazyvimx.extras.core.extras`
+**Импорт:** `lazyvimx.extras.core.extras`
 
-Реестр всех 43 extras. Используйте это для включения всех функций одновременно.
+Реестр всех 49 функциональных экстр (все категории, кроме `colorschemes`) — один импорт вместо
+сорока девяти. `ui.better-progressbar` из реестра включается только под Ghostty
+(`TERM=xterm-ghostty`).
+
+### core.colorschemes
+
+**Импорт:** `lazyvimx.extras.core.colorschemes`
+
+Дополнительные колорскемы. Сейчас включает одну экстру — `colorschemes.nord`.
 
 ### core.keys
 
-**Import:** `lazyvimx.extras.core.keys`
+**Импорт:** `lazyvimx.extras.core.keys`
 
-Пользовательские комбинации клавиш для функций lazyvimx.
+Кастомные кеймапы для фич lazyvimx. Кеймапы привязаны к плагинам: если плагин не установлен,
+его кеймапы просто не появятся.
 
-**Основные моменты:**
-
-- `d` - Удалить без копирования
-- `<C-S-j/k>` - Перемещение строк вверх/вниз
-- `<leader>\` - Разделить окно вправо
-- `<F5-F12>` - DAP отладка
-- `<C-,/.>` - Sibling swap
-- `gr` - Перейти к ссылкам (glance)
-- `<leader>cr` - Переименование (live-rename)
-
-См. [README.md#key-mappings](./README.md#key-mappings) для полного списка.
+Полный список — в [KEYBINDINGS.ru.md](./KEYBINDINGS.ru.md).
 
 ---
 
-## UI Extras
+## UI
 
-UI extras улучшают визуальный опыт и интерфейс.
-
-### ui.better-diagnostic
-
-**Import:** `lazyvimx.extras.ui.better-diagnostic`
-
-Встроенные диагностические сообщения отображаются на позиции курсора с иконками и цветами.
-
-**Функции:**
-
-- Отображение диагностики в одну строку
-- Пользовательские иконки стрелок (→, ↓, ←, ↑)
-- Вертикальные разделители
-- Высокий приоритет (5000) виртуального текста
-- Отключает нативный виртуальный текст
-
-**Plugin:** `rachartier/tiny-inline-diagnostic.nvim`
-
-**Пример отображения:**
-
-```
-function foo() {
-  return bar  → Undefined variable 'bar'
-}
-```
-
-### ui.better-insert-mode
-
-**Import:** `lazyvimx.extras.ui.better-insert-mode`
-
-Автоматически скрывает отвлекающие элементы UI в режиме вставки.
-
-**Скрывает:**
-
-- Treesitter context
-- Индикаторы использования символов
-- Направляющие отступов
-- Virtual column
-
-**Преимущества:**
-
-- Более чистый опыт редактирования
-- Меньше визуального беспорядка
-- Лучший фокус
-
-### ui.better-linenumbers
-
-**Import:** `lazyvimx.extras.ui.better-linenumbers`
-
-Умное отображение номеров строк в зависимости от контекста.
-
-**Функции:**
-
-- Отключает относительные номера в режиме командной строки
-- Отключает все номера в терминальных буферах
-- Автоматическое восстановление
-
-### ui.highlighted-ansi-escape
-
-**Import:** `lazyvimx.extras.ui.highlighted-ansi-escape`
-
-Отображает ANSI escape последовательности с правильными цветами.
-
-**Функции:**
-
-- `:BaleiaColorize` - Раскрасить текущий буфер
-- `:BaleiaLogs` - Показать логгер
-- Авто-раскраска вывода DAP REPL
-
-**Plugin:** `m00qek/baleia.nvim`
-
-**Случаи использования:**
-
-- Просмотр логов с цветами
-- Вывод DAP REPL
-- Терминальный вывод в буферах
-
-### ui.highlighted-colors
-
-**Import:** `lazyvimx.extras.ui.highlighted-colors`
-
-Визуальные индикаторы цветовых кодов в файлах.
-
-**Функции:**
-
-- Подсвечивает hex цвета (#RRGGBB)
-- Отображение виртуальной иконки (󱓻)
-- Размещение в конце строки
-- Автоматическое определение цвета
-
-**Plugin:** `brenoprata10/nvim-highlight-colors`
-
-**Пример:**
-
-```css
-background: #FF5733;  󱓻
-color: #3498DB;       󱓻
-```
-
-### ui.symbol-usage
-
-**Import:** `lazyvimx.extras.ui.symbol-usage`
-
-Счетчики ссылок для символов в стиле JetBrains.
-
-**Функции:**
-
-- Показывает ссылки (󰌹)
-- Показывает определения (󰳽)
-- Показывает реализации (󰡱)
-- Отображение в конце строки
-- Счетчик вложенных функций
-
-**Plugin:** `Wansmer/symbol-usage.nvim`
-
-**Пример:**
-
-```typescript
-function calculate() {  󰌹 3 refs  󰳽 1 def
-  // ...
-}
-```
-
-### ui.diff-view
-
-**Import:** `lazyvimx.extras.ui.diff-view`
-
-Улучшенный diff view с согласованным размером панелей.
-
-**Функции:**
-
-- Панель файлов слева (ширина из layout utility)
-- Панель истории внизу (высота из layout utility)
-- Согласованный размер с другими боковыми панелями
-
-**Plugin:** `sindrets/diffview.nvim`
-
-**Команды:**
-
-- `:DiffviewOpen` - Открыть diff view
-- `:DiffviewFileHistory` - История файла
-
-### ui.better-live-rename
-
-**Import:** `lazyvimx.extras.ui.better-live-rename`
-
-Live предварительный просмотр операций LSP rename.
-
-**Функции:**
-
-- Встроенное редактирование с предпросмотром
-- Подтверждение через Enter (режимы n/v/i)
-- Отмена через Ctrl+C
-
-**Plugin:** `saecki/live-rename.nvim`
-
-**Комбинация клавиш:** `<leader>cr` - Переименование (через core.keys)
-
-### ui.better-reference-highlight
-
-**Import:** `lazyvimx.extras.ui.better-reference-highlight`
-
-Улучшенная подсветка LSP-ссылок с лучшей видимостью.
-
-**Функции:**
-
-- Жирная подсветка переднего плана вместо фона
-- Разные цвета для ссылок чтения/записи
-- Работает с Catppuccin (цвет rosewater)
-- Работает с Tokyo Night (смешанный magenta)
-- Нет загромождения фоном
-
-**Highlights:**
-
-- `LspReferenceRead` - Жирный rosewater/magenta
-- `LspReferenceText` - Жирный rosewater/magenta
-- `LspReferenceWrite` - Жирный rosewater/magenta с подчеркиванием (Tokyo Night)
-
-**Темы:** Catppuccin, Tokyo Night (переопределяет настройки темы по умолчанию)
-
-### ui.better-explorer
-
-**Import:** `lazyvimx.extras.ui.better-explorer`
-
-Интеграция файлового менеджера Yazi как основного проводника.
-
-**Функции:**
-
-- Плавающий UI на всё окно
-- Без границ
-- Быстрая навигация
-- Богатый предварительный просмотр файлов
-- Интеграция с neo-tree
-
-**Plugin:** `mikavilpas/yazi.nvim`
-
-**Комбинация клавиш:** `<leader>fy` (через core.keys)
-
-### ui.simple-mode
-
-**Import:** `lazyvimx.extras.ui.simple-mode`
-
-Минимальный UI режим для просмотра (например, man страниц).
-
-**Функции:**
-
-- Определяет аргумент `+Man!`
-- Отключает statusline, bufferline, neo-tree
-- Убирает номера строк
-- Чистый опыт просмотра
-
-**Активируется через:**
-
-```bash
-nvim +Man! some-command
-```
+Экстры, улучшающие внешний вид и интерфейс.
 
 ### ui.better-colorcolumn
 
-**Import:** `lazyvimx.extras.ui.better-colorcolumn`
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-colorcolumn.gif)
 
-Индикатор виртуальной колонки на 120 символах.
+**Импорт:** `lazyvimx.extras.ui.better-colorcolumn`
 
-**Функции:**
+Вертикальная линия-ограничитель на 120-м столбце — виртуальным символом `│` вместо
+залитой колонки.
 
-- Символ вертикальной черты (│)
-- Интеграция с Snacks indent
-- Исключенные типы файлов: dashboard
-
-**Plugin:** `lukas-reineke/virt-column.nvim`
-
-### ui.scrollbar
-
-**Import:** `lazyvimx.extras.ui.scrollbar`
-
-Визуальный scrollbar в текущем окне.
-
-**Функции:**
-
-- Только текущее окно
-- Исключает специальные типы файлов
-- Скрыт в режиме вставки
-- Индикаторы выровнены вправо
-
-**Plugin:** `dstein64/nvim-scrollview`
-
-### ui.winbar
-
-**Import:** `lazyvimx.extras.ui.winbar`
-
-Панель окна с именем файла и иконкой.
-
-**Функции:**
-
-- Иконка типа файла
-- Красивое отображение пути
-- Жирное форматирование
-- Прозрачный фон
-- Отключено для специальных буферов
-
-**Plugin:** `nvim-lualine/lualine.nvim`
-
-### ui.bolder-separators
-
-**Import:** `lazyvimx.extras.ui.bolder-separators`
-
-Жирные Unicode разделители окон.
-
-**Символы:**
-
-- Горизонтальные: ━
-- Вертикальные: ┃
-- Пересечения: ┳, ┻, ╋, ┫, ┣
-
-**Визуальный эффект:**
-Более заметные разделения окон.
+**Плагин:** `lukas-reineke/virt-column.nvim`
 
 ### ui.better-cursorline
 
-**Import:** `lazyvimx.extras.ui.better-cursorline`
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-cursorline.gif)
 
-Умная cursorline, которая следует за активным окном.
+**Импорт:** `lazyvimx.extras.ui.better-cursorline`
 
-**Функции:**
+Cursorline только в активном окне; номер строки подсвечивается всегда. Служебные буферы
+(дашборд, neo-tree, терминалы и т.п.) исключены.
 
-- Включена в режиме вставки
-- Всегда подсвечивает номер строки
-- Исключает специальные типы файлов
-- Учитывает активное окно
+**Плагин:** `tummetott/reticle.nvim`
 
-**Plugin:** `tummetott/reticle.nvim`
+### ui.better-diagnostic
 
-### ui.better-whitespace
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-diagnostic.gif)
 
-**Import:** `lazyvimx.extras.ui.better-whitespace`
+**Импорт:** `lazyvimx.extras.ui.better-diagnostic`
 
-Визуализация пробелов в стиле VSCode в визуальном режиме.
+Диагностика одной строкой у курсора — с иконками, цветами и кастомными стрелками. Родной
+virtual text отключается.
 
-**Функции:**
+**Плагин:** `rachartier/tiny-inline-diagnostic.nvim`
 
-- Показывает пробелы (·)
-- Показывает табы (→)
-- Показывает nbsp (␣)
-- Unix окончание строки (↩)
-- Активно только в визуальном режиме
+### ui.better-explorer
 
-**Plugin:** `mcauley-penney/visual-whitespace.nvim`
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-explorer.gif)
 
-### ui.peek-preview
+**Импорт:** `lazyvimx.extras.ui.better-explorer`
 
-**Import:** `lazyvimx.extras.ui.peek-preview`
+Файловый менеджер [Yazi](https://github.com/sxyazi/yazi) во весь экран, без рамок, с богатым
+превью файлов.
 
-Просмотр определений и ссылок в стиле VSCode.
+**Плагин:** `mikavilpas/yazi.nvim`
 
-**Функции:**
-
-- Авто-переход для одного результата
-- Окно предпросмотра для нескольких результатов
-- Пользовательские границы (▁, ▔)
-- Быстрая навигация
-
-**Plugin:** `dnlhc/glance.nvim`
-
-**Комбинация клавиш:** `gr` - Перейти к ссылкам (через core.keys)
-
-### ui.better-progressbar
-
-**Import:** `lazyvimx.extras.ui.better-progressbar`
-
-LSP прогресс через нативный прогрессбар терминала Ghostty (OSC 9;4) вместо внутриредакторных уведомлений.
-
-**Функции:**
-
-- Нативный прогрессбар Ghostty через OSC 9;4 escape-последовательности
-- Отображение процента для LSP серверов, которые его сообщают
-- Индетерминированный (пульсирующий) прогресс при неизвестном проценте
-- Автоматическое скрытие при завершении LSP задачи
-- Подавление стандартных LSP progress уведомлений noice.nvim
-
-**Поддерживаемые терминалы:** Ghostty, WezTerm, Windows Terminal, Konsole, ConEmu, mintty
+**Кеймапы:** `<leader>fy` — открыть Yazi, `<leader>fY` — открыть предыдущую сессию Yazi
+(через `core.keys`).
 
 ### ui.better-float
 
-**Import:** `lazyvimx.extras.ui.better-float`
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-float.gif)
 
-Согласованные закругленные границы для всех плавающих окон.
+**Импорт:** `lazyvimx.extras.ui.better-float`
 
-**Применяется к:**
+Единый стиль плавающих окон: скруглённые рамки и согласованные размеры для DAP UI, gitsigns,
+Mason, LSP-окон, neo-tree, noice, терминалов Snacks, lazygit и fzf-lua.
 
-- DAP UI
-- Mason
-- LSP (hover, signature help)
-- Neo-tree
-- Noice
-- Terminals
-- Lazygit
+### ui.better-insert-mode
 
-**Функции:**
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-insert-mode.gif)
 
-- Стиль закругленных границ
-- Пользовательские размеры
-- Конфигурация backdrop
-- Нулевой winblend для zen mode
+**Импорт:** `lazyvimx.extras.ui.better-insert-mode`
+
+В insert-режиме прячет отвлекающие элементы: treesitter-контекст, счётчики symbol-usage,
+индент-гайды и colorcolumn. При выходе из insert всё возвращается.
+
+### ui.better-linenumbers
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-linenumbers.gif)
+
+**Импорт:** `lazyvimx.extras.ui.better-linenumbers`
+
+Отключает относительные номера строк в командном режиме (чтобы `:` показывал абсолютные) и
+все номера — в терминальных буферах.
+
+### ui.better-live-rename
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-live-rename.gif)
+
+**Импорт:** `lazyvimx.extras.ui.better-live-rename`
+
+LSP-переименование с живым превью прямо в буфере. Подтверждение — `<CR>`, отмена — `<C-c>`.
+
+**Плагин:** `saecki/live-rename.nvim`
+
+**Кеймапы:** `<leader>cr` (через `core.keys`).
+
+### ui.better-progressbar
+
+**Импорт:** `lazyvimx.extras.ui.better-progressbar`
+
+Прогресс LSP-задач в нативном прогресс-баре терминала Ghostty (escape-последовательность
+OSC 9;4) вместо уведомлений в редакторе. Показывает проценты, если сервер их сообщает, и
+«пульсирующий» индикатор, если нет. Уведомления noice о прогрессе LSP отключаются.
+
+**Требует:** Ghostty (`TERM=xterm-ghostty`); в других терминалах экстра лишь покажет
+предупреждение.
+
+### ui.better-reference-highlight
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-reference-highlight.gif)
+
+**Импорт:** `lazyvimx.extras.ui.better-reference-highlight`
+
+Подсветка LSP-референсов жирным цветом текста вместо заливки фона: rosewater у Catppuccin,
+смесь с magenta у Tokyo Night.
+
+**Темы:** Catppuccin, Tokyo Night.
+
+### ui.better-whitespace
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-whitespace.gif)
+
+**Импорт:** `lazyvimx.extras.ui.better-whitespace`
+
+Показ пробельных символов в visual-режиме, как в VSCode: пробелы `·`, табы `→`, nbsp `␣`,
+конец строки `↩`.
+
+**Плагин:** `mcauley-penney/visual-whitespace.nvim`
+
+### ui.bolder-separators
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-bolder-separators.gif)
+
+**Импорт:** `lazyvimx.extras.ui.bolder-separators`
+
+Жирные Unicode-разделители окон: `━`, `┃`, `┳`, `┻`, `╋`, `┫`, `┣`.
+
+### ui.diff-view
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-diff-view.gif)
+
+**Импорт:** `lazyvimx.extras.ui.diff-view`
+
+Diffview с размерами панелей из общей layout-утилиты: панель файлов слева, история снизу —
+согласованно с остальными сайдбарами.
+
+**Плагин:** `sindrets/diffview.nvim`
+
+**Команды:** `:DiffviewOpen`, `:DiffviewFileHistory`.
+
+### ui.highlighted-ansi-escape
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-highlighted-ansi-escape.gif)
+
+**Импорт:** `lazyvimx.extras.ui.highlighted-ansi-escape`
+
+Рендер ANSI escape-последовательностей настоящими цветами: логи, вывод DAP REPL
+(раскрашивается автоматически).
+
+**Плагин:** `m00qek/baleia.nvim`
+
+**Команды:** `:BaleiaColorize` — раскрасить текущий буфер, `:BaleiaLogs` — показать лог плагина.
+
+### ui.highlighted-colors
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-highlighted-colors.gif)
+
+**Импорт:** `lazyvimx.extras.ui.highlighted-colors`
+
+Индикатор 󱓻 в цвете каждого hex-кода в конце строки.
+
+**Плагин:** `brenoprata10/nvim-highlight-colors`
+
+### ui.peek-preview
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-peek-preview.gif)
+
+**Импорт:** `lazyvimx.extras.ui.peek-preview`
+
+Peek-окно для LSP-локаций, как в VSCode. Если результат один — сразу прыжок, если несколько —
+превью со списком.
+
+**Плагин:** `dnlhc/glance.nvim`
+
+**Кеймапы:** `gr` — референсы через Glance (через `core.keys`).
+
+### ui.scrollbar
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-scrollbar.gif)
+
+**Импорт:** `lazyvimx.extras.ui.scrollbar`
+
+Скроллбар только в активном окне. Прячется в insert-режиме и в служебных буферах.
+
+**Плагин:** `dstein64/nvim-scrollview`
+
+### ui.simple-mode
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-simple-mode.gif)
+
+**Импорт:** `lazyvimx.extras.ui.simple-mode`
+
+Минимальный интерфейс для чтения man-страниц: при запуске `nvim +Man! <команда>` отключаются
+statusline, bufferline, neo-tree и номера строк.
+
+### ui.showkeys
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-showkeys.gif)
+
+**Импорт:** `lazyvimx.extras.ui.showkeys`
+
+Плашка с нажимаемыми клавишами в углу экрана — для скринкастов, демо и парного
+программирования. Включается командой `:ShowkeysToggle`. Все демо-гифки этой документации
+записаны с ней.
+
+**Плагин:** `nvzone/showkeys`
+
+### ui.symbol-usage
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-symbol-usage.gif)
+
+**Импорт:** `lazyvimx.extras.ui.symbol-usage`
+
+Счётчики использований символов в конце строки, как в JetBrains IDE: `󰌹 3 usages`. Показ
+определений и реализаций выключен по умолчанию, для вложенных функций — суммарный счётчик.
+
+**Плагин:** `Wansmer/symbol-usage.nvim`
+
+### ui.winbar
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-winbar.gif)
+
+**Импорт:** `lazyvimx.extras.ui.winbar`
+
+Winbar с иконкой типа файла и коротким путём (pretty path из LazyVim), жирным шрифтом на
+прозрачном фоне. В служебных буферах не показывается.
+
+**Плагин:** `nvim-lualine/lualine.nvim`
 
 ---
 
-## Coding Extras
-
-Coding extras улучшают рабочие процессы программирования.
-
-### coding.emmet
-
-**Import:** `lazyvimx.extras.coding.emmet`
-
-Раскрытие Emmet аббревиатур для HTML/CSS.
-
-**Функции:**
-
-- Emmet language server
-- Команда `:EmmetWrap`
-- Работает с HTML, CSS, JSX, TSX
-
-**Plugins:**
-
-- `neovim/nvim-lspconfig`
-- `olrtg/nvim-emmet`
-
-**Пример:**
-
-```
-div.container>ul>li*3  →  Раскрыть с Emmet
-```
-
-**Комбинация клавиш:** Пользовательская (проверьте `:EmmetWrap`)
+## Coding
 
 ### coding.comments
 
-**Import:** `lazyvimx.extras.coding.comments`
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/coding-comments.gif)
 
-Улучшенное комментирование с генерацией документации.
+**Импорт:** `lazyvimx.extras.coding.comments`
 
-**Функции:**
+Комментирование с учётом контекста tree-sitter (правильный commentstring в JSX, Vue и т.п.)
+плюс генерация JSDoc/TSDoc-документации.
 
-- Комментирование с учетом контекста Tree-sitter
-- Генерация JSDoc/TSDoc
-- Множественные форматы документации
-- Пользовательские строки комментариев
+**Плагины:** `nvim-mini/mini.comment`, `JoosepAlviste/nvim-ts-context-commentstring`,
+`kkoomen/vim-doge`
 
-**Plugins:**
+**Кеймапы:** `gcc` — комментарий (mini.comment), `gcd` — сгенерировать документацию (doge).
 
-- `nvim-mini/mini.comment`
-- `JoosepAlviste/nvim-ts-context-commentstring`
-- `kkoomen/vim-doge`
+### coding.emmet
 
-**Комбинации клавиш:**
+**Импорт:** `lazyvimx.extras.coding.emmet`
 
-- `gcc` - Переключить комментарий
-- `gcd` - Сгенерировать документацию
+Разворачивание Emmet-аббревиатур: `div.container>ul>li*3` → готовая разметка. Плюс команда
+`:EmmetWrap` — обернуть выделение в аббревиатуру.
 
-**JavaScript конфигурация:**
+**Плагины:** `neovim/nvim-lspconfig` (emmet_language_server), `olrtg/nvim-emmet`
 
-- Без деструктуризации props
-- Опускает избыточные типы
-- Умная генерация документации
+**Кеймапы:** `<leader>cw` — обернуть в аббревиатуру (через `core.keys`).
 
 ---
 
-## Motion Extras
+## Motions
 
-Motion extras улучшают навигацию по коду.
+### motions.better-cursor-move
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-better-cursor-move.gif)
+
+**Импорт:** `lazyvimx.extras.motions.better-cursor-move`
+
+Курсор не убегает при сдвигах (`>`, `<`) и фильтрах. Работает и в VSCode.
+
+**Плагин:** `gbprod/stay-in-place.nvim`
+
+### motions.better-move-between-words
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-better-move-between-words.gif)
+
+**Импорт:** `lazyvimx.extras.motions.better-move-between-words`
+
+Движения `w`/`e`/`b` по подсловам: останавливаются внутри camelCase и пропускают незначащую
+пунктуацию. UTF-8, работает и в VSCode.
+
+**Плагин:** `chrisgrieser/nvim-spider`
+
+**Кеймапы:** `w`/`e`/`b`, `cw`, а в insert-режиме `<C-f>`/`<C-b>` (через `core.keys`).
+
+### motions.langmapper
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-langmapper.gif)
+
+**Импорт:** `lazyvimx.extras.motions.langmapper`
+
+**Рекомендуется:** да
+
+Русская раскладка без переключения: все кеймапы автоматически транслируются. Настроены
+langmap для RU-раскладки, хак `getcharstr` (чтобы работали ожидающие ввода команды вроде `f`),
+интеграция с which-key и Snacks.
+
+**Плагин:** `Wansmer/langmapper.nvim`
+
+### motions.sibling-move
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-sibling-move.gif)
+
+**Импорт:** `lazyvimx.extras.motions.sibling-move`
+
+Перемещение по синтаксическому дереву: между параметрами, элементами массива, соседними
+узлами. Цель подсвечивается на 250 мс.
+
+**Плагин:** `aaronik/treewalker.nvim`
+
+**Кеймапы:** `<C-A-h/j/k/l>` — навигация, `<C-A-,>`/`<C-A-.>` — перестановка узлов
+(через `core.keys`).
+
+### motions.sibling-swap
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-sibling-swap.gif)
+
+**Импорт:** `lazyvimx.extras.motions.sibling-swap`
+
+Перестановка соседних узлов tree-sitter: параметров функций, элементов массива, свойств
+объекта. Узел под курсором подсвечивается.
+
+**Плагин:** `Wansmer/sibling-swap.nvim`
+
+**Кеймапы:** `<C-,>` — поменять с левым, `<C-.>` — с правым (через `core.keys`).
 
 ### motions.splitting-joining-blocks
 
-**Import:** `lazyvimx.extras.motions.splitting-joining-blocks`
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-splitting-joining-blocks.gif)
 
-Манипуляция блоками на основе Tree-sitter.
+**Импорт:** `lazyvimx.extras.motions.splitting-joining-blocks`
 
-**Функции:**
+Разбивка и склейка блоков кода через tree-sitter: объекты, массивы, аргументы, JSX.
 
-- Разделение многострочных структур
-- Объединение в одну строку
-- Работает с: объектами, массивами, функциями, JSX
+**Плагин:** `Wansmer/treesj`
 
-**Plugin:** `Wansmer/treesj`
-
-**Пример:**
+**Кеймапы:** `<leader>ct` — переключить, `<leader>c\` — разбить, `<leader>cj` — склеить
+(через `core.keys`).
 
 ```javascript
-// Split
+// <leader>ct превращает
 { foo: 'bar', baz: 'qux' }
-↓
+// в
 {
   foo: 'bar',
   baz: 'qux'
 }
-
-// Join (обратно)
+// и обратно
 ```
-
-### motions.better-cursor-move
-
-**Import:** `lazyvimx.extras.motions.better-cursor-move`
-
-Предотвращает движение курсора во время операций shift/filter.
-
-**Функции:**
-
-- Курсор остается на месте при сдвиге
-- Совместимо с VSCode
-- Предсказуемое поведение
-
-**Plugin:** `gbprod/stay-in-place.nvim`
-
-### motions.better-move-between-words
-
-**Import:** `lazyvimx.extras.motions.better-move-between-words`
-
-Улучшенные движения w/e/b с поддержкой подслов.
-
-**Функции:**
-
-- Навигация по подсловам (camelCase)
-- Пропуск незначительной пунктуации
-- Поддержка UTF-8
-- Совместимо с VSCode
-
-**Plugin:** `chrisgrieser/nvim-spider`
-
-**Пример:**
-
-```javascript
-camelCaseVariable
-^    ^    ^        (останавливается на подсловах)
-```
-
-**Комбинации клавиш:**
-
-- `w` - Следующее слово/подслово
-- `e` - Конец слова/подслова
-- `b` - Предыдущее слово/подслово
-
-### motions.sibling-move
-
-**Import:** `lazyvimx.extras.motions.sibling-move`
-
-Навигация по соседним элементам с учетом Tree-sitter.
-
-**Функции:**
-
-- Навигация по синтаксическим узлам
-- Подсветка при перемещении (250мс)
-- Умные переходы
-
-**Plugin:** `aaronik/treewalker.nvim`
-
-**Навигация:**
-Перемещение между параметрами функции, элементами массива и т.д.
-
-### motions.sibling-swap
-
-**Import:** `lazyvimx.extras.motions.sibling-swap`
-
-Перестановка соседних элементов с использованием Tree-sitter.
-
-**Функции:**
-
-- Перестановка параметров
-- Перестановка элементов массива
-- Перестановка свойств объекта
-- Визуальная обратная связь
-
-**Plugin:** `Wansmer/sibling-swap.nvim`
-
-**Комбинации клавиш:**
-
-- `<C-,>` - Поменять с предыдущим
-- `<C-.>` - Поменять со следующим
-
-### motions.langmapper
-
-**Import:** `lazyvimx.extras.motions.langmapper`
-
-**Рекомендуется:** Да
-
-Поддержка русской раскладки клавиатуры.
-
-**Функции:**
-
-- Автоматический перевод keymap
-- Переключение раскладки EN/RU
-- Интеграция с Which-key
-- Интеграция с Snacks
-- getcharstr хак для правильного перевода
-
-**Plugin:** `Wansmer/langmapper.nvim`
-
-**Случай использования:**
-Использование Vim движений с русской раскладкой клавиатуры без переключения.
 
 ---
 
-## Buffer Extras
-
-Buffer extras улучшают управление буферами.
-
-### buf.tab-scope
-
-**Import:** `lazyvimx.extras.buf.tab-scope`
-
-Изоляция буферов внутри вкладок.
-
-**Функции:**
-
-- Каждая вкладка имеет свой список буферов
-- Независимая навигация по буферам для каждой вкладки
-- Более чистая организация рабочего пространства
-
-**Plugin:** `tiagovla/scope.nvim`
-
-### buf.delete-no-name
-
-**Import:** `lazyvimx.extras.buf.delete-no-name`
-
-Авто-удаление пустых [No Name] буферов.
-
-**Функции:**
-
-- Срабатывает на BufHidden
-- Только безымянные, неизмененные буферы
-- Безопасное удаление через Snacks
-
-**Поведение:**
-Открытие нового файла автоматически очищает пустые буферы.
+## Buf
 
 ### buf.delete-inactive
 
-**Import:** `lazyvimx.extras.buf.delete-inactive`
+**Импорт:** `lazyvimx.extras.buf.delete-inactive`
 
-Автоматическая очистка неактивных буферов.
+Автоматически закрывает буферы после 30 минут неактивности (с уведомлением). Удаление файла
+с диска буфер не трогает.
 
-**Функции:**
+**Плагин:** `chrisgrieser/nvim-early-retirement`
 
-- Порог неактивности 30 минут
-- Авто-удаление при удалении исходного файла
-- Уведомление при авто-закрытии
-- Умный жизненный цикл буфера
+### buf.delete-no-name
 
-**Plugin:** `chrisgrieser/nvim-early-retirement`
+**Импорт:** `lazyvimx.extras.buf.delete-no-name`
 
-**Преимущества:**
-
-- Сниженное использование памяти
-- Более чистый список буферов
-- Автоматическая очистка
+Убирает пустые `[No Name]`-буферы: как только такой буфер прячется и он не изменён — он
+удаляется.
 
 ### buf.remote-mounts
 
-**Import:** `lazyvimx.extras.buf.remote-mounts`
+**Импорт:** `lazyvimx.extras.buf.remote-mounts`
 
-Безопасное и лёгкое редактирование файлов на сетевых монтированиях (sshfs и подобные).
+Безопасное и лёгкое редактирование файлов на сетевых маунтах (sshfs и подобных).
 
-**Функции:**
+**Что делает для буферов внутри `~/mnt`:**
 
-- `backupcopy=yes` — запись на месте, без временного файла и переименования
-- Отключение swapfile и undofile
-- Отключение автоформатирования (`vim.b.autoformat`)
-- Отсоединение LSP клиентов от таких буферов
+- `backupcopy=yes` — запись «на месте», без временного файла и rename
+- отключает swapfile и undofile (каждая их запись — сетевой roundtrip)
+- отключает автоформатирование (`vim.b.autoformat`)
+- отцепляет LSP-клиентов от таких буферов
 
-**Корни монтирований:** `~/mnt`
+Запись «на месте» сохраняет владельца, права и симлинки файла — это важно для конфигов под
+`/etc` на удалённой машине: запись через временный файл их теряет.
 
-**Поведение:**
-Файл, открытый внутри корня монтирования, записывается напрямую, поэтому владелец, права и симлинк
-остаются нетронутыми. Это критично для конфигов в `/etc` на удалённом сервере: запись через
-временный файл с последующим переименованием их теряет.
+### buf.tab-scope
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/buf-tab-scope.gif)
+
+**Импорт:** `lazyvimx.extras.buf.tab-scope`
+
+У каждого таба — свой список буферов. Bufferline и навигация по буферам работают в пределах
+текущего таба.
+
+**Плагин:** `tiagovla/scope.nvim`
+
+**Кеймапы:** `<leader>b<tab>` — перенести буфер в другой таб (через `core.keys`).
 
 ---
 
-## Git Extras
-
-Git extras улучшают рабочие процессы контроля версий.
-
-### git.fugitive
-
-**Import:** `lazyvimx.extras.git.fugitive`
-
-Всеобъемлющая интеграция с Git.
-
-**Функции:**
-
-- Полный набор команд Git
-- Интеграция с GitHub (GBrowse)
-- Интеграция с GitLab
-- Аутентификация по токену
-
-**Plugins:**
-
-- `tpope/vim-fugitive`
-- `tpope/vim-rhubarb` (GitHub)
-- `shumphrey/fugitive-gitlab.vim` (GitLab)
-
-**Команды:**
-
-- `:Git` - Выполнить git команды
-- `:GBrowse` - Открыть в GitHub/GitLab
-- `:Gdiff` - Показать diff
-
-### git.remote-view
-
-**Import:** `lazyvimx.extras.git.remote-view`
-
-Открытие и просмотр удаленных репозиториев локально.
-
-**Функции:**
-
-- Клонирование и открытие в новой вкладке
-- Авто-открытие README
-- Интеграция с Neo-tree
-- Пользовательские функции открытия
-
-**Plugin:** `moyiz/git-dev.nvim`
-
-**Команды:**
-
-- `:GitDevOpen <url>` - Клонировать и открыть
-- `:GitDevRemoteOpen` - Открыть удаленный
-- `:GitDevRemoteEnterAndOpen` - Войти и открыть
-
-### git.gitlab
-
-**Import:** `lazyvimx.extras.git.gitlab`
-
-Ревью GitLab MR внутри Neovim.
-
-**Функции:**
-
-- Ревью merge requests
-- Дерево обсуждений
-- Опция squash merge
-- Комментарии к diff
-- Одобрение/отклонение MR
-
-**Plugin:** `harrisoncramer/gitlab.nvim`
-
-**Требует:** `ui.diff-view` extra (предупреждает если отсутствует)
-
-**Комбинации клавиш:** `<leader>gl*` (через core.keys)
-
-**Команды:**
-
-- `:GitLabMRs` - Список MR
-- `:GitLabMRReview` - Ревью MR
-- `:GitLabMRApprove` - Одобрить MR
+## Git
 
 ### git.conflicts
 
-**Import:** `lazyvimx.extras.git.conflicts`
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/git-conflicts.gif)
 
-Визуальное разрешение Git конфликтов.
+**Импорт:** `lazyvimx.extras.git.conflicts`
 
-**Функции:**
+Подсветка и разрешение git-конфликтов прямо в буфере. Уведомления об обнаружении и
+разрешении конфликта (не чаще раза в 3 секунды).
 
-- Уведомления об обнаружении конфликтов
-- Визуальные маркеры конфликтов
-- Уведомления о разрешении
-- Троттлинг уведомлений (3с)
+**Плагин:** `akinsho/git-conflict.nvim`
 
-**Plugin:** `akinsho/git-conflict.nvim`
+### git.fugitive
 
-**Маркеры:**
+**Импорт:** `lazyvimx.extras.git.fugitive`
 
-```
-<<<<<<< HEAD
-Текущие изменения
-=======
-Входящие изменения
->>>>>>> branch
-```
+Классический fugitive со всеми git-командами плюс `:GBrowse` для GitHub и GitLab. Токен
+GitLab берётся из переменной окружения `GITLAB_TOKEN`.
+
+**Плагины:** `tpope/vim-fugitive`, `tpope/vim-rhubarb`, `shumphrey/fugitive-gitlab.vim`
+
+**Кеймапы:** `go` — открыть файл (или выделенный диапазон) в браузере (через `core.keys`).
+
+### git.gitlab
+
+**Импорт:** `lazyvimx.extras.git.gitlab`
+
+Ревью GitLab MR не выходя из редактора: дерево обсуждений, комментарии к диффам,
+approve/revoke, merge (настроен squash).
+
+**Плагин:** `harrisoncramer/gitlab.nvim`
+
+**Требует:** экстру `ui.diff-view` (без неё покажет предупреждение).
+
+**Кеймапы:** `<leader>gL*` — весь MR-воркфлоу (через `core.keys`), см.
+[KEYBINDINGS.ru.md](./KEYBINDINGS.ru.md#gitlab).
+
+### git.remote-view
+
+**Импорт:** `lazyvimx.extras.git.remote-view`
+
+Открытие удалённых репозиториев локально: клонирует во временную директорию и открывает в
+новом табе — с README, если он есть, иначе с neo-tree.
+
+**Плагин:** `moyiz/git-dev.nvim`
+
+**Команды:** `:GitDevOpen <uri>`, `:GitDevRemoteOpen`, `:GitDevRemoteEnterAndOpen`.
+
+**Кеймапы:** `gx` — открыть URL под курсором, `gX` — ввести `author/repo` и открыть
+(через `core.keys`).
 
 ---
 
-## Language Extras
-
-Language extras добавляют поддержку конкретных языков.
-
-### lang.ejs
-
-**Import:** `lazyvimx.extras.lang.ejs`
-
-Поддержка EJS (Embedded JavaScript) шаблонов.
-
-**Функции:**
-
-- Регистрируется как eruby filetype
-- Парсер встроенных шаблонов
-- Интеграция с Tree-sitter
-- Подсветка синтаксиса
-
-**Plugin:** `nvim-treesitter/nvim-treesitter`
-
-**Расширения файлов:** `.ejs`
+## Lang
 
 ### lang.css
 
-**Import:** `lazyvimx.extras.lang.css`
+**Импорт:** `lazyvimx.extras.lang.css`
 
-Улучшенная поддержка CSS/SCSS.
+Поддержка CSS/SCSS: LSP `cssls` со сниппетами, tree-sitter-парсеры, форматирование через
+stylelint (и prettier, если включена экстра LazyVim `formatting.prettier`), диагностика
+stylelint_lsp при включённой `linting.eslint`.
 
-**Функции:**
+### lang.ejs
 
-- CSS LSP со сниппетами
-- Tree-sitter для CSS/SCSS
-- Форматирование Prettier (если extra включен)
-- Интеграция со Stylelint
-- Поддержка ESLint
+**Импорт:** `lazyvimx.extras.lang.ejs`
 
-**Plugins:**
+Подсветка EJS-шаблонов: файлы `.ejs` регистрируются как eruby с парсером
+`embedded_template`.
 
-- `neovim/nvim-lspconfig`
-- `nvim-treesitter/nvim-treesitter`
-- `stevearc/conform.nvim` (опционально)
+### lang.json
 
-**Форматтеры:**
+**Импорт:** `lazyvimx.extras.lang.json`
 
-- Prettier (CSS/SCSS)
-- Stylelint (CSS/SCSS)
+JSONC (JSON с комментариями) подсвечивается парсером json.
+
+### lang.skhd
+
+**Импорт:** `lazyvimx.extras.lang.skhd`
+
+Подсветка конфигов [skhd.zig](https://github.com/jackielii/skhd.zig) (`skhdrc`) собственной
+tree-sitter-грамматикой.
+
+**Плагин:** `aimuzov/tree-sitter-skhdrc`
 
 ---
 
-## Linting Extras
-
-Linting extras добавляют инструменты проверки качества кода.
+## Linting
 
 ### linting.cspell
 
-**Import:** `lazyvimx.extras.linting.cspell`
+**Импорт:** `lazyvimx.extras.linting.cspell`
 
-Интеграция с проверкой орфографии CSpell.
+Проверка орфографии cspell для всех типов файлов. Включается только если cspell установлен
+локально в проекте (например, через npm) — глобальный бинарник не подхватывается.
 
-**Функции:**
-
-- Авто-включение если cspell найден в проекте
-- Применяется ко всем типам файлов
-- Определение на уровне проекта
-
-**Plugin:** `mfussenegger/nvim-lint`
-
-**Настройка:**
-Добавьте `cspell.json` в ваш проект:
-
-```json
-{
-  "version": "0.2",
-  "language": "en",
-  "words": ["customword"]
-}
-```
+**Плагин:** `mfussenegger/nvim-lint`
 
 ### linting.stylelint
 
-**Import:** `lazyvimx.extras.linting.stylelint`
+**Импорт:** `lazyvimx.extras.linting.stylelint`
 
-Обеспечивает установку stylelint.
-
-**Функции:**
-
-- Авто-установка через Mason
-- Линтинг CSS/SCSS
-- Работает с lang.css extra
-
-**Plugin:** `mason-org/mason.nvim`
+Устанавливает stylelint-language-server через Mason. При включённой экстре LazyVim
+`linting.eslint` настраивает `stylelint_lsp`: корень проекта определяется детектором LazyVim,
+а список проверяемых типов расширен (css, scss, less, html, vue, svelte и другие).
 
 ---
 
-## AI Extras
+## Colorschemes
 
-AI extras интегрируют AI ассистентов для программирования.
+### colorschemes.nord
 
-### ai.avante
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/colorschemes-nord.gif)
 
-**Import:** `lazyvimx.extras.ai.avante`
+**Импорт:** `lazyvimx.extras.colorschemes.nord` (входит в `core.colorschemes`)
 
-Эмуляция Cursor AI IDE для Neovim.
+Колорскем Nord с сотней кастомных хайлайтов под плагины lazyvimx: blink.cmp, bufferline,
+neo-tree, snacks-дашборд, symbol-usage и другие. Включает собственные темы для lualine и
+bufferline, тёмный (`nord`) и светлый (`nord-light`) варианты.
 
-**Функции:**
-
-- Интеграция с OpenAI GPT-4o
-- Встроенные предложения кода
-- Интерфейс чата
-- Интеграция с file selector
-- Источники Blink.cmp
-- Поддержка render-markdown
-
-**Plugin:** `yetone/avante.nvim`
-
-**Конфигурация:**
-
-```lua
-{
-	provider = "openai",
-	model = "gpt-4o",
-	temperature = 0,
-	max_tokens = 8192,
-}
-```
-
-**Комбинации клавиш:** `<leader>a*` (через core.keys)
-
-**Требования:**
-
-- OpenAI API ключ
-- Интернет соединение
+**Плагин:** `gbprod/nord.nvim`
 
 ---
 
-## DAP Extras
-
-DAP extras добавляют возможности отладки.
+## DAP
 
 ### dap.vscode-js
 
-**Import:** `lazyvimx.extras.dap.vscode-js`
+**Импорт:** `lazyvimx.extras.dap.vscode-js`
 
-Отладчик JavaScript/TypeScript.
+Отладка JavaScript/TypeScript (и Svelte) через `js-debug-adapter` из Mason. Три конфигурации:
 
-**Функции:**
+1. Запуск Chrome для отладки клиента (localhost:8080)
+2. Подключение к процессу `node --inspect`
+3. Запуск текущего файла в node (только JavaScript)
 
-- Отладка Chrome
-- Отладка Node.js
-- Поддержка source map
-- Пропуск node_modules
-- Поддержка Svelte
+**Требует:** экстру LazyVim `dap.core` (без неё не активируется и покажет предупреждение).
+В VSCode отключена.
 
-**Plugins:**
-
-- `mfussenegger/nvim-dap`
-- `js-debug-adapter` (через `mason.nvim`)
-
-**Конфигурации:**
-
-1. Chrome (порт 8080)
-2. Attach к node --inspect
-3. Запуск файла в node (только JS)
-
-**Комбинации клавиш:**
-
-- `<F5>` - Продолжить
-- `<F10>` - Шаг над
-- `<F11>` - Шаг внутрь
-- `<F12>` - Шаг наружу
-
-**Требует:** `dap.core` extra (предупреждает если отсутствует)
+**Кеймапы:** `<F5>` / `<F10>` / `<F11>` / `<F12>` (через `core.keys`).
 
 ---
 
-## Performance Extras
+## Perf
 
-Performance extras оптимизируют Neovim.
+### perf.auto-update-deps
 
-### perf.stop-inactive-lsp
+**Импорт:** `lazyvimx.extras.perf.auto-update-deps`
 
-**Import:** `lazyvimx.extras.perf.stop-inactive-lsp`
+Автообновление всех пакетов Mason при старте: LSP-серверов, отладчиков, линтеров и
+форматтеров — включая установленные вручную через `:MasonInstall`.
 
-**Статус:** Отключено по умолчанию
-
-Сборщик мусора для неактивных LSP клиентов.
-
-**Функции:**
-
-- Авто-остановка неиспользуемых LSP клиентов
-- Освобождение RAM
-- Настраиваемые пороги
-
-**Plugin:** `zeioth/garbage-day.nvim`
-
-**Примечание:** В настоящее время отключено. Включайте на свой риск.
+**Плагин:** `WhoIsSethDaniel/mason-tool-installer.nvim`
 
 ### perf.local-config
 
-**Import:** `lazyvimx.extras.perf.local-config`
+**Импорт:** `lazyvimx.extras.perf.local-config`
 
-Загрузка конфигурации на уровне проекта.
+Локальный конфиг проекта: при открытии проекта тихо подгружается `.nvim.lua` или
+`.config/nvim.lua` из его корня.
 
-**Функции:**
-
-- Поддерживает `.nvim.lua` и `.config/nvim.lua`
-- Тихий режим (без уведомлений)
-- Настройка для каждого проекта
-
-**Plugin:** `klen/nvim-config-local`
-
-**Пример `.nvim.lua`:**
+**Плагин:** `klen/nvim-config-local`
 
 ```lua
+-- .nvim.lua
 vim.opt_local.shiftwidth = 2
 vim.opt_local.expandtab = true
-
-require("lspconfig").tsserver.setup({
-	-- Специфичная для проекта LSP конфигурация
-})
 ```
 
 ### perf.restore-last-colorscheme
 
-**Import:** `lazyvimx.extras.perf.restore-last-colorscheme`
+**Импорт:** `lazyvimx.extras.perf.restore-last-colorscheme`
 
-Автоматическое восстановление последней использованной цветовой схемы при запуске.
+Запоминает последний выбранный колорскем и восстанавливает его при старте — в рамках
+логики светлых/тёмных вариантов lazyvimx (см.
+[CONFIGURATION.ru.md](./CONFIGURATION.ru.md#колорскемы)).
 
-**Функции:**
+**Плагин:** `raddari/last-color.nvim`
 
-- Запоминает цветовую схему между сеансами
-- Быстрое восстановление при запуске
-- Не требует ручной настройки
-- Интегрируется с переключением тем lazyvimx
+### perf.stop-inactive-lsp
 
-**Plugin:** `raddari/last-color.nvim`
+**Импорт:** `lazyvimx.extras.perf.stop-inactive-lsp`
 
-**Применение:** Полезно при частой смене цветовых схем и желании сохранить предпочтение между сеансами Neovim.
+Останавливает LSP-клиентов, к буферам которых давно не обращались, и освобождает память.
 
-### perf.auto-update-deps
-
-**Import:** `lazyvimx.extras.perf.auto-update-deps`
-
-Автоматическое обновление всех пакетов Mason при старте.
-
-**Функции:**
-
-- Обновление любых пакетов, установленных через Mason (LSP, DAP, линтеры, форматтеры)
-- Подхват пакетов, установленных вручную через `:MasonInstall`
-- Использует `ensure_installed` из `mason.nvim` и установленные серверы из `mason-lspconfig`
-- Работает поверх `mason-tool-installer.nvim` с `auto_update = true`
-
-**Plugin:** `WhoIsSethDaniel/mason-tool-installer.nvim`
-
-**Применение:** Держать языковые серверы и инструменты актуальными без ручного `:MasonUpdate` и переустановки.
+**Плагин:** `zeioth/garbage-day.nvim`
 
 ---
 
-## Test Extras
-
-Test extras интегрируют фреймворки тестирования.
+## Test
 
 ### test.jest
 
-**Import:** `lazyvimx.extras.test.jest`
+**Импорт:** `lazyvimx.extras.test.jest`
 
-Фреймворк тестирования Jest для Neotest.
+Jest-адаптер для Neotest: запуск тестов из редактора, вывод результатов, обнаружение тестов
+самим Jest, переменная окружения `CI=true`.
 
-**Функции:**
+**Плагины:** `nvim-neotest/neotest`, `haydenmeade/neotest-jest`
 
-- Обнаружение Jest тестов
-- Запуск тестов из редактора
-- Вывод тестов в Neotest
-- Переменная окружения CI
-
-**Plugins:**
-
-- `nvim-neotest/neotest`
-- `haydenmeade/neotest-jest`
-
-**Команды:**
-
-- `:Neotest run` - Запустить ближайший тест
-- `:Neotest run file` - Запустить тесты файла
-- `:Neotest summary` - Показать сводку
-
-**Требует:** `test.core` extra (предупреждает если отсутствует)
+**Требует:** экстру LazyVim `test.core` (без неё не активируется).
 
 ---
 
-## Сводка по Extras
+## Сводная таблица
 
-| Категория   | Количество | Описание                                        |
-| ----------- | ---------- | ----------------------------------------------- |
-| Core        | 4          | Оркестрация и основной функционал               |
-| UI          | 19         | Визуальные улучшения и интерфейс                |
-| Coding      | 2          | Инструменты программирования и рабочие процессы |
-| Motions     | 6          | Улучшения навигации                             |
-| Buffer      | 4          | Управление буферами                             |
-| Git         | 4          | Интеграция контроля версий                      |
-| Language    | 2          | Поддержка языков                                |
-| Linting     | 2          | Инструменты проверки качества кода              |
-| AI          | 1          | AI ассистенты для программирования              |
-| DAP         | 1          | Поддержка отладки                               |
-| Performance | 4          | Оптимизация                                     |
-| Test        | 1          | Фреймворки тестирования                         |
-| **Всего**   | **50**     |                                                 |
+| Категория    | Кол-во | Что внутри                                 |
+| ------------ | ------ | ------------------------------------------ |
+| UI           | 21     | Интерфейс и внешний вид                    |
+| Motions      | 6      | Навигация и перемещения по коду            |
+| Buf          | 4      | Управление буферами                        |
+| Git          | 4      | Git и GitLab                               |
+| Lang         | 4      | Поддержка языков                           |
+| Perf         | 4      | Производительность и удобство              |
+| Coding       | 2      | Инструменты написания кода                 |
+| Linting      | 2      | Линтеры                                    |
+| Colorschemes | 1      | Колорскемы                                 |
+| DAP          | 1      | Отладка                                    |
+| Test         | 1      | Тестирование                               |
+| **Итого**    | **50** | плюс 5 core-модулей для включения наборами |
 
-## Рекомендуемые Extras
+## С чего начать
 
-Для лучшего опыта, включите:
+1. `core.all` — всё сразу; либо `core.overrides` + отдельные экстры по вкусу
+2. `motions.langmapper` — если печатаете на русской раскладке
+3. `ui.better-diagnostic` — читаемая диагностика
+4. `ui.better-float` — единый стиль окон
+5. `git.conflicts` — если случаются конфликты
+6. `coding.comments` — комментирование с контекстом
 
-1. `core.all` - Все функции
-2. `motions.langmapper` - Если используете русскую клавиатуру
-3. `ui.better-diagnostic` - Лучшее отображение ошибок
-4. `ui.better-float` - Согласованный UI
-5. `git.conflicts` - Если используете Git
-6. `coding.comments` - Улучшенное комментирование
+## См. также
 
-## Следующие шаги
-
-- См. [CONFIGURATION.md](CONFIGURATION.md) для деталей настройки
-- См. [API.md](API.md) для утилитарных функций
-- См. [ARCHITECTURE.md](ARCHITECTURE.md) для технических деталей
+- [CONFIGURATION.ru.md](CONFIGURATION.ru.md) — настройка
+- [KEYBINDINGS.ru.md](KEYBINDINGS.ru.md) — кеймапы
+- [API.ru.md](API.ru.md) — утилиты
+- [ARCHITECTURE.ru.md](ARCHITECTURE.ru.md) — устройство

@@ -1,256 +1,217 @@
-# Keyboard Shortcuts Reference
+# Keymaps
 
 > [!TIP]
 > **🇷🇺 Русская версия:** [KEYBINDINGS.ru.md](KEYBINDINGS.ru.md)
 
-Complete reference for all lazyvimx custom keybindings.
+All custom lazyvimx keymaps.
 
 ## Table of Contents
 
-- [Prerequisites](#prerequisites)
+- [How It Works](#how-it-works)
 - [Basic Operations](#basic-operations)
 - [Files and Buffers](#files-and-buffers)
 - [Navigation and Motions](#navigation-and-motions)
-- [Window Management](#window-management)
+- [Windows](#windows)
 - [LSP and Code](#lsp-and-code)
-- [Git Operations](#git-operations)
-- [GitLab Operations](#gitlab-operations)
+- [Git](#git)
+- [GitLab](#gitlab)
 - [DAP (Debugging)](#dap-debugging)
-- [Full Reference](#full-reference)
+- [Customization](#customization)
 
-## Prerequisites
+## How It Works
 
-All custom keybindings require:
+Keymaps are enabled by the `core.keys` module (part of `core.all`):
+
 ```lua
 { import = "lazyvimx.extras.core.keys" }
 ```
 
-Or include via:
-```lua
-{ import = "lazyvimx.extras.core.all" }
-```
+Each keymap is bound to its plugin: if the plugin isn't installed (the corresponding extra
+is off) — the keymap simply doesn't appear. The "Requires" column shows which extra brings
+the plugin.
 
-**Leader key**: Space (default LazyVim setting)
+**Leader** is space (the LazyVim default). The source of truth is
+[extras/core/keys.lua](../lua/lazyvimx/extras/core/keys.lua).
 
 ## Basic Operations
 
-| Key              | Mode    | Description                      | Extra Required |
-| ---------------- | ------- | -------------------------------- | -------------- |
-| `d`              | n, v    | Delete without yanking           | core.keys      |
-| `<C-S-j>`        | n, i, v | Move line/selection down         | core.keys      |
-| `<C-S-k>`        | n, i, v | Move line/selection up           | core.keys      |
-| `<leader>\`      | n       | Split window right               | core.keys      |
-| `<leader>ch`     | n       | Open shell (cht.sh)              | core.keys      |
-| `<leader>ll`     | n       | Open Lazy dashboard              | core.keys      |
-| `<leader>lx`     | n       | Open Lazy extras                 | core.keys      |
-| `<leader>uz`     | n       | Toggle zen mode                  | core.keys      |
-| `<leader>uq`     | n       | Open dashboard                   | core.keys      |
-| `<leader><tab>r` | n       | Rename tab                       | core.keys      |
+| Keymap           | Mode    | Description                          | Requires  |
+| ---------------- | ------- | ------------------------------------ | --------- |
+| `d`              | n, v    | Delete without clobbering a register | core.keys |
+| `<C-S-j>`        | n, i, v | Move the line/selection down         | core.keys |
+| `<C-S-k>`        | n, i, v | Move the line/selection up           | core.keys |
+| `<leader>\`      | n       | Split the window to the right        | core.keys |
+| `<leader>ch`     | n       | Open a shell (cht.sh)                | core.keys |
+| `<leader>ll`     | n       | Open the Lazy dashboard              | core.keys |
+| `<leader>lx`     | n       | Open Lazy extras                     | core.keys |
+| `<leader>uz`     | n       | Zen mode (zoom)                      | core.keys |
+| `<leader>uq`     | n       | Open the dashboard                   | core.keys |
+| `<leader><tab>r` | n       | Rename the tab                       | core.keys |
+
+In VSCode the `<leader>\`, `<leader>ch`, `<leader>ll`, `<leader>lx` keymaps aren't created.
 
 ## Files and Buffers
 
-| Key               | Mode | Description                    | Extra Required     |
+| Keymap            | Mode | Description                    | Requires           |
 | ----------------- | ---- | ------------------------------ | ------------------ |
 | `<leader><space>` | n    | Find files (smart)             | core.keys          |
-| `<leader>fy`      | n    | Find files (yazi)              | ui.better-explorer |
-| `<leader>fY`      | n    | Find files (yazi prev session) | ui.better-explorer |
-| `<leader>bg`      | n, v | Pick buffer                    | core.keys          |
-| `<leader>bm[`     | n    | Move buffer (prev)             | core.keys          |
-| `<leader>bm]`     | n    | Move buffer (next)             | core.keys          |
-| `<leader>b<tab>`  | n    | Move buffer to another tab     | buf.tab-scope      |
+| `<leader>fy`      | n    | The Yazi file manager          | ui.better-explorer |
+| `<leader>fY`      | n    | Yazi (the previous session)    | ui.better-explorer |
+| `<leader>bg`      | n, v | Pick a buffer                  | core.keys          |
+| `<leader>bm[`     | n    | Move the buffer back           | core.keys          |
+| `<leader>bm]`     | n    | Move the buffer forward        | core.keys          |
+| `<leader>b<tab>`  | n    | Move the buffer to another tab | buf.tab-scope      |
 | `H`               | n    | Previous buffer                | core.keys          |
 | `L`               | n    | Next buffer                    | core.keys          |
 
 ## Navigation and Motions
 
-| Key       | Mode    | Description                     | Extra Required                   |
-| --------- | ------- | ------------------------------- | -------------------------------- |
-| `[x`      | n       | Go to treesitter context        | core.keys                        |
-| `w`       | n, o, x | Move forward (spider)           | motions.better-move-between-words |
-| `b`       | n, o, x | Move backward (spider)          | motions.better-move-between-words |
-| `e`       | n, o, x | Move to end of word (spider)    | motions.better-move-between-words |
-| `cw`      | n       | Change word (spider)            | motions.better-move-between-words |
-| `<C-f>`   | i       | Move forward in insert (spider) | motions.better-move-between-words |
-| `<C-b>`   | i       | Move backward in insert (spider)| motions.better-move-between-words |
-| `<C-A-h>` | n       | TreeWalker left                 | motions.sibling-move             |
-| `<C-A-l>` | n       | TreeWalker right                | motions.sibling-move             |
-| `<C-A-j>` | n       | TreeWalker down                 | motions.sibling-move             |
-| `<C-A-k>` | n       | TreeWalker up                   | motions.sibling-move             |
-| `<C-A-.>` | n       | TreeWalker swap down            | motions.sibling-move             |
-| `<C-A-,>` | n       | TreeWalker swap up              | motions.sibling-move             |
+| Keymap    | Mode    | Description                        | Requires                          |
+| --------- | ------- | ---------------------------------- | --------------------------------- |
+| `[x`      | n       | Jump to the treesitter context     | LazyVim ui.treesitter-context     |
+| `w`       | n, o, x | Word forward (by subwords)         | motions.better-move-between-words |
+| `b`       | n, o, x | Word backward (by subwords)        | motions.better-move-between-words |
+| `e`       | n, o, x | End of word (by subwords)          | motions.better-move-between-words |
+| `cw`      | n       | Change word (by subwords)          | motions.better-move-between-words |
+| `<C-f>`   | i       | Word forward in insert             | motions.better-move-between-words |
+| `<C-b>`   | i       | Word backward in insert            | motions.better-move-between-words |
+| `<C-A-h>` | n       | Node to the left (treewalker)      | motions.sibling-move              |
+| `<C-A-l>` | n       | Node to the right (treewalker)     | motions.sibling-move              |
+| `<C-A-j>` | n       | Node below (treewalker)            | motions.sibling-move              |
+| `<C-A-k>` | n       | Node above (treewalker)            | motions.sibling-move              |
+| `<C-A-.>` | n       | Swap the node with the lower one   | motions.sibling-move              |
+| `<C-A-,>` | n       | Swap the node with the upper one   | motions.sibling-move              |
 
-## Window Management
+## Windows
 
-| Key         | Mode    | Description            | Extra Required |
-| ----------- | ------- | ---------------------- | -------------- |
-| `<C-Up>`    | n, v, t | Increase window height | core.keys      |
-| `<C-Down>`  | n, v, t | Decrease window height | core.keys      |
-| `<C-Left>`  | n, v, t | Decrease window width  | core.keys      |
-| `<C-Right>` | n, v, t | Increase window width  | core.keys      |
+Resizing works for edgy sidebars too — the new size is remembered (see
+[util.layout](API.md#utillayout)).
+
+| Keymap      | Mode    | Description                | Requires  |
+| ----------- | ------- | -------------------------- | --------- |
+| `<C-Up>`    | n, v, t | Increase the window height | core.keys |
+| `<C-Down>`  | n, v, t | Decrease the window height | core.keys |
+| `<C-Left>`  | n, v, t | Decrease the window width  | core.keys |
+| `<C-Right>` | n, v, t | Increase the window width  | core.keys |
 
 ## LSP and Code
 
-| Key          | Mode | Description                  | Extra Required                    |
-| ------------ | ---- | ---------------------------- | --------------------------------- |
-| `gr`         | n    | Go to references (glance)    | ui.peek-preview                   |
-| `<leader>cr` | n    | Rename (live-rename)         | ui.better-live-rename             |
-| `<leader>cw` | n, v | Wrap with emmet abbreviation | coding.emmet                      |
-| `<C-.>`      | n    | Swap sibling node right      | motions.sibling-swap              |
-| `<C-,>`      | n    | Swap sibling node left       | motions.sibling-swap              |
-| `<leader>ct` | n    | Split/Join block (autodetect)| motions.splitting-joining-blocks  |
-| `<leader>c\` | n    | Split code block             | motions.splitting-joining-blocks  |
-| `<leader>cj` | n    | Join code block              | motions.splitting-joining-blocks  |
+| Keymap       | Mode | Description                             | Requires                         |
+| ------------ | ---- | --------------------------------------- | -------------------------------- |
+| `gr`         | n    | References in a peek window (glance)    | ui.peek-preview                  |
+| `<leader>cr` | n    | Rename with a preview (live-rename)     | ui.better-live-rename            |
+| `<leader>cw` | n, v | Wrap in an Emmet abbreviation           | coding.emmet                     |
+| `<C-.>`      | n    | Swap the node with the right one        | motions.sibling-swap             |
+| `<C-,>`      | n    | Swap the node with the left one         | motions.sibling-swap             |
+| `<leader>ct` | n    | Split/join a block (automatically)      | motions.splitting-joining-blocks |
+| `<leader>c\` | n    | Split a block                           | motions.splitting-joining-blocks |
+| `<leader>cj` | n    | Join a block                            | motions.splitting-joining-blocks |
+| `<leader>ac` | n, x | Copy the cursor/selection position      | core.overrides (sidekick)        |
 
-## Git Operations
+`<leader>ac` puts a reference like `@file :L10:C5` on the clipboard — handy for prompts to
+AI agents.
 
-| Key           | Mode | Description                 | Extra Required |
-| ------------- | ---- | --------------------------- | -------------- |
-| `<leader>ghP` | n    | Preview hunk                | core.keys      |
-| `go`          | n    | Open in browser (fugitive)  | git.fugitive   |
-| `go`          | v    | Open range in browser       | git.fugitive   |
-| `gx`          | n    | Open remote git repository  | git.remote-view|
-| `gX`          | n    | Enter remote git repository | git.remote-view|
+## Git
 
-## GitLab Operations
+| Keymap        | Mode | Description                          | Requires        |
+| ------------- | ---- | ------------------------------------ | --------------- |
+| `<leader>ghP` | n    | Preview the hunk                     | core.keys       |
+| `go`          | n    | Open the file in a browser (GBrowse) | git.fugitive    |
+| `go`          | v    | Open the range in a browser          | git.fugitive    |
+| `gx`          | n    | Open a remote repository             | git.remote-view |
+| `gX`          | n    | Enter `author/repo` and open         | git.remote-view |
 
-**Requires**: `git.gitlab` extra
+## GitLab
 
-| Key           | Mode | Description                   |
-| ------------- | ---- | ----------------------------- |
-| `<leader>gLA` | n    | Approve MR                    |
-| `<leader>gLc` | n    | Create comment                |
-| `<leader>gLc` | v    | Create multiline comment      |
-| `<leader>gLC` | v    | Create comment suggestion     |
-| `<leader>gLd` | n    | Toggle discussion             |
-| `<leader>gLe` | n    | Choose merge request          |
-| `<leader>gLM` | n    | Merge MR                      |
-| `<leader>gLm` | n    | Move to discussion tree       |
-| `<leader>gLn` | n    | Create note                   |
-| `<leader>gLo` | n    | Open in browser               |
-| `<leader>gLp` | n    | Pipeline                      |
-| `<leader>gLr` | n    | Review                        |
-| `<leader>gLR` | n    | Revoke                        |
-| `<leader>gLs` | n    | Summary                       |
+**Requires**: the `git.gitlab` extra.
+
+| Keymap        | Mode | Description                       |
+| ------------- | ---- | --------------------------------- |
+| `<leader>gLr` | n    | Review the MR                     |
+| `<leader>gLe` | n    | Choose an MR                      |
+| `<leader>gLs` | n    | MR summary                        |
+| `<leader>gLd` | n    | The discussion tree               |
+| `<leader>gLc` | n    | Comment                           |
+| `<leader>gLc` | v    | Comment on multiple lines         |
+| `<leader>gLC` | v    | Comment with a suggested change   |
+| `<leader>gLn` | n    | Note                              |
+| `<leader>gLm` | n    | To the discussion from a diagnostic |
+| `<leader>gLA` | n    | Approve                           |
+| `<leader>gLR` | n    | Revoke the approve                |
+| `<leader>gLM` | n    | Merge                             |
+| `<leader>gLp` | n    | Pipeline                          |
+| `<leader>gLo` | n    | Open in a browser                 |
 
 ## DAP (Debugging)
 
-**Requires**: `dap.vscode-js` extra (or other DAP extras)
+**Requires**: `dap.vscode-js` (or another DAP extra bringing `nvim-dap`).
 
-| Key     | Mode | Description |
+| Keymap  | Mode | Description |
 | ------- | ---- | ----------- |
 | `<F5>`  | n    | Continue    |
 | `<F10>` | n    | Step over   |
 | `<F11>` | n    | Step into   |
 | `<F12>` | n    | Step out    |
 
-## Full Reference
+## Customization
 
-### Keybinding Modes
-
-- `n` = Normal mode
-- `v` = Visual mode
-- `i` = Insert mode
-- `o` = Operator-pending mode
-- `x` = Visual and Select mode
-- `t` = Terminal mode
-
-### Source Code
-
-All keybindings are defined in:
-```
-lua/lazyvimx/extras/core/keys.lua
-```
-
-View the complete source: [extras/core/keys.lua](../lua/lazyvimx/extras/core/keys.lua)
-
-### Customizing Keybindings
-
-#### Disable a Keybinding
+### Disabling a Keymap
 
 ```lua
 -- lua/plugins/keys.lua
 return {
-  {
-    "LazyVim/LazyVim",
-    keys = {
-      { "<leader>cr", false }, -- Disable lazyvimx rename
-    },
-  },
+	{
+		"LazyVim/LazyVim",
+		keys = {
+			{ "<leader>cr", false },
+		},
+	},
 }
 ```
 
-#### Override a Keybinding
+### Overriding
 
 ```lua
--- lua/plugins/keys.lua
 return {
-  {
-    "LazyVim/LazyVim",
-    keys = {
-      -- Override with custom action
-      { "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename (default)" },
-    },
-  },
+	{
+		"LazyVim/LazyVim",
+		keys = {
+			{ "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename (default)" },
+		},
+	},
 }
 ```
 
-#### Add Custom Keybindings
+### Adding Your Own
 
 ```lua
 -- lua/config/keymaps.lua
-vim.keymap.set("n", "<leader>xx", "<cmd>MyCustomCommand<cr>", { desc = "My Custom Command" })
+vim.keymap.set("n", "<leader>xx", "<cmd>MyCommand<cr>", { desc = "My Command" })
 ```
 
-### Which-Key Integration
+### The Russian Layout
 
-All keybindings are automatically integrated with which-key. To view them:
+With the `motions.langmapper` extra every keymap works on the Russian layout too — no
+switching needed:
 
-```vim
-:WhichKey
-```
-
-Or specific prefix:
-
-```vim
-:WhichKey <leader>g
-```
-
-### Russian Keyboard Support
-
-For Russian keyboard layout support, enable:
 ```lua
 { import = "lazyvimx.extras.motions.langmapper" }
 ```
 
-This allows using Vim motions without switching keyboard layout.
+### Conflicts
 
-### Conflicting Keybindings
+```vim
+" Who took the keymap
+:verbose map <leader>cr
 
-If you experience conflicts:
+" All mappings of a key
+:map <leader>cr
+```
 
-1. **Check which keybinding is active**:
-   ```vim
-   :verbose map <leader>cr
-   ```
-
-2. **See all mappings for a key**:
-   ```vim
-   :map <leader>cr
-   ```
-
-3. **Disable conflicting plugin**: In your config, disable the conflicting extra or plugin
-
-### Tips
-
-1. **Use which-key**: Press leader key and wait to see available keybindings
-2. **Learn incrementally**: Don't try to memorize all at once
-3. **Start with basics**: Basic operations and file/buffer management
-4. **Practice motions**: Spider motions and TreeWalker significantly improve navigation
-5. **Customize**: Don't hesitate to change keybindings to match your workflow
+Every keymap shows up in which-key: press leader and wait, or `:WhichKey <leader>g`.
 
 ## See Also
 
-- [LazyVim Keybindings](https://www.lazyvim.org/keymaps) - Base LazyVim keybindings
-- [CONFIGURATION.md](CONFIGURATION.md) - Configuration guide
-- [EXTRAS.md](EXTRAS.md) - All extras documentation
-- [FAQ.md](FAQ.md#keybinding-problems) - Keybinding troubleshooting
+- [LazyVim Keymaps](https://www.lazyvim.org/keymaps) — the base keymaps
+- [EXTRAS.md](EXTRAS.md) — the extras reference
+- [TROUBLESHOOTING.md](TROUBLESHOOTING.md#keymaps) — if keymaps don't work

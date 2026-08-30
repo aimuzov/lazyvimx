@@ -1,256 +1,217 @@
-# Справочник горячих клавиш
+# Кеймапы
 
 > [!TIP]
 > **🇬🇧 English version:** [KEYBINDINGS.md](KEYBINDINGS.md)
 
-Полный справочник всех кастомных горячих клавиш lazyvimx.
+Все кастомные кеймапы lazyvimx.
 
-## Оглавление
+## Содержание
 
-- [Предварительные требования](#предварительные-требования)
+- [Как это работает](#как-это-работает)
 - [Базовые операции](#базовые-операции)
 - [Файлы и буферы](#файлы-и-буферы)
 - [Навигация и движения](#навигация-и-движения)
-- [Управление окнами](#управление-окнами)
+- [Окна](#окна)
 - [LSP и код](#lsp-и-код)
-- [Git операции](#git-операции)
-- [GitLab операции](#gitlab-операции)
-- [DAP (Отладка)](#dap-отладка)
-- [Полный справочник](#полный-справочник)
+- [Git](#git)
+- [GitLab](#gitlab)
+- [DAP (отладка)](#dap-отладка)
+- [Кастомизация](#кастомизация)
 
-## Предварительные требования
+## Как это работает
 
-Все кастомные горячие клавиши требуют:
+Кеймапы включаются модулем `core.keys` (входит в `core.all`):
+
 ```lua
 { import = "lazyvimx.extras.core.keys" }
 ```
 
-Или включите через:
-```lua
-{ import = "lazyvimx.extras.core.all" }
-```
+Каждый кеймап привязан к своему плагину: если плагин не установлен (соответствующая экстра
+выключена) — кеймап просто не появится. В колонке «Требуется» указано, какая экстра
+приносит плагин.
 
-**Leader key**: Пробел (стандартная настройка LazyVim)
+**Leader** — пробел (дефолт LazyVim). Источник истины —
+[extras/core/keys.lua](../lua/lazyvimx/extras/core/keys.lua).
 
 ## Базовые операции
 
-| Клавиша          | Режим   | Описание                         | Требуемый Extra |
-| ---------------- | ------- | -------------------------------- | --------------- |
-| `d`              | n, v    | Удалить без копирования          | core.keys       |
-| `<C-S-j>`        | n, i, v | Переместить строку/выделение вниз| core.keys       |
-| `<C-S-k>`        | n, i, v | Переместить строку/выделение вверх| core.keys      |
-| `<leader>\`      | n       | Разделить окно вправо            | core.keys       |
-| `<leader>ch`     | n       | Открыть shell (cht.sh)           | core.keys       |
-| `<leader>ll`     | n       | Открыть Lazy dashboard           | core.keys       |
-| `<leader>lx`     | n       | Открыть Lazy extras              | core.keys       |
-| `<leader>uz`     | n       | Переключить zen режим            | core.keys       |
-| `<leader>uq`     | n       | Открыть dashboard                | core.keys       |
-| `<leader><tab>r` | n       | Переименовать таб                | core.keys       |
+| Кеймап           | Режим   | Описание                             | Требуется |
+| ---------------- | ------- | ------------------------------------ | --------- |
+| `d`              | n, v    | Удаление без копирования в регистр   | core.keys |
+| `<C-S-j>`        | n, i, v | Переместить строку/выделение вниз    | core.keys |
+| `<C-S-k>`        | n, i, v | Переместить строку/выделение вверх   | core.keys |
+| `<leader>\`      | n       | Разделить окно вправо                | core.keys |
+| `<leader>ch`     | n       | Открыть shell (cht.sh)               | core.keys |
+| `<leader>ll`     | n       | Открыть дашборд Lazy                 | core.keys |
+| `<leader>lx`     | n       | Открыть Lazy extras                  | core.keys |
+| `<leader>uz`     | n       | Zen-режим (zoom)                     | core.keys |
+| `<leader>uq`     | n       | Открыть дашборд                      | core.keys |
+| `<leader><tab>r` | n       | Переименовать таб                    | core.keys |
+
+В VSCode кеймапы `<leader>\`, `<leader>ch`, `<leader>ll`, `<leader>lx` не создаются.
 
 ## Файлы и буферы
 
-| Клавиша           | Режим | Описание                        | Требуемый Extra    |
+| Кеймап            | Режим | Описание                        | Требуется          |
 | ----------------- | ----- | ------------------------------- | ------------------ |
 | `<leader><space>` | n     | Найти файлы (smart)             | core.keys          |
-| `<leader>fy`      | n     | Найти файлы (yazi)              | ui.better-explorer |
-| `<leader>fY`      | n     | Найти файлы (yazi prev session) | ui.better-explorer |
+| `<leader>fy`      | n     | Файловый менеджер Yazi          | ui.better-explorer |
+| `<leader>fY`      | n     | Yazi (предыдущая сессия)        | ui.better-explorer |
 | `<leader>bg`      | n, v  | Выбрать буфер                   | core.keys          |
-| `<leader>bm[`     | n     | Переместить буфер (prev)        | core.keys          |
-| `<leader>bm]`     | n     | Переместить буфер (next)        | core.keys          |
-| `<leader>b<tab>`  | n     | Переместить буфер в другой таб  | buf.tab-scope      |
+| `<leader>bm[`     | n     | Переместить буфер назад         | core.keys          |
+| `<leader>bm]`     | n     | Переместить буфер вперёд        | core.keys          |
+| `<leader>b<tab>`  | n     | Перенести буфер в другой таб    | buf.tab-scope      |
 | `H`               | n     | Предыдущий буфер                | core.keys          |
 | `L`               | n     | Следующий буфер                 | core.keys          |
 
 ## Навигация и движения
 
-| Клавиша   | Режим   | Описание                        | Требуемый Extra                   |
-| --------- | ------- | ------------------------------- | --------------------------------- |
-| `[x`      | n       | Перейти к контексту treesitter  | core.keys                         |
-| `w`       | n, o, x | Движение вперёд (spider)        | motions.better-move-between-words |
-| `b`       | n, o, x | Движение назад (spider)         | motions.better-move-between-words |
-| `e`       | n, o, x | К концу слова (spider)          | motions.better-move-between-words |
-| `cw`      | n       | Изменить слово (spider)         | motions.better-move-between-words |
-| `<C-f>`   | i       | Вперёд в insert (spider)        | motions.better-move-between-words |
-| `<C-b>`   | i       | Назад в insert (spider)         | motions.better-move-between-words |
-| `<C-A-h>` | n       | TreeWalker влево                | motions.sibling-move              |
-| `<C-A-l>` | n       | TreeWalker вправо               | motions.sibling-move              |
-| `<C-A-j>` | n       | TreeWalker вниз                 | motions.sibling-move              |
-| `<C-A-k>` | n       | TreeWalker вверх                | motions.sibling-move              |
-| `<C-A-.>` | n       | TreeWalker поменять вниз        | motions.sibling-move              |
-| `<C-A-,>` | n       | TreeWalker поменять вверх       | motions.sibling-move              |
+| Кеймап    | Режим   | Описание                            | Требуется                         |
+| --------- | ------- | ----------------------------------- | --------------------------------- |
+| `[x`      | n       | Перейти к treesitter-контексту      | LazyVim ui.treesitter-context     |
+| `w`       | n, o, x | Слово вперёд (по подсловам)         | motions.better-move-between-words |
+| `b`       | n, o, x | Слово назад (по подсловам)          | motions.better-move-between-words |
+| `e`       | n, o, x | Конец слова (по подсловам)          | motions.better-move-between-words |
+| `cw`      | n       | Изменить слово (по подсловам)       | motions.better-move-between-words |
+| `<C-f>`   | i       | Слово вперёд в insert               | motions.better-move-between-words |
+| `<C-b>`   | i       | Слово назад в insert                | motions.better-move-between-words |
+| `<C-A-h>` | n       | Узел слева (treewalker)             | motions.sibling-move              |
+| `<C-A-l>` | n       | Узел справа (treewalker)            | motions.sibling-move              |
+| `<C-A-j>` | n       | Узел ниже (treewalker)              | motions.sibling-move              |
+| `<C-A-k>` | n       | Узел выше (treewalker)              | motions.sibling-move              |
+| `<C-A-.>` | n       | Поменять узел с нижним              | motions.sibling-move              |
+| `<C-A-,>` | n       | Поменять узел с верхним             | motions.sibling-move              |
 
-## Управление окнами
+## Окна
 
-| Клавиша     | Режим   | Описание              | Требуемый Extra |
-| ----------- | ------- | --------------------- | --------------- |
-| `<C-Up>`    | n, v, t | Увеличить высоту окна | core.keys       |
-| `<C-Down>`  | n, v, t | Уменьшить высоту окна | core.keys       |
-| `<C-Left>`  | n, v, t | Уменьшить ширину окна | core.keys       |
-| `<C-Right>` | n, v, t | Увеличить ширину окна | core.keys       |
+Ресайз работает и для edgy-сайдбаров — новый размер запоминается (см.
+[util.layout](API.ru.md#utillayout)).
+
+| Кеймап      | Режим   | Описание               | Требуется |
+| ----------- | ------- | ---------------------- | --------- |
+| `<C-Up>`    | n, v, t | Увеличить высоту окна  | core.keys |
+| `<C-Down>`  | n, v, t | Уменьшить высоту окна  | core.keys |
+| `<C-Left>`  | n, v, t | Уменьшить ширину окна  | core.keys |
+| `<C-Right>` | n, v, t | Увеличить ширину окна  | core.keys |
 
 ## LSP и код
 
-| Клавиша      | Режим | Описание                          | Требуемый Extra                  |
-| ------------ | ----- | --------------------------------- | -------------------------------- |
-| `gr`         | n     | Перейти к ссылкам (glance)        | ui.peek-preview                  |
-| `<leader>cr` | n     | Переименовать (live-rename)       | ui.better-live-rename            |
-| `<leader>cw` | n, v  | Обернуть emmet abbreviation       | coding.emmet                     |
-| `<C-.>`      | n     | Поменять sibling узел вправо      | motions.sibling-swap             |
-| `<C-,>`      | n     | Поменять sibling узел влево       | motions.sibling-swap             |
-| `<leader>ct` | n     | Split/Join блок (автоопределение) | motions.splitting-joining-blocks |
-| `<leader>c\` | n     | Split блок кода                   | motions.splitting-joining-blocks |
-| `<leader>cj` | n     | Join блок кода                    | motions.splitting-joining-blocks |
+| Кеймап       | Режим | Описание                              | Требуется                        |
+| ------------ | ----- | ------------------------------------- | -------------------------------- |
+| `gr`         | n     | Референсы в peek-окне (glance)        | ui.peek-preview                  |
+| `<leader>cr` | n     | Переименование с превью (live-rename) | ui.better-live-rename            |
+| `<leader>cw` | n, v  | Обернуть в Emmet-аббревиатуру         | coding.emmet                     |
+| `<C-.>`      | n     | Поменять узел с правым                | motions.sibling-swap             |
+| `<C-,>`      | n     | Поменять узел с левым                 | motions.sibling-swap             |
+| `<leader>ct` | n     | Разбить/склеить блок (автоматически)  | motions.splitting-joining-blocks |
+| `<leader>c\` | n     | Разбить блок                          | motions.splitting-joining-blocks |
+| `<leader>cj` | n     | Склеить блок                          | motions.splitting-joining-blocks |
+| `<leader>ac` | n, x  | Скопировать позицию курсора/выделения | core.overrides (sidekick)        |
 
-## Git операции
+`<leader>ac` кладёт в буфер обмена ссылку вида `@файл :L10:C5` — удобно для промптов
+AI-агентам.
 
-| Клавиша       | Режим | Описание                          | Требуемый Extra |
-| ------------- | ----- | --------------------------------- | --------------- |
-| `<leader>ghP` | n     | Предпросмотр hunk                 | core.keys       |
-| `go`          | n     | Открыть в браузере (fugitive)     | git.fugitive    |
-| `go`          | v     | Открыть диапазон в браузере       | git.fugitive    |
-| `gx`          | n     | Открыть удалённый git репозиторий | git.remote-view |
-| `gX`          | n     | Войти в удалённый git репозиторий | git.remote-view |
+## Git
 
-## GitLab операции
+| Кеймап        | Режим | Описание                            | Требуется       |
+| ------------- | ----- | ----------------------------------- | --------------- |
+| `<leader>ghP` | n     | Превью hunk'а                       | core.keys       |
+| `go`          | n     | Открыть файл в браузере (GBrowse)   | git.fugitive    |
+| `go`          | v     | Открыть диапазон в браузере         | git.fugitive    |
+| `gx`          | n     | Открыть удалённый репозиторий       | git.remote-view |
+| `gX`          | n     | Ввести `author/repo` и открыть      | git.remote-view |
 
-**Требуется**: extra `git.gitlab`
+## GitLab
 
-| Клавиша       | Режим | Описание                           |
+**Требуется**: экстра `git.gitlab`.
+
+| Кеймап        | Режим | Описание                           |
 | ------------- | ----- | ---------------------------------- |
-| `<leader>gLA` | n     | Одобрить MR                        |
-| `<leader>gLc` | n     | Создать комментарий                |
-| `<leader>gLc` | v     | Создать multiline комментарий      |
-| `<leader>gLC` | v     | Создать комментарий с предложением |
-| `<leader>gLd` | n     | Переключить обсуждение             |
-| `<leader>gLe` | n     | Выбрать merge request              |
-| `<leader>gLM` | n     | Слить MR                           |
-| `<leader>gLm` | n     | Перейти к дереву обсуждений        |
-| `<leader>gLn` | n     | Создать заметку                    |
+| `<leader>gLr` | n     | Ревью MR                           |
+| `<leader>gLe` | n     | Выбрать MR                         |
+| `<leader>gLs` | n     | Сводка MR                          |
+| `<leader>gLd` | n     | Дерево обсуждений                  |
+| `<leader>gLc` | n     | Комментарий                        |
+| `<leader>gLc` | v     | Комментарий к нескольким строкам   |
+| `<leader>gLC` | v     | Комментарий с предложением правки  |
+| `<leader>gLn` | n     | Заметка                            |
+| `<leader>gLm` | n     | К обсуждению из диагностики        |
+| `<leader>gLA` | n     | Approve                            |
+| `<leader>gLR` | n     | Отозвать approve                   |
+| `<leader>gLM` | n     | Merge                              |
+| `<leader>gLp` | n     | Пайплайн                           |
 | `<leader>gLo` | n     | Открыть в браузере                 |
-| `<leader>gLp` | n     | Pipeline                           |
-| `<leader>gLr` | n     | Review                             |
-| `<leader>gLR` | n     | Отозвать                           |
-| `<leader>gLs` | n     | Сводка                             |
 
-## DAP (Отладка)
+## DAP (отладка)
 
-**Требуется**: extra `dap.vscode-js` (или другие DAP extras)
+**Требуется**: `dap.vscode-js` (или другая DAP-экстра, приносящая `nvim-dap`).
 
-| Клавиша | Режим | Описание              |
-| ------- | ----- | --------------------- |
-| `<F5>`  | n     | Продолжить            |
-| `<F10>` | n     | Шаг через (step over) |
-| `<F11>` | n     | Шаг в (step into)     |
-| `<F12>` | n     | Шаг из (step out)     |
+| Кеймап  | Режим | Описание   |
+| ------- | ----- | ---------- |
+| `<F5>`  | n     | Продолжить |
+| `<F10>` | n     | Step over  |
+| `<F11>` | n     | Step into  |
+| `<F12>` | n     | Step out   |
 
-## Полный справочник
+## Кастомизация
 
-### Режимы горячих клавиш
-
-- `n` = Normal режим
-- `v` = Visual режим
-- `i` = Insert режим
-- `o` = Operator-pending режим
-- `x` = Visual и Select режим
-- `t` = Terminal режим
-
-### Исходный код
-
-Все горячие клавиши определены в:
-```
-lua/lazyvimx/extras/core/keys.lua
-```
-
-Посмотрите полный исходник: [extras/core/keys.lua](../lua/lazyvimx/extras/core/keys.lua)
-
-### Настройка горячих клавиш
-
-#### Отключить горячую клавишу
+### Отключить кеймап
 
 ```lua
 -- lua/plugins/keys.lua
 return {
-  {
-    "LazyVim/LazyVim",
-    keys = {
-      { "<leader>cr", false }, -- Отключить rename lazyvimx
-    },
-  },
+	{
+		"LazyVim/LazyVim",
+		keys = {
+			{ "<leader>cr", false },
+		},
+	},
 }
 ```
 
-#### Переопределить горячую клавишу
+### Переопределить
 
 ```lua
--- lua/plugins/keys.lua
 return {
-  {
-    "LazyVim/LazyVim",
-    keys = {
-      -- Переопределить кастомным действием
-      { "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename (default)" },
-    },
-  },
+	{
+		"LazyVim/LazyVim",
+		keys = {
+			{ "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename (default)" },
+		},
+	},
 }
 ```
 
-#### Добавить кастомные горячие клавиши
+### Добавить свой
 
 ```lua
 -- lua/config/keymaps.lua
-vim.keymap.set("n", "<leader>xx", "<cmd>MyCustomCommand<cr>", { desc = "My Custom Command" })
+vim.keymap.set("n", "<leader>xx", "<cmd>MyCommand<cr>", { desc = "My Command" })
 ```
 
-### Интеграция с Which-Key
+### Русская раскладка
 
-Все горячие клавиши автоматически интегрированы с which-key. Чтобы посмотреть их:
+С экстрой `motions.langmapper` все кеймапы работают и на русской раскладке — переключаться не
+нужно:
 
-```vim
-:WhichKey
-```
-
-Или для конкретного префикса:
-
-```vim
-:WhichKey <leader>g
-```
-
-### Поддержка русской клавиатуры
-
-Для поддержки русской раскладки клавиатуры включите:
 ```lua
 { import = "lazyvimx.extras.motions.langmapper" }
 ```
 
-Это позволит использовать Vim motions без переключения с русской раскладки.
+### Конфликты
 
-### Конфликтующие горячие клавиши
+```vim
+" Кто занял кеймап
+:verbose map <leader>cr
 
-Если вы столкнулись с конфликтами:
+" Все маппинги клавиши
+:map <leader>cr
+```
 
-1. **Проверьте, какая горячая клавиша активна**:
-   ```vim
-   :verbose map <leader>cr
-   ```
-
-2. **Посмотрите все маппинги для клавиши**:
-   ```vim
-   :map <leader>cr
-   ```
-
-3. **Отключите конфликтующий плагин**: В вашем конфиге отключите конфликтующий extra или плагин
-
-### Советы
-
-1. **Используйте which-key**: Нажмите leader и подождите, чтобы увидеть доступные горячие клавиши
-2. **Учите постепенно**: Не пытайтесь запомнить всё сразу
-3. **Начните с базовых**: Базовые операции и управление файлами/буферами
-4. **Практикуйте движения**: Spider motions и TreeWalker значительно улучшают навигацию
-5. **Настраивайте**: Не стесняйтесь менять горячие клавиши под свой workflow
+Все кеймапы видны в which-key: нажмите leader и подождите, либо `:WhichKey <leader>g`.
 
 ## См. также
 
-- [Горячие клавиши LazyVim](https://www.lazyvim.org/keymaps) - Базовые горячие клавиши LazyVim
-- [CONFIGURATION.ru.md](CONFIGURATION.ru.md) - Руководство по настройке
-- [EXTRAS.ru.md](EXTRAS.ru.md) - Документация по всем extras
-- [FAQ.ru.md](FAQ.ru.md#проблемы-с-горячими-клавишами) - Решение проблем с горячими клавишами
+- [Кеймапы LazyVim](https://www.lazyvim.org/keymaps) — базовые кеймапы
+- [EXTRAS.ru.md](EXTRAS.ru.md) — справочник экстр
+- [TROUBLESHOOTING.ru.md](TROUBLESHOOTING.ru.md#кеймапы) — если кеймапы не работают
