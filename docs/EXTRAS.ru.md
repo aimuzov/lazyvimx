@@ -56,11 +56,11 @@ Core — не фичи, а «сборные» модули: они включа�
 
 **Импорт:** `lazyvimx.extras.core.all`
 
-Весь lazyvimx целиком: оверрайды, все экстры, колорскемы и кастомные кеймапы.
+Весь lazyvimx целиком: оверрайды, все экстры, цветовые схемы и кастомные кеймапы.
 
 **Включает:**
 
-- `core.colorschemes` — дополнительные колорскемы
+- `core.colorschemes` — дополнительные цветовые схемы
 - `core.overrides` — все 39 оверрайдов
 - `core.extras` — все 49 экстр из реестра
 - `core.keys` — кастомные кеймапы
@@ -96,7 +96,7 @@ Core — не фичи, а «сборные» модули: они включа�
 
 **Импорт:** `lazyvimx.extras.core.colorschemes`
 
-Дополнительные колорскемы. Сейчас включает одну экстру — `colorschemes.nord`.
+Дополнительные цветовые схемы. Сейчас включает одну экстру — `colorschemes.nord`.
 
 ### core.keys
 
@@ -634,7 +634,7 @@ tree-sitter-грамматикой.
 
 **Импорт:** `lazyvimx.extras.colorschemes.nord` (входит в `core.colorschemes`)
 
-Колорскем Nord с сотней кастомных хайлайтов под плагины lazyvimx: blink.cmp, bufferline,
+Цветовая схема Nord с сотней кастомных хайлайтов под плагины lazyvimx: blink.cmp, bufferline,
 neo-tree, snacks-дашборд, symbol-usage и другие. Включает собственные темы для lualine и
 bufferline, тёмный (`nord`) и светлый (`nord-light`) варианты.
 
@@ -691,9 +691,9 @@ vim.opt_local.expandtab = true
 
 **Импорт:** `lazyvimx.extras.perf.restore-last-colorscheme`
 
-Запоминает последний выбранный колорскем и восстанавливает его при старте — в рамках
+Запоминает последнюю выбранную цветовую схему и восстанавливает её при старте — в рамках
 логики светлых/тёмных вариантов lazyvimx (см.
-[Настройка](./CONFIGURATION.ru.md#колорскемы)).
+[Настройка](./CONFIGURATION.ru.md#цветовые-схемы)).
 
 **Плагин:** [`raddari/last-color.nvim`](https://github.com/raddari/last-color.nvim)
 
@@ -734,7 +734,7 @@ Jest-адаптер для Neotest: запуск тестов из редакт�
 | Perf         | 4      | Производительность и удобство              |
 | Coding       | 2      | Инструменты написания кода                 |
 | Linting      | 2      | Линтеры                                    |
-| Colorschemes | 1      | Колорскемы                                 |
+| Colorschemes | 1      | Цветовые схемы                                 |
 | DAP          | 1      | Отладка                                    |
 | Test         | 1      | Тестирование                               |
 | **Итого**    | **50** | плюс 5 core-модулей для включения наборами |
