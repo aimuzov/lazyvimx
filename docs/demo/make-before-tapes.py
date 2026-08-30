@@ -6,7 +6,7 @@ import re
 
 # Без целевой экстры сценарий теряет смысл: yazi не открывается,
 # темы nord в пикере нет, а showkeys — сама плашка записи.
-skip = {"ui-better-explorer.tape", "colorschemes-nord.tape", "ui-showkeys.tape"}
+skip = {"ui-better-explorer.tape", "colorschemes-nord.tape", "ui-showkeys.tape", "hero.tape"}
 
 os.makedirs("tapes-before", exist_ok=True)
 

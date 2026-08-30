@@ -98,7 +98,7 @@ function M.theme_is_dark(): boolean
 
 ### `get_flavor(colorscheme_household_last?)`
 
-Вариант колорскема под текущую тему системы.
+Вариант цветовой схемы под текущую тему системы.
 
 ```lua
 function M.get_flavor(colorscheme_household_last?: string): string
@@ -248,7 +248,7 @@ opts.keys = {
 | `vimopts_create_autocmd()` | подписка на `LazyVimOptionsDefaults` для установки опций Vim                                  |
 | `update_root_lsp_ignore()` | добавляет `eslint` в `vim.g.root_lsp_ignore`                                                  |
 | `insert_extras()`          | регистрирует источник экстр lazyvimx (иконка 󰬟) в UI `:LazyExtras`                            |
-| `set_colorscheme()`        | ставит колорскем через `get_flavor()`                                                         |
+| `set_colorscheme()`        | ставит цветовую схему через `get_flavor()`                                                         |
 | `has_plugins_dir()`        | подключает `lua/plugins/*.lua` пользователя, если они есть                                    |
 
 Порядок спеков в `boot.lua` и bootstrap-процесс описаны в

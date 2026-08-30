@@ -28,6 +28,7 @@ local spec = {
 	{
 		"nvzone/showkeys",
 		lazy = false,
+		cond = not vim.env.DEMO_HERO,
 
 		opts = function()
 			vim.schedule(function()
@@ -36,6 +37,24 @@ local spec = {
 		end,
 	},
 }
+
+-- Запись для шапки сайта — фон под заголовком, а не демонстрация UI:
+-- всё обрамление буфера убрано, на экране только код.
+if vim.env.DEMO_HERO then
+	vim.list_extend(spec, {
+		{ "nvim-lualine/lualine.nvim", optional = true, cond = false },
+		{ "akinsho/bufferline.nvim", optional = true, cond = false },
+		{ "nvim-neo-tree/neo-tree.nvim", optional = true, cond = false },
+
+		{
+			"LazyVim/LazyVim",
+			opts = function()
+				vim.o.laststatus = 0
+				vim.o.showtabline = 0
+			end,
+		},
+	})
+end
 
 for extra in (vim.env.DEMO_EXTRAS or ""):gmatch("[^,]+") do
 	table.insert(spec, { import = "lazyvimx.extras." .. vim.trim(extra) })
