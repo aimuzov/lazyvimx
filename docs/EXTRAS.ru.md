@@ -5,24 +5,24 @@
 
 Полный справочник по всем 50 экстрам lazyvimx.
 
-## Содержание
+## 📑 Содержание
 
-- [Обзор](#обзор)
-- [Core-модули](#core-модули)
-- [UI (21)](#ui)
-- [Coding (2)](#coding)
-- [Motions (6)](#motions)
-- [Buf (4)](#buf)
-- [Git (4)](#git)
-- [Lang (4)](#lang)
-- [Linting (2)](#linting)
-- [Colorschemes (1)](#colorschemes)
-- [DAP (1)](#dap)
-- [Perf (4)](#perf)
-- [Test (1)](#test)
-- [Сводная таблица](#сводная-таблица)
+- [Обзор](#📖-обзор)
+- [Core-модули](#🧩-core-модули)
+- [UI (21)](#🎨-ui)
+- [Coding (2)](#✍️-coding)
+- [Motions (6)](#🧭-motions)
+- [Buf (4)](#🗂️-buf)
+- [Git (4)](#🔀-git)
+- [Lang (4)](#🌐-lang)
+- [Linting (2)](#🧹-linting)
+- [Colorschemes (1)](#🌈-colorschemes)
+- [DAP (1)](#🐞-dap)
+- [Perf (4)](#⚡-perf)
+- [Test (1)](#🧪-test)
+- [Сводная таблица](#📊-сводная-таблица)
 
-## Обзор
+## 📖 Обзор
 
 Экстра — это необязательный модуль с готовой настройкой плагина или поведения поверх LazyVim.
 Каждую можно включить отдельно: через UI `:LazyExtras` (секция lazyvimx помечена иконкой 󰬟)
@@ -48,7 +48,7 @@
 
 ---
 
-## Core-модули
+## 🧩 Core-модули
 
 Core — не фичи, а «сборные» модули: они включают наборы других экстр, оверрайдов и кеймапов.
 
@@ -109,7 +109,7 @@ Core — не фичи, а «сборные» модули: они включа�
 
 ---
 
-## UI
+## 🎨 UI
 
 Экстры, улучшающие внешний вид и интерфейс.
 
@@ -344,7 +344,7 @@ Winbar с иконкой типа файла и коротким путём (pre
 
 ---
 
-## Coding
+## ✍️ Coding
 
 ### coding.comments
 
@@ -373,7 +373,7 @@ Winbar с иконкой типа файла и коротким путём (pre
 
 ---
 
-## Motions
+## 🧭 Motions
 
 ### motions.better-cursor-move
 
@@ -465,7 +465,7 @@ langmap для RU-раскладки, хак `getcharstr` (чтобы работ
 
 ---
 
-## Buf
+## 🗂️ Buf
 
 ### buf.delete-inactive
 
@@ -514,7 +514,7 @@ langmap для RU-раскладки, хак `getcharstr` (чтобы работ
 
 ---
 
-## Git
+## 🔀 Git
 
 ### git.conflicts
 
@@ -568,7 +568,7 @@ approve/revoke, merge (настроен squash).
 
 ---
 
-## Lang
+## 🌐 Lang
 
 ### lang.css
 
@@ -602,7 +602,7 @@ tree-sitter-грамматикой.
 
 ---
 
-## Linting
+## 🧹 Linting
 
 ### linting.cspell
 
@@ -623,7 +623,7 @@ tree-sitter-грамматикой.
 
 ---
 
-## Colorschemes
+## 🌈 Colorschemes
 
 ### colorschemes.nord
 
@@ -639,7 +639,7 @@ bufferline, тёмный (`nord`) и светлый (`nord-light`) вариан�
 
 ---
 
-## DAP
+## 🐞 DAP
 
 ### dap.vscode-js
 
@@ -658,7 +658,7 @@ bufferline, тёмный (`nord`) и светлый (`nord-light`) вариан�
 
 ---
 
-## Perf
+## ⚡ Perf
 
 ### perf.auto-update-deps
 
@@ -704,7 +704,7 @@ vim.opt_local.expandtab = true
 
 ---
 
-## Test
+## 🧪 Test
 
 ### test.jest
 
@@ -719,7 +719,7 @@ Jest-адаптер для Neotest: запуск тестов из редакт�
 
 ---
 
-## Сводная таблица
+## 📊 Сводная таблица
 
 | Категория    | Кол-во | Что внутри                                 |
 | ------------ | ------ | ------------------------------------------ |
@@ -736,7 +736,7 @@ Jest-адаптер для Neotest: запуск тестов из редакт�
 | Test         | 1      | Тестирование                               |
 | **Итого**    | **50** | плюс 5 core-модулей для включения наборами |
 
-## С чего начать
+## 🚀 С чего начать
 
 1. `core.all` — всё сразу; либо `core.overrides` + отдельные экстры по вкусу
 2. `motions.langmapper` — если печатаете на русской раскладке
@@ -745,7 +745,7 @@ Jest-адаптер для Neotest: запуск тестов из редакт�
 5. `git.conflicts` — если случаются конфликты
 6. `coding.comments` — комментирование с контекстом
 
-## См. также
+## 🔗 См. также
 
 - [CONFIGURATION.ru.md](CONFIGURATION.ru.md) — настройка
 - [KEYBINDINGS.ru.md](KEYBINDINGS.ru.md) — кеймапы

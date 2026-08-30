@@ -5,24 +5,24 @@
 
 The complete reference for all 50 lazyvimx extras.
 
-## Table of Contents
+## 📑 Table of Contents
 
-- [Overview](#overview)
-- [Core Modules](#core-modules)
-- [UI (21)](#ui)
-- [Coding (2)](#coding)
-- [Motions (6)](#motions)
-- [Buf (4)](#buf)
-- [Git (4)](#git)
-- [Lang (4)](#lang)
-- [Linting (2)](#linting)
-- [Colorschemes (1)](#colorschemes)
-- [DAP (1)](#dap)
-- [Perf (4)](#perf)
-- [Test (1)](#test)
-- [Summary Table](#summary-table)
+- [Overview](#📖-overview)
+- [Core Modules](#🧩-core-modules)
+- [UI (21)](#🎨-ui)
+- [Coding (2)](#✍️-coding)
+- [Motions (6)](#🧭-motions)
+- [Buf (4)](#🗂️-buf)
+- [Git (4)](#🔀-git)
+- [Lang (4)](#🌐-lang)
+- [Linting (2)](#🧹-linting)
+- [Colorschemes (1)](#🌈-colorschemes)
+- [DAP (1)](#🐞-dap)
+- [Perf (4)](#⚡-perf)
+- [Test (1)](#🧪-test)
+- [Summary Table](#📊-summary-table)
 
-## Overview
+## 📖 Overview
 
 An extra is an optional module with a ready-made plugin or behavior setup on top of LazyVim.
 Each one can be enabled individually: via the `:LazyExtras` UI (the lazyvimx section is
@@ -48,7 +48,7 @@ marked with the 󰬟 icon) or with an import in your config.
 
 ---
 
-## Core Modules
+## 🧩 Core Modules
 
 Core modules aren't features — they're bundles that pull in sets of other extras, overrides,
 and keymaps.
@@ -110,7 +110,7 @@ The full list is in [KEYBINDINGS.md](./KEYBINDINGS.md).
 
 ---
 
-## UI
+## 🎨 UI
 
 Extras that improve the look and the interface.
 
@@ -348,7 +348,7 @@ transparent background. Not shown in special buffers.
 
 ---
 
-## Coding
+## ✍️ Coding
 
 ### coding.comments
 
@@ -377,7 +377,7 @@ command — wrap a selection in an abbreviation.
 
 ---
 
-## Motions
+## 🧭 Motions
 
 ### motions.better-cursor-move
 
@@ -470,7 +470,7 @@ Splitting and joining code blocks via tree-sitter: objects, arrays, arguments, J
 
 ---
 
-## Buf
+## 🗂️ Buf
 
 ### buf.delete-inactive
 
@@ -519,7 +519,7 @@ tab.
 
 ---
 
-## Git
+## 🔀 Git
 
 ### git.conflicts
 
@@ -573,7 +573,7 @@ tab — with the README if there is one, otherwise with neo-tree.
 
 ---
 
-## Lang
+## 🌐 Lang
 
 ### lang.css
 
@@ -607,7 +607,7 @@ dedicated tree-sitter grammar.
 
 ---
 
-## Linting
+## 🧹 Linting
 
 ### linting.cspell
 
@@ -628,7 +628,7 @@ the list of validated types is extended (css, scss, less, html, vue, svelte, and
 
 ---
 
-## Colorschemes
+## 🌈 Colorschemes
 
 ### colorschemes.nord
 
@@ -644,7 +644,7 @@ lualine and bufferline themes, a dark (`nord`) and a light (`nord-light`) varian
 
 ---
 
-## DAP
+## 🐞 DAP
 
 ### dap.vscode-js
 
@@ -664,7 +664,7 @@ Disabled in VSCode.
 
 ---
 
-## Perf
+## ⚡ Perf
 
 ### perf.auto-update-deps
 
@@ -709,7 +709,7 @@ Stops LSP clients whose buffers haven't been touched in a while and frees memory
 
 ---
 
-## Test
+## 🧪 Test
 
 ### test.jest
 
@@ -724,7 +724,7 @@ by Jest itself, the `CI=true` environment variable.
 
 ---
 
-## Summary Table
+## 📊 Summary Table
 
 | Category     | Count  | What's inside                            |
 | ------------ | ------ | ---------------------------------------- |
@@ -741,7 +741,7 @@ by Jest itself, the `CI=true` environment variable.
 | Test         | 1      | Testing                                  |
 | **Total**    | **50** | plus 5 core modules for enabling bundles |
 
-## Where to Start
+## 🚀 Where to Start
 
 1. `core.all` — everything at once; or `core.overrides` + individual extras to taste
 2. `motions.langmapper` — if you type on a Russian layout
@@ -750,7 +750,7 @@ by Jest itself, the `CI=true` environment variable.
 5. `git.conflicts` — if conflicts happen
 6. `coding.comments` — context-aware commenting
 
-## See Also
+## 🔗 See Also
 
 - [CONFIGURATION.md](CONFIGURATION.md) — configuration
 - [KEYBINDINGS.md](KEYBINDINGS.md) — keymaps
