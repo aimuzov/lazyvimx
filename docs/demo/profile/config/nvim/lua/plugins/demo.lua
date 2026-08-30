@@ -8,7 +8,7 @@ local spec = {
 
 	-- Гифки всегда тёмные, какой бы ни была тема системы на машине записи.
 	-- Этот спек последний в порядке мержа, поэтому побеждает get_flavor().
-	{ "LazyVim/LazyVim", opts = { colorscheme = "catppuccin-macchiato" } },
+	{ "LazyVim/LazyVim", opts = { colorscheme = vim.env.DEMO_COLORSCHEME or "catppuccin-macchiato" } },
 
 	-- luarocks в пустом профиле не собирается (нет системного lua5.1),
 	-- а spider без luautf8 для ascii-демо работает так же.
