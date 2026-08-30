@@ -5,18 +5,18 @@
 
 The complete guide to configuring lazyvimx.
 
-## Table of Contents
+## 📑 Table of Contents
 
-- [Quick Start](#quick-start)
-- [The setup Function](#the-setup-function)
-- [Colorschemes](#colorschemes)
-- [Buffer Groups](#buffer-groups)
-- [Enabling Extras](#enabling-extras)
-- [Vim Options](#vim-options)
-- [Integrations](#integrations)
-- [Advanced Configuration](#advanced-configuration)
+- [Quick Start](#🚀-quick-start)
+- [The setup Function](#⚙️-the-setup-function)
+- [Colorschemes](#🎨-colorschemes)
+- [Buffer Groups](#🗂️-buffer-groups)
+- [Enabling Extras](#🧩-enabling-extras)
+- [Vim Options](#✍️-vim-options)
+- [Integrations](#🔗-integrations)
+- [Advanced Configuration](#🧠-advanced-configuration)
 
-## Quick Start
+## 🚀 Quick Start
 
 ### Bare Minimum
 
@@ -74,7 +74,7 @@ require("lazyvimx").setup({
 
 Both are equivalent.
 
-## The setup Function
+## ⚙️ The setup Function
 
 Options are deep-merged with the defaults (`vim.tbl_deep_extend`).
 
@@ -135,7 +135,7 @@ The additional catppuccin variants (darkroast, nightbrew, etc.) come from
 [catppuccin-barista](https://github.com/aimuzov/catppuccin-barista.nvim), which is pulled in
 by the `overrides/other/catppuccin.lua` override.
 
-## Colorschemes
+## 🎨 Colorschemes
 
 ### How the Variant Is Picked
 
@@ -190,7 +190,7 @@ OS-theme watcher must send the process a signal (e.g. SIGUSR1). An example of su
 for macOS is [ThemeSwitcher](https://github.com/aimuzov/dotfiles/tree/main/private_Library/ThemeSwitcher)
 from the author's dotfiles.
 
-## Buffer Groups
+## 🗂️ Buffer Groups
 
 Grouping buffers in bufferline by lua patterns over the file path.
 
@@ -211,7 +211,7 @@ terminal buffers (term), and everything else (ungrouped).
 Groups work through the `overrides/bufferline/add-groups.lua` override (part of
 `core.overrides`).
 
-## Enabling Extras
+## 🧩 Enabling Extras
 
 ### Way 1 — the UI
 
@@ -245,7 +245,7 @@ Or just the extras registry, without overrides and keymaps:
 
 The list of all extras with descriptions is in [Extras](EXTRAS.md).
 
-## Vim Options
+## ✍️ Vim Options
 
 lazyvimx sets its options on the `LazyVimOptionsDefaults` event (see `boot.lua`).
 
@@ -319,7 +319,7 @@ vim.api.nvim_create_autocmd("User", {
 })
 ```
 
-## Integrations
+## 🔗 Integrations
 
 ### Chezmoi
 
@@ -352,7 +352,7 @@ When running inside VSCode (the vscode-neovim extension, `vim.g.vscode = true`) 
   (`brew install trash`); otherwise it's a regular delete
 - **Opening files** — the `open` command in neo-tree
 
-## Advanced Configuration
+## 🧠 Advanced Configuration
 
 ### Load Order
 
@@ -430,12 +430,12 @@ return {
 :lua print(require("lazyvimx.util.general").has_extra("ui.winbar"))
 ```
 
-## When Something Doesn't Work
+## 🚑 When Something Doesn't Work
 
 Typical problems — extras not visible in `:LazyExtras`, the theme not switching, buffer
 groups not appearing — are covered in [Troubleshooting](TROUBLESHOOTING.md).
 
-## See Also
+## 📚 See Also
 
 - [Extras](EXTRAS.md) — the extras reference
 - [API](API.md) — utilities

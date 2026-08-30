@@ -5,16 +5,16 @@
 
 lazyvimx utilities and modules you can use in your own configuration.
 
-## Table of Contents
+## 📑 Table of Contents
 
-- [Main Module](#main-module)
-- [util.general](#utilgeneral)
-- [util.layout](#utillayout)
-- [boot.lua](#bootlua)
+- [Main Module](#📦-main-module)
+- [util.general](#🧰-utilgeneral)
+- [util.layout](#🪟-utillayout)
+- [boot.lua](#🚀-bootlua)
 
 ---
 
-## Main Module
+## 📦 Main Module
 
 **Module:** `lazyvimx` (`lua/lazyvimx/init.lua`)
 
@@ -32,7 +32,7 @@ require("lazyvimx").setup({
 ```
 
 The options schema and defaults are in
-[Configuration](CONFIGURATION.md#the-setup-function). You usually don't call `setup()`
+[Configuration](CONFIGURATION.md#⚙️-the-setup-function). You usually don't call `setup()`
 yourself: options from the `"aimuzov/lazyvimx"` plugin spec end up here automatically (the
 spec in `boot.lua` has `config = true`).
 
@@ -47,7 +47,7 @@ print(config.colorscheme) -- "catppuccin"
 
 ---
 
-## util.general
+## 🧰 util.general
 
 **Module:** `lazyvimx.util.general` (`lua/lazyvimx/util/general.lua`)
 
@@ -165,7 +165,7 @@ function M.warn_missing_extra(extra_name: string): function
 
 ---
 
-## util.layout
+## 🪟 util.layout
 
 **Module:** `lazyvimx.util.layout` (`lua/lazyvimx/util/layout.lua`)
 
@@ -236,7 +236,7 @@ opts.keys = {
 
 ---
 
-## boot.lua
+## 🚀 boot.lua
 
 **Module:** `lazyvimx.boot` (`lua/lazyvimx/boot.lua`)
 
@@ -253,11 +253,11 @@ called directly:
 | `has_plugins_dir()`        | plugs in the user's `lua/plugins/*.lua` if present                                                    |
 
 The spec order in `boot.lua` and the bootstrap process are described in
-[Architecture](ARCHITECTURE.md#bootstrap-process).
+[Architecture](ARCHITECTURE.md#🚀-bootstrap-process).
 
 ---
 
-## Summary
+## 📋 Summary
 
 | Module         | Functions                                                                                                                             | Purpose         |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
@@ -265,7 +265,7 @@ The spec order in `boot.lua` and the bootstrap process are described in
 | `util.general` | `color_blend()`, `popen_get_result()`, `theme_is_dark()`, `get_flavor()`, `get_dotfiles_path()`, `has_extra()`, `warn_missing_extra()` | General helpers |
 | `util.layout`  | `get_size()`, `get_size_create()`, `increase_create()`, `decrease_create()`, `step`                                                    | Panel sizes     |
 
-## See Also
+## 📚 See Also
 
 - [Configuration](CONFIGURATION.md) — configuration
 - [Architecture](ARCHITECTURE.md) — internals

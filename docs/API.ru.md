@@ -5,16 +5,16 @@
 
 Утилиты и модули lazyvimx, которые можно использовать в своей конфигурации.
 
-## Содержание
+## 📑 Содержание
 
-- [Главный модуль](#главный-модуль)
-- [util.general](#utilgeneral)
-- [util.layout](#utillayout)
-- [boot.lua](#bootlua)
+- [Главный модуль](#📦-главный-модуль)
+- [util.general](#🧰-utilgeneral)
+- [util.layout](#🪟-utillayout)
+- [boot.lua](#🚀-bootlua)
 
 ---
 
-## Главный модуль
+## 📦 Главный модуль
 
 **Модуль:** `lazyvimx` (`lua/lazyvimx/init.lua`)
 
@@ -32,7 +32,7 @@ require("lazyvimx").setup({
 ```
 
 Схема опций и значения по умолчанию — в
-[Настройка](CONFIGURATION.ru.md#функция-setup). Обычно вызывать `setup()` вручную не
+[Настройка](CONFIGURATION.ru.md#⚙️-функция-setup). Обычно вызывать `setup()` вручную не
 нужно: опции из спека плагина `"aimuzov/lazyvimx"` попадают сюда сами (в `boot.lua` у спека
 стоит `config = true`).
 
@@ -47,7 +47,7 @@ print(config.colorscheme) -- "catppuccin"
 
 ---
 
-## util.general
+## 🧰 util.general
 
 **Модуль:** `lazyvimx.util.general` (`lua/lazyvimx/util/general.lua`)
 
@@ -165,7 +165,7 @@ function M.warn_missing_extra(extra_name: string): function
 
 ---
 
-## util.layout
+## 🪟 util.layout
 
 **Модуль:** `lazyvimx.util.layout` (`lua/lazyvimx/util/layout.lua`)
 
@@ -235,7 +235,7 @@ opts.keys = {
 
 ---
 
-## boot.lua
+## 🚀 boot.lua
 
 **Модуль:** `lazyvimx.boot` (`lua/lazyvimx/boot.lua`)
 
@@ -252,11 +252,11 @@ opts.keys = {
 | `has_plugins_dir()`        | подключает `lua/plugins/*.lua` пользователя, если они есть                                    |
 
 Порядок спеков в `boot.lua` и bootstrap-процесс описаны в
-[Архитектура](ARCHITECTURE.ru.md#процесс-загрузки).
+[Архитектура](ARCHITECTURE.ru.md#🚀-процесс-загрузки).
 
 ---
 
-## Сводка
+## 📋 Сводка
 
 | Модуль         | Функции                                                                                                             | Назначение          |
 | -------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------- |
@@ -264,7 +264,7 @@ opts.keys = {
 | `util.general` | `color_blend()`, `popen_get_result()`, `theme_is_dark()`, `get_flavor()`, `get_dotfiles_path()`, `has_extra()`, `warn_missing_extra()` | Общие утилиты       |
 | `util.layout`  | `get_size()`, `get_size_create()`, `increase_create()`, `decrease_create()`, `step`                                  | Размеры панелей     |
 
-## См. также
+## 📚 См. также
 
 - [Настройка](CONFIGURATION.ru.md) — настройка
 - [Архитектура](ARCHITECTURE.ru.md) — устройство
