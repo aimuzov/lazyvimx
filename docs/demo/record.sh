@@ -9,11 +9,15 @@ mkdir -p gifs
 sh make-workdir.sh
 
 python3 make-light-tapes.py >/dev/null
+python3 make-before-tapes.py >/dev/null
 
-# Первый аргумент light переключает на набор светлых тейпов.
+# Первый аргумент light либо before переключает набор тейпов.
 DIR=tapes
 if [ "$1" = "light" ]; then
 	DIR=tapes-light
+	shift
+elif [ "$1" = "before" ]; then
+	DIR=tapes-before
 	shift
 fi
 
