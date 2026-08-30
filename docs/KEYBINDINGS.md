@@ -5,20 +5,20 @@
 
 All custom lazyvimx keymaps.
 
-## Table of Contents
+## 📑 Table of Contents
 
-- [How It Works](#how-it-works)
-- [Basic Operations](#basic-operations)
-- [Files and Buffers](#files-and-buffers)
-- [Navigation and Motions](#navigation-and-motions)
-- [Windows](#windows)
-- [LSP and Code](#lsp-and-code)
-- [Git](#git)
-- [GitLab](#gitlab)
-- [DAP (Debugging)](#dap-debugging)
-- [Customization](#customization)
+- [How It Works](#⚙️-how-it-works)
+- [Basic Operations](#🧰-basic-operations)
+- [Files and Buffers](#🗂️-files-and-buffers)
+- [Navigation and Motions](#🧭-navigation-and-motions)
+- [Windows](#🪟-windows)
+- [LSP and Code](#🧠-lsp-and-code)
+- [Git](#🔀-git)
+- [GitLab](#🦊-gitlab)
+- [DAP (Debugging)](#🐞-dap-debugging)
+- [Customization](#🎛️-customization)
 
-## How It Works
+## ⚙️ How It Works
 
 Keymaps are enabled by the `core.keys` module (part of `core.all`):
 
@@ -33,7 +33,7 @@ the plugin.
 **Leader** is space (the LazyVim default). The source of truth is
 [extras/core/keys.lua](../lua/lazyvimx/extras/core/keys.lua).
 
-## Basic Operations
+## 🧰 Basic Operations
 
 | Keymap           | Mode    | Description                          | Requires  |
 | ---------------- | ------- | ------------------------------------ | --------- |
@@ -50,7 +50,7 @@ the plugin.
 
 In VSCode the `<leader>\`, `<leader>ch`, `<leader>ll`, `<leader>lx` keymaps aren't created.
 
-## Files and Buffers
+## 🗂️ Files and Buffers
 
 | Keymap            | Mode | Description                    | Requires           |
 | ----------------- | ---- | ------------------------------ | ------------------ |
@@ -64,7 +64,7 @@ In VSCode the `<leader>\`, `<leader>ch`, `<leader>ll`, `<leader>lx` keymaps aren
 | `H`               | n    | Previous buffer                | core.keys          |
 | `L`               | n    | Next buffer                    | core.keys          |
 
-## Navigation and Motions
+## 🧭 Navigation and Motions
 
 | Keymap    | Mode    | Description                        | Requires                          |
 | --------- | ------- | ---------------------------------- | --------------------------------- |
@@ -82,10 +82,10 @@ In VSCode the `<leader>\`, `<leader>ch`, `<leader>ll`, `<leader>lx` keymaps aren
 | `<C-A-.>` | n       | Swap the node with the lower one   | motions.sibling-move              |
 | `<C-A-,>` | n       | Swap the node with the upper one   | motions.sibling-move              |
 
-## Windows
+## 🪟 Windows
 
 Resizing works for edgy sidebars too — the new size is remembered (see
-[util.layout](API.md#utillayout)).
+[util.layout](API.md#🪟-utillayout)).
 
 | Keymap      | Mode    | Description                | Requires  |
 | ----------- | ------- | -------------------------- | --------- |
@@ -94,7 +94,7 @@ Resizing works for edgy sidebars too — the new size is remembered (see
 | `<C-Left>`  | n, v, t | Decrease the window width  | core.keys |
 | `<C-Right>` | n, v, t | Increase the window width  | core.keys |
 
-## LSP and Code
+## 🧠 LSP and Code
 
 | Keymap       | Mode | Description                             | Requires                         |
 | ------------ | ---- | --------------------------------------- | -------------------------------- |
@@ -111,7 +111,7 @@ Resizing works for edgy sidebars too — the new size is remembered (see
 `<leader>ac` puts a reference like `@file :L10:C5` on the clipboard — handy for prompts to
 AI agents.
 
-## Git
+## 🔀 Git
 
 | Keymap        | Mode | Description                          | Requires        |
 | ------------- | ---- | ------------------------------------ | --------------- |
@@ -121,7 +121,7 @@ AI agents.
 | `gx`          | n    | Open a remote repository             | git.remote-view |
 | `gX`          | n    | Enter `author/repo` and open         | git.remote-view |
 
-## GitLab
+## 🦊 GitLab
 
 **Requires**: the `git.gitlab` extra.
 
@@ -142,7 +142,7 @@ AI agents.
 | `<leader>gLp` | n    | Pipeline                          |
 | `<leader>gLo` | n    | Open in a browser                 |
 
-## DAP (Debugging)
+## 🐞 DAP (Debugging)
 
 **Requires**: `dap.vscode-js` (or another DAP extra bringing `nvim-dap`).
 
@@ -153,7 +153,7 @@ AI agents.
 | `<F11>` | n    | Step into   |
 | `<F12>` | n    | Step out    |
 
-## Customization
+## 🎛️ Customization
 
 ### Disabling a Keymap
 
@@ -210,8 +210,8 @@ switching needed:
 
 Every keymap shows up in which-key: press leader and wait, or `:WhichKey <leader>g`.
 
-## See Also
+## 📚 See Also
 
 - [LazyVim Keymaps](https://www.lazyvim.org/keymaps) — the base keymaps
 - [Extras](EXTRAS.md) — the extras reference
-- [Troubleshooting](TROUBLESHOOTING.md#keymaps) — if keymaps don't work
+- [Troubleshooting](TROUBLESHOOTING.md#⌨️-keymaps) — if keymaps don't work

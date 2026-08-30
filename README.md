@@ -317,7 +317,7 @@ require("lazyvimx").setup({
 Variants are grouped into "households" (`colorscheme_households`): each theme gets a list of
 dark and a list of light variants. Catppuccin, Tokyo Night, and Nord are configured out of
 the box; a dark system picks a dark variant, a light one picks light. Details and format —
-in [Configuration](docs/CONFIGURATION.md#colorschemes).
+in [Configuration](docs/CONFIGURATION.md#🎨-colorschemes).
 
 ### Buffer Groups
 

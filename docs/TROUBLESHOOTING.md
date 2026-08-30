@@ -5,18 +5,18 @@
 
 Typical problems and ways to fix them.
 
-## Table of Contents
+## 📑 Table of Contents
 
-- [Installation](#installation)
-- [Extras](#extras)
-- [Colorschemes](#colorschemes)
-- [Performance](#performance)
-- [Keymaps](#keymaps)
-- [LSP](#lsp)
-- [macOS](#macos)
-- [Getting Help](#getting-help)
+- [Installation](#📦-installation)
+- [Extras](#🧩-extras)
+- [Colorschemes](#🎨-colorschemes)
+- [Performance](#⚡-performance)
+- [Keymaps](#⌨️-keymaps)
+- [LSP](#🧠-lsp)
+- [macOS](#🍎-macos)
+- [Getting Help](#🆘-getting-help)
 
-## Installation
+## 📦 Installation
 
 ### lazyvimx extras aren't visible in :LazyExtras
 
@@ -56,7 +56,7 @@ Typical problems and ways to fix them.
    :lua vim.print(require("lazyvimx").config)
    ```
 
-## Extras
+## 🧩 Extras
 
 ### An extra is enabled but doesn't work
 
@@ -100,7 +100,7 @@ Typical problems and ways to fix them.
 3. In insert mode the counters are hidden on purpose (`ui.better-insert-mode`)
 4. Restart the LSP: `:LspRestart`
 
-## Colorschemes
+## 🎨 Colorschemes
 
 ### The theme doesn't follow the system
 
@@ -145,7 +145,7 @@ Typical problems and ways to fix them.
    household name
 3. lazyvimx custom highlights don't extend to third-party themes
 
-## Performance
+## ⚡ Performance
 
 ### Slow startup
 
@@ -173,7 +173,7 @@ Typical problems and ways to fix them.
    `ui.highlighted-colors`
 3. Check the terminal itself — rendering speed varies a lot
 
-## Keymaps
+## ⌨️ Keymaps
 
 ### lazyvimx keymaps don't work
 
@@ -223,7 +223,7 @@ return {
 }
 ```
 
-## LSP
+## 🧠 LSP
 
 ### The LSP won't start
 
@@ -247,7 +247,7 @@ That's by design: the `buf.remote-mounts` extra disables the LSP, autoformat, sw
 for buffers under `~/mnt` — for speed and to keep file permissions intact. Not what you
 want — disable the extra.
 
-## macOS
+## 🍎 macOS
 
 ### The system theme isn't detected
 
@@ -285,7 +285,7 @@ Without it neo-tree deletes files the regular way.
    { import = "lazyvimx.overrides.lazyvim.auto-apply-chezmoi-on-lazy-update" }
    ```
 
-## Getting Help
+## 🆘 Getting Help
 
 1. [FAQ](FAQ.md)
 2. [GitHub Issues](https://github.com/aimuzov/lazyvimx/issues)
@@ -307,7 +307,7 @@ In an issue include:
 
 - error messages: `:Lazy log`, `:messages`
 
-## Debugging
+## 🐞 Debugging
 
 ```vim
 " Spec modules

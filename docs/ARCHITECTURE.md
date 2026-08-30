@@ -5,17 +5,17 @@
 
 How lazyvimx works on the inside.
 
-## Table of Contents
+## 📑 Table of Contents
 
-- [Overview](#overview)
-- [Bootstrap Process](#bootstrap-process)
-- [Configuration System](#configuration-system)
-- [Extras System](#extras-system)
-- [Overrides System](#overrides-system)
-- [Utilities](#utilities)
-- [Integration Points](#integration-points)
+- [Overview](#🔭-overview)
+- [Bootstrap Process](#🚀-bootstrap-process)
+- [Configuration System](#⚙️-configuration-system)
+- [Extras System](#🧩-extras-system)
+- [Overrides System](#🔧-overrides-system)
+- [Utilities](#🧰-utilities)
+- [Integration Points](#🔗-integration-points)
 
-## Overview
+## 🔭 Overview
 
 lazyvimx is a layer on top of LazyVim, not a fork: nothing in LazyVim gets replaced, every
 enhancement is plugged in through lazy.nvim's standard machinery (specs, `import`,
@@ -37,7 +37,7 @@ enhancement is plugged in through lazy.nvim's standard machinery (specs, `import
 | **Overrides** | `lua/lazyvimx/overrides/` | Tweaks to existing plugin settings; enabled in bundles         |
 | **Utilities** | `lua/lazyvimx/util/`      | Shared functions for extras, overrides, and user configs       |
 
-## Bootstrap Process
+## 🚀 Bootstrap Process
 
 ### Guard Against Direct Use
 
@@ -83,7 +83,7 @@ a side effect during spec parsing, before anything loads.
    options
 9. The user's `lua/plugins/*.lua`, if the directory is non-empty
 
-## Configuration System
+## ⚙️ Configuration System
 
 ### Data Flow
 
@@ -98,7 +98,7 @@ a side effect during spec parsing, before anything loads.
 - `colorscheme_households` — households: lists of dark and light variants
 - `bufferline_groups` — user buffer groups
 
-Format and defaults — in [Configuration](CONFIGURATION.md#the-setup-function).
+Format and defaults — in [Configuration](CONFIGURATION.md#⚙️-the-setup-function).
 
 ### Picking the Colorscheme Variant
 
@@ -120,7 +120,7 @@ end
 The household is derived from the theme name's prefix up to the first hyphen:
 `catppuccin-latte` → `catppuccin`, `nord-light` → `nord`.
 
-## Extras System
+## 🧩 Extras System
 
 ### Structure
 
@@ -178,7 +178,7 @@ end
 Some modules disable themselves entirely: `ui.simple-mode` and the VSCode override return
 `{}` when their condition doesn't hold.
 
-## Overrides System
+## 🔧 Overrides System
 
 Overrides change the settings of existing plugins without replacing them. Every spec is
 `optional = true`: if the plugin isn't there, the override does nothing.
@@ -243,20 +243,20 @@ Snacks.util.normkey = function(key)
 end
 ```
 
-## Utilities
+## 🧰 Utilities
 
 ### util/general.lua
 
 Color blending, system theme detection, colorscheme variant selection, extras checks. The
-full reference is in [API](API.md#utilgeneral).
+full reference is in [API](API.md#🧰-utilgeneral).
 
 ### util/layout.lua
 
 The single source of panel sizes (left — 40, right — 80, top/bottom — 10, resize step — 3).
 Used by edgy (sizes and resize keymaps) and diffview (the file and history panels) — which
-keeps the sidebars consistent. Reference — in [API](API.md#utillayout).
+keeps the sidebars consistent. Reference — in [API](API.md#🪟-utillayout).
 
-## Integration Points
+## 🔗 Integration Points
 
 ### LazyVim
 
@@ -277,13 +277,13 @@ keeps the sidebars consistent. Reference — in [API](API.md#utillayout).
 - **The system** — the OS theme (macOS `defaults` / Linux `gsettings`), signals for theme
   switching, `trash` and `open` in neo-tree
 
-## Performance
+## ⚡ Performance
 
 - extras that aren't enabled don't exist as code: the registry is just an `import` list
 - almost every plugin is lazy: events (`VeryLazy`, `BufReadPre`), commands, keymaps
 - the `perf.*` extras add housekeeping: stopping inactive LSPs, closing old buffers
 
-## Extending
+## 🧱 Extending
 
 ### Your Own Extra
 
@@ -317,7 +317,7 @@ return {
 }
 ```
 
-## Debugging
+## 🐞 Debugging
 
 ```vim
 " Loaded spec modules
