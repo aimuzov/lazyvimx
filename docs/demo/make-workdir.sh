@@ -20,3 +20,8 @@ git config user.name Demo
 git add . && git commit -qm "Init"
 
 echo "==> work готов"
+
+# Отдельная чистая папка для гифки с yazi: родительская панель
+# менеджера не должна светить служебные файлы docs/demo.
+mkdir -p project
+cp app.lua config.ts styles.css logs.txt project/ 2>/dev/null || cp ../sample/app.lua ../sample/config.ts ../sample/styles.css ../sample/logs.txt project/

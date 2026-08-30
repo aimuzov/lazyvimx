@@ -14,6 +14,14 @@ local spec = {
 	-- а spider без luautf8 для ascii-демо работает так же.
 	{ "vhyrro/luarocks.nvim", enabled = false },
 
+	-- Штатная подсветка линии колонки сливается с фоном macchiato,
+	-- а Snacks перетирает попытки перекрасить её на лету.
+	{ "lukas-reineke/virt-column.nvim", optional = true, opts = { highlight = "Comment" } },
+
+	-- Автодополнение в cmdline на записи вредит: Enter принимает
+	-- подсказку blink и портит набранную команду.
+	{ "saghen/blink.cmp", optional = true, opts = { cmdline = { enabled = false } } },
+
 	-- Зритель должен видеть, чем вызвано происходящее на экране: плашка
 	-- с клавишами включена всегда — через штатную экстру ui.showkeys.
 	{ import = "lazyvimx.extras.ui.showkeys" },

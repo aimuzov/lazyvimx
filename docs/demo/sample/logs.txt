@@ -1,0 +1,9 @@
+starting worker 1
+[32mOK[0m worker 1 ready in 120ms
+starting worker 2
+[32mOK[0m worker 2 ready in 98ms
+[33mWARN[0m queue latency above 200ms
+processing batch 42
+[31mERROR[0m batch 42 failed: connection reset
+[36mINFO[0m retrying batch 42
+[32mOK[0m batch 42 done on retry

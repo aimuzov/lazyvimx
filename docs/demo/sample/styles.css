@@ -1,0 +1,14 @@
+.header {
+	background: #24273a;
+	color: #cad3f5;
+	border-bottom: 2px solid #8aadf4;
+}
+
+.badge-error {
+	background: #ed8796;
+}
+
+.badge-ok {
+	background: #a6da95;
+	color: #181926;
+}

@@ -89,7 +89,7 @@ Core — не фичи, а «сборные» модули: они включа�
 **Импорт:** `lazyvimx.extras.core.extras`
 
 Реестр всех 49 функциональных экстр (все категории, кроме `colorschemes`) — один импорт вместо
-сорока восьми. `ui.better-progressbar` из реестра включается только под Ghostty
+сорока девяти. `ui.better-progressbar` из реестра включается только под Ghostty
 (`TERM=xterm-ghostty`).
 
 ### core.colorschemes
@@ -115,6 +115,8 @@ Core — не фичи, а «сборные» модули: они включа�
 
 ### ui.better-colorcolumn
 
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-colorcolumn.gif)
+
 **Импорт:** `lazyvimx.extras.ui.better-colorcolumn`
 
 Вертикальная линия-ограничитель на 120-м столбце — виртуальным символом `│` вместо
@@ -123,6 +125,8 @@ Core — не фичи, а «сборные» модули: они включа�
 **Плагин:** `lukas-reineke/virt-column.nvim`
 
 ### ui.better-cursorline
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-cursorline.gif)
 
 **Импорт:** `lazyvimx.extras.ui.better-cursorline`
 
@@ -133,6 +137,8 @@ Cursorline только в активном окне; номер строки п
 
 ### ui.better-diagnostic
 
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-diagnostic.gif)
+
 **Импорт:** `lazyvimx.extras.ui.better-diagnostic`
 
 Диагностика одной строкой у курсора — с иконками, цветами и кастомными стрелками. Родной
@@ -141,6 +147,8 @@ virtual text отключается.
 **Плагин:** `rachartier/tiny-inline-diagnostic.nvim`
 
 ### ui.better-explorer
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-explorer.gif)
 
 **Импорт:** `lazyvimx.extras.ui.better-explorer`
 
@@ -154,12 +162,16 @@ virtual text отключается.
 
 ### ui.better-float
 
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-float.gif)
+
 **Импорт:** `lazyvimx.extras.ui.better-float`
 
 Единый стиль плавающих окон: скруглённые рамки и согласованные размеры для DAP UI, gitsigns,
 Mason, LSP-окон, neo-tree, noice, терминалов Snacks, lazygit и fzf-lua.
 
 ### ui.better-insert-mode
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-insert-mode.gif)
 
 **Импорт:** `lazyvimx.extras.ui.better-insert-mode`
 
@@ -168,12 +180,16 @@ Mason, LSP-окон, neo-tree, noice, терминалов Snacks, lazygit и fz
 
 ### ui.better-linenumbers
 
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-linenumbers.gif)
+
 **Импорт:** `lazyvimx.extras.ui.better-linenumbers`
 
 Отключает относительные номера строк в командном режиме (чтобы `:` показывал абсолютные) и
 все номера — в терминальных буферах.
 
 ### ui.better-live-rename
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-live-rename.gif)
 
 **Импорт:** `lazyvimx.extras.ui.better-live-rename`
 
@@ -196,6 +212,8 @@ OSC 9;4) вместо уведомлений в редакторе. Показы
 
 ### ui.better-reference-highlight
 
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-reference-highlight.gif)
+
 **Импорт:** `lazyvimx.extras.ui.better-reference-highlight`
 
 Подсветка LSP-референсов жирным цветом текста вместо заливки фона: rosewater у Catppuccin,
@@ -204,6 +222,8 @@ OSC 9;4) вместо уведомлений в редакторе. Показы
 **Темы:** Catppuccin, Tokyo Night.
 
 ### ui.better-whitespace
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-better-whitespace.gif)
 
 **Импорт:** `lazyvimx.extras.ui.better-whitespace`
 
@@ -214,11 +234,15 @@ OSC 9;4) вместо уведомлений в редакторе. Показы
 
 ### ui.bolder-separators
 
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-bolder-separators.gif)
+
 **Импорт:** `lazyvimx.extras.ui.bolder-separators`
 
 Жирные Unicode-разделители окон: `━`, `┃`, `┳`, `┻`, `╋`, `┫`, `┣`.
 
 ### ui.diff-view
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-diff-view.gif)
 
 **Импорт:** `lazyvimx.extras.ui.diff-view`
 
@@ -231,6 +255,8 @@ Diffview с размерами панелей из общей layout-утили�
 
 ### ui.highlighted-ansi-escape
 
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-highlighted-ansi-escape.gif)
+
 **Импорт:** `lazyvimx.extras.ui.highlighted-ansi-escape`
 
 Рендер ANSI escape-последовательностей настоящими цветами: логи, вывод DAP REPL
@@ -242,6 +268,8 @@ Diffview с размерами панелей из общей layout-утили�
 
 ### ui.highlighted-colors
 
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-highlighted-colors.gif)
+
 **Импорт:** `lazyvimx.extras.ui.highlighted-colors`
 
 Индикатор 󱓻 в цвете каждого hex-кода в конце строки.
@@ -249,6 +277,8 @@ Diffview с размерами панелей из общей layout-утили�
 **Плагин:** `brenoprata10/nvim-highlight-colors`
 
 ### ui.peek-preview
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-peek-preview.gif)
 
 **Импорт:** `lazyvimx.extras.ui.peek-preview`
 
@@ -261,6 +291,8 @@ Peek-окно для LSP-локаций, как в VSCode. Если резуль
 
 ### ui.scrollbar
 
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-scrollbar.gif)
+
 **Импорт:** `lazyvimx.extras.ui.scrollbar`
 
 Скроллбар только в активном окне. Прячется в insert-режиме и в служебных буферах.
@@ -269,12 +301,16 @@ Peek-окно для LSP-локаций, как в VSCode. Если резуль
 
 ### ui.simple-mode
 
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-simple-mode.gif)
+
 **Импорт:** `lazyvimx.extras.ui.simple-mode`
 
 Минимальный интерфейс для чтения man-страниц: при запуске `nvim +Man! <команда>` отключаются
 statusline, bufferline, neo-tree и номера строк.
 
 ### ui.showkeys
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-showkeys.gif)
 
 **Импорт:** `lazyvimx.extras.ui.showkeys`
 
@@ -286,6 +322,8 @@ statusline, bufferline, neo-tree и номера строк.
 
 ### ui.symbol-usage
 
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-symbol-usage.gif)
+
 **Импорт:** `lazyvimx.extras.ui.symbol-usage`
 
 Счётчики использований символов в конце строки, как в JetBrains IDE: `󰌹 3 usages`. Показ
@@ -294,6 +332,8 @@ statusline, bufferline, neo-tree и номера строк.
 **Плагин:** `Wansmer/symbol-usage.nvim`
 
 ### ui.winbar
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/ui-winbar.gif)
 
 **Импорт:** `lazyvimx.extras.ui.winbar`
 
@@ -307,6 +347,8 @@ Winbar с иконкой типа файла и коротким путём (pre
 ## Coding
 
 ### coding.comments
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/coding-comments.gif)
 
 **Импорт:** `lazyvimx.extras.coding.comments`
 
@@ -335,6 +377,8 @@ Winbar с иконкой типа файла и коротким путём (pre
 
 ### motions.better-cursor-move
 
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-better-cursor-move.gif)
+
 **Импорт:** `lazyvimx.extras.motions.better-cursor-move`
 
 Курсор не убегает при сдвигах (`>`, `<`) и фильтрах. Работает и в VSCode.
@@ -342,6 +386,8 @@ Winbar с иконкой типа файла и коротким путём (pre
 **Плагин:** `gbprod/stay-in-place.nvim`
 
 ### motions.better-move-between-words
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-better-move-between-words.gif)
 
 **Импорт:** `lazyvimx.extras.motions.better-move-between-words`
 
@@ -353,6 +399,8 @@ Winbar с иконкой типа файла и коротким путём (pre
 **Кеймапы:** `w`/`e`/`b`, `cw`, а в insert-режиме `<C-f>`/`<C-b>` (через `core.keys`).
 
 ### motions.langmapper
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-langmapper.gif)
 
 **Импорт:** `lazyvimx.extras.motions.langmapper`
 
@@ -366,6 +414,8 @@ langmap для RU-раскладки, хак `getcharstr` (чтобы работ
 
 ### motions.sibling-move
 
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-sibling-move.gif)
+
 **Импорт:** `lazyvimx.extras.motions.sibling-move`
 
 Перемещение по синтаксическому дереву: между параметрами, элементами массива, соседними
@@ -378,6 +428,8 @@ langmap для RU-раскладки, хак `getcharstr` (чтобы работ
 
 ### motions.sibling-swap
 
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-sibling-swap.gif)
+
 **Импорт:** `lazyvimx.extras.motions.sibling-swap`
 
 Перестановка соседних узлов tree-sitter: параметров функций, элементов массива, свойств
@@ -388,6 +440,8 @@ langmap для RU-раскладки, хак `getcharstr` (чтобы работ
 **Кеймапы:** `<C-,>` — поменять с левым, `<C-.>` — с правым (через `core.keys`).
 
 ### motions.splitting-joining-blocks
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-splitting-joining-blocks.gif)
 
 **Импорт:** `lazyvimx.extras.motions.splitting-joining-blocks`
 
@@ -447,6 +501,8 @@ langmap для RU-раскладки, хак `getcharstr` (чтобы работ
 
 ### buf.tab-scope
 
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/buf-tab-scope.gif)
+
 **Импорт:** `lazyvimx.extras.buf.tab-scope`
 
 У каждого таба — свой список буферов. Bufferline и навигация по буферам работают в пределах
@@ -461,6 +517,8 @@ langmap для RU-раскладки, хак `getcharstr` (чтобы работ
 ## Git
 
 ### git.conflicts
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/git-conflicts.gif)
 
 **Импорт:** `lazyvimx.extras.git.conflicts`
 
@@ -568,6 +626,8 @@ tree-sitter-грамматикой.
 ## Colorschemes
 
 ### colorschemes.nord
+
+![Демо](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/colorschemes-nord.gif)
 
 **Импорт:** `lazyvimx.extras.colorschemes.nord` (входит в `core.colorschemes`)
 
