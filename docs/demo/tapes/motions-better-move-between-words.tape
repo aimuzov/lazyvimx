@@ -6,6 +6,7 @@
 # перепрыгнул бы всё имя целиком.
 
 Output gifs/motions-better-move-between-words.gif
+Output videos/motions-better-move-between-words.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

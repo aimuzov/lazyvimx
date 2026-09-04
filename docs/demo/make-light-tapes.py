@@ -1,5 +1,5 @@
 # Собирает светлые варианты тейпов в tapes-light/: та же сценарная часть,
-# но палитра latte у терминала и у nvim, а гифка получает суффикс -light.
+# но палитра latte у терминала и у nvim, а записи получают суффикс -light.
 # Правится только генератором — руками эти тейпы не трогать.
 import os
 import re
@@ -12,7 +12,7 @@ for name in sorted(os.listdir("tapes")):
 
     text = open(f"tapes/{name}").read()
     text = text.replace('Set Theme "Catppuccin Macchiato"', 'Set Theme "Catppuccin Latte"')
-    text = re.sub(r"Output gifs/([a-z0-9-]+)\.gif", r"Output gifs/\1-light.gif", text)
+    text = re.sub(r"Output (gifs|videos)/([a-z0-9-]+)\.(gif|mp4)", r"Output \1/\2-light.\3", text)
     text = text.replace("DEMO_EXTRAS=", "DEMO_COLORSCHEME=catppuccin-latte DEMO_EXTRAS=")
 
     # В светлой версии из пикера тем выбираем nord-light, а не nord.

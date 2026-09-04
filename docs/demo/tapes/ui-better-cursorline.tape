@@ -1,4 +1,5 @@
 Output gifs/ui-better-cursorline.gif
+Output videos/ui-better-cursorline.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

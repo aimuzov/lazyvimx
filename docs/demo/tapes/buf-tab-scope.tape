@@ -1,4 +1,5 @@
 Output gifs/buf-tab-scope.gif
+Output videos/buf-tab-scope.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

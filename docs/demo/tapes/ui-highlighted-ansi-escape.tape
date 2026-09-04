@@ -1,4 +1,5 @@
 Output gifs/ui-highlighted-ansi-escape.gif
+Output videos/ui-highlighted-ansi-escape.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

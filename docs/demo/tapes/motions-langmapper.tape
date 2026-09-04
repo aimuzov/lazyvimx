@@ -1,4 +1,5 @@
 Output gifs/motions-langmapper.gif
+Output videos/motions-langmapper.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

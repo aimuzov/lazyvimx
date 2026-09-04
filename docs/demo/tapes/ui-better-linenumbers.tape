@@ -1,4 +1,5 @@
 Output gifs/ui-better-linenumbers.gif
+Output videos/ui-better-linenumbers.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

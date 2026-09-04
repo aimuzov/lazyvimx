@@ -6,6 +6,7 @@
 # на строки, повторное нажатие собирает обратно.
 
 Output gifs/motions-splitting-joining-blocks.gif
+Output videos/motions-splitting-joining-blocks.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

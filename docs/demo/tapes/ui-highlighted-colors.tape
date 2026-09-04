@@ -1,4 +1,5 @@
 Output gifs/ui-highlighted-colors.gif
+Output videos/ui-highlighted-colors.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

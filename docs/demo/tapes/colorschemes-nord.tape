@@ -1,4 +1,5 @@
 Output gifs/colorschemes-nord.gif
+Output videos/colorschemes-nord.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

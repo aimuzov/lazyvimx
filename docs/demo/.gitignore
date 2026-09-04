@@ -4,7 +4,9 @@ profile/cache/
 sample-conflict/
 work/
 gifs/
+videos/
 *.gif
+*.mp4
 *.png
 profile/config/chezmoi/
 profile/config/github-copilot/

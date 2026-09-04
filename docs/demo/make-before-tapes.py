@@ -17,7 +17,11 @@ for src_dir, suffix in [("tapes", "-before"), ("tapes-light", "-before-light")]:
             continue
 
         text = open(f"{src_dir}/{name}").read()
-        text = re.sub(r"Output gifs/([a-z0-9-]+?)(-light)?\.gif", rf"Output gifs/\1{suffix}.gif", text)
+        text = re.sub(
+            r"Output (gifs|videos)/([a-z0-9-]+?)(-light)?\.(gif|mp4)",
+            rf"Output \1/\2{suffix}.\4",
+            text,
+        )
         text = re.sub(r"DEMO_EXTRAS=[a-z0-9.,-]+ ", "DEMO_EXTRAS= ", text)
 
         # Штатный rename открывает поле с прежним именем — ciw там

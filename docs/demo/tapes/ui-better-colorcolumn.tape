@@ -1,4 +1,5 @@
 Output gifs/ui-better-colorcolumn.gif
+Output videos/ui-better-colorcolumn.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"
