@@ -1,3 +1,5 @@
+![lazyvimx](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/banner.jpeg)
+
 # lazyvimx
 
 <div align="center">
