@@ -1,4 +1,5 @@
 Output gifs/motions-sibling-move.gif
+Output videos/motions-sibling-move.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

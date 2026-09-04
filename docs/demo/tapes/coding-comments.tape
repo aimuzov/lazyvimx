@@ -1,4 +1,5 @@
 Output gifs/coding-comments.gif
+Output videos/coding-comments.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

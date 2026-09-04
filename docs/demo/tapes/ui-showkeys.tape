@@ -1,4 +1,5 @@
 Output gifs/ui-showkeys.gif
+Output videos/ui-showkeys.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

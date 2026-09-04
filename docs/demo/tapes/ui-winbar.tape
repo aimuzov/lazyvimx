@@ -1,4 +1,5 @@
 Output gifs/ui-winbar.gif
+Output videos/ui-winbar.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

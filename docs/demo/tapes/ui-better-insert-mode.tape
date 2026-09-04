@@ -1,4 +1,5 @@
 Output gifs/ui-better-insert-mode.gif
+Output videos/ui-better-insert-mode.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

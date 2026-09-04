@@ -1,4 +1,5 @@
 Output gifs/ui-better-whitespace.gif
+Output videos/ui-better-whitespace.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

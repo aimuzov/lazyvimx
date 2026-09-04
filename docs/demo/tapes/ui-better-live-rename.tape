@@ -6,6 +6,7 @@
 # во всех вхождениях ещё до подтверждения. Клавиши шлёт drive.sh.
 
 Output gifs/ui-better-live-rename.gif
+Output videos/ui-better-live-rename.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

@@ -1,4 +1,5 @@
 Output gifs/ui-bolder-separators.gif
+Output videos/ui-bolder-separators.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

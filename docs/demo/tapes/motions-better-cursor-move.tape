@@ -1,4 +1,5 @@
 Output gifs/motions-better-cursor-move.gif
+Output videos/motions-better-cursor-move.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

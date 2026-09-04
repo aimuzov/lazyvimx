@@ -6,6 +6,7 @@
 # приходит уведомление; co берёт текущую версию, ct — входящую.
 
 Output gifs/git-conflicts.gif
+Output videos/git-conflicts.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

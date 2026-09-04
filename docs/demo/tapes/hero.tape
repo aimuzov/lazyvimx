@@ -7,6 +7,7 @@
 # статуслайна, ни вкладок: на записи только код (DEMO_HERO).
 
 Output gifs/hero.gif
+Output videos/hero.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"

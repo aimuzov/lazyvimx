@@ -1,11 +1,12 @@
 Output gifs/ui-diff-view.gif
+Output videos/ui-diff-view.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"
 Set LineHeight 1.55
 Set FontSize 15
 Set Width 1200
-Set Height 767
+Set Height 766
 Set Padding 0
 Set Theme "Catppuccin Macchiato"
 Set TypingSpeed 150ms

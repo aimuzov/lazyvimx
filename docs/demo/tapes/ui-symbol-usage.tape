@@ -6,13 +6,14 @@
 # один вызов — счётчик обновляется.
 
 Output gifs/ui-symbol-usage.gif
+Output videos/ui-symbol-usage.mp4
 
 Set Shell "bash"
 Set FontFamily "JBMonoNL Demo Light"
 Set LineHeight 1.55
 Set FontSize 15
 Set Width 1200
-Set Height 767
+Set Height 766
 Set Padding 0
 Set Theme "Catppuccin Macchiato"
 Set TypingSpeed 150ms
