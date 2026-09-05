@@ -1,7 +1,5 @@
 ![lazyvimx](https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/banner.jpeg)
 
-# lazyvimx
-
 <div align="center">
 
 [![Релиз](https://img.shields.io/github/v/release/aimuzov/lazyvimx?style=flat-square&label=релиз)](https://github.com/aimuzov/lazyvimx/releases)
@@ -10,12 +8,7 @@
 ![Neovim](https://img.shields.io/badge/Neovim-0.10+-green?style=flat-square)
 ![Extras](https://img.shields.io/badge/экстры-50-purple?style=flat-square)
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-splitting-joining-blocks.gif">
-  <img alt="Демо lazyvimx" src="https://raw.githubusercontent.com/aimuzov/lazyvimx/assets/demo/motions-splitting-joining-blocks-light.gif">
-</picture>
-
-**[📖 Документация: lazyvimx.aimuzov.online](https://lazyvimx.aimuzov.online/ru/)**
+## [📖 Документация: lazyvimx.aimuzov.online](https://lazyvimx.aimuzov.online/ru/)
 
 </div>
 
